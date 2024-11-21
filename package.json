@@ -1,0 +1,28 @@
+{
+  "name": "as-help-center",
+  "version": "1.0.0",
+  "description": "Global Help Center serves as a single reference for troubleshooting",
+  "scripts": {
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pagopa/as-help-center.git"
+  },
+  "author": "PagoPa (https://github.com/pagopa)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pagopa/as-help-center/issues"
+  },
+  "homepage": "https://github.com/pagopa/as-help-center#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "husky": "^9.1.6"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
