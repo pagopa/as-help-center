@@ -4,6 +4,7 @@
   "description": "Global Help Center serves as a single reference for troubleshooting",
   "scripts": {
     "prepare": "husky",
+    "postinstall": "bash ./scripts/create-env-files.sh",
     "lint": "eslint && stylelint \"**/*.css\"",
     "lint:fix": "eslint --fix && stylelint \"**/*.css\" --fix",
     "format": "prettier --write './**/*.{json,js,ts,jsx,tsx,css}'",
