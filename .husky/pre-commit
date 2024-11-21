@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+# execute lint before commit
+npx lint-staged

@@ -1,0 +1,11 @@
+{
+    "extends": ["stylelint-config-standard", "stylelint-prettier/recommended"],
+    "rules": {
+        "number-max-precision": null,
+        "selector-class-pattern": null,
+        "no-descending-specificity": null,
+        "function-no-unknown": [true, {
+            "ignoreFunctions": ["/^darken$/", "/^lighten$/"]
+        }]
+    }
+}
