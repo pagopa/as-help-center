@@ -2,13 +2,17 @@
   "name": "as-help-center",
   "version": "1.0.0",
   "description": "Global Help Center serves as a single reference for troubleshooting",
+  "type": "module",
   "scripts": {
+    "start": "bash ./start-app.sh",
+    "upload": "bash ./upload-app.sh",
     "prepare": "husky",
     "postinstall": "bash ./scripts/create-env-files.sh",
     "lint": "eslint && stylelint \"**/*.css\"",
     "lint:fix": "eslint --fix && stylelint \"**/*.css\" --fix",
-    "format": "prettier --write './**/*.{json,js,ts,jsx,tsx,css}'",
-    "lint-staged": "lint-staged"
+    "format": "prettier --write './**/*.{json,js,css}'",
+    "lint-staged": "lint-staged",
+    "zcli": "zcli"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,7 @@
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@eslint/js": "^9.14.0",
+    "@zendesk/zcli": "^1.0.0-beta.51",
     "eslint": "^9.14.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jquery": "^1.5.1",
