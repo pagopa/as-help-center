@@ -1,0 +1,6 @@
+.sass-cache/
+style.css.map
+node_modules/
+*.DS_Store
+coverage/
+**/.env
