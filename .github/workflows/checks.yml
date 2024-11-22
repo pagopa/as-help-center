@@ -1,0 +1,82 @@
+name: Checks
+# Workflow that checks the pull request name and runs code linting every time a pull request is opened, edited, or synchronized.
+
+on:
+  pull_request:
+    types: 
+      - opened
+      - edited
+      - synchronize
+    branches:
+      - "*"
+
+
+jobs:
+  check-pr-title:
+    name: Check PR title
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check out code
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+
+      # check pr title with pattern "^(feat|refactor|fix|docs)(\([^)]*\))?: .+$"
+      - name: Check PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          ./scripts/check-pr-name.sh "$PR_TITLE"
+
+  # only pr on main branch        
+  lint:
+    name: Lint files
+    runs-on: ubuntu-22.04
+    if: ${{ github.event.pull_request.base.ref == 'main' }}
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b  
+
+      # call common node setup workflow
+      - name: Node setup
+        id: node-setup
+        uses: ./.github/workflows/node-setup
+        with:
+          node-version-file: ".nvmrc"
+
+      # start lint checking (js, json, css)
+      - name: Lint
+        id: lint-check
+        run: npm run lint
+
+  # only pr on main branch        
+  check-manifest-versions:
+    name: Check manifest version update
+    runs-on: ubuntu-22.04
+    if: ${{ github.event.pull_request.base.ref == 'main' }}
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+        with:
+          fetch-depth: 0  # Needed to get the complete commits history
+
+      # call common get modified-brand-folders workflow
+      - name: Get modified Brand folders
+        id: modified-brands
+        uses: ./.github/workflows/modified-brand-folders
+
+      # Validate manifests version in modified brands (if manifest version has been updated)
+      - name: Validate manifests version
+        id: validate-manifests
+        run: |
+          BASE_BRANCH="origin/${{ github.event.pull_request.base.ref }}"
+          CHANGED_FOLDERS="${{ env.changed_brands }}"
+
+          # if no changes, continue
+          if [ -z "$CHANGED_FOLDERS" ]; then
+            echo "No changes detected in the brand folders."
+            exit 0
+          fi
+
+          # run validate-manifests-version script with input parameters (base branch (main) and changed folders list)
+          ./scripts/validate-manifests-version.sh "$BASE_BRANCH" "$CHANGED_FOLDERS"
