@@ -68,15 +68,10 @@ jobs:
       # Validate manifests version in modified brands (if manifest version has been updated)
       - name: Validate manifests version
         id: validate-manifests
+        env:
+          CHANGED_BRANDS: ${{ steps.modified-brands.outputs.changed_brands }}
         run: |
           BASE_BRANCH="origin/${{ github.event.pull_request.base.ref }}"
-          CHANGED_FOLDERS="${{ env.changed_brands }}"
-
-          # if no changes, continue
-          if [ -z "$CHANGED_FOLDERS" ]; then
-            echo "No changes detected in the brand folders."
-            exit 0
-          fi
 
           # run validate-manifests-version script with input parameters (base branch (main) and changed folders list)
-          ./scripts/validate-manifests-version.sh "$BASE_BRANCH" "$CHANGED_FOLDERS"
+          ./scripts/validate-manifests-version.sh "$BASE_BRANCH" "$CHANGED_BRANDS"

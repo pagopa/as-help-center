@@ -27,7 +27,7 @@ if [ -n "$1" ]; then
     echo -e "${RED}Error: $input_folder is not a valid folder with a manifest.json!${NOCOLOR}"
     exit 1
   fi
-  echo -e "\n${CYAN}Starting brand: $folder \n${NOCOLOR}"
+  echo -e "\n${CYAN}Starting brand: $input_folder \n${NOCOLOR}"
   # start template app
   start_template_app $input_folder
 else

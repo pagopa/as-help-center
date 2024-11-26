@@ -13,6 +13,12 @@ fi
 BASE_BRANCH=$1
 CHANGED_FOLDERS=$2
 
+# if no changes, continue
+if [ -z "$CHANGED_FOLDERS" ]; then
+    echo "No changes detected in the brand folders."
+    exit 0
+fi
+
 echo "Base Branch: $BASE_BRANCH"
 echo -e "Changed Folders: $CHANGED_FOLDERS \n"
 

@@ -1,5 +1,10 @@
 name: Get modified Brands
-description: "Check modified Brand folders to know brands to deploy"
+description: "Get modified Brand folders in order to know which brand to deploy"
+
+outputs:
+  changed_brands:
+    description: "Changed brands"
+    value: ${{ steps.changed-brand-output.outputs.changed_brands }}
 
 runs:
   using: "composite"
@@ -23,5 +28,5 @@ runs:
     # Export changed-brand-folders output
     - name: Set changed folders output
       id: changed-brand-output
-      run: echo "changed_brands=${{ steps.changed-brand-folders.outputs.all_modified_files }}" >> $GITHUB_ENV
+      run: echo "changed_brands=${{ steps.changed-brand-folders.outputs.all_modified_files }}" >> $GITHUB_OUTPUT
       shell: bash    
