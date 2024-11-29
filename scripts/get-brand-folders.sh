@@ -3,6 +3,7 @@
 
 # set echo color
 RED='\033[0;31m'
+YELLOW='\033[0;33m'
 NOCOLOR='\033[0m'
 
 # Get root directory where there are brand folders (prev path from the script location)
@@ -13,8 +14,8 @@ folders=$(find "$root_dir" -type f -name 'manifest.json' -exec dirname {} \; | s
 
 # If there is no folders with manifest.json, exit
 if [ -z "$folders" ]; then
-  echo -e "${RED}No brands found! (there should be folders with a manifest.json file inside)${NOCOLOR}"
-  exit 1
+  echo -e "${YELLOW}Warning: No brands found! (there should be folders with a manifest.json file inside)${NOCOLOR}">&2
+  exit 0
 fi
 
 # Extract only folders basename

@@ -28,5 +28,11 @@ runs:
     # Export changed-brand-folders output
     - name: Set changed folders output
       id: changed-brand-output
-      run: echo "changed_brands=${{ steps.changed-brand-folders.outputs.all_modified_files }}" >> $GITHUB_OUTPUT
+      run: |
+        # check if brand-folders.txt is empty (means no brand), in this case set the output as empty
+        if [ ! -s brand-folders.txt ]; then
+          echo "changed_brands=" >> $GITHUB_OUTPUT
+        else
+          echo "changed_brands=${{ steps.changed-brand-folders.outputs.all_modified_files }}" >> $GITHUB_OUTPUT
+        fi
       shell: bash    
