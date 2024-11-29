@@ -10,6 +10,11 @@ The release is automated by a workflow that includes the deployment of themes to
 -	**Git Release Phase**:
 	- After the deployment phase is successfully completed, a Git release is created using the **semantic-release** package, with automated tags and versions. Also a changelog is automatically created with significant changes.
 
+
+> [!NOTE]  
+> The process is automated and dynamic, regardless of the subfolders/brands in the repository. The only action you need to take if a new brand with its respective folder is added, is to add the git secrets for the subdomain and for the brand ID, and then map them in the `release.yml` workflow, in the step with the ID `zendesk-env`.
+
+
 > [!IMPORTANT]  
 > To ensure a clear release history, you must update the version inside **manifest.json** files for the modified brands that you wish to publish.
 

@@ -46,13 +46,13 @@ jobs:
           declare -A SUBDOMAIN_MAPPING
           declare -A BRAND_ID_MAPPING
           
-          # integrate when a new brand is added/removed
+          # integrate when a new brand is added/removed (with folder name)
           SUBDOMAIN_MAPPING["hc_io"]="${{ secrets.ZENDESK_SUBDOMAIN_IO }}"
           SUBDOMAIN_MAPPING["hc_send"]="${{ secrets.ZENDESK_SUBDOMAIN_SEND }}"
           SUBDOMAIN_MAPPING["hc_pagopa"]="${{ secrets.ZENDESK_SUBDOMAIN_PAGOPA }}"
           SUBDOMAIN_MAPPING["hc_home"]="${{ secrets.ZENDESK_SUBDOMAIN_HOME }}"
 
-          # integrate when a new brand is added/removed
+          # integrate when a new brand is added/removed (with folder name)
           BRAND_ID_MAPPING["hc_io"]="${{ secrets.ZENDESK_BRAND_ID_IO }}"
           BRAND_ID_MAPPING["hc_send"]="${{ secrets.ZENDESK_BRAND_ID_SEND }}"
           BRAND_ID_MAPPING["hc_pagopa"]="${{ secrets.ZENDESK_BRAND_ID_PAGOPA }}"
@@ -84,8 +84,6 @@ jobs:
           else
             PUBLISH=false
           fi
-          echo "Publish: $PUBLISH"
-
 
           for folder in $CHANGED_BRANDS; do
             # set zendesk env var to authentication 
