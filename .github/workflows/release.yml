@@ -92,7 +92,7 @@ jobs:
             export $(cat "$folder/.env" | xargs)
 
             # Run the deployment script
-            node scripts/upload-theme.js "$folder" "$PUBLISH"
+            node scripts/theme-upload.js "$folder" "$PUBLISH"
           done
 
   git-release:
