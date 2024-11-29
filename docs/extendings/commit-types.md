@@ -17,6 +17,8 @@ The list bellow describes the supported commit types and their effect in the rel
 | test     | Adding missing tests or correcting existing tests                                                      | -       | -                        |
 
 
+\
+<br/>
 Commits that add a breaking change should include `BREAKING CHANGE` in the body or footer of the commit message.
 
 i.e.:

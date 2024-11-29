@@ -13,7 +13,8 @@ The release is automated by a workflow that includes the deployment of themes to
 > [!IMPORTANT]  
 > To ensure a clear release history, you must update the version inside **manifest.json** files for the modified brands that you wish to publish.
 
-
+\
+<br/>
 ### Upload script
 The upload script import the theme from the specified folder to the Zendesk theme library of the brand. Depending on the input parameters, it will either publish the theme to production or not.
  

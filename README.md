@@ -1,3 +1,12 @@
+<p align="center">
+   <img src="https://img.shields.io/github/v/release/pagopa/as-help-center" />
+   <a href="https://github.com/pagopa/as-help-center/actions/workflows/release.yml">
+      <img src="https://github.com/pagopa/as-help-center/actions/workflows/release.yml/badge.svg?branch=main" />
+   </a>
+   <img src="https://img.shields.io/github/contributors-anon/pagopa/as-help-center" />
+   <img src="https://img.shields.io/github/repo-size/pagopa/as-help-center" />
+</p>
+
 # as-help-center
 
 1. [What is the Help Center project?](#what-is-the-help-center-project)
@@ -28,7 +37,7 @@ We have, for now, 4 product folder named as `hc_<brand_name>`:
 - **hc_pagopa** (Help center for the [pagopa](https://www.pagopa.gov.it/) product)
 
 
-**Folder structure**
+**Folder structure**\
 Each brand folder follows the defined structure for Zendesk Help Center themes:
 
 - **templates/**: Contains .hbs files with the HTML templates for the help center.
@@ -38,9 +47,9 @@ Each brand folder follows the defined structure for Zendesk Help Center themes:
 - **script.js** and **style.css**: Define global js scripts and global css
 - **.env**: Defines Zendesk env var to authenticate and start/deploy the app.
 
-**CI/CD pipeline**
-The project is managed via a CI/CD pipeline that ensures code integrity and efficient deployment. Key features include: code validation for every pull request, automatic deployment to Zendesk Help Center Library for modified brands when a pull request is merged into the main branch, deployment is limited to the folders (Brands) affected by the changes, ensuring optimized workflows and selective updates.
-See [release](docs/extendings/release.md) process.
+**CI/CD pipeline**\
+The project is managed via a CI/CD pipeline that ensures code integrity and efficient deployment. Key features include: code validation for every pull request, automatic deployment to Zendesk Help Center Library for modified brands when a pull request is merged into the main branch, deployment is limited to the folders (Brands) affected by the changes, ensuring optimized workflows and selective updates.\
+See [release](docs/extendings/release.md) process in details.
 
 ### Main technologies used
 - HTML/CSS/js
@@ -52,6 +61,8 @@ See [release](docs/extendings/release.md) process.
 When you read **"Brand"** we refer to the Help Center Platform for a specific PagoPA product, related to a specific repository folder.
 
 
+\
+<br/>
 ## Getting started
 This is an example of how you may setting up and run your project locally for development purposes.
 
@@ -60,7 +71,7 @@ This is an example of how you may setting up and run your project locally for de
 - [ZCLI](https://developer.zendesk.com/documentation/apps/getting-started/using-zcli/#installing-and-updating-zcli)
 
 ### Installation
-```
+```bash
 # install and use node version defined in the .nvmrc file
 nvm install && nvm use
 
@@ -76,29 +87,31 @@ BRAND_ID=<brand_id>
 ```
 
 ### Run the application
-You can run the app locally (with hot reload enabled) for each Brand by executing the script:
+You can run the app locally (with hot reload enabled) for each Brand by executing the script:\
 `./start-app.sh`
 
-In this case, you will be prompted interactively to select the Brand you wish to start.
-Alternatively, you can skip the interactive Brand selection step by providing (as input) the folder corresponding to the Brand you want to start:
+In this case, you will be prompted interactively to select the Brand you wish to start.\
+Alternatively, you can skip the interactive Brand selection step by providing (as input) the folder corresponding to the Brand you want to start:\
 `./start-app.sh hc_io`
 
 ### Customizing the application
-You can modify a Brand by editing the files located in the specific folder related to the Brand. Specifically, the HTML code in the .hbs files within the folder `<folder_brand>/templates/`.
+You can modify a Brand by editing the files located in the specific folder related to the Brand. Specifically, the HTML code in the .hbs files within the folder `<folder_brand>/templates/`.\
 Refer to the [Zendesk Help Center resources](https://support.zendesk.com/hc/en-us/articles/4408839332250-Customizing-your-help-center-theme) for more information.
 
 ### Publishing the application
-You can upload the app from your local environment to the Zendesk Theme Library for a Brand, by executing the script:
+You can upload the app from your local environment to the Zendesk Theme Library for a Brand, by executing the script:\
 `./upload-app.sh`
 
-In this case, you will be prompted interactively to select the Brand you wish to upload.
-Alternatively, you can skip the interactive Brand selection step by providing the folder (as input) corresponding to the Brand you want to upload:
+In this case, you will be prompted interactively to select the Brand you wish to upload.\
+Alternatively, you can skip the interactive Brand selection step by providing the folder (as input) corresponding to the Brand you want to upload:\
 `./upload-app.sh hc_io`
 
 > [!NOTE]
 > This script only imports the app into the Theme Library, it does not publish the theme to production to make it visible externally. To publish the app to production you need to use the "release" GitHub Action or merge a PR into the main branch.
 
 
+\
+<br/>
 ## Contributing
 We use [conventional commits](https://conventionalcommits.org/) to improve readability of the project history and to automate the release process. The commit message should therefore respect the following format:
 
@@ -124,9 +137,9 @@ fix(styles): fix button padding
 feat(CACI-101): add auto focus to fields with errors
 ```
 
-We use [`husky`](https://github.com/typicode/husky) and [`commitlint`](https://github.com/conventional-changelog/commitlint) to validate messages when commiting.
+We use [husky](https://github.com/typicode/husky) and [commitlint](https://github.com/conventional-changelog/commitlint) to validate messages when commiting.
 
-We use [Github actions](https://github.com/features/actions) together with [`semantic-release`](https://github.com/semantic-release/semantic-release) to release a new version once a PR gets merged into main branch. To achieve this, there is also a check for the [Branch and Pull Request name](docs/extendings/branch-pr-name.md)
+We use [Github actions](https://github.com/features/actions) together with [semantic-release](https://github.com/semantic-release/semantic-release) to release a new version once a PR gets merged into main branch. To achieve this, there is also a check for the [Branch and Pull Request name](docs/extendings/branch-pr-name.md)
 
 > [!IMPORTANT]  
 > Before opening a PR to the main branch, remember to update the version in the **manifest.json** files for the modified brands that you want to publish.
