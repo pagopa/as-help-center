@@ -8,8 +8,8 @@
     "upload": "bash ./upload-app.sh",
     "prepare": "husky",
     "postinstall": "bash ./scripts/create-env-files.sh",
-    "lint": "eslint && stylelint \"**/*.css\"",
-    "lint:fix": "eslint --fix && stylelint \"**/*.css\" --fix",
+    "lint": "eslint && stylelint \"**/*.css\" --allow-empty-input",
+    "lint:fix": "eslint --fix && stylelint \"**/*.css\" --fix --allow-empty-input",
     "format": "prettier --write './**/*.{json,js,css}'",
     "lint-staged": "lint-staged",
     "zcli": "zcli"
@@ -59,7 +59,7 @@
       "eslint --quiet --fix"
     ],
     "*.css": [
-      "stylelint --fix"
+      "stylelint --fix --allow-empty-input"
     ],
     "*.json": [
       "prettier --write"
