@@ -1,0 +1,38 @@
+name: Get modified Brands
+description: "Get modified Brand folders in order to know which brand to deploy"
+
+outputs:
+  changed_brands:
+    description: "Changed brands"
+    value: ${{ steps.changed-brand-output.outputs.changed_brands }}
+
+runs:
+  using: "composite"
+  steps:
+    # detect brand folders (with manifest.json inside)
+    - name: Detect Brand folders
+      id: get-brand-folders
+      run: |
+        ./scripts/get-brand-folders.sh > brand-folders.txt
+      shell: bash  
+
+    # get modified brand folders (based on brand-folders.txt file)  
+    - name: Check changed folders
+      id: changed-brand-folders
+      uses: tj-actions/changed-files@v35
+      with:
+        files_from_source_file: brand-folders.txt  # Contains all brand subfolders
+        dir_names: "true" # get only dir names and not all modified file names
+        dir_names_max_depth: '1' # get only first dir path (root)
+
+    # Export changed-brand-folders output
+    - name: Set changed folders output
+      id: changed-brand-output
+      run: |
+        # check if brand-folders.txt is empty (means no brand), in this case set the output as empty
+        if [ ! -s brand-folders.txt ]; then
+          echo "changed_brands=" >> $GITHUB_OUTPUT
+        else
+          echo "changed_brands=${{ steps.changed-brand-folders.outputs.all_modified_files }}" >> $GITHUB_OUTPUT
+        fi
+      shell: bash    
