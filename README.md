@@ -142,4 +142,4 @@ We use [husky](https://github.com/typicode/husky) and [commitlint](https://githu
 We use [Github actions](https://github.com/features/actions) together with [semantic-release](https://github.com/semantic-release/semantic-release) to release a new version once a PR gets merged into main branch. To achieve this, there is also a check for the [Branch and Pull Request name](docs/extendings/branch-pr-name.md)
 
 > [!IMPORTANT]  
-> Before opening a PR to the main branch, remember to update the version in the **manifest.json** files for the modified brands that you want to publish.
+> Before opening a PR to the main branch, remember to update the version in the **manifest.json** files for the modified brands that you want to publish (follow major, minor, patch conventions).
