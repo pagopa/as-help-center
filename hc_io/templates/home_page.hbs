@@ -1,0 +1,376 @@
+ <div class="lt-hero-unit lt-container">
+  {{#if settings.use_hero_unit_image}}
+    <div class="lt-hero-unit__bg" data-hero-bg></div>
+  {{/if}}
+  <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
+    <div class="lt-hero-unit__content lt-flex-lg-grow-1">
+      <h1 class="lt-hero-unit__title">
+        {{#if settings.toggle_translations}}
+          {{dc settings.hero_title_hello}}
+        {{else}}
+          {{settings.hero_title_hello}}
+        {{/if}}
+      </h1>
+      <h1 class="lt-hero-unit__title lt-mb-3">
+        {{#if settings.toggle_translations}}
+          {{dc settings.hero_title}}
+        {{else}}
+          {{settings.hero_title}}
+        {{/if}}
+      </h1>
+
+      <div class="lt-hero-unit__search-box lt-search-box-lg--icon lt-search-box lt-mt-6 lt-d-print-none lt-d-flex lt-justify-content-center">
+        {{search instant=true placeholder=settings.search_placeholder submit=settings.show_hero_unit_button}}
+      </div>
+
+
+      {{#if settings.show_popular_searches}}
+      <div class="lt-hero-unit__topics lt-search-topic lt-mt-5 lt-mb-lg-0 lt-justify-content-center lt-d-flex lt-flex-column lt-flex-md-row">
+        <div class="lt-align-content-center popular-searches-label">{{#if settings.toggle_translations}}
+          {{dc settings.popular_searches_label}}
+        {{else}}
+          {{settings.popular_searches_label}}
+        {{/if}}</div>
+        <span class="lt-align-content-center" x-data="Theme.popularSearches()" x-cloak>
+          <template x-for="(item, index) in items" :key="index">
+            <a class="badge" :href="item.link" x-text="item.keyword"></a>
+          </template>
+        </span>
+      </div>
+      {{/if}}
+    </div>
+
+  </div>
+  <div class="lt-hero-unit__decor">
+    <div class="lt-hero-unit__decor--svg">
+      <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V91L0 7Z' fill-opacity='0.05'/>
+      </svg>
+    </div>
+    <div class="lt-hero-unit__decor--svg">
+      <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V0.5L0 43L0 7Z' fill-opacity='0.1'/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="lt-main-content lt-bg-light">
+  <div class="lt-padding-gen">
+
+    {{!-- TODO change and add different alert severity management --}}
+    {{#if settings.show_info_block}}
+      <div class="lt-container lt-info-block-container lt-mb-9" id="info-block">
+        <div class="lt-container-inner">
+          <div class="lt-info-block lt-block lt-block--shadow ">
+            <div class="lt-info-block__content">
+              <h2 class="lt-info-block__title lt-fs-4 lt-fs-lg-2 lt-fw-bold">
+                {{#if settings.toggle_translations}}
+                  {{dc settings.info_block_title}} test
+                {{else}}
+                  {{settings.info_block_title}}
+                {{/if}}
+              </h2>
+              <div class="lt-info-block__text lt-fs-lg-6">
+                {{#if settings.toggle_translations}}
+                  {{dc settings.info_block_text}}
+                {{else}}
+                  {{settings.info_block_text}}
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+
+    {{!-- Promoted Articles --}}
+    {{!-- lt-block--shadow per shadow --}}
+    {{#if settings.toggle_promoted_articles}}
+      <div class="lt-container lt-bg-light" id="promoted-articles">
+        <div class="lt-container-inner">
+          {{#is settings.promoted_articles_type 'list'}}
+            <section aria-labelledby="sectionHeading" class="lt-pb-5 lt-pb-lg-9 lt-pt-5 lt-pt-lg-0" id="promoted-articles-list">
+              <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
+                <h2 id="sectionHeading" class="lt-section-heading__title lt-fs-2 lt-m-0">{{t 'promoted_articles'}}</h2>
+              </div>
+              {{#if promoted_articles}}
+                <ul class="lt-list-unstyled lt-row lt-row-cols-md-{{settings.promoted_articles_per_line}} lt-gy-5">
+                  {{#each promoted_articles}}
+                    <li class="lt-promoted-articles-item lt-d-md-flex">
+                      <article class="lt-promoted-articles-item__card lt-d-flex lt-pb-4 lt-pb-lg-7 lt-pt-lg-2 lt-d-md-block">
+                        <div class="lt-promoted-articles-item__icon lt-me-3 lt-mt-2 lt-mb-md-3"></div>
+                        <div class="lt-promoted-articles-item__text">
+                          <h3 class="lt-promoted-articles-item__title lt-mb-2 lt-fs-6">
+                            <a href="{{url}}" class="lt-promoted-articles-item__link">{{title}}</a>
+                          </h3>
+                          <span class="lt-promoted-articles-item__descr">{{excerpt body characters=50}}</span>
+                        </div>
+                      </article>
+                    </li>
+                  {{/each}}
+                </ul>
+              {{else}}
+                <p>{{t 'empty'}}</p>
+              {{/if}}
+            </section>
+          {{/is}}
+        </div>
+      </div>
+    {{/if}}
+
+        <div> {{!-- Wrapper element to avoid margin collapse --}}
+          {{!-- Sections and Categories --}}
+          {{#is settings.category_tree_type 'boxes'}}
+            <div class="lt-container lt-block-list lt-mb-9" id="block-list">
+              <div class="lt-container-inner">
+                <section aria-labelledby="sectionHeading" class="lt-pb-5 lt-pb-lg-9 lt-pt-5 lt-pt-lg-9" id="promoted-articles-list">
+                  <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
+                    <h2 id="sectionHeading" class="lt-section-heading__title lt-fs-2 lt-m-0">
+                      {{#if settings.toggle_translations}}
+                        {{dc settings.categories_boxes_title}}
+                      {{else}}
+                        {{settings.categories_boxes_title}}
+                      {{/if}}
+                    </h2>
+                  </div>
+                  <ul class="lt-block-list lt-list-unstyled lt-row lt-row-cols-md-{{settings.categories_per_line}} lt-gy-5 lt-mb-0">
+                    {{#each categories}}
+                      {{#if ../has_multiple_categories}}
+                        <li class="lt-block-list-item lt-d-flex">
+                          <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100">
+                            <img class="lt-block-list-item__icon lt-mb-4" src="{{../settings.block_icon}}" aria-hidden="true" />
+                            <div class="lt-block-list-item__content">
+                              <div class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-mb-1 lt-mb-md-2">{{name}}</div>
+                              <div class="lt-block-list-item__text lt-fs-lg-6">{{description}}</div>
+                            </div>
+                          </a>
+                        </li>
+                      {{else}}
+                        {{#each sections}}
+                        <li class="lt-block-list-item lt-d-flex">
+                          <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100">
+                            <img class="lt-block-list-item__icon lt-mb-4" src="{{../../settings.block_icon}}" data-svg aria-hidden="true" />
+                            <div class="lt-block-list-item__content">
+                              <div class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-mb-1 lt-mb-md-2">{{name}}</div>
+                              <div class="lt-block-list-item__text lt-fs-lg-6">{{description}}</div>
+                            </div>
+                          </a>
+                        </li>
+                        {{/each}}
+                      {{/if}}
+                    {{/each}}
+                  </ul>
+                </section>
+              </div>
+            </div>
+          {{/is}}
+        
+        {{#if settings.toggle_custom_blocks}}
+          <div class="lt-container lt-mb-9" id="custom-blocks" x-data="Theme.customBlocks()" x-cloak aria-labelledby="sectionHeading">
+            <div class="lt-container-inner">
+            <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
+              <h2 id="sectionHeading" class="lt-section-heading__title lt-fs-2 lt-m-0">
+                {{#if settings.toggle_translations}}
+                  {{dc settings.custom_blocks_title}}
+                {{else}}
+                  {{settings.custom_blocks_title}}
+                {{/if}}
+              </h2>
+            </div>
+            <ul class="lt-custom-block-list lt-p-0 lt-mb-0 lt-row lt-row-cols-md-{{settings.custom_blocks_per_line}} lt-gy-5">
+              <template x-for="(item, index) in customBlocks" :key="index">
+                <li class="lt-custom-block-item lt-d-flex">
+                  <article
+                    class="lt-custom-block-item__card lt-block lt-block--shadow lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100 lt-position-relative">
+                    <img class="lt-custom-block-item__icon lt-mb-7" data-svg x-bind:src="item.imageUrl"
+                      :alt="`${item.title}`" aria-hidden="true">
+                    <h3 class="lt-custom-block-item__title lt-mb-2 lt-fs-5">
+                      <a x-bind:href="item.url" x-text="item.title" class="lt-custom-block-item__link"
+                      ></a>
+                    </h3>
+                    <span class="lt-custom-block-item__desc lt-fs-6" x-text="item.text"></span>
+                  </article>
+                </li>
+              </template>
+            </ul>
+            </div>
+          </div>
+        {{/if}}
+      </div>
+
+    {{#if settings.toggle_contact_boxes}}
+    <div class="lt-container lt-mt-md-5 lt-pt-5 lt-pt-md-9" id="contact-boxes">
+      <div class="lt-container-inner">
+        <section aria-labelledby="sectionHeading" class="lt-pb-9">
+          <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
+            <h2 id="sectionHeading" class="lt-section-heading__title lt-fs-2 lt-m-0">
+              {{#if settings.toggle_translations}}
+                {{dc settings.contact_boxes_title}}
+              {{else}}
+                {{settings.contact_boxes_title}}
+              {{/if}}
+            </h2>
+          </div>
+          <ul class="lt-list-unstyled lt-row lt-row-cols-md-2 lt-row-cols-lg-{{settings.contact_boxes_per_line}} lt-contact-info__list lt-p-0 lt-gy-5">
+            {{#if settings.contact_box_1_toggle}}
+            <li class="lt-contact-info__item lt-d-md-flex lt-flex-grow-1">
+              <article
+                class="lt-contact-info-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
+                <img class="lt-contact-info-card__icon lt-mb-7" data-svg src="{{settings.contact_box_1_icon}}" aria-hidden="true">
+                <h3 class="lt-contact-info-card__title lt-fs-5 lt-mb-2">
+                  <{{#if settings.contact_box_1_link_toggle}}a{{else}}div{{/if}} class="lt-contact-info-card__link" href="{{#if settings.toggle_translations}}
+                                            {{dc settings.contact_box_1_url}}
+                                          {{else}}
+                                            {{settings.contact_box_1_url}}
+                                          {{/if}}">
+                    {{#if settings.toggle_translations}}
+                      {{dc settings.contact_box_1_title}}
+                    {{else}}
+                      {{settings.contact_box_1_title}}
+                    {{/if}}
+                  </{{#if settings.contact_box_1_link_toggle}}a{{else}}div{{/if}}>
+                </h3>
+                <span class="lt-contact-info-card__descr lt-fs-6">
+                  {{#if settings.toggle_translations}}
+                    {{dc settings.contact_box_1_text}}
+                  {{else}}
+                    {{settings.contact_box_1_text}}
+                  {{/if}}
+                </span>
+              </article>
+            </li>
+            {{/if}}
+            {{#if settings.contact_box_2_toggle}}
+            <li class="lt-contact-info__item lt-d-md-flex lt-flex-grow-1">
+              <article
+                class="lt-contact-info-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
+                <img class="lt-contact-info-card__icon lt-mb-7" data-svg src="{{settings.contact_box_2_icon}}" aria-hidden="true">
+                <h3 class="lt-contact-info-card__title lt-fs-5 lt-mb-2">
+                  <{{#if settings.contact_box_2_link_toggle}}a{{else}}div{{/if}} class="lt-contact-info-card__link" href="{{#if settings.toggle_translations}}
+                                            {{dc settings.contact_box_2_url}}
+                                          {{else}}
+                                            {{settings.contact_box_2_url}}
+                                          {{/if}}">
+                    {{#if settings.toggle_translations}}
+                      {{dc settings.contact_box_2_title}}
+                    {{else}}
+                      {{settings.contact_box_2_title}}
+                    {{/if}}
+                  </{{#if settings.contact_box_2_link_toggle}}a{{else}}div{{/if}}>
+                </h3>
+                <span class="lt-contact-info-card__descr">
+                  {{#if settings.toggle_translations}}
+                    {{dc settings.contact_box_2_text}}
+                  {{else}}
+                    {{settings.contact_box_2_text}}
+                  {{/if}}
+                </span>
+              </article>
+            </li>
+            {{/if}}
+            {{#if settings.contact_box_3_toggle}}
+            <li class="lt-contact-info__item lt-d-md-flex lt-flex-grow-1">
+              <article
+                class="lt-contact-info-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
+                <img class="lt-contact-info-card__icon lt-mb-7" data-svg src="{{settings.contact_box_3_icon}}" aria-hidden="true">
+                <h3 class="lt-contact-info-card__title lt-fs-5 lt-mb-2">
+                  <{{#if settings.contact_box_3_link_toggle}}a{{else}}div{{/if}} class="lt-contact-info-card__link" href="{{#if settings.toggle_translations}}
+                                            {{dc settings.contact_box_3_url}}
+                                          {{else}}
+                                            {{settings.contact_box_3_url}}
+                                          {{/if}}">
+                    {{#if settings.toggle_translations}}
+                      {{dc settings.contact_box_3_title}}
+                    {{else}}
+                      {{settings.contact_box_3_title}}
+                    {{/if}}
+                  </{{#if settings.contact_box_3_link_toggle}}a{{else}}div{{/if}}>
+                </h3>
+                <span class="lt-contact-info-card__descr">
+                  {{#if settings.toggle_translations}}
+                    {{dc settings.contact_box_3_text}}
+                  {{else}}
+                    {{settings.contact_box_3_text}}
+                  {{/if}}
+                </span>
+              </article>
+            </li>
+            {{/if}}
+            {{#if settings.contact_box_4_toggle}}
+            <li class="lt-contact-info__item lt-d-md-flex lt-flex-grow-1">
+              <article
+                class="lt-contact-info-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
+                <img class="lt-contact-info-card__icon lt-mb-7" data-svg src="{{settings.contact_box_4_icon}}" aria-hidden="true">
+                <h3 class="lt-contact-info-card__title lt-fs-5 lt-mb-2">
+                  <{{#if settings.contact_box_4_link_toggle}}a{{else}}div{{/if}} class="lt-contact-info-card__link" href="{{#if settings.toggle_translations}}
+                                            {{dc settings.contact_box_4_url}}
+                                          {{else}}
+                                            {{settings.contact_box_4_url}}
+                                          {{/if}}">
+                    {{#if settings.toggle_translations}}
+                      {{dc settings.contact_box_4_title}}
+                    {{else}}
+                      {{settings.contact_box_4_title}}
+                    {{/if}}
+                  </{{#if settings.contact_box_4_link_toggle}}a{{else}}div{{/if}}>
+                </h3>
+                <span class="lt-contact-info-card__descr">
+                  {{#if settings.toggle_translations}}
+                    {{dc settings.contact_box_4_text}}
+                  {{else}}
+                    {{settings.contact_box_4_text}}
+                  {{/if}}
+                </span>
+              </article>
+            </li>
+            {{/if}}
+          </ul>
+
+        </section>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if settings.toggle_bottom_cta}}
+      <div class="lt-container lt-pt-9 lt-pb-9" id="footer-submit-ticket">
+        <div class="lt-container-inner">
+          <div class="lt-footer-submit-ticket lt-block lt-block--shadow lt-py-5 lt-px-4 lt-d-md-flex lt-justify-content-md-between lt-pt-md-8 lt-pb-md-9 lt-px-md-8">
+            <div class="lt-footer-submit-ticket__illustration lt-order-md-2">
+              <img src="{{ settings.bottom_cta_image }}" class="lt-footer-submit-ticket__img" aria-hidden="true">
+            </div>
+            <div class="lt-footer-submit-ticket__text lt-mt-5 lt-order-md-1x lt-mt-md-0 lt-d-md-flex lt-flex-md-column lt-justify-content-md-between">
+              <div class="lt-footer-submit-ticket__heading lt-flex-md-grow-1">
+                <h3 class="lt-footer-submit-ticket__title lt-fs-2 lt-mb-3">
+                  {{#if settings.toggle_translations}}
+                    {{dc settings.bottom_cta_title}}
+                  {{else}}
+                    {{settings.bottom_cta_title}}
+                  {{/if}}
+                </h3>
+                <span class="lt-footer-submit-ticket__descr lt-d-inline-block lt-mb-7">
+                  {{#if settings.toggle_translations}}
+                    {{dc settings.bottom_cta_subtitle}}
+                  {{else}}
+                    {{settings.bottom_cta_subtitle}}
+                  {{/if}}
+                </span>
+              </div>
+              {{link 'new_request' class='lt-footer-submit-ticket__link lt-btn lt-btn--primary'}}
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+
+    {{#if settings.toggle_recent_activities}}
+      {{#if help_center.community_enabled}}
+        <div class="lt-container lt-pt-8 lt-pb-5 on-footer" id="recent-activity">
+          <div class="lt-container-inner">
+            {{recent_activity scope='community'}}
+          </div>
+        </div>
+      {{/if}}
+    {{/if}}
+  </div>
+</div>

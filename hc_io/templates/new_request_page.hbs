@@ -1,0 +1,57 @@
+<div class="lt-start-screen-wrap lt-container">
+  <div class="lt-container-inner">
+    <div class="lt-breadcrumbs-wrapper lt-pt-lg-5 lt-pb-lg-4">{{breadcrumbs}}</div>
+    <div class="lt-row lt-align-items-sm-center">
+      <div class="lt-search-box lt-search-box--small lt-search-box--icon lt-mb-4 lt-col-sm-12 lt-col-lg-4 lt-align-self-lg-start lt-d-print-none">
+          {{search instant=true submit=false placeholder=settings.search_placeholder}}
+      </div>
+      <div class="lt-page__heading lt-col-sm-12 lt-col-lg-8">
+        <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{t 'submit_a_request'}}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="lt-hero-unit__decor">
+      <div class="lt-hero-unit__decor--svg">
+        <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V91L0 7Z' fill-opacity='0.05'/>
+        </svg>
+      </div>
+      <div class="lt-hero-unit__decor--svg">
+        <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V0.5L0 43L0 7Z' fill-opacity='0.1'/>
+        </svg>
+      </div>
+    </div>
+</div>
+
+<div class="lt-container lt-new-request-page lt-pb-8 lt-pb-8 lt-pt-6 lt-pt-lg-8 lt-position-relative">
+  <div class="lt-container-inner">
+    <div class="lt-row">
+      <div class="lt-col-md-8 lt-offset-md-2" id="main-content">
+
+        {{#if settings.new_request_tip_text}}
+        <div class="lt-new-request-tip lt-p-4 lt-ps-8 lt-mb-4">
+          <i class="fa-solid fa-wand-magic-sparkles lt-new-request-tip__icon" aria-hidden="true"></i>
+          {{#if settings.toggle_translations}}
+            {{dc settings.new_request_tip_text}}
+          {{else}}
+            {{settings.new_request_tip_text}}
+          {{/if}}
+        </div>
+        {{/if}}
+
+        {{#if parent}}
+        <p>
+          <span class="follow-up-hint">
+            {{follow_up}}
+          </span>
+        </p>
+        {{/if}}
+
+        <div class="lt-new-request-form">
+          {{request_form wysiwyg=true}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,269 @@
+</div>
+<footer class="lt-footer lt-container lt-py-8 lt-d-print-none">
+  <div class="lt-container-inner lt-d-flex lt-flex-column lt-flex-sm-row lt-justify-content-between lt-align-items-center">
+    <div class="lt-footer__copyright copyright lt-mb-4 lt-mb-sm-0">
+      <p>&copy; {{help_center.name}}</p>
+      {{#if settings.toggle_footer_creator_text}}
+      <p><a href="https://www.lotusthemes.com" target="_blank">Zendesk theme by Lotus</a></p>
+      {{/if}}
+    </div>
+    
+    <div>
+      {{#if settings.toggle_facebook_icon}}
+      <a href="{{#if settings.toggle_translations}}{{dc settings.facebook_url}}{{else}}{{settings.facebook_url}}{{/if}}"
+        target="_blank" class="lt-footer__social-link fa-brands fa-facebook">
+        <span class="sr-only">Facebook</span>
+      </a>
+      {{/if}}
+      {{#if settings.toggle_x_icon}}
+      <a href="{{#if settings.toggle_translations}}{{dc settings.x_url}}{{else}}{{settings.x_url}}{{/if}}"
+        target="_blank" class="lt-footer__social-link fa-brands fa-x-twitter">
+        <span class="sr-only">Twitter</span>
+      </a>
+      {{/if}}
+      {{#if settings.toggle_youtube_icon}}
+      <a href="{{#if settings.toggle_translations}}{{dc settings.youtube_url}}{{else}}{{settings.youtube_url}}{{/if}}"
+        target="_blank" class="lt-footer__social-link fa-brands fa-youtube">
+        <span class="sr-only">YouTube</span>
+      </a>
+      {{/if}}
+      {{#if settings.toggle_linkedin_icon}}
+      <a href="{{#if settings.toggle_translations}}{{dc settings.linkedin_url}}{{else}}{{settings.linkedin_url}}{{/if}}"
+        target="_blank" class="lt-footer__social-link fa-brands fa-linkedin">
+        <span class="sr-only">LinkedIn</span>
+      </a>
+      {{/if}}
+      {{#if settings.toggle_instagram_icon}}
+      <a href="{{#if settings.toggle_translations}}{{dc settings.instagram_url}}{{else}}{{settings.instagram_url}}{{/if}}"
+        target="_blank" class="lt-footer__social-link fa-brands fa-instagram">
+        <span class="sr-only">Instagram</span>
+      </a>
+      {{/if}}
+    </div>
+  </div>
+</footer>
+</div>
+
+<button class="lt-scroll-to-top fa-solid fa-angle-up lt-d-print-none lt-p-0 lt-d-none lt-d-md-flex lt-justify-content-center lt-align-items-center" data-scroll-to-top>
+  <div class="sr-only">{{t 'return_to_top'}}</div>
+</button>
+
+{{#if settings.toggle_translations}}
+<div hidden data-lt-i18n-dictionary>
+  <div data-lt-i18n="search_placeholder">{{dc settings.search_placeholder}}
+  </div>
+</div>
+
+<script>
+  var $ltDictionary = $('[data-lt-i18n-dictionary]');
+  $('[role="search"] input[type="search"]').each(function (index, el) {
+    $(el).attr('placeholder', $ltDictionary.find('[data-lt-i18n="search_placeholder"]').html());
+  });
+</script>
+{{/if}}
+
+<div class="lt-backdrop" x-data="" x-bind:class="{'is-active': $store.mobileMenu.isOpen}"
+  x-on:click="$store.mobileMenu.isOpen = false">
+</div>
+
+{{#isnt settings.custom_block_1_type 'hidden'}}
+  <div data-custom-blocks-data hidden>
+    <div data-field="url">
+      {{#is settings.custom_block_1_type 'custom'}}
+        {{#if settings.toggle_translations}}
+          {{dc settings.custom_block_1_url}}
+        {{else}}
+          {{settings.custom_block_1_url}}
+        {{/if}}
+      {{else}}
+        {{page_path settings.custom_block_1_type}}
+      {{/is}}
+    </div>
+    <div data-field="imageUrl">{{settings.custom_block_1_icon}}</div>
+    <div data-field="title">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_1_title}}
+      {{else}}
+        {{settings.custom_block_1_title}}
+      {{/if}}
+    </div>
+    <div data-field="text">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_1_text}}
+      {{else}}
+        {{settings.custom_block_1_text}}
+      {{/if}}
+    </div>
+  </div>
+{{/isnt}}
+
+{{#isnt settings.custom_block_2_type 'hidden'}}
+  <div data-custom-blocks-data hidden>
+    <div data-field="type">{{ settings.custom_block_2_type }}</div>
+    <div data-field="url">
+      {{#is settings.custom_block_2_type 'custom'}}
+        {{#if settings.toggle_translations}}
+          {{dc settings.custom_block_2_url}}
+        {{else}}
+          {{settings.custom_block_2_url}}
+        {{/if}}
+      {{else}}
+        {{page_path settings.custom_block_2_type}}
+      {{/is}}
+    </div>
+    <div data-field="imageUrl">{{settings.custom_block_2_icon}}</div>
+    <div data-field="title">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_2_title}}
+      {{else}}
+        {{settings.custom_block_2_title}}
+      {{/if}}
+    </div>
+    <div data-field="text">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_2_text}}
+      {{else}}
+        {{settings.custom_block_2_text}}
+      {{/if}}
+    </div>
+  </div>
+{{/isnt}}
+
+{{#isnt settings.custom_block_3_type 'hidden'}}
+  <div data-custom-blocks-data hidden>
+    <div data-field="type">{{ settings.custom_block_3_type }}</div>
+    <div data-field="url">
+      {{#is settings.custom_block_3_type 'custom'}}
+        {{#if settings.toggle_translations}}
+          {{dc settings.custom_block_3_url}}
+        {{else}}
+          {{settings.custom_block_3_url}}
+        {{/if}}
+      {{else}}
+        {{page_path settings.custom_block_3_type}}
+      {{/is}}
+    </div>
+    <div data-field="imageUrl">{{settings.custom_block_3_icon}}</div>
+    <div data-field="title">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_3_title}}
+      {{else}}
+        {{settings.custom_block_3_title}}
+      {{/if}}
+    </div>
+    <div data-field="text">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_3_text}}
+      {{else}}
+        {{settings.custom_block_3_text}}
+      {{/if}}
+    </div>
+  </div>
+{{/isnt}}
+
+{{#isnt settings.custom_block_4_type 'hidden'}}
+  <div data-custom-blocks-data hidden>
+    <div data-field="type">{{ settings.custom_block_4_type }}</div>
+    <div data-field="url">
+      {{#is settings.custom_block_4_type 'custom'}}
+        {{#if settings.toggle_translations}}
+          {{dc settings.custom_block_4_url}}
+        {{else}}
+          {{settings.custom_block_4_url}}
+        {{/if}}
+      {{else}}
+        {{page_path settings.custom_block_4_type}}
+      {{/is}}
+    </div>
+    <div data-field="imageUrl">{{settings.custom_block_4_icon}}</div>
+    <div data-field="title">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_4_title}}
+      {{else}}
+        {{settings.custom_block_4_title}}
+      {{/if}}
+    </div>
+    <div data-field="text">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_4_text}}
+      {{else}}
+        {{settings.custom_block_4_text}}
+      {{/if}}
+    </div>
+  </div>
+{{/isnt}}
+
+{{#isnt settings.custom_block_5_type 'hidden'}}
+  <div data-custom-blocks-data hidden>
+    <div data-field="type">{{ settings.custom_block_5_type }}</div>
+    <div data-field="url">
+      {{#is settings.custom_block_5_type 'custom'}}
+        {{#if settings.toggle_translations}}
+          {{dc settings.custom_block_5_url}}
+        {{else}}
+          {{settings.custom_block_5_url}}
+        {{/if}}
+      {{else}}
+        {{page_path settings.custom_block_5_type}}
+      {{/is}}
+    </div>
+    <div data-field="imageUrl">{{settings.custom_block_5_icon}}</div>
+    <div data-field="title">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_5_title}}
+      {{else}}
+        {{settings.custom_block_5_title}}
+      {{/if}}
+    </div>
+    <div data-field="text">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_5_text}}
+      {{else}}
+        {{settings.custom_block_5_text}}
+      {{/if}}
+    </div>
+  </div>
+{{/isnt}}
+
+{{#isnt settings.custom_block_6_type 'hidden'}}
+  <div data-custom-blocks-data hidden>
+    <div data-field="type">{{ settings.custom_block_6_type }}</div>
+    <div data-field="url">
+      {{#is settings.custom_block_6_type 'custom'}}
+        {{#if settings.toggle_translations}}
+          {{dc settings.custom_block_6_url}}
+        {{else}}
+          {{settings.custom_block_6_url}}
+        {{/if}}
+      {{else}}
+        {{page_path settings.custom_block_6_type}}
+      {{/is}}
+    </div>
+    <div data-field="imageUrl">{{settings.custom_block_6_icon}}</div>
+    <div data-field="title">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_6_title}}
+      {{else}}
+        {{settings.custom_block_6_title}}
+      {{/if}}
+    </div>
+    <div data-field="text">
+      {{#if settings.toggle_translations}}
+        {{dc settings.custom_block_6_text}}
+      {{else}}
+        {{settings.custom_block_6_text}}
+      {{/if}}
+    </div>
+  </div>
+{{/isnt}}
+<div hidden data-popular-searches>
+  {{#if settings.toggle_translations}}
+    {{dc settings.popular_searches_keywords}}
+  {{else}}
+    {{settings.popular_searches_keywords}}
+  {{/if}}
+</div>
+<script src="{{asset 'lotus-popular-searches.js'}}"></script>
+<script src="{{asset 'lotus-open-tickets-badge.js'}}"></script>
+<script src="{{asset 'lotus-category-menu.js'}}"></script>
+<script src="{{asset 'lotus-custom-blocks.js'}}"></script>
