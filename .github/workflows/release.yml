@@ -1,4 +1,4 @@
-name: Release
+name: Release and Deployment
 
 on:
   push:
@@ -95,11 +95,13 @@ jobs:
 
   git-release:
     needs: deploy # ensures git-release will only run if deploy succeeds
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b  
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+        with:
+          persist-credentials: false
 
       # call common node setup workflow
       - name: Node setup
@@ -113,7 +115,7 @@ jobs:
         id: semantic-release
         run: npx semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_BOT_GITHUB_TOKEN }}
           GIT_AUTHOR_NAME: ${{ secrets.RELEASE_BOT_GIT_NAME }}
           GIT_AUTHOR_EMAIL: ${{ secrets.RELEASE_BOT_GIT_EMAIL }}
           GIT_COMMITTER_NAME: ${{ secrets.RELEASE_BOT_GIT_NAME }}
