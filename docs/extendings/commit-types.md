@@ -19,7 +19,7 @@ The list bellow describes the supported commit types and their effect in the rel
 
 \
 <br/>
-Commits that add a breaking change should include `BREAKING CHANGE` in the body or footer of the commit message.
+Commits that add a breaking change should include `BREAKING CHANGE` in the body or footer of the commit message. This is treated as a **major** update in the release.
 
 i.e.:
 
