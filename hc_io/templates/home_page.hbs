@@ -31,9 +31,9 @@
         {{else}}
           {{settings.popular_searches_label}}
         {{/if}}</div>
-        <span class="lt-align-content-center" x-data="Theme.popularSearches()" x-cloak>
+        <span class="lt-align-content-center" x-data="Theme.popularCategories()" x-cloak>
           <template x-for="(item, index) in items" :key="index">
-            <a class="badge" :href="item.link" x-text="item.keyword"></a>
+            <a class="badge" :href="item.link" x-text="item.categoryName"></a>
           </template>
         </span>
       </div>

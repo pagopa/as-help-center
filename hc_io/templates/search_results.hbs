@@ -26,9 +26,9 @@
       {{else}}
         {{settings.popular_searches_label}}
       {{/if}}:
-      <span x-data="Theme.popularSearches()">
+      <span x-data="Theme.popularCategories()">
         <template x-for="(item, index) in items" :key="index">
-          <a class="lt-search-topic__link" :href="item.link" x-text="item.keyword"></a>
+          <a class="lt-search-topic__link" :href="item.link" x-text="item.categoryName"></a>
         </template>
       </span>
     </div>

@@ -256,11 +256,11 @@
     </div>
   </div>
 {{/isnt}}
-<div hidden data-popular-searches>
+<div hidden data-popular-categories>
   {{#if settings.toggle_translations}}
-    {{dc settings.popular_searches_keywords}}
+    {{dc settings.popular_searches_categories}}
   {{else}}
-    {{settings.popular_searches_keywords}}
+    {{settings.popular_searches_categories}}
   {{/if}}
 </div>
 <script src="{{asset 'lotus-popular-searches.js'}}"></script>

@@ -3,26 +3,33 @@
   const { protocol, hostname } = window.location;
 
   const locale = LotusUtils.getLocale();
-  const baseUrl = `${protocol}//${hostname}/hc/${locale}/search?query=`;
+  const baseUrl = `${protocol}//${hostname}/hc/${locale}/sections`;
 
-  function getKeywords() {
-    const keywordsEl = document.querySelector('[data-popular-searches]');
-    if (!keywordsEl) {
+  function convertToDash(text) {
+    return text.replace(/\s+/g, '-');
+  }
+
+  function getCategories() {
+    const categoriesEl = document.querySelector('[data-popular-categories]');
+    if (!categoriesEl) {
       return true;
     }
-    const keywords = keywordsEl.innerText.trim();
+    const categories = categoriesEl.innerText.trim();
 
-    return keywords.split(',').map((keyword) => {
-      const param = encodeURIComponent(keyword.trim());
-      const link = `${baseUrl}${param}`;
+    return categories.split(',').map((category) => {
+      const categoryParam = category.split('|');
+      const categoryName = categoryParam[0].trim();
+      const categoryId = categoryParam[1].trim();
+
+      const link = `${baseUrl}/${categoryId}-${convertToDash(categoryName)}`;
       return {
         link,
-        keyword
+        categoryName
       };
     });
   }
 
-  window.Theme.popularSearches = () => ({
-    items: getKeywords()
+  window.Theme.popularCategories = () => ({
+    items: getCategories()
   });
 })();

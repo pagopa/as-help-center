@@ -792,7 +792,7 @@
           "type": "text",
           "description": "Text for the search field",
           "label": "Search placeholder",
-          "value": "Cerca..."
+          "value": "Cerca tra gli articoli..."
         },
         {
           "identifier": "show_hero_unit_button",
@@ -820,14 +820,14 @@
           "type": "text",
           "description": "Text displayed before the keywords",
           "label": "Popular searches label",
-          "value": "Categorie frequenti:"
+          "value": "Gli argomenti più letti:"
         },
         {
-          "identifier": "popular_searches_keywords",
+          "identifier": "popular_searches_categories",
           "type": "text",
-          "description": "Comma-separated keywords",
-          "label": "Popular searches keywords",
-          "value": "notifications, connecting to vidmob, calls"
+          "description": "Comma-separated categories with name and id: <category-name-1>|<category-id-1>, <category-name-2>|<category-id-2>",
+          "label": "Popular searches categories",
+          "value": "Pagare con IO|30616573690257, Documenti su IO|30616573690257, Accedere a IO con SPID|30616637679505"
         }
       ]
     },
