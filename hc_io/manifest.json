@@ -548,7 +548,7 @@
       "variables": [
         {
           "identifier": "topbar_bg",
-          "type": "color",
+          "type": "text",
           "description": "Header background color",
           "label": "Background color",
           "value": "linear-gradient(180deg, #0B3EE3 0%, #3C64E6 100%)"
@@ -712,10 +712,10 @@
           ]
         },
         {
-          "identifier": "toggle_contact_boxes",
+          "identifier": "toggle_more_products",
           "type": "checkbox",
-          "description": "Show the contact boxess",
-          "label": "Contact Boxes",
+          "description": "Show the more product boxes",
+          "label": "More product Boxes",
           "value": true
         },
         {
@@ -825,9 +825,9 @@
         {
           "identifier": "popular_searches_categories",
           "type": "text",
-          "description": "Comma-separated categories with name and id: <category-name-1>|<category-id-1>, <category-name-2>|<category-id-2>",
+          "description": "Comma-separated categories with name and id",
           "label": "Popular searches categories",
-          "value": "Pagare con IO|30616573690257, Documenti su IO|30616573690257, Accedere a IO con SPID|30616637679505"
+          "value": "Pagare con IO|30831027751697, Documenti su IO|30616573690257, Accedere a IO con SPID|30616637679505"
         }
       ]
     },
@@ -872,6 +872,18 @@
               "value": "error"
             }
           ]
+        }
+      ]
+    },
+    {
+      "label": "Popular Articles Block",
+      "variables": [
+        {
+          "identifier": "popular_articles_read_button",
+          "type": "text",
+          "description": "Label of popular articles card button",
+          "label": "Button label of popular articles card",
+          "value": "Leggi l'articolo"
         }
       ]
     },
@@ -1306,214 +1318,78 @@
       ]
     },
     {
-      "label": "Contact Boxes",
+      "label": "More Product Boxes",
       "variables": [
         {
-          "identifier": "contact_boxes_title",
+          "identifier": "more_product_boxes_title",
           "type": "text",
           "description": "Title above the contact boxes",
-          "label": "Contact boxes title",
-          "value": "More Resources"
-        },
-        {
-          "identifier": "contact_boxes_per_line",
-          "type": "range",
-          "description": "Number of contact boxes displayed per line",
-          "label": "Number of contact boxes per line",
-          "min": 1,
-          "max": 4,
-          "value": 3
-        },
-        {
-          "identifier": "contact_boxes_icon_size",
-          "type": "text",
-          "description": "Height of the contact boxes icons",
-          "label": "Icon height",
-          "value": "2rem"
+          "label": "More product boxes title",
+          "value": "Cerchi assistenza su un altro prodotto?"
         }
       ]
     },
     {
-      "label": "Contact Box 1",
+      "label": "More Product Box 1",
       "variables": [
         {
-          "identifier": "contact_box_1_toggle",
+          "identifier": "more_product_box_1_toggle",
           "type": "checkbox",
-          "description": "Show or hide the Contact Box",
-          "label": "Show Contact Box",
+          "description": "Show or hide the More Product Box",
+          "label": "Show More product Box",
           "value": true
         },
         {
-          "identifier": "contact_box_1_link_toggle",
-          "type": "checkbox",
-          "description": "Enable this option if you want to use the box as link",
-          "label": "Use as link",
-          "value": true
-        },
-        {
-          "identifier": "contact_box_1_url",
+          "identifier": "more_product_box_1_url",
           "type": "text",
-          "description": "Contact box URL",
+          "description": "More product box URL",
           "label": "URL",
           "value": "#"
         },
         {
-          "identifier": "contact_box_1_icon",
+          "identifier": "more_product_box_1_icon",
           "type": "file",
           "description": "The recommended dimensions: 100x100px",
           "label": "Icon"
         },
         {
-          "identifier": "contact_box_1_title",
+          "identifier": "more_product_box_1_title",
           "type": "text",
-          "description": "Contact Box title",
+          "description": "More Product Box title",
           "label": "Title",
-          "value": "Register your product"
-        },
-        {
-          "identifier": "contact_box_1_text",
-          "type": "text",
-          "description": "Contact Box title",
-          "label": "Title",
-          "value": "You can get support that’s tailored to you, owner exclusives and more"
+          "value": "Piattaforma pagamenti pagoPA"
         }
       ]
     },
     {
-      "label": "Contact Box 2",
+      "label": "More Product Box 2",
       "variables": [
         {
-          "identifier": "contact_box_2_toggle",
+          "identifier": "more_product_box_2_toggle",
           "type": "checkbox",
-          "description": "Show or hide the Contact Box",
-          "label": "Show Contact Box",
+          "description": "Show or hide the More Product Box",
+          "label": "Show More Product Box",
           "value": true
         },
         {
-          "identifier": "contact_box_2_link_toggle",
-          "type": "checkbox",
-          "description": "Enable this option if you want to use the box as link",
-          "label": "Use as link",
-          "value": true
-        },
-        {
-          "identifier": "contact_box_2_url",
+          "identifier": "more_product_box_2_url",
           "type": "text",
-          "description": "Contact box URL",
+          "description": "More product box URL",
           "label": "URL",
           "value": "#"
         },
         {
-          "identifier": "contact_box_2_icon",
+          "identifier": "more_product_box_2_icon",
           "type": "file",
           "description": "The recommended dimensions: 100x100px",
           "label": "Icon"
         },
         {
-          "identifier": "contact_box_2_title",
+          "identifier": "more_product_box_2_title",
           "type": "text",
-          "description": "Contact Box title",
+          "description": "More product Box title",
           "label": "Title",
-          "value": "Our helpline hours:"
-        },
-        {
-          "identifier": "contact_box_2_text",
-          "type": "text",
-          "description": "Contact Box title",
-          "label": "Title",
-          "value": "8:00am - 8:00pm CST Monday to Friday; 9:00am - 6:00pm CST Saturday"
-        }
-      ]
-    },
-    {
-      "label": "Contact Box 3",
-      "variables": [
-        {
-          "identifier": "contact_box_3_toggle",
-          "type": "checkbox",
-          "description": "Show or hide the Contact Box",
-          "label": "Show Contact Box",
-          "value": true
-        },
-        {
-          "identifier": "contact_box_3_link_toggle",
-          "type": "checkbox",
-          "description": "Enable this option if you want to use the box as link",
-          "label": "Use as link",
-          "value": true
-        },
-        {
-          "identifier": "contact_box_3_url",
-          "type": "text",
-          "description": "Contact box URL",
-          "label": "URL",
-          "value": "#"
-        },
-        {
-          "identifier": "contact_box_3_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "contact_box_3_title",
-          "type": "text",
-          "description": "Contact Box title",
-          "label": "Title",
-          "value": "Follow us on X"
-        },
-        {
-          "identifier": "contact_box_3_text",
-          "type": "text",
-          "description": "Contact Box title",
-          "label": "Title",
-          "value": "Get the latest news and updates first"
-        }
-      ]
-    },
-    {
-      "label": "Contact Box 4",
-      "variables": [
-        {
-          "identifier": "contact_box_4_toggle",
-          "type": "checkbox",
-          "description": "Show or hide the Contact Box",
-          "label": "Show Contact Box",
-          "value": false
-        },
-        {
-          "identifier": "contact_box_4_link_toggle",
-          "type": "checkbox",
-          "description": "Enable this option if you want to use the box as link",
-          "label": "Use as link",
-          "value": true
-        },
-        {
-          "identifier": "contact_box_4_url",
-          "type": "text",
-          "description": "Contact box URL",
-          "label": "URL",
-          "value": "#"
-        },
-        {
-          "identifier": "contact_box_4_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "contact_box_4_title",
-          "type": "text",
-          "description": "Contact Box title",
-          "label": "Title",
-          "value": "Youtube Support"
-        },
-        {
-          "identifier": "contact_box_4_text",
-          "type": "text",
-          "description": "Contact Box title",
-          "label": "Title",
-          "value": "For how-to and support videos please visit our channel"
+          "value": "Servizio notifiche digitali"
         }
       ]
     },
