@@ -2369,38 +2369,60 @@ input[type='submit']:active,
   padding-top: 2rem;
 }
 
-.lt-footer-submit-ticket {
-  text-align: center;
+.lt-contact-request {
+  text-align: left;
+  background: $contact_request_box_color;
+  color: $brand_primary_inverse;
 }
 
 @media (width >= 768px) {
-  .lt-footer-submit-ticket {
-    text-align: left;
-  }
-}
-
-@media (width >= 768px) {
-  .lt-footer-submit-ticket__text {
+  .lt-contact-request__text {
     width: 40%;
   }
 }
 
-.lt-footer-submit-ticket__title {
+.lt-contact-request__title {
   line-height: 1.1;
-  color: $text_color;
 }
 
-.lt-footer-submit-ticket__descr {
+.lt-contact-request__descr {
   line-height: 1.5rem;
-  color: $text_light_color;
 }
 
-.lt-footer-submit-ticket__link {
+.lt-contact-request__cta {
   display: inline;
   width: fit-content;
+  background-color: $brand_primary_inverse;
 }
 
-.lt-footer-submit-ticket__button {
+/* Smartphone */
+@media (width <= 767px) {
+  .lt-contact-request__heading {
+    margin-bottom: 24px;
+  }
+}
+
+/* PC */
+@media (width >= 768px) {
+  .lt-contact-request__heading {
+    margin-bottom: 0;
+  }
+}
+
+.lt-btn--square {
+  display: inline;
+  width: fit-content;
+  border-radius: 4px;
+  font-size: 16px;
+  height: 48px;
+  align-content: center;
+}
+
+.lt-btn--light {
+  background-color: $brand_primary_inverse;
+}
+
+.lt-contact-request__button {
   display: inline-block;
   width: max-content;
   font-size: 0.875rem;
@@ -2412,25 +2434,11 @@ input[type='submit']:active,
   box-shadow: 0 17px 24px rgb(242 159 58 / 10%);
 }
 
-.lt-footer-submit-ticket__button:hover,
-.lt-footer-submit-ticket__button:focus,
-.lt-footer-submit-ticket__button:active {
+.lt-contact-request__button:hover,
+.lt-contact-request__button:focus,
+.lt-contact-request__button:active {
   color: #fff;
   background-color: darken($brand_primary, 10%);
-}
-
-@media (width >= 768px) {
-  .lt-footer-submit-ticket__illustration {
-    width: 60%;
-    max-width: 476px;
-    text-align: right;
-  }
-}
-
-@media (width >= 992px) {
-  .lt-footer-submit-ticket__img {
-    width: 100%;
-  }
 }
 
 .share {

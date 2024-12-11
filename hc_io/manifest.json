@@ -716,13 +716,13 @@
           "type": "checkbox",
           "description": "Show the more product boxes",
           "label": "More product Boxes",
-          "value": true
+          "value": false
         },
         {
-          "identifier": "toggle_bottom_cta",
+          "identifier": "toggle_contact_request",
           "type": "checkbox",
-          "description": "Show CTA",
-          "label": "CTA",
+          "description": "Show contact request box",
+          "label": "Contact Request box",
           "value": true
         },
         {
@@ -1293,27 +1293,48 @@
       ]
     },
     {
-      "label": "Bottom CTA",
+      "label": "Contact Request Box",
       "variables": [
         {
-          "identifier": "bottom_cta_title",
+          "identifier": "contact_request_section_title",
           "type": "text",
-          "description": "Title at the bottom of the homepage section",
-          "label": "Title",
-          "value": "Get in touch"
+          "description": "Title of contact request section",
+          "label": "Section Title",
+          "value": "Non hai trovato quello che cerchi?"
         },
         {
-          "identifier": "bottom_cta_subtitle",
+          "identifier": "contact_request_box_color",
+          "type": "text",
+          "description": "Color of contact requet box",
+          "label": "Box Color",
+          "value": "linear-gradient(90deg, #0D3FE3 0%, #3962E6 68.88%)"
+        },
+        {
+          "identifier": "contact_request_title",
+          "type": "text",
+          "description": "Title inside contact request box",
+          "label": "Box Title",
+          "value": "Accedi all'app"
+        },
+        {
+          "identifier": "contact_request_subtitle",
           "type": "text",
           "description": "Subtitle at the bottom of the homepage section",
-          "label": "Subtitle",
-          "value": "Still have questions? If you didn't find what you need, you can send an inquiry through our contact form."
+          "label": "Box Subtitle",
+          "value": "Se hai l’app IO puoi chiedere assistenza direttamente da lì e riceverai supporto dedicato per il tuo problema."
         },
         {
-          "identifier": "bottom_cta_image",
+          "identifier": "contact_request_image",
           "type": "file",
           "description": "Image at the bottom of the homepage section",
-          "label": "Image"
+          "label": "Box Image"
+        },
+        {
+          "identifier": "contact_request_btn_text",
+          "type": "text",
+          "description": "Button label of request contact box",
+          "label": "Button label",
+          "value": "Apri l'app"
         }
       ]
     },

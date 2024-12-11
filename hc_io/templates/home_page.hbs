@@ -118,7 +118,7 @@
 
         <div> {{!-- Wrapper element to avoid margin collapse --}}
           {{!-- Sections and Categories --}}
-          <div class="lt-container lt-block-list lt-mb-9" id="block-list">
+          <div class="lt-container lt-block-list" id="block-list">
             <div class="lt-container-inner">
               <section aria-labelledby="sectionHeading" class="lt-pb-5 lt-pb-lg-9 lt-pt-5 lt-pt-lg-9" id="promoted-articles-list">
                 <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
@@ -277,31 +277,41 @@
     </div>
     {{/if}}
 
-    {{#if settings.toggle_bottom_cta}}
+    {{#if settings.toggle_contact_request}}
       <div class="lt-container lt-pt-9 lt-pb-9" id="footer-submit-ticket">
         <div class="lt-container-inner">
-          <div class="lt-footer-submit-ticket lt-block lt-block--shadow lt-py-5 lt-px-4 lt-d-md-flex lt-justify-content-md-between lt-pt-md-8 lt-pb-md-9 lt-px-md-8">
-            <div class="lt-footer-submit-ticket__illustration lt-order-md-2">
-              <img src="{{ settings.bottom_cta_image }}" class="lt-footer-submit-ticket__img" aria-hidden="true">
+          <div class="lt-section-heading lt-mb-4">
+            <h2 id="sectionHeading" class="lt-section-heading__title lt-fs-2 lt-m-0">
+              {{#if settings.toggle_translations}}
+                {{dc settings.contact_request_section_title}}
+              {{else}}
+                {{settings.contact_request_section_title}}
+              {{/if}}
+            </h2>
+          </div>
+          <div class="lt-contact-request lt-block lt-block--shadow lt-py-5 lt-px-4 lt-d-md-flex lt-justify-content-md-between lt-pt-md-7 lt-pb-md-7 lt-px-md-7 lt-align-items-center">
+            <div class="lt-contact-request__illustration lt-order-md-2 lt-d-none lt-d-md-block">
+              <img src="{{ settings.contact_request_image }}" class="lt-contact-request__img" aria-hidden="true">
             </div>
-            <div class="lt-footer-submit-ticket__text lt-mt-5 lt-order-md-1x lt-mt-md-0 lt-d-md-flex lt-flex-md-column lt-justify-content-md-between">
-              <div class="lt-footer-submit-ticket__heading lt-flex-md-grow-1">
-                <h3 class="lt-footer-submit-ticket__title lt-fs-2 lt-mb-3">
+            <div class="lt-contact-request__text lt-order-md-1x lt-d-md-flex lt-flex-md-column lt-justify-content-md-between">
+              <div class="lt-contact-request__heading lt-flex-md-grow-1">
+                <h3 class="lt-contact-request__title lt-fs-3 lt-mb-3">
                   {{#if settings.toggle_translations}}
-                    {{dc settings.bottom_cta_title}}
+                    {{dc settings.contact_request_title}}
                   {{else}}
-                    {{settings.bottom_cta_title}}
+                    {{settings.contact_request_title}}
                   {{/if}}
                 </h3>
-                <span class="lt-footer-submit-ticket__descr lt-d-inline-block lt-mb-7">
+                <span class="lt-contact-request__descr lt-d-inline-block">
                   {{#if settings.toggle_translations}}
-                    {{dc settings.bottom_cta_subtitle}}
+                    {{dc settings.contact_request_subtitle}}
                   {{else}}
-                    {{settings.bottom_cta_subtitle}}
+                    {{settings.contact_request_subtitle}}
                   {{/if}}
                 </span>
               </div>
-              {{link 'new_request' class='lt-footer-submit-ticket__link lt-btn lt-btn--primary'}}
+              <div class="lt-contact-request__cta lt-d-block lt-d-md-none lt-btn lt-btn--square lt-btn--light">{{settings.contact_request_btn_text}}</div>
+              {{!-- {{link 'new_request' class='lt-contact-request__link lt-btn lt-btn--primary'}} --}}
             </div>
           </div>
         </div>
