@@ -981,43 +981,41 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
 .lt-footer {
   font-size: 0.9rem;
   line-height: 1.5;
-  color: $footer_text_color;
+  color: $text_color;
   background-color: $footer_bg;
 }
 
-.lt-footer__copyright a {
-  color: #fff;
+.lt-footer-logo {
+  height: 32px;
 }
 
-.lt-footer__copyright a:hover,
-.lt-footer__copyright a:focus,
-.lt-footer__copyright a:active {
-  color: #fff;
+.lt-footer-link {
+  font-weight: 600;
+  text-decoration: none !important;
+  color: $text_color !important;
 }
 
-.lt-footer__copyright p:last-of-type {
-  margin-bottom: 0;
+.lt-footer-link:hover {
+  color: #2185e9 !important;
 }
 
-.lt-footer__social-link {
-  padding: calc($footer_social_icon_height / 2);
-  font-size: $footer_social_icon_height !important;
-  color: $footer_social_link_color;
-  vertical-align: middle;
+.lt-footer-group-title {
+  font-weight: bold;
+  margin-bottom: 16px;
+  font-size: 1rem;
 }
 
-.lt-footer__social-link:hover,
-.lt-footer__social-link:focus,
-.lt-footer__social-link:active {
-  color: $footer_social_link_color;
+.lt-footer ul li {
+  margin-bottom: 0.5rem;
 }
 
-[dir='ltr'] .lt-footer__social-link + [dir='ltr'] .lt-footer__social-link {
-  margin-left: 5px;
+.lt-footer .fab {
+  font-size: 1.5rem;
+  transition: color 0.3s;
 }
 
-[dir='rtl'] .lt-footer__social-link + [dir='rtl'] .lt-footer__social-link {
-  margin-right: 5px;
+.lt-footer-copyright {
+  font-size: 14px;
 }
 
 @media (width >= 768px) {
@@ -2389,12 +2387,6 @@ input[type='submit']:active,
   line-height: 1.5rem;
 }
 
-.lt-contact-request__cta {
-  display: inline;
-  width: fit-content;
-  background-color: $brand_primary_inverse;
-}
-
 /* Smartphone */
 @media (width <= 767px) {
   .lt-contact-request__heading {
@@ -2419,7 +2411,14 @@ input[type='submit']:active,
 }
 
 .lt-btn--light {
+  display: inline;
+  width: fit-content;
   background-color: $brand_primary_inverse;
+  color: $brand_primary;
+}
+
+.lt-btn--light:hover {
+  color: #2185e9;
 }
 
 .lt-contact-request__button {
@@ -9096,24 +9095,3 @@ slider-component {
 .prevnext__title {
   font-weight: bold !important;
 }
-
-/* footer ul {
-  padding: 0;
-}
-
-footer ul li {
-  margin-bottom: 0.5rem;
-}
-
-footer a:hover {
-  color: #007bff;
-}
-
-footer .fab {
-  font-size: 1.5rem;
-  transition: color 0.3s;
-}
-
-footer .fab:hover {
-  color: #007bff;
-} */

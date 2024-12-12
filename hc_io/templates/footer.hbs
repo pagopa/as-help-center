@@ -1,261 +1,79 @@
 </div>
-<footer class="lt-footer lt-container lt-py-8 lt-d-print-none">
-  <div class="lt-container-inner lt-d-flex lt-flex-column lt-flex-sm-row lt-justify-content-between lt-align-items-center">
-    <div class="lt-footer__copyright copyright lt-mb-4 lt-mb-sm-0">
-      <p>&copy; {{help_center.name}}</p>
-      {{#if settings.toggle_footer_creator_text}}
-      <p><a href="https://www.lotusthemes.com" target="_blank">Zendesk theme by Lotus</a></p>
-      {{/if}}
+<footer class="lt-footer lt-d-print-none">
+  <div class="lt-container">
+    <div class="lt-row lt-py-8 lt-pt-8 lt-pb-4">
+      {{!-- TODO dynamic text for i18n --}}
+      <!-- Col 1: Logo and main links -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <a href="https://www.pagopa.it/it/" alt="PagoPA"><img title="PagoPA" src="{{settings.footer_logo}}" alt="Logo PagoPA" class="lt-footer-logo"></a>
+        <ul class="lt-list-unstyled lt-my-3">
+          <li><a href="https://www.pagopa.it/it/societa/chi-siamo" class="lt-footer-link">Chi siamo</a></li>
+          <li><a href="https://www.pagopa.it/it/opportunita/pnrr/progetti" class="lt-footer-link">PNRR</a></li>
+          <li><a href="https://www.pagopa.it/it/media" class="lt-footer-link">Media</a></li>
+          <li><a href="https://www.pagopa.it/it/lavora-con-noi" class="lt-footer-link">Lavora con noi</a></li>
+        </ul>
+      </div>
+      <!-- Col 2: Products and Services -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <span class="lt-footer-group-title">PRODOTTI E SERVIZI</span>
+        <ul class="lt-list-unstyled lt-my-3">
+          <li><a href="https://www.pagopa.it/it/prodotti-e-servizi/app-io/" class="lt-footer-link">App IO</a></li>
+          <li><a href="https://www.pagopa.it/it/prodotti-e-servizi/piattaforma-pagopa/" class="lt-footer-link">Piattaforma pagoPA</a></li>
+          <li><a href="https://www.pagopa.it/it/prodotti-e-servizi/send-notifiche-digitali/" class="lt-footer-link">Piattaforma Notifiche Digitali</a></li>
+        </ul>
+      </div>
+      <!-- Col 3: Resources -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <span class="lt-footer-group-title">RISORSE</span>
+        <ul class="lt-list-unstyled lt-my-3">
+          {{!-- TODO inserire --}}
+          <li><a href="#" class="lt-footer-link">Informativa Privacy</a></li>
+          <li><a href="https://www.pagopa.it/it/privacy-policy-assistenza/" class="lt-footer-link">Privacy Policy e Termini e Condizioni di utilizzo Assistenza</a></li>
+          {{!-- TODO inserire --}}
+          <li><a href="#" class="lt-footer-link">Dichiarazione di accessibilità</a></li>
+          <li><a href="https://www.pagopa.it/it/certificazioni/" class="lt-footer-link">Certificazioni</a></li>
+          <li><a href="https://privacyportal-de.onetrust.com/webform/77f17844-04c3-4969-a11d-462ee77acbe1/9ab6533d-be4a-482e-929a-0d8d2ab29df8" class="lt-footer-link">Diritto alla protezione dei dati personali</a></li>
+          <li><a href="https://pagopa.portaleamministrazionetrasparente.it/pagina746_altri-contenuti.html" class="lt-footer-link">Società trasparente</a></li>
+          <li><a href="https://www.pagopa.it/it/responsible-disclosure-policy/" class="lt-footer-link">Responsible Disclosure Policy</a></li>
+          <li><a href="https://pagopa.portaleamministrazionetrasparente.it/pagina746_altri-contenuti.htmls" class="lt-footer-link">Modello 231</a></li>
+        </ul>
+      </div>
+      <!-- Col 4: Social -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <span class="lt-footer-group-title">SEGUICI SU</span>
+        <div class="lt-d-flex lt-gap-3 lt-mt-3 lt-justify-content-center lt-justify-content-md-start">
+          <a href="https://it.linkedin.com/company/pagopa" class="lt-footer-link"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/pagopaspa/?hl=en" class="lt-footer-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/pagopa/" class="lt-footer-link"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.youtube.com/@pagopaspa" class="lt-footer-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
     </div>
-    
-    <div>
-      {{#if settings.toggle_facebook_icon}}
-      <a href="{{#if settings.toggle_translations}}{{dc settings.facebook_url}}{{else}}{{settings.facebook_url}}{{/if}}"
-        target="_blank" class="lt-footer__social-link fa-brands fa-facebook">
-        <span class="sr-only">Facebook</span>
-      </a>
-      {{/if}}
-      {{#if settings.toggle_x_icon}}
-      <a href="{{#if settings.toggle_translations}}{{dc settings.x_url}}{{else}}{{settings.x_url}}{{/if}}"
-        target="_blank" class="lt-footer__social-link fa-brands fa-x-twitter">
-        <span class="sr-only">Twitter</span>
-      </a>
-      {{/if}}
-      {{#if settings.toggle_youtube_icon}}
-      <a href="{{#if settings.toggle_translations}}{{dc settings.youtube_url}}{{else}}{{settings.youtube_url}}{{/if}}"
-        target="_blank" class="lt-footer__social-link fa-brands fa-youtube">
-        <span class="sr-only">YouTube</span>
-      </a>
-      {{/if}}
-      {{#if settings.toggle_linkedin_icon}}
-      <a href="{{#if settings.toggle_translations}}{{dc settings.linkedin_url}}{{else}}{{settings.linkedin_url}}{{/if}}"
-        target="_blank" class="lt-footer__social-link fa-brands fa-linkedin">
-        <span class="sr-only">LinkedIn</span>
-      </a>
-      {{/if}}
-      {{#if settings.toggle_instagram_icon}}
-      <a href="{{#if settings.toggle_translations}}{{dc settings.instagram_url}}{{else}}{{settings.instagram_url}}{{/if}}"
-        target="_blank" class="lt-footer__social-link fa-brands fa-instagram">
-        <span class="sr-only">Instagram</span>
-      </a>
-      {{/if}}
+    <div class="lt-row lt-border-top lt-py-3">
+      <div class="lt-col-12 lt-text-center lt-footer-copyright">
+          <span class="lt-fw-bold">{{settings.footer_owner}} -</span> {{settings.footer_owner_data_1}}<br>{{settings.footer_owner_data_2}}
+      </div>
     </div>
   </div>
 </footer>
 </div>
 
-<button class="lt-scroll-to-top fa-solid fa-angle-up lt-d-print-none lt-p-0 lt-d-none lt-d-md-flex lt-justify-content-center lt-align-items-center" data-scroll-to-top>
-  <div class="sr-only">{{t 'return_to_top'}}</div>
-</button>
 
 {{#if settings.toggle_translations}}
-<div hidden data-lt-i18n-dictionary>
-  <div data-lt-i18n="search_placeholder">{{dc settings.search_placeholder}}
+  <div hidden data-lt-i18n-dictionary>
+    <div data-lt-i18n="search_placeholder">{{dc settings.search_placeholder}}
+    </div>
   </div>
-</div>
 
-<script>
-  var $ltDictionary = $('[data-lt-i18n-dictionary]');
-  $('[role="search"] input[type="search"]').each(function (index, el) {
-    $(el).attr('placeholder', $ltDictionary.find('[data-lt-i18n="search_placeholder"]').html());
-  });
-</script>
+  <script>
+    var $ltDictionary = $('[data-lt-i18n-dictionary]');
+    $('[role="search"] input[type="search"]').each(function (index, el) {
+      $(el).attr('placeholder', $ltDictionary.find('[data-lt-i18n="search_placeholder"]').html());
+    });
+  </script>
 {{/if}}
 
-<div class="lt-backdrop" x-data="" x-bind:class="{'is-active': $store.mobileMenu.isOpen}"
-  x-on:click="$store.mobileMenu.isOpen = false">
-</div>
-
-{{#isnt settings.custom_block_1_type 'hidden'}}
-  <div data-custom-blocks-data hidden>
-    <div data-field="url">
-      {{#is settings.custom_block_1_type 'custom'}}
-        {{#if settings.toggle_translations}}
-          {{dc settings.custom_block_1_url}}
-        {{else}}
-          {{settings.custom_block_1_url}}
-        {{/if}}
-      {{else}}
-        {{page_path settings.custom_block_1_type}}
-      {{/is}}
-    </div>
-    <div data-field="imageUrl">{{settings.custom_block_1_icon}}</div>
-    <div data-field="title">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_1_title}}
-      {{else}}
-        {{settings.custom_block_1_title}}
-      {{/if}}
-    </div>
-    <div data-field="text">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_1_text}}
-      {{else}}
-        {{settings.custom_block_1_text}}
-      {{/if}}
-    </div>
-  </div>
-{{/isnt}}
-
-{{#isnt settings.custom_block_2_type 'hidden'}}
-  <div data-custom-blocks-data hidden>
-    <div data-field="type">{{ settings.custom_block_2_type }}</div>
-    <div data-field="url">
-      {{#is settings.custom_block_2_type 'custom'}}
-        {{#if settings.toggle_translations}}
-          {{dc settings.custom_block_2_url}}
-        {{else}}
-          {{settings.custom_block_2_url}}
-        {{/if}}
-      {{else}}
-        {{page_path settings.custom_block_2_type}}
-      {{/is}}
-    </div>
-    <div data-field="imageUrl">{{settings.custom_block_2_icon}}</div>
-    <div data-field="title">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_2_title}}
-      {{else}}
-        {{settings.custom_block_2_title}}
-      {{/if}}
-    </div>
-    <div data-field="text">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_2_text}}
-      {{else}}
-        {{settings.custom_block_2_text}}
-      {{/if}}
-    </div>
-  </div>
-{{/isnt}}
-
-{{#isnt settings.custom_block_3_type 'hidden'}}
-  <div data-custom-blocks-data hidden>
-    <div data-field="type">{{ settings.custom_block_3_type }}</div>
-    <div data-field="url">
-      {{#is settings.custom_block_3_type 'custom'}}
-        {{#if settings.toggle_translations}}
-          {{dc settings.custom_block_3_url}}
-        {{else}}
-          {{settings.custom_block_3_url}}
-        {{/if}}
-      {{else}}
-        {{page_path settings.custom_block_3_type}}
-      {{/is}}
-    </div>
-    <div data-field="imageUrl">{{settings.custom_block_3_icon}}</div>
-    <div data-field="title">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_3_title}}
-      {{else}}
-        {{settings.custom_block_3_title}}
-      {{/if}}
-    </div>
-    <div data-field="text">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_3_text}}
-      {{else}}
-        {{settings.custom_block_3_text}}
-      {{/if}}
-    </div>
-  </div>
-{{/isnt}}
-
-{{#isnt settings.custom_block_4_type 'hidden'}}
-  <div data-custom-blocks-data hidden>
-    <div data-field="type">{{ settings.custom_block_4_type }}</div>
-    <div data-field="url">
-      {{#is settings.custom_block_4_type 'custom'}}
-        {{#if settings.toggle_translations}}
-          {{dc settings.custom_block_4_url}}
-        {{else}}
-          {{settings.custom_block_4_url}}
-        {{/if}}
-      {{else}}
-        {{page_path settings.custom_block_4_type}}
-      {{/is}}
-    </div>
-    <div data-field="imageUrl">{{settings.custom_block_4_icon}}</div>
-    <div data-field="title">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_4_title}}
-      {{else}}
-        {{settings.custom_block_4_title}}
-      {{/if}}
-    </div>
-    <div data-field="text">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_4_text}}
-      {{else}}
-        {{settings.custom_block_4_text}}
-      {{/if}}
-    </div>
-  </div>
-{{/isnt}}
-
-{{#isnt settings.custom_block_5_type 'hidden'}}
-  <div data-custom-blocks-data hidden>
-    <div data-field="type">{{ settings.custom_block_5_type }}</div>
-    <div data-field="url">
-      {{#is settings.custom_block_5_type 'custom'}}
-        {{#if settings.toggle_translations}}
-          {{dc settings.custom_block_5_url}}
-        {{else}}
-          {{settings.custom_block_5_url}}
-        {{/if}}
-      {{else}}
-        {{page_path settings.custom_block_5_type}}
-      {{/is}}
-    </div>
-    <div data-field="imageUrl">{{settings.custom_block_5_icon}}</div>
-    <div data-field="title">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_5_title}}
-      {{else}}
-        {{settings.custom_block_5_title}}
-      {{/if}}
-    </div>
-    <div data-field="text">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_5_text}}
-      {{else}}
-        {{settings.custom_block_5_text}}
-      {{/if}}
-    </div>
-  </div>
-{{/isnt}}
-
-{{#isnt settings.custom_block_6_type 'hidden'}}
-  <div data-custom-blocks-data hidden>
-    <div data-field="type">{{ settings.custom_block_6_type }}</div>
-    <div data-field="url">
-      {{#is settings.custom_block_6_type 'custom'}}
-        {{#if settings.toggle_translations}}
-          {{dc settings.custom_block_6_url}}
-        {{else}}
-          {{settings.custom_block_6_url}}
-        {{/if}}
-      {{else}}
-        {{page_path settings.custom_block_6_type}}
-      {{/is}}
-    </div>
-    <div data-field="imageUrl">{{settings.custom_block_6_icon}}</div>
-    <div data-field="title">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_6_title}}
-      {{else}}
-        {{settings.custom_block_6_title}}
-      {{/if}}
-    </div>
-    <div data-field="text">
-      {{#if settings.toggle_translations}}
-        {{dc settings.custom_block_6_text}}
-      {{else}}
-        {{settings.custom_block_6_text}}
-      {{/if}}
-    </div>
-  </div>
-{{/isnt}}
+{{!-- popular categories --}}
 <div hidden data-popular-categories>
   {{#if settings.toggle_translations}}
     {{dc settings.popular_searches_categories}}
