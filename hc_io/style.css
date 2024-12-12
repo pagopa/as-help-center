@@ -5934,6 +5934,11 @@ html.toc-enabled .lt-article-container__sidebar {
   }
 }
 
+.callout__title {
+  font-size: var(--font-size-h5) !important;
+  margin-top: 1px;
+}
+
 .lt-article__callout a,
 .lt-article__callout a:hover,
 .lt-article__callout a:focus,
@@ -7081,7 +7086,7 @@ blockquote::after {
   z-index: 1;
   overflow: hidden;
   list-style: none;
-  border-radius: var(--border-radius-base);
+  border-radius: 8px;
 }
 
 [dir='ltr'] .callout,
@@ -7159,6 +7164,7 @@ blockquote::after {
   top: 2rem;
   width: 24px;
   height: 24px;
+  font-size: var(--font-size-h5);
   content: '';
   mask-size: cover;
 }

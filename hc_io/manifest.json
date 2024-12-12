@@ -746,13 +746,6 @@
           "value": "#fff"
         },
         {
-          "identifier": "use_hero_unit_image",
-          "type": "checkbox",
-          "description": "Display the background image on the homepage",
-          "label": "Background image",
-          "value": true
-        },
-        {
           "identifier": "hero_homepage_image",
           "type": "file",
           "description": "The recommended dimensions: 1600x1100px",
@@ -831,7 +824,7 @@
           "type": "text",
           "description": "Text displayed on the top of the block",
           "label": "Title",
-          "value": "Information"
+          "value": "This is an info callout"
         },
         {
           "identifier": "info_block_text",

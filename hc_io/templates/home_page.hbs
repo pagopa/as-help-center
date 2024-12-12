@@ -1,9 +1,8 @@
  <div class="lt-hero-unit lt-container">
-  {{#if settings.use_hero_unit_image}}
-    <div class="lt-hero-unit__bg" data-hero-bg></div>
-  {{/if}}
+  <div class="lt-hero-unit__bg" data-hero-bg></div>
   <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
     <div class="lt-hero-unit__content lt-flex-lg-grow-1">
+      {{!-- Title --}}
       <h1 class="lt-hero-unit__title">
         {{#if settings.toggle_translations}}
           {{dc settings.hero_title_hello}}
@@ -19,67 +18,56 @@
         {{/if}}
       </h1>
 
+      {{!-- Search Bar --}}
       <div class="lt-hero-unit__search-box lt-search-box-lg--icon lt-search-box lt-mt-6 lt-d-print-none lt-d-flex lt-justify-content-center">
         {{search instant=true placeholder=settings.search_placeholder submit=settings.show_hero_unit_button}}
       </div>
 
-
+      {{!-- Popular Categories --}}
       {{#if settings.show_popular_searches}}
-      <div class="lt-hero-unit__topics lt-search-topic lt-mt-5 lt-mb-lg-0 lt-justify-content-center lt-d-flex lt-flex-column lt-flex-md-row">
-        <div class="lt-align-content-center popular-searches-label">{{#if settings.toggle_translations}}
-          {{dc settings.popular_searches_label}}
-        {{else}}
-          {{settings.popular_searches_label}}
-        {{/if}}</div>
-        <span class="lt-align-content-center" x-data="Theme.popularCategories()" x-cloak>
-          <template x-for="(item, index) in items" :key="index">
-            <a class="badge" :href="item.link" x-text="item.categoryName"></a>
-          </template>
-        </span>
-      </div>
+        <div class="lt-hero-unit__topics lt-search-topic lt-mt-5 lt-mb-lg-0 lt-justify-content-center lt-d-flex lt-flex-column lt-flex-md-row">
+          <div class="lt-align-content-center popular-searches-label">{{#if settings.toggle_translations}}
+            {{dc settings.popular_searches_label}}
+          {{else}}
+            {{settings.popular_searches_label}}
+          {{/if}}</div>
+          <span class="lt-align-content-center" x-data="Theme.popularCategories()" x-cloak>
+            <template x-for="(item, index) in items" :key="index">
+              <a class="badge" :href="item.link" x-text="item.categoryName"></a>
+            </template>
+          </span>
+        </div>
       {{/if}}
     </div>
 
-  </div>
-  <div class="lt-hero-unit__decor">
-    <div class="lt-hero-unit__decor--svg">
-      <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V91L0 7Z' fill-opacity='0.05'/>
-      </svg>
     </div>
-    <div class="lt-hero-unit__decor--svg">
-      <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V0.5L0 43L0 7Z' fill-opacity='0.1'/>
-      </svg>
+      <div class="lt-hero-unit__decor">
+        <div class="lt-hero-unit__decor--svg">
+          <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V91L0 7Z' fill-opacity='0.05'/>
+          </svg>
+        </div>
+        <div class="lt-hero-unit__decor--svg">
+          <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V0.5L0 43L0 7Z' fill-opacity='0.1'/>
+          </svg>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
 <div class="lt-main-content lt-bg-light">
   <div class="lt-padding-gen">
 
-    {{!-- TODO change and add different alert severity management --}}
+    {{!-- Info box --}}
     {{#if settings.show_info_block}}
-      <div class="lt-container lt-info-block-container lt-mb-9" id="info-block">
-        <div class="lt-container-inner">
-          <div class="lt-info-block lt-block lt-block--shadow ">
-            <div class="lt-info-block__content">
-              <h2 class="lt-info-block__title lt-fs-4 lt-fs-lg-2 lt-fw-bold">
-                {{#if settings.toggle_translations}}
-                  {{dc settings.info_block_title}} test
-                {{else}}
-                  {{settings.info_block_title}}
-                {{/if}}
-              </h2>
-              <div class="lt-info-block__text lt-fs-lg-6">
-                {{#if settings.toggle_translations}}
-                  {{dc settings.info_block_text}}
-                {{else}}
-                  {{settings.info_block_text}}
-                {{/if}}
-              </div>
-            </div>
-          </div>
+      <div class="lt-container-inner lt-mb-9 rte" id="info-block">
+        <div class="callout 
+          {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
+          {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
+          {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
+          {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
+          <h4 class="callout__title">{{settings.info_block_title}}</h4>
+          <p>{{settings.info_block_text}}</p>
         </div>
       </div>
     {{/if}}
@@ -101,7 +89,7 @@
                       <h3 class="lt-custom-block-item__title lt-mb-3 lt-fs-5">{{title}}</h3>
                       <span class="lt-custom-block-item__desc lt-fs-6 lt-mb-2">{{excerpt body characters=120}}</span>
                       <div class="read-article">
-                        {{!-- TODO Dynamic leggi l'articolo --}}
+                        {{!-- TODO Dynamic leggi l'articolo for i18n --}}
                         <a href="{{url}}">Leggi l'articolo</a>
                       </div>
                     </article>
@@ -116,165 +104,165 @@
       </div>
     {{/if}}
 
-        <div> {{!-- Wrapper element to avoid margin collapse --}}
-          {{!-- Sections and Categories --}}
-          <div class="lt-container lt-block-list" id="block-list">
-            <div class="lt-container-inner">
-              <section aria-labelledby="sectionHeading" class="lt-pb-5 lt-pb-lg-9 lt-pt-5 lt-pt-lg-9" id="promoted-articles-list">
-                <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
-                  <h2 id="sectionHeading" class="lt-section-heading__title lt-fs-2 lt-m-0">
-                    {{#if settings.toggle_translations}}
-                      {{dc settings.categories_boxes_title}}
-                    {{else}}
-                      {{settings.categories_boxes_title}}
-                    {{/if}}
-                  </h2>
-                </div>
-                <ul class="lt-block-list lt-list-unstyled lt-row lt-row-cols-md-{{settings.categories_per_line}} lt-gy-5 lt-mb-0" role="list">
-                  {{#each categories}}
-                    {{#if ../has_multiple_categories}}
-                      <p></p>
-                    {{else}}
-                      {{#each sections}}
-                      <li class="lt-block-list-item lt-d-flex" role="listitem">
-                        <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" title="Apri categoria {{name}}">
-                          <div class="header-category-cards">
-                            <div class="category-icon-container" aria-label="Icona categoria {{name}}">
-                              {{!-- Pagare con IO --}}
-                              {{#is id 30831027751697}} 
-                                <i class="fa-solid fa-credit-card category-icon" aria-hidden="true"></i>            
-                              {{/is}}
-                              {{!-- Inizia --}}
-                              {{#is id 30616546994321}}
-                                <i class="fa-solid fa-wand-magic-sparkles category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Accedere a IO con SPID --}}
-                              {{#is id 30616637679505}}
-                                <i class="fa-solid fa-circle-user category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Accedere a IO con CIE --}}
-                              {{#is id 30616691908241}}
-                                <i class="fa-solid fa-c category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Codici, impronta e volto --}}
-                              {{#is id 30616588447505}}
-                                <i class="fa-solid fa-fingerprint category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Documenti su IO --}}
-                              {{#is id 30616573690257}}
-                                <i class="fa-solid fa-address-card category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Messaggi --}}
-                              {{#is id 30831012755217}}
-                                <i class="fa-solid fa-message category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Notifiche SEND --}}
-                              {{#is id 30831007235089}}
-                                <i class="fa-solid fa-mobile-screen-button category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Problemi con il pagamento --}}
-                              {{#is id 30831099135633}}
-                                <i class="fa-solid fa-triangle-exclamation category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Gestione pagamenti e ricevute --}}
-                              {{#is id 30831144721169}}
-                                <i class="fa-solid fa-receipt category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Impostazioni e sicurezza --}}
-                              {{#is id 30831177675409}}
-                                <i class="fa-solid fa-gear category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Bonus e iniziative --}}
-                              {{#is id 30831196048529}}
-                                <i class="fa-solid fa-ticket category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              {{!-- Certificati e firme --}}
-                              {{#is id 30831203351185}}
-                                <i class="fa-solid fa-pen category-icon" aria-hidden="true"></i>
-                              {{/is}}
-                              
-                            </div>
-                            <h2 class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-my-auto">{{name}}</h2>
-                          </div>
-                          <p class="lt-block-list-item__text lt-fs-lg-6">{{description}}</p>
-                        </a>
-                      </li>
-                      {{/each}}
-                    {{/if}}
-                  {{/each}}
-                </ul>
-              </section>
-            </div>
-          </div>
-      </div>
-
-    {{#if settings.toggle_more_products}}
-    <div class="lt-container lt-mt-md-5 lt-pt-5 lt-pt-md-9" id="contact-boxes">
-      <div class="lt-container-inner">
-        <section aria-labelledby="sectionHeading" class="lt-pb-9">
-          <ul class="lt-list-unstyled lt-row lt-row-cols-md-1 lt-contact-info__list lt-p-0 lt-gy-5">
-            <div class="lt-align-content-center lt-col-lg-6">
+    <div> {{!-- Wrapper element to avoid margin collapse --}}
+      {{!-- Sections and Categories --}}
+      <div class="lt-container lt-block-list" id="block-list">
+        <div class="lt-container-inner">
+          <section aria-labelledby="sectionHeading" class="lt-pb-5 lt-pb-lg-9 lt-pt-5 lt-pt-lg-9" id="promoted-articles-list">
+            <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
               <h2 id="sectionHeading" class="lt-section-heading__title lt-fs-2 lt-m-0">
                 {{#if settings.toggle_translations}}
-                  {{dc settings.more_product_boxes_title}}
+                  {{dc settings.categories_boxes_title}}
                 {{else}}
-                  {{settings.more_product_boxes_title}}
+                  {{settings.categories_boxes_title}}
                 {{/if}}
               </h2>
             </div>
-
-            {{#if settings.more_product_box_1_toggle}}
-            <li class="lt-contact-info__item lt-d-md-flex lt-flex-grow-1 lt-col-lg-3">
-              <article
-                class="lt-contact-info-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
-                <img class="lt-contact-info-card__icon lt-mb-5" data-svg src="{{settings.more_product_box_1_icon}}" aria-hidden="true">
-                <h3 class="lt-contact-info-card__title lt-fs-4 lt-mb-2">
-                  <a class="lt-contact-info-card__link" href="
-                    {{#if settings.toggle_translations}}
-                      {{dc settings.more_product_box_1_url}}
-                    {{else}}
-                      {{settings.more_product_box_1_url}}
-                    {{/if}}">
-
-                    {{#if settings.toggle_translations}}
-                      {{dc settings.more_product_box_1_title}}
-                    {{else}}
-                      {{settings.more_product_box_1_title}}
-                    {{/if}}
-                  </a>
-                </h3>
-              </article>
-            </li>
-            {{/if}}
-
-            {{#if settings.more_product_box_2_toggle}}
-            <li class="lt-contact-info__item lt-d-md-flex lt-flex-grow-1 lt-col-lg-3">
-              <article
-                class="lt-contact-info-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
-                <img class="lt-contact-info-card__icon lt-mb-5" data-svg src="{{settings.more_product_box_2_icon}}" aria-hidden="true">
-                <h3 class="lt-contact-info-card__title lt-fs-4 lt-mb-2">
-                  <a class="lt-contact-info-card__link" href="
-                    {{#if settings.toggle_translations}}
-                      {{dc settings.more_product_box_2_url}}
-                    {{else}}
-                      {{settings.more_product_box_2_url}}
-                    {{/if}}">
-
-                    {{#if settings.toggle_translations}}
-                      {{dc settings.more_product_box_2_title}}
-                    {{else}}
-                      {{settings.more_product_box_2_title}}
-                    {{/if}}
-                  </a>
-                </h3>
-              </article>
-            </li>
-            {{/if}}
-          </ul>
-
-        </section>
+            <ul class="lt-block-list lt-list-unstyled lt-row lt-row-cols-md-{{settings.categories_per_line}} lt-gy-5 lt-mb-0" role="list">
+              {{#each categories}}
+                {{#if ../has_multiple_categories}}
+                  <p></p>
+                {{else}}
+                  {{#each sections}}
+                  <li class="lt-block-list-item lt-d-flex" role="listitem">
+                    <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" title="Apri categoria {{name}}">
+                      <div class="header-category-cards">
+                        <div class="category-icon-container" aria-label="Icona categoria {{name}}">
+                          {{!-- Pagare con IO --}}
+                          {{#is id 30831027751697}} 
+                            <i class="fa-solid fa-credit-card category-icon" aria-hidden="true"></i>            
+                          {{/is}}
+                          {{!-- Inizia --}}
+                          {{#is id 30616546994321}}
+                            <i class="fa-solid fa-wand-magic-sparkles category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Accedere a IO con SPID --}}
+                          {{#is id 30616637679505}}
+                            <i class="fa-solid fa-circle-user category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Accedere a IO con CIE --}}
+                          {{#is id 30616691908241}}
+                            <i class="fa-solid fa-c category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Codici, impronta e volto --}}
+                          {{#is id 30616588447505}}
+                            <i class="fa-solid fa-fingerprint category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Documenti su IO --}}
+                          {{#is id 30616573690257}}
+                            <i class="fa-solid fa-address-card category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Messaggi --}}
+                          {{#is id 30831012755217}}
+                            <i class="fa-solid fa-message category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Notifiche SEND --}}
+                          {{#is id 30831007235089}}
+                            <i class="fa-solid fa-mobile-screen-button category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Problemi con il pagamento --}}
+                          {{#is id 30831099135633}}
+                            <i class="fa-solid fa-triangle-exclamation category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Gestione pagamenti e ricevute --}}
+                          {{#is id 30831144721169}}
+                            <i class="fa-solid fa-receipt category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Impostazioni e sicurezza --}}
+                          {{#is id 30831177675409}}
+                            <i class="fa-solid fa-gear category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Bonus e iniziative --}}
+                          {{#is id 30831196048529}}
+                            <i class="fa-solid fa-ticket category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          {{!-- Certificati e firme --}}
+                          {{#is id 30831203351185}}
+                            <i class="fa-solid fa-pen category-icon" aria-hidden="true"></i>
+                          {{/is}}
+                          
+                        </div>
+                        <h2 class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-my-auto">{{name}}</h2>
+                      </div>
+                      <p class="lt-block-list-item__text lt-fs-lg-6">{{description}}</p>
+                    </a>
+                  </li>
+                  {{/each}}
+                {{/if}}
+              {{/each}}
+            </ul>
+          </section>
+        </div>
       </div>
     </div>
+
+    {{#if settings.toggle_more_products}}
+      <div class="lt-container lt-mt-md-5 lt-pt-5 lt-pt-md-9" id="contact-boxes">
+        <div class="lt-container-inner">
+          <section aria-labelledby="sectionHeading" class="lt-pb-9">
+            <ul class="lt-list-unstyled lt-row lt-row-cols-md-1 lt-contact-info__list lt-p-0 lt-gy-5">
+              <div class="lt-align-content-center lt-col-lg-6">
+                <h2 id="sectionHeading" class="lt-section-heading__title lt-fs-2 lt-m-0">
+                  {{#if settings.toggle_translations}}
+                    {{dc settings.more_product_boxes_title}}
+                  {{else}}
+                    {{settings.more_product_boxes_title}}
+                  {{/if}}
+                </h2>
+              </div>
+
+              {{#if settings.more_product_box_1_toggle}}
+              <li class="lt-contact-info__item lt-d-md-flex lt-flex-grow-1 lt-col-lg-3">
+                <article
+                  class="lt-contact-info-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
+                  <img class="lt-contact-info-card__icon lt-mb-5" data-svg src="{{settings.more_product_box_1_icon}}" aria-hidden="true">
+                  <h3 class="lt-contact-info-card__title lt-fs-4 lt-mb-2">
+                    <a class="lt-contact-info-card__link" href="
+                      {{#if settings.toggle_translations}}
+                        {{dc settings.more_product_box_1_url}}
+                      {{else}}
+                        {{settings.more_product_box_1_url}}
+                      {{/if}}">
+
+                      {{#if settings.toggle_translations}}
+                        {{dc settings.more_product_box_1_title}}
+                      {{else}}
+                        {{settings.more_product_box_1_title}}
+                      {{/if}}
+                    </a>
+                  </h3>
+                </article>
+              </li>
+              {{/if}}
+
+              {{#if settings.more_product_box_2_toggle}}
+              <li class="lt-contact-info__item lt-d-md-flex lt-flex-grow-1 lt-col-lg-3">
+                <article
+                  class="lt-contact-info-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
+                  <img class="lt-contact-info-card__icon lt-mb-5" data-svg src="{{settings.more_product_box_2_icon}}" aria-hidden="true">
+                  <h3 class="lt-contact-info-card__title lt-fs-4 lt-mb-2">
+                    <a class="lt-contact-info-card__link" href="
+                      {{#if settings.toggle_translations}}
+                        {{dc settings.more_product_box_2_url}}
+                      {{else}}
+                        {{settings.more_product_box_2_url}}
+                      {{/if}}">
+
+                      {{#if settings.toggle_translations}}
+                        {{dc settings.more_product_box_2_title}}
+                      {{else}}
+                        {{settings.more_product_box_2_title}}
+                      {{/if}}
+                    </a>
+                  </h3>
+                </article>
+              </li>
+              {{/if}}
+            </ul>
+
+          </section>
+        </div>
+      </div>
     {{/if}}
 
     {{#if settings.toggle_contact_request}}
