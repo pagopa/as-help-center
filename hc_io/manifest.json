@@ -75,6 +75,13 @@
           "description": "Text color for link elements",
           "label": "Link color",
           "value": "#05AA76"
+        },
+        {
+          "identifier": "link_hover_color",
+          "type": "color",
+          "description": "Hover color for link elements",
+          "label": "Link hover color",
+          "value": "#2185e9"
         }
       ]
     },
