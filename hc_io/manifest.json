@@ -827,6 +827,13 @@
       "label": "Info Block",
       "variables": [
         {
+          "identifier": "show_info_block_all_page",
+          "type": "checkbox",
+          "description": "Show info box on each pages",
+          "label": "Show on each pages",
+          "value": false
+        },
+        {
           "identifier": "info_block_title",
           "type": "text",
           "description": "Text displayed on the top of the block",

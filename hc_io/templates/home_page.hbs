@@ -125,7 +125,7 @@
                 {{else}}
                   {{#each sections}}
                   <li class="lt-block-list-item lt-d-flex" role="listitem">
-                    <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" title="Apri categoria {{name}}">
+                    <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" aria-label="Apri categoria {{name}}">
                       <div class="header-category-cards">
                         <div class="category-icon-container" aria-label="Icona categoria {{name}}">
                           {{!-- Pagare con IO --}}
@@ -180,7 +180,6 @@
                           {{#is id 30831203351185}}
                             <i class="fa-solid fa-pen category-icon" aria-hidden="true"></i>
                           {{/is}}
-                          
                         </div>
                         <h2 class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-my-auto">{{name}}</h2>
                       </div>
@@ -300,7 +299,10 @@
                   {{/if}}
                 </span>
               </div>
-              <div class="lt-d-block lt-d-md-none lt-btn lt-btn--square lt-btn--light" onclick="openIOApp()">{{settings.contact_request_btn_text}}</div>
+              <div class="lt-d-block lt-d-lg-none lt-btn lt-btn--square lt-btn--light" onclick="openIOApp()" id="open-io-app-cta">
+                {{settings.contact_request_btn_text}}
+                <span aria-hidden="true" id="open-app-spinner" class="lt-d-none ml-1"><div class="fas fa-circle-notch fa-spin fa-fw"></div></span>
+              </div>
               {{!-- {{link 'new_request' class='lt-contact-request__link lt-btn lt-btn--primary'}} --}}
             </div>
           </div>

@@ -996,7 +996,7 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
 }
 
 .lt-footer-link:hover {
-  color: link_hover_color !important;
+  color: $link_hover_color !important;
 }
 
 .lt-footer-group-title {
@@ -2388,14 +2388,14 @@ input[type='submit']:active,
 }
 
 /* Smartphone */
-@media (width <= 767px) {
+@media (width <= 991px) {
   .lt-contact-request__heading {
     margin-bottom: 24px;
   }
 }
 
 /* PC */
-@media (width >= 768px) {
+@media (width >= 992px) {
   .lt-contact-request__heading {
     margin-bottom: 0;
   }
@@ -2418,7 +2418,11 @@ input[type='submit']:active,
 }
 
 .lt-btn--light:hover {
-  color: link_hover_color;
+  color: $link_hover_color;
+}
+
+.lt-btn-loading {
+  pointer-events: none;
 }
 
 .lt-contact-request__button {
