@@ -780,11 +780,18 @@
           "value": "Search our knowledge base for answers to common questions"
         },
         {
+          "identifier": "search_placeholder_home",
+          "type": "text",
+          "description": "Text for the search field in Home page",
+          "label": "Home Search placeholder",
+          "value": "Cerca tra gli articoli..."
+        },
+        {
           "identifier": "search_placeholder",
           "type": "text",
           "description": "Text for the search field",
           "label": "Search placeholder",
-          "value": "Cerca tra gli articoli..."
+          "value": "Cerca nel centro assistenza..."
         },
         {
           "identifier": "show_hero_unit_button",
