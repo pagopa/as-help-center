@@ -1018,6 +1018,10 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   font-size: 14px;
 }
 
+.lt-social-footer {
+  margin-bottom: 18px;
+}
+
 @media (width >= 768px) {
   .lt-section-on-footer {
     position: relative;
