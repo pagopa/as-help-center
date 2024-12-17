@@ -9111,3 +9111,59 @@ slider-component {
 .prevnext__title {
   font-weight: bold !important;
 }
+
+.otnotice-menu {
+  position: absolute !important;
+  padding-bottom: 10px !important;
+  overflow-y: unset !important;
+  max-height: unset !important;
+  background-color: $color_bg_secondary !important;
+  border-radius: 16px;
+}
+
+.otnotice-menu li a:hover {
+  color: $link_hover_color !important;
+}
+
+.otnotice-menu-mobile {
+  box-shadow: 0 4px 16px 0 rgb(14 15 19 / 10%);
+  margin-bottom: 2rem !important;
+  background-color: $color_bg_secondary !important;
+  border-radius: 8px;
+}
+
+.content-info-privacy {
+  margin-top: 6.5rem;
+}
+
+@media (width >= 768px) {
+  .content-info-privacy {
+    margin-top: 7.5rem;
+  }
+}
+
+.otnotice-cookie-table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scroll for iOS */
+}
+
+@media only screen and (width <= 767px) {
+  .otnotice-sections > .otnotice-section > .otnotice-section-content {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+.loading-spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 30%);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $brand_primary;
+}
