@@ -127,13 +127,13 @@ textarea {
 
 /* TODO set default color */
 a {
-  /* color: $link_color; */
+  color: $link_color;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  /* color: darken($link_color, 15%); */
+  color: $link_hover_color;
   text-decoration: none;
 }
 
@@ -755,6 +755,7 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   margin-inline: auto !important;
   margin: 8px 0;
   width: fit-content;
+  transition: all 200ms;
 }
 
 .badge:hover,
@@ -762,6 +763,7 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   color: white;
   background: rgb(255 255 255 / 40%);
   text-decoration: none;
+  transition: all 200ms;
 }
 
 @media (width >= 768px) {
@@ -821,7 +823,7 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   font-size: 0.875rem;
   font-weight: 600;
   color: $topbar_text_color;
-  background-color: $topbar_bg;
+  background: $topbar_bg;
 }
 
 @media (width >= 992px) {
