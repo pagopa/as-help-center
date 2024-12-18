@@ -375,9 +375,15 @@ address {
   position: relative;
   z-index: 0;
   padding-top: 7rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2.5rem;
   color: $topbar_text_color;
   background: $topbar_bg;
+}
+
+@media (width >= 768px) {
+  .lt-start-screen-wrap {
+    padding-bottom: 4.5rem;
+  }
 }
 
 @media (width >= 992px) {
@@ -1044,7 +1050,6 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 1;
     width: 100%;
     height: 100%;
     background: url($hero_homepage_image) 50% 50% no-repeat;
@@ -1822,7 +1827,6 @@ input[type='submit']:active,
   list-style: none;
   background-color: transparent;
   border-radius: $border_radius_base;
-  opacity: 0.7;
 }
 
 .breadcrumbs > li {
@@ -1838,10 +1842,11 @@ input[type='submit']:active,
 
 .breadcrumbs > li a {
   color: $topbar_text_color;
+  opacity: 0.75;
 }
 
 .breadcrumbs > li:last-child a {
-  color: $topbar_text_color;
+  opacity: 1;
 }
 
 [dir='ltr'] .breadcrumbs {
@@ -2117,6 +2122,10 @@ input[type='submit']:active,
   color: $text_light_color;
 }
 
+.lt-section-stretch {
+  margin-top: 18px !important;
+}
+
 .lt-custom-block-item {
   list-style-type: none;
 }
@@ -2135,6 +2144,30 @@ input[type='submit']:active,
 @media (width >= 992px) {
   .lt-custom-block-item__card {
     min-height: 225px;
+  }
+}
+
+.lt-custom-block-item__card-stretch {
+  min-height: 112px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (width >= 768px) {
+  .lt-custom-block-item__card-stretch {
+    min-height: unset;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .lt-custom-block-item__card-stretch h3 {
+    max-width: 70%;
+  }
+
+  .lt-custom-block-item__card-stretch read-article {
+    margin: 0 !important;
   }
 }
 
@@ -2166,7 +2199,6 @@ input[type='submit']:active,
 .lt-custom-block-item__title {
   line-height: 1.1;
   color: $text_color;
-  letter-spacing: -0.01em;
 }
 
 .lt-custom-block-item__desc {
@@ -2538,7 +2570,6 @@ input[type='submit']:active,
 .lt-page__desc {
   font-size: 1rem;
   line-height: 1.5;
-  opacity: 0.7;
 }
 
 .lt-new-request-page {
@@ -5809,6 +5840,10 @@ html.toc-enabled .lt-article-container__sidebar {
   right: -12px;
   transform: translateX(7px);
   transition: all 0.3s ease-in-out;
+}
+
+.read-article-stretch--link {
+  margin-right: 24px;
 }
 
 .see-all-articles {
