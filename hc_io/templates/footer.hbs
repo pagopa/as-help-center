@@ -1,0 +1,93 @@
+</div>
+<footer class="lt-footer lt-d-print-none">
+  <div class="lt-container">
+    <div class="lt-row lt-py-8 lt-pt-8 lt-pb-4">
+      {{!-- TODO dynamic text for i18n --}}
+      <!-- Col 1: Logo and main links -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <a href="https://www.pagopa.it/it/" title="Link verso il sito PagoPA S.p.A."><img title="PagoPA" src="{{settings.footer_logo}}" alt="Logo PagoPA" class="lt-footer-logo"></a>
+        <ul class="lt-list-unstyled lt-my-3">
+          <li><a href="https://www.pagopa.it/it/societa/chi-siamo" class="lt-footer-link">Chi siamo</a></li>
+          <li><a href="https://www.pagopa.it/it/opportunita/pnrr/progetti" class="lt-footer-link">PNRR</a></li>
+          <li><a href="https://www.pagopa.it/it/media" class="lt-footer-link">Media</a></li>
+          <li><a href="https://www.pagopa.it/it/lavora-con-noi" class="lt-footer-link">Lavora con noi</a></li>
+        </ul>
+      </div>
+      <!-- Col 2: Products and Services -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <span class="lt-footer-group-title">PRODOTTI E SERVIZI</span>
+        <ul class="lt-list-unstyled lt-my-3">
+          <li><a href="https://www.pagopa.it/it/prodotti-e-servizi/app-io/" class="lt-footer-link">App IO</a></li>
+          <li><a href="https://www.pagopa.it/it/prodotti-e-servizi/piattaforma-pagopa/" class="lt-footer-link">Piattaforma pagoPA</a></li>
+          <li><a href="https://www.pagopa.it/it/prodotti-e-servizi/send-notifiche-digitali/" class="lt-footer-link">Piattaforma Notifiche Digitali</a></li>
+        </ul>
+      </div>
+      <!-- Col 3: Resources -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <span class="lt-footer-group-title">RISORSE</span>
+        <ul class="lt-list-unstyled lt-my-3">
+          <li><a href="/hc/p/info_privacy" class="lt-footer-link">Informativa Privacy</a></li>
+          <li><a href="https://www.pagopa.it/it/privacy-policy-assistenza/" class="lt-footer-link">Privacy Policy e Termini e Condizioni di utilizzo Assistenza</a></li>
+          <li><a href="https://www.pagopa.it/it/certificazioni/" class="lt-footer-link">Certificazioni</a></li>
+          <li><a href="https://privacyportal-de.onetrust.com/webform/77f17844-04c3-4969-a11d-462ee77acbe1/9ab6533d-be4a-482e-929a-0d8d2ab29df8" class="lt-footer-link">Diritto alla protezione dei dati personali</a></li>
+          <li><a href="https://pagopa.portaleamministrazionetrasparente.it/pagina746_altri-contenuti.html" class="lt-footer-link">Società trasparente</a></li>
+          <li><a href="https://www.pagopa.it/it/responsible-disclosure-policy/" class="lt-footer-link">Responsible Disclosure Policy</a></li>
+          <li><a href="https://pagopa.portaleamministrazionetrasparente.it/pagina746_altri-contenuti.htmls" class="lt-footer-link">Modello 231</a></li>
+        </ul>
+      </div>
+      <!-- Col 4: Social -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <span class="lt-footer-group-title">SEGUICI SU</span>
+        <div class="lt-social-footer lt-d-flex lt-gap-3 lt-mt-3 lt-justify-content-center lt-justify-content-md-start">
+          <a href="https://x.com/PagoPA" class="lt-footer-link" aria-label="Vai al canale social X di PagoPA"><i class="fab fa-square-x-twitter"></i></a>
+          <a href="https://www.instagram.com/pagopaspa/?hl=en" class="lt-footer-link" aria-label="Vai al canale social Instagram di PagoPA"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/pagopa/" class="lt-footer-link" aria-label="Vai al canale social Linkedin di PagoPA"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.youtube.com/@pagopaspa" class="lt-footer-link" aria-label="Vai al canale Youtube di PagoPA"><i class="fab fa-youtube"></i></a>
+        </div>
+        <ul class="lt-list-unstyled">
+          {{!-- TODO inserire --}}
+          <li><a href="#" class="lt-footer-link">Accessibilità</a></li>
+        </ul>  
+      </div>
+    </div>
+    <div class="lt-row lt-border-top lt-py-3">
+      <div class="lt-col-12 lt-text-center lt-footer-copyright">
+          <span class="lt-fw-bold">{{settings.footer_owner}} -</span> {{settings.footer_owner_data_1}}<br>{{settings.footer_owner_data_2}}
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+
+
+{{#if settings.toggle_translations}}
+  <div hidden data-lt-i18n-dictionary>
+    <div data-lt-i18n="search_placeholder">{{dc settings.search_placeholder}}
+    </div>
+  </div>
+
+  <script>
+    var $ltDictionary = $('[data-lt-i18n-dictionary]');
+    $('[role="search"] input[type="search"]').each(function (index, el) {
+      $(el).attr('placeholder', $ltDictionary.find('[data-lt-i18n="search_placeholder"]').html());
+    });
+  </script>
+{{/if}}
+
+{{!-- popular categories --}}
+<div hidden data-popular-categories>
+  {{#if settings.toggle_translations}}
+    {{dc settings.popular_searches_categories}}
+  {{else}}
+    {{settings.popular_searches_categories}}
+  {{/if}}
+</div>
+<script src="{{asset 'lotus-popular-searches.js'}}"></script>
+
+{{!-- open ticket --}}
+{{!-- TODO remove ticket when enable reserved area --}}
+{{!-- <script src="{{asset 'lotus-open-tickets-badge.js'}}"></script> --}}
+
+<script src="{{asset 'lotus-category-menu.js'}}"></script>
+{{!-- Open IO App CTA (deep link) --}}
+<script src="{{asset 'open-app-deeplink.js'}}"></script>

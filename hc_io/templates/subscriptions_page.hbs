@@ -1,0 +1,75 @@
+<div class="lt-start-screen-wrap lt-container">
+  <div class="lt-container-inner">
+    <div class="lt-breadcrumbs-wrapper lt-pt-lg-5 lt-pb-lg-4">{{breadcrumbs}}</div>
+    <div class="lt-row lt-align-items-sm-center">
+      <div class="lt-search-box lt-search-box--small lt-search-box--icon lt-mb-4 lt-col-sm-12 lt-col-lg-4 lt-align-self-lg-start lt-d-print-none">
+          {{search instant=true submit=false placeholder=settings.search_placeholder}}
+      </div>
+      <div class="lt-page__heading lt-col-sm-12 lt-col-lg-8">
+        <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{t 'my_activities' }}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="lt-hero-unit__decor">
+      <div class="lt-hero-unit__decor--svg">
+        <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V91L0 7Z' fill-opacity='0.05'/>
+        </svg>
+      </div>
+      <div class="lt-hero-unit__decor--svg">
+        <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V0.5L0 43L0 7Z' fill-opacity='0.1'/>
+        </svg>
+      </div>
+    </div>
+</div>
+
+<div class="lt-container my-activities-page lt-pb-8 lt-pt-6 lt-pt-lg-8 lt-position-relative">
+  <div class="lt-container-inner">
+    <nav class="lt-my-activities-menu lt-my-activities-menu--main lt-mb-4 lt-pb-3">
+      <ul class="lt-list-unstyled lt-d-flex lt-flex-column lt-flex-sm-row lt-mt-0 lt-mb-0">
+        {{#if help_center.request_management_enabled}}
+          <li class="lt-my-activities-menu-item">
+            {{link 'requests' class='lt-my-activities-menu-item__link'}}
+          </li>
+        {{/if}}
+        <li class="lt-my-activities-menu-item">
+          {{link 'contributions' class='lt-my-activities-menu-item__link'}}
+        </li>
+        <li class="lt-my-activities-menu-item is-active">
+          {{t 'following'}}
+        </li>
+      </ul>
+    </nav>
+
+    {{#if subscriptions}}
+      <table class="lt-my-activities-items" id="main-content">
+        <thead class="lt-my-activities-items__head">
+          <tr class="lt-my-activities-items__row">
+            <td class="lt-my-activities-items__col">{{t 'title'}}</td>
+            <td class="lt-my-activities-items__col">{{t 'type'}}</td>
+            <td class="lt-my-activities-items__col">{{t 'subscription'}}</td>
+            <td class="lt-my-activities-items__col">&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody class="lt-my-activities-items__body">
+          {{#each subscriptions}}
+            <tr class="lt-my-activities-items__row lt-my-activities-item">
+              <td class="lt-my-activities-items__col">
+                <a class="lt-my-activities-item__title" href="{{url}}">
+                  {{excerpt title characters=60}}
+                </a>
+              </td>
+              <td class="lt-my-activities-items__col lt-my-activities-item__meta">{{name}}</td>
+              <td class="lt-my-activities-items__col lt-my-activities-item__meta">{{following}}</td>
+              <td class="lt-my-activities-items__col lt-my-activities-item__meta lt-subscriptions-subscribe">{{subscribe}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      {{pagination}}
+    {{else}}
+      <p>{{t 'not_following'}}</p>
+    {{/if}}
+  </div>
+</div>

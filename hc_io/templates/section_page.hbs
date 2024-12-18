@@ -1,0 +1,65 @@
+<div class="lt-start-screen-wrap lt-container">
+  <div class="lt-container-inner">
+    <div class="lt-breadcrumbs-wrapper lt-pt-lg-5 lt-pb-lg-4">{{breadcrumbs}}</div>
+    <div class="lt-row lt-align-items-sm-center lt-mt-1">
+      <div class="lt-search-box lt-search-box--small lt-search-box--icon lt-mb-4 lt-col-sm-12 lt-col-lg-4 lt-align-self-lg-start lt-d-print-none">
+          {{search instant=true submit=false placeholder=settings.search_placeholder}}
+      </div>
+      <div class="lt-page__heading lt-col-sm-12 lt-col-lg-8 lt-mt-3 lt-mt-lg-0">
+        <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{section.name}}</h1>
+        {{#if section.description}}
+        <p class="lt-page__desc">{{section.description}}</p>
+        {{/if}}
+        {{#if settings.show_follow_section}}
+        <div class="lt-page__subscribe lt-mt-4 lt-section-subscribe ">
+          {{subscribe}}
+        </div>
+      {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="lt-hero-unit__decor">
+    <div class="lt-hero-unit__decor--svg">
+      <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V91L0 7Z' fill-opacity='0.05'/>
+      </svg>
+    </div>
+    <div class="lt-hero-unit__decor--svg">
+      <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V0.5L0 43L0 7Z' fill-opacity='0.1'/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="lt-container section-page lt-pt-6 lt-pb-6 lt-pb-md-9 lt-pt-md-9 lt-position-relative" id="main-content">
+  <div class="lt-container-inner">
+    {{#if section.sections}}
+      <ul class="lt-block-list lt-list-unstyled lt-row lt-row-cols-md-3 lt-gy-5 lt-mb-5 " id="section-list">
+        {{#each section.sections}}
+          <li class="lt-block-list-item lt-d-flex">
+            <a href="{{url}}" class="lt-block-list-item__link lt-block lt-block--shadow lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100">
+              <img class="lt-block-list-item__icon lt-mb-4" src="{{../settings.block_icon}}" data-svg aria-hidden="true" />
+              <div class="lt-block-list-item__content">
+                <div class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-mb-1 lt-mb-md-2">{{name}}</div>
+                <div class="lt-block-list-item__text lt-fs-lg-6">{{description}}</div>
+              </div>
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+      {{pagination "section.sections"}}
+    {{/if}}
+
+    {{#if section.articles}}
+      <ul class="lt-article-list lt-row lt-row-cols-md-3">
+        {{#each section.articles}}
+          <li class="lt-article-list-item">
+            <a class="lt-article-list-item__link" href="{{url}}">{{title}}</a>
+          </li>
+        {{/each}}
+      </ul>
+      {{pagination "section.articles"}}
+    {{/if}}
+  </div>
+</div>

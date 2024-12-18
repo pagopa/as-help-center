@@ -1,0 +1,79 @@
+<div class="lt-start-screen-wrap lt-container">
+  <div class="lt-container-inner">
+    <div class="lt-breadcrumbs-wrapper lt-pt-lg-5 lt-pb-lg-4">{{breadcrumbs}}</div>
+    <div class="lt-row lt-align-items-sm-center">
+      <div class="lt-search-box lt-search-box--small lt-search-box--icon lt-mb-4 lt-col-sm-12 lt-col-lg-4 lt-align-self-lg-start lt-d-print-none">
+          {{search instant=true submit=false placeholder=settings.search_placeholder}}
+      </div>
+      <div class="lt-page__heading lt-col-sm-12 lt-col-lg-8">
+        <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{category.name}}</h1>
+        {{#if category.description}}
+        <p class="lt-page__desc">{{category.description}}</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="lt-hero-unit__decor">
+    <div class="lt-hero-unit__decor--svg">
+      <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V91L0 7Z' fill-opacity='0.05'/>
+      </svg>
+    </div>
+    <div class="lt-hero-unit__decor--svg">
+      <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V0.5L0 43L0 7Z' fill-opacity='0.1'/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="lt-container category-page lt-pt-6 lt-pt-md-9 lt-position-relative">
+  <div class="lt-container-inner">
+    <div class="lt-category-tree-item"  id="main-content">
+      <div class="lt-category-tree-item__sections ">
+        {{#each sections}}
+          <section class="section lt-mb-8">
+            <h2 class="lt-mb-3 lt-mb-md-5">
+              <a class="lt-section-link" href="{{url}}">{{name}}</a>
+            </h2>
+            {{#if sections}}
+                <ul class="lt-row lt-block-list lt-row-cols-md-3 lt-gy-5 lt-list-unstyled lt-mb-5 " id="section-list">
+                  {{#each sections}}
+                    <li class="lt-block-list-item lt-d-flex">
+                      <a href="{{url}}" class="lt-block-list-item__link lt-block lt-block--shadow lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100">
+                        <img class="lt-block-list-item__icon lt-mb-4" src="{{../../settings.block_icon}}" data-svg aria-hidden="true" />
+                        <div class="lt-block-list-item__content">
+                          <div class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-mb-1 lt-mb-md-2">{{name}}</div>
+                          <div class="lt-block-list-item__text lt-fs-lg-6">{{description}}</div>
+                        </div>
+                      </a>
+                    </li>
+                  {{/each}}
+                </ul>
+              {{/if}}
+            {{#if articles}}
+              <div class="">
+                <ul class="lt-article-list lt-row lt-row-cols-md-3">
+                  {{#each articles}}
+                    <li class="lt-article-list-item">
+                      <a class="lt-article-list-item__link" href="{{url}}">{{title}}</a>
+                    </li>
+                  {{/each}}
+                </ul>
+                {{#if more_articles}}
+                  <a href="{{url}}" class="lt-btn lt-btn--default see-all-articles lt-mt-4 lt-ms-0">
+                    {{t 'show_all_articles' count=article_count}}
+                  </a>
+                {{/if}}
+              </div>
+            {{/if}}
+          </section>
+        {{else}}
+          <p>
+            {{t 'empty'}}
+          </p>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
