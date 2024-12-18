@@ -819,7 +819,7 @@
           "type": "text",
           "description": "Text displayed before the keywords",
           "label": "Popular searches label",
-          "value": "I problemi più frequenti:"
+          "value": "In evidenza:"
         },
         {
           "identifier": "popular_searches_categories",
@@ -889,7 +889,7 @@
           "type": "text",
           "description": "Promoted articles title",
           "label": "Title label of promoted articles box",
-          "value": "In evidenza"
+          "value": "I problemi più frequenti"
         },
         {
           "identifier": "popular_articles_read_button",
