@@ -77,7 +77,7 @@
         <div class="lt-container-inner">
           <section aria-labelledby="sectionHeading-promotedArticles" class="lt-pb-5 lt-pb-lg-9 lt-pt-5 lt-pt-lg-0" id="promoted-articles-list">
             <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
-              <h2 id="sectionHeading-promotedArticles" class="lt-section-heading__title lt-fs-2 lt-m-0">{{t 'promoted_articles'}}</h2>
+              <h2 id="sectionHeading-promotedArticles" class="lt-section-heading__title lt-fs-2 lt-m-0">{{settings.promoted_articles_title}}</h2>
             </div>
             {{#if promoted_articles}}
               <ul class="lt-custom-block-list lt-p-0 lt-mb-0 lt-row lt-row-cols-md-{{settings.promoted_articles_per_line}} lt-gy-5">
@@ -89,8 +89,7 @@
                         <h3 class="lt-custom-block-item__title lt-mb-3 lt-fs-5">{{title}}</h3>
                         <span class="lt-custom-block-item__desc lt-fs-6 lt-mb-3">{{excerpt body characters=120}}</span>
                         <div class="read-article">
-                          {{!-- TODO Dynamic leggi l'articolo for i18n --}}
-                          <a href="{{url}}">Leggi</a>
+                          <a href="{{url}}">{{../settings.popular_articles_read_button}}</a>
                         </div>
                       </article>
                     </li>

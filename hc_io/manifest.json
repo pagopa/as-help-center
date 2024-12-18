@@ -1,5 +1,5 @@
 {
-  "name": "home-help-center",
+  "name": "io-help-center",
   "author": "PagoPa S.p.A.",
   "version": "1.0.0",
   "api_version": 2,
@@ -25,14 +25,14 @@
           "type": "color",
           "description": "Background color of your Help Center",
           "label": "Background color",
-          "value": "#fff"
+          "value": "#f8f9fa"
         },
         {
           "identifier": "color_bg_secondary",
           "type": "color",
           "description": "Used for menus, search filters, request filters, etc.",
           "label": "Secondary background color",
-          "value": "#F2F2F2"
+          "value": "#fff"
         },
         {
           "identifier": "brand_primary",
@@ -74,7 +74,7 @@
           "type": "color",
           "description": "Text color for link elements",
           "label": "Link color",
-          "value": "#05AA76"
+          "value": "#0B3EE3"
         },
         {
           "identifier": "link_hover_color",
@@ -763,14 +763,14 @@
           "type": "text",
           "description": "Text above the title and the search field",
           "label": "Title Hello",
-          "value": "Ciao,"
+          "value": ""
         },
         {
           "identifier": "hero_title",
           "type": "text",
           "description": "Text above the search field",
           "label": "Title",
-          "value": "Come possiamo aiutarti?"
+          "value": "Ciao, come possiamo aiutarti?"
         },
         {
           "identifier": "hero_description",
@@ -784,14 +784,14 @@
           "type": "text",
           "description": "Text for the search field in Home page",
           "label": "Home Search placeholder",
-          "value": "Cerca tra gli articoli..."
+          "value": "Cerca tra gli articoli"
         },
         {
           "identifier": "search_placeholder",
           "type": "text",
           "description": "Text for the search field",
           "label": "Search placeholder",
-          "value": "Cerca nel centro assistenza..."
+          "value": "Cerca nel centro assistenza"
         },
         {
           "identifier": "show_hero_unit_button",
@@ -819,7 +819,7 @@
           "type": "text",
           "description": "Text displayed before the keywords",
           "label": "Popular searches label",
-          "value": "Gli argomenti più letti:"
+          "value": "I problemi più frequenti:"
         },
         {
           "identifier": "popular_searches_categories",
@@ -885,6 +885,13 @@
       "label": "Popular Articles Block",
       "variables": [
         {
+          "identifier": "promoted_articles_title",
+          "type": "text",
+          "description": "Promoted articles title",
+          "label": "Title label of promoted articles box",
+          "value": "In evidenza"
+        },
+        {
           "identifier": "popular_articles_read_button",
           "type": "text",
           "description": "Label of popular articles card button",
@@ -901,7 +908,7 @@
           "type": "text",
           "description": "Title above the categories boxes",
           "label": "Categories boxes title",
-          "value": "Su cosa hai bisogno di aiuto?"
+          "value": "Esplora tutti gli argomenti"
         },
         {
           "identifier": "categories_per_line",
@@ -1306,7 +1313,7 @@
           "type": "text",
           "description": "Title of contact request section",
           "label": "Section Title",
-          "value": "Non hai trovato quello che cerchi?"
+          "value": "Non hai trovato la risposta che cercavi?"
         },
         {
           "identifier": "contact_request_box_color",
@@ -1320,14 +1327,14 @@
           "type": "text",
           "description": "Title inside contact request box",
           "label": "Box Title",
-          "value": "Accedi all'app"
+          "value": "Scrivici su IO"
         },
         {
           "identifier": "contact_request_subtitle",
           "type": "text",
           "description": "Subtitle at the bottom of the homepage section",
           "label": "Box Subtitle",
-          "value": "Se hai l’app IO puoi chiedere assistenza direttamente da lì e riceverai supporto dedicato per il tuo problema."
+          "value": "Se hai scaricato l’app IO, accedi per inviarci un messaggio e ricevere assistenza personalizzata."
         },
         {
           "identifier": "contact_request_image",
@@ -1340,7 +1347,7 @@
           "type": "text",
           "description": "Button label of request contact box",
           "label": "Button label",
-          "value": "Apri l'app"
+          "value": "Apri IO"
         }
       ]
     },
@@ -1777,11 +1784,34 @@
       "label": "Section page elements",
       "variables": [
         {
-          "identifier": "show_follow_section",
+          "identifier": "show_section_title",
           "type": "checkbox",
-          "description": "Users can follow a specific section",
-          "label": "Follow",
-          "value": true
+          "description": "Show title of the section box that wraps articles",
+          "label": "Show section title",
+          "value": false
+        },
+        {
+          "identifier": "section_title",
+          "type": "text",
+          "description": "Title of the section box that wraps articles",
+          "label": "Section title",
+          "value": "Articoli su questo argomento"
+        },
+        {
+          "identifier": "section_articles_per_line",
+          "type": "range",
+          "description": "Number of section articles displayed per line",
+          "label": "Number of section articles per line",
+          "min": 1,
+          "max": 3,
+          "value": 1
+        },
+        {
+          "identifier": "section_articles_read_button",
+          "type": "text",
+          "description": "Label of read articles button",
+          "label": "Button label of articles card",
+          "value": "Leggi l'articolo"
         }
       ]
     },
