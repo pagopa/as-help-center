@@ -124,15 +124,13 @@ textarea {
 }
 
 /* Links */
-
-/* TODO set default color */
 a {
   color: $link_color;
   text-decoration: none;
 }
 
-a:hover,
-a:focus {
+/* TODO :focus ? */
+a:hover {
   color: $link_hover_color;
   text-decoration: none;
 }
@@ -764,8 +762,8 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   transition: all 200ms;
 }
 
-.badge:hover,
-.badge:focus {
+/* TODO focus */
+.badge:hover {
   color: white;
   background: rgb(255 255 255 / 40%);
   text-decoration: none;
