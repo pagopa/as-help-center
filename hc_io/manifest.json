@@ -1564,34 +1564,27 @@
           "type": "checkbox",
           "description": "Show comments on articles",
           "label": "Comments",
-          "value": true
+          "value": false
         },
         {
-          "identifier": "show_follow_article",
+          "identifier": "show_article_vote_count",
           "type": "checkbox",
-          "description": "Users can follow a specific article",
-          "label": "Follow",
-          "value": true
-        },
-        {
-          "identifier": "show_print_article",
-          "type": "checkbox",
-          "description": "Users can click the button to print an article",
-          "label": "Print Button",
-          "value": true
+          "description": "Show vote count on article",
+          "label": "Vote count",
+          "value": false
         },
         {
           "identifier": "show_article_sharing",
           "type": "checkbox",
           "description": "Show social media sharing on article",
           "label": "Social sharing",
-          "value": true
+          "value": false
         },
         {
-          "identifier": "show_article_boxes",
+          "identifier": "show_related_articles",
           "type": "checkbox",
-          "description": "Show articles boxes",
-          "label": "Articles boxes",
+          "description": "Show related articles",
+          "label": "Related articles",
           "value": true
         }
       ]
