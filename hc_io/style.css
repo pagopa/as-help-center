@@ -9103,6 +9103,15 @@ slider-component {
   border-radius: 8px;
 }
 
+.otnotice-content .otnotice-sections .otnotice-section-content h2 strong:nth-child(1) {
+  font-weight: 700 !important;
+  font-size: var(--font-size-h2) !important;
+}
+
+.otnotice-content .otnotice-sections .otnotice-section-content h2:nth-child(1) {
+  margin-bottom: 1.5rem !important;
+}
+
 .content-info-privacy {
   margin-top: 6.5rem;
 }
