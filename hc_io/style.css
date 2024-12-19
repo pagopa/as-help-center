@@ -1177,44 +1177,6 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   white-space: nowrap;
 }
 
-.lt-hero-unit__decor {
-  position: absolute;
-  right: 0;
-  bottom: -83px;
-  left: 0;
-  display: none;
-  width: 100%;
-}
-
-.lt-hero-unit__decor svg {
-  width: 100%;
-}
-
-.lt-hero-unit__decor--svg {
-  position: absolute;
-  bottom: 0;
-}
-
-[dir='ltr'] .lt-hero-unit__decor--svg:nth-child(1) {
-  right: 0;
-}
-
-[dir='ltr'] .lt-hero-unit__decor--svg:nth-child(2) {
-  left: 0;
-}
-
-[dir='rtl'] .lt-hero-unit__decor--svg:nth-child(1) {
-  left: 0;
-}
-
-[dir='rtl'] .lt-hero-unit__decor--svg:nth-child(2) {
-  right: 0;
-}
-
-.lt-hero-unit__decor--path {
-  fill: $brand_primary;
-}
-
 @media (width >= 992px) {
   .lt-hero-unit__faq-wrapper {
     width: 453px;
