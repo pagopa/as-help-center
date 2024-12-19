@@ -35,14 +35,16 @@
     {{!-- Info box --}}
     {{#if settings.show_info_block}}
       {{#is settings.show_info_block_all_page true}}
-        <div class="lt-container-inner lt-mb-9 rte" id="info-block">
-          <div class="callout 
-            {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
-            {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
-            {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
-            {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
-            <h4 class="callout__title">{{settings.info_block_title}}</h4>
-            <p>{{settings.info_block_text}}</p>
+        <div class="lt-container lt-pt-5 lt-pt-lg-0 lt-pb-7 lt-pb-lg-9">
+          <div class="lt-container-inner rte info-block" id="info-block">
+            <div class="callout 
+              {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
+              {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
+              {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
+              {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
+              <h4 class="callout__title">{{settings.info_block_title}}</h4>
+              <p>{{settings.info_block_text}}</p>
+            </div>
           </div>
         </div>
       {{/is}}
@@ -51,16 +53,16 @@
     {{!-- Section Articles --}}
     <div class="lt-container" id="main-content">
       <div class="lt-container-inner">
-        <section aria-labelledby="sectionHeading-articles" class="lt-pb-5 lt-pb-lg-9 lt-pt-5 lt-pt-lg-0" id="section-articles-list">
+        <section aria-labelledby="sectionHeading-articles" class="lt-pb-5 lt-pb-lg-9" id="section-articles-list">
           
-          {{#is settings.show_section_title true}}
+          {{#if settings.show_section_title}}
             <div class="lt-section-heading lt-mb-6 lt-mb-lg-9">
               <h2 id="sectionHeading-articles" class="lt-section-heading__title lt-fs-2 lt-m-0">{{settings.section_title}}</h2>
             </div>
-          {{/is}}  
+          {{/if}}  
 
           {{#if section.articles}}
-            <ul class="lt-custom-block-list lt-p-0 lt-mb-0 lt-row lt-row-cols-md-{{settings.section_articles_per_line}} lt-gy-5">
+            <ul class="lt-custom-block-list lt-p-0 lt-mb-0 lt-row lt-row-cols-md-{{settings.section_articles_per_line}}">
               {{#each section.articles}}
                 <li class="lt-custom-block-item lt-d-flex lt-section-stretch">
                   <article

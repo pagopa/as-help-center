@@ -60,14 +60,16 @@
 
     {{!-- Info box --}}
     {{#if settings.show_info_block}}
-      <div class="lt-container-inner lt-mb-9 rte" id="info-block">
-        <div class="callout 
-          {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
-          {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
-          {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
-          {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
-          <h4 class="callout__title">{{settings.info_block_title}}</h4>
-          <p>{{settings.info_block_text}}</p>
+      <div class="lt-container lt-pt-5 lt-pt-lg-0 lt-pb-7 lt-pb-lg-9">
+        <div class="lt-container-inner rte info-block" id="info-block">
+          <div class="callout 
+            {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
+            {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
+            {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
+            {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
+            <h4 class="callout__title">{{settings.info_block_title}}</h4>
+            <p>{{settings.info_block_text}}</p>
+          </div>
         </div>
       </div>
     {{/if}}
@@ -75,7 +77,7 @@
     {{#if settings.toggle_promoted_articles}}
       <div class="lt-container" id="promoted-articles">
         <div class="lt-container-inner">
-          <section aria-labelledby="sectionHeading-promotedArticles" class="lt-pb-5 lt-pb-lg-9 lt-pt-5 lt-pt-lg-0" id="promoted-articles-list">
+          <section aria-labelledby="sectionHeading-promotedArticles" class="lt-pb-5 lt-pb-lg-9" id="promoted-articles-list">
             <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
               <h2 id="sectionHeading-promotedArticles" class="lt-section-heading__title lt-fs-2 lt-m-0">{{settings.promoted_articles_title}}</h2>
             </div>

@@ -338,12 +338,12 @@ address {
 }
 
 .lt-main-content {
-  padding-top: 3.5rem;
+  padding-top: 1rem;
 }
 
 @media (width >= 992px) {
   .lt-main-content {
-    padding-top: 7.5rem;
+    padding-top: 3.5rem;
   }
 }
 
@@ -3864,31 +3864,6 @@ a.notification-dismiss {
 
 .lt-contact-box__text {
   color: var(--meta-text-color);
-}
-
-.lt-info-block {
-  position: relative;
-  padding: 1.5rem;
-}
-
-@media (width >= 992px) {
-  .lt-info-block {
-    padding: 4.5rem 5.9375rem;
-    text-align: center;
-  }
-}
-
-.lt-info-block__title {
-  margin-bottom: 1rem;
-  line-height: 1.1;
-  color: $text_color;
-}
-
-.lt-info-block__text {
-  margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: $text_light_color;
 }
 
 .lt-vote__sum {
