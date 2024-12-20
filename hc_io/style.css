@@ -4947,6 +4947,18 @@ a.notification-dismiss {
   text-decoration: underline;
 }
 
+@media (width <= 804px) {
+  .lt-search-topic {
+    flex-direction: column !important;
+  }
+}
+
+@media (width > 804px) {
+  .lt-search-topic {
+    flex-direction: row !important;
+  }
+}
+
 /* My Activities */
 .lt-my-activities-items {
   width: 100%;

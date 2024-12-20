@@ -16,7 +16,7 @@
     }
     const categories = categoriesEl.innerText.trim();
 
-    return categories.split(',').map((category) => {
+    return categories.split(';').map((category) => {
       const categoryParam = category.split('|');
       const categoryName = categoryParam[0].trim();
       const categoryId = categoryParam[1].trim();

@@ -824,9 +824,9 @@
         {
           "identifier": "popular_searches_categories",
           "type": "text",
-          "description": "Comma-separated categories with name and id",
+          "description": "Semicolon-separated categories with name and id",
           "label": "Popular searches categories",
-          "value": "Pagare con IO|30831027751697, Documenti su IO|30616573690257, Accedere a IO con SPID|30616637679505"
+          "value": "Accesso con SPID|30616637679505; Codice di sblocco, profilo e sicurezza|30616588447505; Problemi con il pagamento|30831099135633"
         }
       ]
     },
