@@ -1586,6 +1586,13 @@
           "description": "Show related articles",
           "label": "Related articles",
           "value": true
+        },
+        {
+          "identifier": "article_toc_title",
+          "type": "text",
+          "description": "Table of content title of article page",
+          "label": "Table of content title",
+          "value": "Indice"
         }
       ]
     },
