@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -819,14 +819,14 @@
           "type": "text",
           "description": "Text displayed before the keywords",
           "label": "Popular searches label",
-          "value": "I problemi più frequenti:"
+          "value": "In evidenza:"
         },
         {
           "identifier": "popular_searches_categories",
           "type": "text",
-          "description": "Comma-separated categories with name and id",
+          "description": "Semicolon-separated categories with name and id",
           "label": "Popular searches categories",
-          "value": "Pagare con IO|30831027751697, Documenti su IO|30616573690257, Accedere a IO con SPID|30616637679505"
+          "value": "Accesso con SPID|30616637679505; Codice di sblocco, profilo e sicurezza|30616588447505; Problemi con il pagamento|30831099135633"
         }
       ]
     },
@@ -889,7 +889,7 @@
           "type": "text",
           "description": "Promoted articles title",
           "label": "Title label of promoted articles box",
-          "value": "In evidenza"
+          "value": "I problemi più frequenti"
         },
         {
           "identifier": "popular_articles_read_button",
@@ -1564,35 +1564,35 @@
           "type": "checkbox",
           "description": "Show comments on articles",
           "label": "Comments",
-          "value": true
+          "value": false
         },
         {
-          "identifier": "show_follow_article",
+          "identifier": "show_article_vote_count",
           "type": "checkbox",
-          "description": "Users can follow a specific article",
-          "label": "Follow",
-          "value": true
-        },
-        {
-          "identifier": "show_print_article",
-          "type": "checkbox",
-          "description": "Users can click the button to print an article",
-          "label": "Print Button",
-          "value": true
+          "description": "Show vote count on article",
+          "label": "Vote count",
+          "value": false
         },
         {
           "identifier": "show_article_sharing",
           "type": "checkbox",
           "description": "Show social media sharing on article",
           "label": "Social sharing",
+          "value": false
+        },
+        {
+          "identifier": "show_related_articles",
+          "type": "checkbox",
+          "description": "Show related articles",
+          "label": "Related articles",
           "value": true
         },
         {
-          "identifier": "show_article_boxes",
-          "type": "checkbox",
-          "description": "Show articles boxes",
-          "label": "Articles boxes",
-          "value": true
+          "identifier": "article_toc_title",
+          "type": "text",
+          "description": "Table of content title of article page",
+          "label": "Table of content title",
+          "value": "Indice"
         }
       ]
     },

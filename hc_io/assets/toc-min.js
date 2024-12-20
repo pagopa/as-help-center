@@ -100,13 +100,14 @@
           {
             key: 'createTableOfContents',
             value: function () {
+              var customTitle = this.$element.attr('custom-title'); // Recupera il valore di custom-title
+              var tocTitle = customTitle || this.options.title;
+
               this.$article.css('position', 'relative'),
                 this.$element.html(
                   '\n      <div class="lt-toc">\n        <div class="lt-toc--container">\n          '
                     .concat(
-                      this.options.title
-                        ? '<h4 class="lt-toc--title">'.concat(this.options.title, '</h4>')
-                        : '',
+                      tocTitle ? '<h4 class="lt-toc--title">'.concat(tocTitle, '</h4>') : '',
                       '\n          <div class="lt-toc--current">'
                     )
                     .concat(
