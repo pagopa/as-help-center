@@ -1835,6 +1835,32 @@
       ]
     },
     {
+      "label": "Error page elements",
+      "variables": [
+        {
+          "identifier": "error_title",
+          "type": "text",
+          "description": "Error page title",
+          "label": "Title",
+          "value": "Questa pagina non esiste"
+        },
+        {
+          "identifier": "error_subtitle",
+          "type": "text",
+          "description": "Error page subtitle",
+          "label": "Subtitle",
+          "value": "Potremmo averla spostata, o l’indirizzo potrebbe non essere corretto."
+        },
+        {
+          "identifier": "error_button_label",
+          "type": "text",
+          "description": "Label button on error page",
+          "label": "Error button",
+          "value": "Torna alla home"
+        }
+      ]
+    },
+    {
       "label": "Community post elements",
       "variables": [
         {

@@ -8772,3 +8772,13 @@
     display: none !important;
   }
 }
+
+.lt-justify-self-before-md-center {
+  justify-self: center;
+}
+
+@media (width >= 768px) {
+  .lt-justify-self-before-md-center {
+    justify-self: unset;
+  }
+}

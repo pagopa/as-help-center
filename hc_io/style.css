@@ -390,6 +390,16 @@ address {
   }
 }
 
+.lt-start-screen-wrap--pb-5 {
+  padding-bottom: 3rem;
+}
+
+@media (width >= 768px) {
+  .lt-start-screen-wrap--pb-5 {
+    padding-bottom: 4.5rem;
+  }
+}
+
 .lt-bg-light {
   background-color: #f8f9fa !important;
 }
