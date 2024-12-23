@@ -1839,10 +1839,10 @@ input[type='submit']:active,
 
 .breadcrumbs > li a {
   color: $topbar_text_color;
-  opacity: 0.75;
+  opacity: 0.8;
 }
 
-.breadcrumbs > li:last-child a {
+.lt-breadcrumb-last .breadcrumbs > li:last-child a {
   opacity: 1;
 }
 
