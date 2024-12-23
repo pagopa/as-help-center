@@ -1816,6 +1816,25 @@
       ]
     },
     {
+      "label": "Search result elements",
+      "variables": [
+        {
+          "identifier": "no_result_text",
+          "type": "text",
+          "description": "Text displayed when no article is found on search result page",
+          "label": "No result text",
+          "value": "Non c’è nessun risultato per questa ricerca. Usa parole diverse o cerca tra gli argomenti."
+        },
+        {
+          "identifier": "no_result_back_home",
+          "type": "text",
+          "description": "Go back home label button when no article is found on search result page",
+          "label": "Fallback button",
+          "value": "Torna alla home"
+        }
+      ]
+    },
+    {
       "label": "Community post elements",
       "variables": [
         {
