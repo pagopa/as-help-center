@@ -5,6 +5,21 @@
     "plugins": [
         "@semantic-release/commit-analyzer",
         "@semantic-release/release-notes-generator",
+        [
+          "semantic-release-slack-bot",
+          {
+            "notifyOnSuccess": false,
+            "notifyOnFail": false,
+            "branchesConfig": [
+              {
+                "pattern": "main",
+                "notifyOnSuccess": true,
+                "notifyOnFail": false,
+                "markdownReleaseNotes": true
+              }
+            ]
+          }
+        ],
         "@semantic-release/changelog",
         ["@semantic-release/npm", {
             "npmPublish": false
