@@ -336,12 +336,12 @@ address {
 }
 
 .lt-main-content {
-  padding-top: 1rem;
+  padding-top: 3rem;
 }
 
 @media (width >= 992px) {
   .lt-main-content {
-    padding-top: 3.5rem;
+    padding-top: 4rem;
   }
 }
 

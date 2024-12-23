@@ -784,7 +784,7 @@
           "type": "text",
           "description": "Text for the search field in Home page",
           "label": "Home Search placeholder",
-          "value": "Cerca tra gli articoli"
+          "value": "Scrivi parole chiave (es. usare IO)"
         },
         {
           "identifier": "search_placeholder",
@@ -819,7 +819,7 @@
           "type": "text",
           "description": "Text displayed before the keywords",
           "label": "Popular searches label",
-          "value": "In evidenza:"
+          "value": "Argomenti in evidenza:"
         },
         {
           "identifier": "popular_searches_categories",
@@ -889,7 +889,7 @@
           "type": "text",
           "description": "Promoted articles title",
           "label": "Title label of promoted articles box",
-          "value": "I problemi più frequenti"
+          "value": "I più letti"
         },
         {
           "identifier": "popular_articles_read_button",
