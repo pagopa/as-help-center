@@ -1,8 +1,3 @@
-{{!-- Loading spinner --}}
-<div class="loading-spinner-overlay" aria-hidden="true" id="loading-spinner">
-    <div class="lt-text-center"><div class="fas fa-circle-notch fa-spin fa-3x fa-fw"></div></div>
-</div>
-
 {{!-- OneTrust Privacy Notice start --}}
 {{!-- Container in which the privacy notice will be rendered --}}
 <div class="content-info-privacy lt-container">
@@ -20,6 +15,10 @@
 {{!-- Wrap cookie table into a checked div (for css overflow styling) --}}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        // show loading spinner
+        const loadingSpinner = $('#loading-spinner');
+        loadingSpinner.removeClass('lt-d-none');
+        
         const cookieTableNode = document.querySelector("#otnotice-a1f881b7-cb0b-4452-9154-ee3a277df6d6");
 
         // observe mutation from DOM
@@ -28,8 +27,8 @@
                 if (mutation.type === "childList") {
                     const table = cookieTableNode.querySelector("table");
                     if (table) {
-
-                        $('#loading-spinner').delay(200).fadeOut();
+                        // hide loading spinner
+                        loadingSpinner.delay(200).fadeOut();
 
                         const wrapperDiv = document.createElement("div");
                         wrapperDiv.className = "otnotice-cookie-table-container";
