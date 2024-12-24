@@ -1,47 +1,48 @@
  <div class="lt-hero-unit lt-container">
   <div class="lt-hero-unit__bg" data-hero-bg></div>
-  <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
-    <div class="lt-hero-unit__content lt-flex-lg-grow-1">
-      {{!-- Title --}}
-      <h1 class="lt-hero-unit__title">
-        {{#if settings.toggle_translations}}
-          {{dc settings.hero_title_hello}}
-        {{else}}
-          {{settings.hero_title_hello}}
-        {{/if}}
-      </h1>
-      <h1 class="lt-hero-unit__title lt-mb-3">
-        {{#if settings.toggle_translations}}
-          {{dc settings.hero_title}}
-        {{else}}
-          {{settings.hero_title}}
-        {{/if}}
-      </h1>
+    <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
+      <div class="lt-hero-unit__content lt-flex-lg-grow-1">
+        {{!-- Title --}}
+        <h1 class="lt-hero-unit__title">
+          {{#if settings.toggle_translations}}
+            {{dc settings.hero_title_hello}}
+          {{else}}
+            {{settings.hero_title_hello}}
+          {{/if}}
+        </h1>
+        <h1 class="lt-hero-unit__title lt-mb-3">
+          {{#if settings.toggle_translations}}
+            {{dc settings.hero_title}}
+          {{else}}
+            {{settings.hero_title}}
+          {{/if}}
+        </h1>
 
-      {{!-- Search Bar --}}
-      <div class="lt-hero-unit__search-box lt-search-box-lg--icon lt-search-box lt-mt-6 lt-d-print-none lt-d-flex lt-justify-content-center">
-        {{search instant=true placeholder=settings.search_placeholder_home submit=settings.show_hero_unit_button}}
+        {{!-- TODO for no wide screen (galaxy z fold) there is a placeholder overflow --> make a js that truncate the placeholder in these cases --}}
+        {{!-- Search Bar --}}
+        <div class="lt-hero-unit__search-box lt-search-box-lg--icon lt-search-box lt-mt-6 lt-d-print-none lt-d-flex lt-justify-content-center">
+          {{search instant=true placeholder=settings.search_placeholder_home submit=settings.show_hero_unit_button}}
+        </div>
+
+        {{!-- Popular Categories --}}
+        {{#if settings.show_popular_searches}}
+          <div class="lt-hero-unit__topics lt-search-topic lt-mt-5 lt-mb-lg-0 lt-justify-content-center lt-d-flex">
+            <div class="lt-align-content-center popular-searches-label">{{#if settings.toggle_translations}}
+              {{dc settings.popular_searches_label}}
+            {{else}}
+              {{settings.popular_searches_label}}
+            {{/if}}</div>
+            <span class="lt-align-content-center" x-data="Theme.popularCategories()" x-cloak>
+              <template x-for="(item, index) in items" :key="index">
+                <a class="badge" :href="item.link" x-text="item.categoryName"></a>
+              </template>
+            </span>
+          </div>
+        {{/if}}
       </div>
 
-      {{!-- Popular Categories --}}
-      {{#if settings.show_popular_searches}}
-        <div class="lt-hero-unit__topics lt-search-topic lt-mt-5 lt-mb-lg-0 lt-justify-content-center lt-d-flex">
-          <div class="lt-align-content-center popular-searches-label">{{#if settings.toggle_translations}}
-            {{dc settings.popular_searches_label}}
-          {{else}}
-            {{settings.popular_searches_label}}
-          {{/if}}</div>
-          <span class="lt-align-content-center" x-data="Theme.popularCategories()" x-cloak>
-            <template x-for="(item, index) in items" :key="index">
-              <a class="badge" :href="item.link" x-text="item.categoryName"></a>
-            </template>
-          </span>
-        </div>
-      {{/if}}
     </div>
-
-    </div>
-    </div>
+</div>
 
 <div class="lt-main-content lt-bg-light">
   <div class="lt-padding-gen">
@@ -98,7 +99,7 @@
       {{!-- Sections and Categories --}}
       <div class="lt-container lt-block-list" id="block-list">
         <div class="lt-container-inner">
-          <section aria-labelledby="sectionHeading-sections" class="lt-pb-5 lt-pb-lg-9 lt-pt-5 lt-pt-lg-9" id="promoted-articles-list">
+          <section aria-labelledby="sectionHeading-sections" class="lt-pb-5 lt-pb-lg-9 lt-pt-7 lt-pt-lg-9" id="promoted-articles-list">
             <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
               <h2 id="sectionHeading-sections" class="lt-section-heading__title lt-fs-2 lt-m-0">
                 {{#if settings.toggle_translations}}
@@ -257,7 +258,7 @@
 
     {{!-- Contact Request --}}
     {{#if settings.toggle_contact_request}}
-      <div class="lt-container lt-pt-9 lt-pb-9" id="footer-submit-ticket">
+      <div class="lt-container lt-pt-7 lt-pb-9" id="footer-submit-ticket">
         <div class="lt-container-inner">
           <section aria-labelledby="sectionHeading-contacts">
             <div class="lt-section-heading lt-mb-4">

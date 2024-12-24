@@ -82,6 +82,12 @@
     {{settings.popular_searches_categories}}
   {{/if}}
 </div>
+
+{{!-- Loading spinner overlay --}}
+<div class="loading-spinner-overlay lt-d-none" aria-hidden="true" id="loading-spinner">
+    <div class="lt-text-center"><div class="fas fa-circle-notch fa-spin fa-3x fa-fw"></div></div>
+</div>
+
 <script src="{{asset 'lotus-popular-searches.js'}}"></script>
 
 {{!-- open ticket --}}

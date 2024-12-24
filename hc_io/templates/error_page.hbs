@@ -1,11 +1,9 @@
-<div class="lt-start-screen-wrap lt-container">
-  <div class="lt-container-inner">
+<div class="lt-start-screen-wrap lt-start-screen-wrap--pb-5 lt-container">
+  <div class="lt-hero-unit__bg lt-behind" data-hero-bg></div>
+  <div class="lt-container-inner lt-text-center lt-text-md-start">
     <div class="lt-row lt-align-items-sm-center lt-pt-lg-8">
-      <div class="lt-search-box lt-search-box--small lt-search-box--icon lt-mb-4 lt-col-sm-12 lt-col-lg-4 lt-align-self-lg-start lt-d-print-none">
-          {{search instant=true submit=false placeholder=settings.search_placeholder}}
-      </div>
-      <div class="lt-page__heading lt-col-sm-12 lt-col-lg-8">
-        {{#is error 'unauthorized'}}
+      <div class="lt-page__heading lt-col-12">
+        {{!-- {{#is error 'unauthorized'}}
           <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{link 'sign_in'}}</h1>
         {{/is}}
         {{#is error 'forbidden'}}
@@ -14,43 +12,16 @@
         {{#is error 'not_found'}}
           <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{t 'nonexistent_page'}}</h1>
           <p class="lt-page__desc">{{t 'mistyped_address_or_moved_page'}}</p>
-        {{/is}}
+        {{/is}} --}}
+
+        <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{settings.error_title}}</h1>
+        <p class="lt-page__desc">{{settings.error_subtitle}}</p>
+
+        {{#link 'help_center' class="lt-d-block lt-btn lt-btn--square lt-btn--light lt-justify-self-before-md-center" }}
+          {{settings.error_button_label}}
+        {{/link}}
+
       </div>
     </div>
-  </div>
-  <div class="lt-hero-unit__decor">
-      <div class="lt-hero-unit__decor--svg">
-        <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
-          <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V91L0 7Z' fill-opacity='0.05'/>
-        </svg>
-      </div>
-      <div class="lt-hero-unit__decor--svg">
-        <svg width='1440' height='91'  fill='none' xmlns='http://www.w3.org/2000/svg'>
-          <path class="lt-hero-unit__decor--path" width="100%" d='M0 7H1920V0.5L0 43L0 7Z' fill-opacity='0.1'/>
-        </svg>
-      </div>
-    </div>
-</div>
-
-<div class="lt-container lt-error-page lt-pb-9 lt-mx-auto text-center lt-position-relative" id="main-content">
-  <div class="lt-container-inner">
-    {{#is error 'not_found'}}
-    <div class="lt-error-page__articles lt-p-4 lt-pb-3 lt-mb-4 lt-mt-6 lt-mt-lg-8 ">
-      <div class="lt-fs-4 lt-fw-bold lt-mb-3">{{t 'promoted_articles'}}</div>
-
-      <ul class="lt-list-unstyled lt-mt-0 lt-mb-0">
-        {{#each promoted_articles}}
-          <li class="lt-promoted-articles-item lt-mb-2">
-            <a class="lt-promoted-articles-item__title " href="{{url}}">{{title}}</a>
-        {{/each}}
-        </li>
-      </ul>
-    </div>
-    {{/is}}
-
-      {{#link 'help_center' class='lt-btn lt-btn--default lt-me-sm-2 lt-mb-4'}}
-        {{t 'back_to_homepage'}}
-      {{/link}}
-      {{link 'new_request' class='lt-btn lt-btn--primary lt-mb-4'}}
   </div>
 </div>

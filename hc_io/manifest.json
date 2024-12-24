@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -784,7 +784,7 @@
           "type": "text",
           "description": "Text for the search field in Home page",
           "label": "Home Search placeholder",
-          "value": "Cerca tra gli articoli"
+          "value": "Scrivi parole chiave (es. usare IO)"
         },
         {
           "identifier": "search_placeholder",
@@ -819,7 +819,7 @@
           "type": "text",
           "description": "Text displayed before the keywords",
           "label": "Popular searches label",
-          "value": "In evidenza:"
+          "value": "Argomenti in evidenza:"
         },
         {
           "identifier": "popular_searches_categories",
@@ -889,7 +889,7 @@
           "type": "text",
           "description": "Promoted articles title",
           "label": "Title label of promoted articles box",
-          "value": "I problemi più frequenti"
+          "value": "I più letti"
         },
         {
           "identifier": "popular_articles_read_button",
@@ -1812,6 +1812,51 @@
           "description": "Label of read articles button",
           "label": "Button label of articles card",
           "value": "Leggi l'articolo"
+        }
+      ]
+    },
+    {
+      "label": "Search result elements",
+      "variables": [
+        {
+          "identifier": "no_result_text",
+          "type": "text",
+          "description": "Text displayed when no article is found on search result page",
+          "label": "No result text",
+          "value": "Non c’è nessun risultato per questa ricerca. Usa parole diverse o cerca tra gli argomenti."
+        },
+        {
+          "identifier": "no_result_back_home",
+          "type": "text",
+          "description": "Go back home label button when no article is found on search result page",
+          "label": "Fallback button",
+          "value": "Torna alla home"
+        }
+      ]
+    },
+    {
+      "label": "Error page elements",
+      "variables": [
+        {
+          "identifier": "error_title",
+          "type": "text",
+          "description": "Error page title",
+          "label": "Title",
+          "value": "Questa pagina non esiste"
+        },
+        {
+          "identifier": "error_subtitle",
+          "type": "text",
+          "description": "Error page subtitle",
+          "label": "Subtitle",
+          "value": "Potremmo averla spostata, o l’indirizzo potrebbe non essere corretto."
+        },
+        {
+          "identifier": "error_button_label",
+          "type": "text",
+          "description": "Label button on error page",
+          "label": "Error button",
+          "value": "Torna alla home"
         }
       ]
     },
