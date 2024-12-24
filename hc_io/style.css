@@ -1576,8 +1576,10 @@ input[type='submit']:active,
 .pagination-last-link,
 .recent-activity-controls a {
   color: $text_color;
-  background-color: transparent;
-  border: 1px solid #e6e6e6;
+  background-color: $color_bg_secondary;
+
+  /* TODO parametrized shadow */
+  box-shadow: 0 4px 16px 0 rgb(14 15 19 / 10%);
 }
 
 .lt-btn--default:hover,
@@ -1607,9 +1609,8 @@ input[type='submit']:active,
 .recent-activity-controls a:hover,
 .recent-activity-controls a:focus,
 .recent-activity-controls a:active {
-  color: darken($link_color, 12%);
-  background-color: transparent;
-  border-color: darken($link_color, 12%);
+  color: $brand_primary_inverse;
+  background-color: $brand_primary;
 }
 
 input[type='submit'],
@@ -4706,7 +4707,7 @@ a.notification-dismiss {
 
 .search-result-link:hover {
   transition: all 200ms !important;
-  color: darken($brand_primary, 10%) !important;
+  color: darken($brand_primary, 15%) !important;
 }
 
 .search-result-link:hover::before {
