@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/pagopa/as-help-center/compare/v1.2.0...v1.3.0) (2024-12-24)
+
+
+### Features
+
+* **IO HC:** search results page, error page, favicon ([#6](https://github.com/pagopa/as-help-center/issues/6)) ([94c90a5](https://github.com/pagopa/as-help-center/commit/94c90a5c7194a0b9165c81b9b1540693e869efff))
+
 # [1.2.0](https://github.com/pagopa/as-help-center/compare/v1.1.0...v1.2.0) (2024-12-20)
 
 
