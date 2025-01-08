@@ -189,10 +189,10 @@ function initCallouts() {
   // Title for the Default callout
   function getTitle(item) {
     const classValues = {
-      note: LotusConfig.infoTitle,
-      warning: LotusConfig.warningTitle,
-      success: LotusConfig.successTitle,
-      danger: LotusConfig.dangerTitle
+      note: 'Note',
+      warning: 'Warning',
+      success: 'Success',
+      danger: 'Danger'
     };
     return (
       classValues[Array.from(item.classList).find((className) => classValues[className])] || ''

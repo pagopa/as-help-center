@@ -16,7 +16,8 @@
   --font-size-h4: calc($font_size_base * 1.25);
   --font-size-h5: calc($font_size_base * 1.1);
   --font-size-h6: calc($font_size_base * 1);
-  --line-height-computed: $font_size_base * $line_height_base;
+  --line-height-base: 1.5;
+  --line-height-computed: $font_size_base * var(--line-height-base);
   --strong-font-weight: 600;
   --input-border-color: #dee1e3;
   --input-focus-border-color: #9a9a9a;
@@ -25,11 +26,11 @@
   /* Formatting Content */
 
   --lt-accordion-border: $border_color;
-  --border-width: $border_width;
-  --border-radius-base-min: $border_radius_base;
+  --border-width: 2px;
+  --border-radius-base-min: 4px;
   --border-radius-base-max: 48px;
   --border-radius-base: min(var(--border-radius-base-min), var(--border-radius-base-max));
-  --border-radius-lg-min: $border_radius_lg;
+  --border-radius-lg-min: 16px;
   --border-radius-lg-max: 48px;
   --border-radius-lg: min(var(--border-radius-lg-min), var(--border-radius-lg-max));
   --lt-accordion-padding-vertical: 1rem;
@@ -96,6 +97,7 @@
 html,
 body {
   height: 100%;
+  font-size: $font_size_base;
 }
 
 /* Body reset */
@@ -105,8 +107,7 @@ html {
 
 body {
   font-family: $font_family_base;
-  font-size: $font_size_base;
-  line-height: $line_height_base;
+  line-height: var(--line-height-base);
   color: $text_color;
   background-color: $body_bg;
   text-rendering: optimizelegibility;
@@ -172,7 +173,7 @@ h6,
 .h5,
 .h6 {
   font-family: $heading_font;
-  font-weight: $heading_font_weight;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -245,7 +246,7 @@ dl {
 dt,
 dd {
   margin-bottom: calc(var(--line-height-computed) / 2);
-  line-height: $line_height_base;
+  line-height: var(--line-height-base);
 }
 
 dt {
@@ -504,7 +505,7 @@ output {
   display: block;
   padding-top: 7px;
   font-size: $font_size_base;
-  line-height: $line_height_base;
+  line-height: var(--line-height-base);
   color: #55595c;
 }
 
@@ -537,14 +538,14 @@ input[type='color'],
   height: auto;
   padding: 6px 12px;
   font-size: $font_size_base;
-  line-height: $line_height_base;
+  line-height: var(--line-height-base);
   color: #55595c;
   background-color: #fff;
   background-image: none;
 
   /*  Reset unusual Firefox-on-Android default style; see https:github.com/necolas/normalize.css/issues/214 */
   border: var(--border-width) solid var(--input-border-color);
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
   transition:
     border-color ease-in-out 0.15s,
     box-shadow ease-in-out 0.15s;
@@ -644,7 +645,7 @@ textarea {
   input[type='time'],
   input[type='datetime-local'],
   input[type='month'] {
-    line-height: calc($font_size_base * $line_height_base * 2.5);
+    line-height: calc($font_size_base * var(--line-height-base) * 2.5);
   }
 }
 
@@ -782,12 +783,14 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
 
 @media (width >= 768px) {
   .badge {
-    background: rgb(255 255 255 / 20%);
+    /* TODO verificare */
+
+    /* background: rgb(255 255 255 / 20%);
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 600; */
     margin-inline: 4px !important;
     margin: 0 4px;
     display: inline-block;
@@ -1031,6 +1034,7 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
 }
 
 .lt-footer-copyright {
+  /* TODO metterlo in rem */
   font-size: 14px;
 }
 
@@ -1218,6 +1222,7 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   }
 
   .lt-hero-unit__title {
+    /* TODO metterlo in rem */
     font-size: 44px;
     line-height: 3.625rem;
   }
@@ -1295,7 +1300,7 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   font-weight: normal;
   background: #fff;
   border: 1px solid #ebeaeb;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
   box-shadow: 0 0 2rem rgb(0 0 0 / 10%);
 }
 
@@ -1399,7 +1404,7 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   padding: 0;
   font-size: calc($font_size_base - 5px);
   font-weight: 700;
-  line-height: $line_height_base;
+  line-height: var(--line-height-base);
   color: inherit;
   text-transform: uppercase;
   border: 0;
@@ -1450,7 +1455,7 @@ input[type='submit'],
   margin-bottom: 0;
   font-size: 0.875rem;
   font-weight: 700;
-  line-height: $line_height_base;
+  line-height: var(--line-height-base);
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -1824,7 +1829,7 @@ input[type='submit']:active,
   margin-bottom: 0;
   list-style: none;
   background-color: transparent;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 .breadcrumbs > li {
@@ -1998,7 +2003,7 @@ input[type='submit']:active,
   padding: 2px calc(var(--padding-base-horizontal) / 2);
   font-size: 12px;
   color: #fff;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 .lt-status-label--pending {
@@ -2251,7 +2256,7 @@ input[type='submit']:active,
 /* Hover sulla card */
 .lt-block-list-item__link:hover {
   background-color: $brand_primary;
-  color: $block_text_color;
+  color: $brand_primary_inverse;
 }
 
 .lt-block-list-item__link:hover .lt-block-list-item__text {
@@ -2595,15 +2600,15 @@ input[type='submit']:active,
 
 .lt-new-request-tip {
   position: relative;
-  background-color: $new_request_tip_background;
-  border: 2px solid darken($new_request_tip_background, 40%);
-  border-radius: $border_radius_base;
+  background-color: $brand_primary;
+  border: 2px solid darken($brand_primary, 40%);
+  border-radius: var(--border-radius-base-min);
 }
 
 .lt-new-request-tip__icon {
   position: absolute;
   top: 2rem;
-  color: darken($new_request_tip_background, 40%);
+  color: darken($brand_primary, 40%);
 }
 
 [dir='ltr'] .lt-new-request-tip__icon {
@@ -2636,7 +2641,7 @@ input[type='submit']:active,
 
 .lt-error-page__articles {
   border: 2px solid $border_color;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 .pagination-list {
@@ -2689,7 +2694,7 @@ input[type='submit']:active,
   margin: 0 0 calc(10px * 2);
   margin-top: 0;
   border-color: $border_color;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 .satisfaction-box h4:last-child {
@@ -2805,7 +2810,7 @@ input[type='submit']:active,
 
 .satisfaction-box .satisfaction-cancel {
   font-size: calc($font_size_base - 5px) !important;
-  line-height: $line_height_base !important;
+  line-height: var(--line-height-base) !important;
 }
 
 .lt-scroll-to-top {
@@ -2820,7 +2825,7 @@ input[type='submit']:active,
   text-align: center;
   background-color: transparent;
   border: var(--border-width) solid $link_color;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
   transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -2993,7 +2998,7 @@ input[type='submit']:active,
 .lt-profile-header {
   padding-top: 8rem;
   text-align: center;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 @media (width >= 992px) {
@@ -3224,7 +3229,7 @@ input[type='submit']:active,
   padding: calc(var(--line-height-computed) / 2) var(--grid-gutter-width);
   word-wrap: break-word;
   border: 1px solid #eceeef;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 .lt-profile-contribution .breadcrumbs > li a {
@@ -3374,7 +3379,7 @@ input[type='submit']:active,
 
 .lt-profile-badge-item {
   border: 2px solid $border_color;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 .lt-profile-badge {
@@ -3767,7 +3772,7 @@ a.notification-dismiss {
 /* Accordion view */
 .lt-promoted-articles-accordion-item {
   border: 2px solid $border_color;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 .lt-promoted-articles-accordion-item__title {
@@ -3843,7 +3848,7 @@ a.notification-dismiss {
   color: $text_color;
   flex-direction: column;
   border: 2px solid $border_color;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
   align-items: flex-start;
 }
 
@@ -4932,7 +4937,7 @@ a.notification-dismiss {
   color: $text_color;
   text-decoration: none;
   border: 0;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
   transition: all 0.3s ease;
 }
 
@@ -5135,7 +5140,7 @@ a.notification-dismiss {
   padding: 0.5rem 1rem;
   font-weight: bold;
   background-color: #eceeef;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 .lt-my-activities-menu-item__link,
@@ -5200,7 +5205,7 @@ a.notification-dismiss {
     padding: calc(var(--line-height-computed) / 2) var(--padding-base-horizontal);
     margin-bottom: calc(var(--line-height-computed));
     border: var(--border-width) solid $border_color;
-    border-radius: $border_radius_base;
+    border-radius: var(--border-radius-base-min);
   }
 }
 
@@ -5525,7 +5530,7 @@ a.notification-dismiss {
   font-size: var(--font-size-small);
   color: #fff;
   background-color: $brand_primary;
-  border-radius: 0 0 $border_radius_base $border_radius_base;
+  border-radius: 0 0 var(--border-radius-base-min) var(--border-radius-base-min);
 }
 
 [dir='ltr'] .lt-comment__official-heading {
@@ -6121,7 +6126,7 @@ html.toc-enabled .lt-article-container__sidebar {
   color: $text_color;
   background-color: transparent;
   border: 1px solid $border_color;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
   transition: all 0.3s ease;
 }
 
@@ -6538,7 +6543,7 @@ html.toc-enabled .lt-article-container__sidebar {
   padding: 1px calc(var(--padding-base-horizontal) / 2);
   font-size: 12px;
   color: #fff;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 .lt-post-status--completed,
@@ -6729,7 +6734,7 @@ html.toc-enabled .lt-article-container__sidebar {
   padding-bottom: calc(var(--padding-base-horizontal) / 2);
   margin-bottom: calc(var(--line-height-computed));
   background-color: #f9f9f9;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 @media (width >= 576px) {
@@ -6859,7 +6864,7 @@ html.toc-enabled .lt-article-container__sidebar {
   padding: 0.25rem 0.5rem;
   color: #fff;
   white-space: nowrap;
-  border-radius: $border_radius_base;
+  border-radius: var(--border-radius-base-min);
 }
 
 .lt-request-status--solved,
