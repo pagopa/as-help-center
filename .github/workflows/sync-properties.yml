@@ -48,14 +48,6 @@ jobs:
         uses: ./.github/workflows/node-setup
         with:
           node-version-file: ".nvmrc"
-
-      # call common set zendesk env variables workflow (for subdomain)
-      - name: Set zendesk env variables for each brand
-        id: zendesk-env
-        uses: ./.github/workflows/set-zendesk-env-var
-        with:
-          # brands-folder: "${{ inputs.brand }}"
-          brands-folder: hc_io
       
       # download zip theme
       - name: Download Theme

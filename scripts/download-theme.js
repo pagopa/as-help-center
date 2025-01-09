@@ -16,10 +16,7 @@ import { validateFolderExistence, LOG_COLOR } from './utils.js';
 /* eslint-disable no-unused-vars */
 const [pathToNode, pathToScript, brandFolder, themeId] = process.argv;
 
-const SUBDOMAIN = process.env.ZENDESK_SUBDOMAIN;
-if (!SUBDOMAIN) {
-  throw new Error(`Subdomain not found for brand: ${brandFolder}`);
-}
+const SUBDOMAIN = 'pagopa';
 
 // check folder input
 validateFolderExistence(
@@ -31,8 +28,6 @@ const baseUrl = `https://${SUBDOMAIN}.zendesk.com/api/v2/guide/theming`;
 const email = process.env.ZENDESK_EMAIL;
 const password = process.env.ZENDESK_API_TOKEN;
 const api_bearer_token = process.env.API_BEARER_TOKEN;
-
-console.log(email, password, SUBDOMAIN);
 
 const PENDING_JOB_VALUE = 'pending';
 const COMPLETED_JOB_VALUE = 'completed';
