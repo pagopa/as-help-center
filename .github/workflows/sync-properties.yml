@@ -32,12 +32,12 @@ jobs:
         id: checkout
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
         with:
-          ref: ${{ github.ref_name }} # checkout to branch chosen when action was started
+          ref: ${{ github.head_ref }} # checkout to branch chosen when action was started
 
       # action runnable only on branches not equal to main
       - name: Check branch
         run: |
-          if [ "${{ github.ref_name }}" == "main" ]; then
+          if [ "${{ github.head_ref }}" == "main" ]; then
             echo "Error: you can't run Sync Manifest Properties action on main branch!"
             exit 1
           fi
@@ -88,4 +88,4 @@ jobs:
           git add hc_io/manifest.json
           # git commit -m "chore(manifest.json): ${{ inputs.brand }} sync properties"
           git commit -m "chore(manifest.json): hc_io sync properties"
-          git push origin ${{ github.ref_name }}
+          git push origin ${{ github.head_ref }}
