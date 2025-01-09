@@ -5,7 +5,7 @@ on:
     inputs:
       brand:
         type: choice
-        description: "Choose the Brand"
+        description: 'Choose the Brand'
         options:
           # integrate when a new brand is added/removed (with folder name)
           - hc_io
@@ -14,7 +14,7 @@ on:
           - hc_home
         required: true
       theme_id:
-        description: "Theme ID to sync"
+        description: 'Theme ID to sync'
         required: true
 
 jobs:
@@ -30,6 +30,7 @@ jobs:
       # action runnable only on branches not equal to main
       - name: Check branch
         run: |
+          # checking that branch is not equal to main
           if [ "${{ github.ref_name }}" == "main" ]; then
             echo "Error: you can't run Sync Manifest Properties action on main branch!"
             exit 1
@@ -40,27 +41,29 @@ jobs:
         id: node-setup
         uses: ./.github/workflows/node-setup
         with:
-          node-version-file: ".nvmrc"
-      
+          node-version-file: '.nvmrc'
+
       # download zip theme
       - name: Download Theme
         env:
           API_BEARER_TOKEN: ${{ secrets.API_BEARER_TOKEN }}
         run: |
-          # run the download theme script 
+          # running the download theme script 
           node scripts/download-theme.js "${{ inputs.brand }}" "${{ inputs.theme_id }}"
 
       # Replace manifest.json with the new one just downloaded (sync)
       - name: Replace manifest.json
         run: |
+          # replacing manifest.json with the new one
           unzip theme.zip -d theme-extracted
           cp ./theme-extracted/manifest.json ./${{ inputs.brand }}/manifest.json
-      
+
       # commit sync manifest
       - name: Commit changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # committing new manifest.json
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add ${{ inputs.brand }}/manifest.json
