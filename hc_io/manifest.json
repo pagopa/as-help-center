@@ -173,13 +173,13 @@
         {
           "identifier": "logo",
           "type": "file",
-          "description": "Brand logo",
+          "description": "Company logo",
           "label": "Logo"
         },
         {
           "identifier": "logo_height",
           "type": "text",
-          "description": "Height of the brand logo",
+          "description": "Height of the logo",
           "label": "Logo height",
           "value": "28px"
         },
@@ -211,7 +211,7 @@
         {
           "identifier": "topbar_bg",
           "type": "text",
-          "description": "Header background color (html)",
+          "description": "Header background color",
           "label": "Background color",
           "value": "linear-gradient(180deg, #0B3EE3 0%, #3C64E6 100%)"
         },
@@ -291,13 +291,13 @@
         {
           "identifier": "footer_logo",
           "type": "file",
-          "description": "Footer logo",
-          "label": "Logo"
+          "description": "Logo",
+          "label": "Footer logo"
         },
         {
           "identifier": "footer_logo_url",
           "type": "text",
-          "description": "Footer logo link",
+          "description": "Logo link",
           "label": "Logo URL",
           "value": "https://www.pagopa.it/it/"
         },
@@ -316,7 +316,7 @@
         {
           "identifier": "footer_col2_title",
           "type": "text",
-          "description": "Column title of second footer column",
+          "description": "Title of footer second column",
           "label": "Column title",
           "value": "PRODOTTI E SERVIZI"
         },
@@ -335,7 +335,7 @@
         {
           "identifier": "footer_col3_title",
           "type": "text",
-          "description": "Column title of third footer column",
+          "description": "Title of footer third column",
           "label": "Column title",
           "value": "RISORSE"
         },
@@ -430,7 +430,7 @@
           "identifier": "hero_homepage_image",
           "type": "file",
           "description": "The recommended dimensions: 1600x1100px",
-          "label": "Hero banner background image"
+          "label": "Homepage background image"
         },
         {
           "identifier": "hero_title_hello",
@@ -445,6 +445,13 @@
           "description": "Text above the search field",
           "label": "Title",
           "value": "Ciao, come possiamo aiutarti?"
+        },
+        {
+          "identifier": "hero_description",
+          "type": "text",
+          "description": "Text after title",
+          "label": "Description",
+          "value": "Search our knowledge base for answers to common questions"
         },
         {
           "identifier": "search_placeholder_home",
@@ -563,15 +570,15 @@
           "type": "range",
           "description": "Number of promoted articles displayed per line",
           "label": "Number of promoted articles per line",
+          "value": 3,
           "min": 1,
-          "max": 6,
-          "value": 3
+          "max": 6
         },
         {
           "identifier": "toggle_more_products",
           "type": "checkbox",
-          "description": "Show more help center box",
-          "label": "More Help Center box",
+          "description": "Show the more product boxes",
+          "label": "More product Boxes",
           "value": false
         },
         {
@@ -608,8 +615,8 @@
         {
           "identifier": "categories_boxes_title",
           "type": "text",
-          "description": "Title above the categories box",
-          "label": "Categories box title",
+          "description": "Title above the categories boxes",
+          "label": "Categories boxes title",
           "value": "Esplora tutti gli argomenti"
         },
         {
@@ -617,20 +624,20 @@
           "type": "range",
           "description": "Number of categories displayed per line",
           "label": "Number of categories per line",
+          "value": 3,
           "min": 1,
-          "max": 6,
-          "value": 3
+          "max": 6
         },
         {
           "identifier": "categories_bg_color",
-          "type": "color",
+          "type": "text",
           "description": "Color of card categories",
           "label": "Color of background of categories block",
           "value": "#ffffff"
         },
         {
           "identifier": "categories_card_color",
-          "type": "color",
+          "type": "text",
           "description": "Color of card categories",
           "label": "Color of card categories",
           "value": "#f8f9fa"
@@ -650,7 +657,7 @@
         {
           "identifier": "contact_request_box_color",
           "type": "text",
-          "description": "Color of contact request box",
+          "description": "Color of contact requet box",
           "label": "Box Color",
           "value": "linear-gradient(90deg, #0D3FE3 0%, #3962E6 68.88%)"
         },
@@ -664,20 +671,20 @@
         {
           "identifier": "contact_request_subtitle",
           "type": "text",
-          "description": "Subtitle of the contact request box",
+          "description": "Subtitle at the bottom of the homepage section",
           "label": "Box Subtitle",
           "value": "Se hai scaricato l’app IO, accedi per inviarci un messaggio e ricevere assistenza personalizzata."
         },
         {
           "identifier": "contact_request_image",
           "type": "file",
-          "description": "Image of the contact request box",
+          "description": "Image at the bottom of the homepage section",
           "label": "Box Image"
         },
         {
           "identifier": "contact_request_btn_text",
           "type": "text",
-          "description": "Button label of the contact request box",
+          "description": "Button label of request contact box",
           "label": "Button label",
           "value": "Apri IO"
         }
@@ -689,8 +696,8 @@
         {
           "identifier": "more_product_boxes_title",
           "type": "text",
-          "description": "Title of more Help Center box",
-          "label": "More Help Center box title",
+          "description": "Title above the contact boxes",
+          "label": "More product boxes title",
           "value": "Cerchi assistenza su un altro prodotto?"
         }
       ]
@@ -701,14 +708,14 @@
         {
           "identifier": "more_product_box_1_toggle",
           "type": "checkbox",
-          "description": "Show or hide the More Help Center Box 1",
-          "label": "Show Box",
+          "description": "Show or hide the More Product Box",
+          "label": "Show More product Box",
           "value": true
         },
         {
           "identifier": "more_product_box_1_url",
           "type": "text",
-          "description": "Box 1 URL",
+          "description": "More product box URL",
           "label": "URL",
           "value": "#"
         },
@@ -721,7 +728,7 @@
         {
           "identifier": "more_product_box_1_title",
           "type": "text",
-          "description": "Box 1 title",
+          "description": "More Product Box title",
           "label": "Title",
           "value": "Piattaforma pagamenti pagoPA"
         }
@@ -733,14 +740,14 @@
         {
           "identifier": "more_product_box_2_toggle",
           "type": "checkbox",
-          "description": "Show or hide the More Help Center Box 2",
-          "label": "Show Box",
+          "description": "Show or hide the More Product Box",
+          "label": "Show More Product Box",
           "value": true
         },
         {
           "identifier": "more_product_box_2_url",
           "type": "text",
-          "description": "Box 2 URL",
+          "description": "More product box URL",
           "label": "URL",
           "value": "#"
         },
@@ -753,7 +760,7 @@
         {
           "identifier": "more_product_box_2_title",
           "type": "text",
-          "description": "Box 2 title",
+          "description": "More product Box title",
           "label": "Title",
           "value": "Servizio notifiche digitali"
         }
@@ -781,9 +788,9 @@
           "type": "range",
           "description": "Number of section articles displayed per line",
           "label": "Number of section articles per line",
+          "value": 1,
           "min": 1,
-          "max": 3,
-          "value": 1
+          "max": 3
         },
         {
           "identifier": "section_articles_read_button",
