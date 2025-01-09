@@ -7,8 +7,6 @@ on:
       - opened
       - edited
       - synchronize
-    branches:
-      - "*"
 
 
 jobs:
