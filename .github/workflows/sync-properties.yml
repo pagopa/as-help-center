@@ -1,6 +1,13 @@
 name: Sync Manifest Properties
 
 on:
+  pull_request:
+    types: 
+      - opened
+      - edited
+      - synchronize
+    branches:
+      - "*"
   workflow_dispatch:
     inputs:
       brand:
@@ -47,7 +54,8 @@ jobs:
         id: zendesk-env
         uses: ./.github/workflows/set-zendesk-env-var
         with:
-          brands-folder: "${{ inputs.brand }}"
+          # brands-folder: "${{ inputs.brand }}"
+          brands-folder: hc_io
       
       # download zip theme
       - name: Download Theme
@@ -55,16 +63,19 @@ jobs:
           API_BEARER_TOKEN: ${{ secrets.API_BEARER_TOKEN }}
         run: |
           # set/export zendesk env var to authentication 
-          export $(cat "${{ inputs.brand }}/.env" | xargs)
+          # export $(cat "${{ inputs.brand }}/.env" | xargs)
+          export $(cat "hc_io/.env" | xargs)
 
           # run the download theme script 
-          node scripts/download-theme.js "${{ inputs.brand }}" "${{ inputs.theme_id }}"
+          # node scripts/download-theme.js "${{ inputs.brand }}" "${{ inputs.theme_id }}"
+          node scripts/download-theme.js hc_io 040395e5-f83a-438a-acd3-9a4d35e4a6f7
 
       # Replace manifest.json with the new one just downloaded (sync)
       - name: Replace manifest.json
         run: |
           unzip theme.zip -d theme-extracted
-          cp ./theme-extracted/manifest.json ./${{ inputs.brand }}/manifest.json
+          # cp ./theme-extracted/manifest.json ./${{ inputs.brand }}/manifest.json
+          cp ./theme-extracted/manifest.json ./hc_io/manifest.json
       
       # commit sync manifest
       - name: Commit changes
@@ -73,6 +84,8 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add ${{ inputs.brand }}/manifest.json
-          git commit -m "chore(manifest.json): ${{ inputs.brand }} sync properties"
+          # git add ${{ inputs.brand }}/manifest.json
+          git add hc_io/manifest.json
+          # git commit -m "chore(manifest.json): ${{ inputs.brand }} sync properties"
+          git commit -m "chore(manifest.json): hc_io sync properties"
           git push origin ${{ github.ref_name }}
