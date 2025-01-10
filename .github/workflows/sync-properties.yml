@@ -24,8 +24,6 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
-        with:
-          ref: ${{ github.ref_name }} # checkout to branch chosen when action was started
 
       # action runnable only on branches not equal to main
       - name: Check branch
