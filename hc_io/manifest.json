@@ -575,7 +575,7 @@
           "value": false
         },
         {
-          "identifier": "toggle_contact_request",
+          "identifier": "toggle_contact_request_home",
           "type": "checkbox",
           "description": "Show contact request box",
           "label": "Contact Request box",
@@ -791,6 +791,13 @@
           "description": "Label of read articles button",
           "label": "Button label of articles card",
           "value": "Leggi l'articolo"
+        },
+        {
+          "identifier": "toggle_contact_request_section",
+          "type": "checkbox",
+          "description": "Show contact request box",
+          "label": "Contact Request box",
+          "value": true
         }
       ]
     },
@@ -837,6 +844,13 @@
           "type": "checkbox",
           "description": "Enhance formatting content elements",
           "label": "Beautify Text Content",
+          "value": true
+        },
+        {
+          "identifier": "toggle_contact_request_article",
+          "type": "checkbox",
+          "description": "Show contact request box",
+          "label": "Contact Request box",
           "value": true
         }
       ]
