@@ -100,6 +100,8 @@ jobs:
   git-release:
     needs: deploy # ensures git-release will only run if deploy succeeds
     runs-on: ubuntu-22.04
+    # run only if the workflow was triggered by a push event, and not manually
+    if: ${{ github.event_name == 'push' }}
     steps:
       - name: Checkout
         id: checkout
