@@ -2,6 +2,12 @@ name: Release and Deployment
 
 on:
   push:
+    # don't execute action if pushed file is one of these or their combination
+    # to skip action execution after the git release that push new changelog and new version
+    paths-ignore:
+      - CHANGELOG.md
+      - package-lock.json
+      - package.json
     branches:
       - 'main'
   workflow_dispatch:
