@@ -13,6 +13,7 @@ runs:
     - name: Detect Brand folders
       id: get-brand-folders
       run: |
+        # getting brand folders containing manifest.json inside
         ./scripts/get-brand-folders.sh > brand-folders.txt
       shell: bash  
 
@@ -29,10 +30,12 @@ runs:
     - name: Set changed folders output
       id: changed-brand-output
       run: |
+        # setting changed brand folders as output
         # check if brand-folders.txt is empty (means no brand), in this case set the output as empty
         if [ ! -s brand-folders.txt ]; then
           echo "changed_brands=" >> $GITHUB_OUTPUT
         else
+          echo "changed brands: ${{ steps.changed-brand-folders.outputs.all_modified_files }}"
           echo "changed_brands=${{ steps.changed-brand-folders.outputs.all_modified_files }}" >> $GITHUB_OUTPUT
         fi
       shell: bash    

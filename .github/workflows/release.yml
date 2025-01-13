@@ -2,6 +2,12 @@ name: Release and Deployment
 
 on:
   push:
+    # don't execute action if pushed file is one of these or their combination
+    # to skip action execution after the git release that push new changelog and new version
+    paths-ignore:
+      - CHANGELOG.md
+      - package-lock.json
+      - package.json
     branches:
       - 'main'
   workflow_dispatch:
@@ -37,11 +43,13 @@ jobs:
         id: modified-brands
         uses: ./.github/workflows/modified-brand-folders
       
+      # Set zendesk env variables for each changed brand (for zendesk auth)
       - name: Set zendesk env variables for each brand
         id: zendesk-env
         env:
           CHANGED_BRANDS: ${{ steps.modified-brands.outputs.changed_brands }}
         run: |
+          # setting zendesk env var for each changed brand
           # Define subdomain and brand mappings
           declare -A SUBDOMAIN_MAPPING
           declare -A BRAND_ID_MAPPING
@@ -71,12 +79,13 @@ jobs:
               "$folder/.env.example" > "$folder/.env"
           done  
       
-      # define brand id and zendesk subdomain mapping
+      # Deploying theme
       - name: Upload theme
         id: upload-themes
         env:
           CHANGED_BRANDS: ${{ steps.modified-brands.outputs.changed_brands }}
         run: |
+          # deploying theme
           # publish --> true = import and make theme as live | false = only import 
           # true if environment input is prod or if there is a push su 'main', false otherwise
           if [[ "${{ github.event.inputs.environment }}" == "prod" ]] || [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
@@ -86,16 +95,19 @@ jobs:
           fi
 
           for folder in $CHANGED_BRANDS; do
-            # set zendesk env var to authentication 
+            # set/export zendesk env var to authentication 
             export $(cat "$folder/.env" | xargs)
 
             # Run the deployment script
             node scripts/theme-upload.js "$folder" "$PUBLISH"
           done
 
+  # release git        
   git-release:
     needs: deploy # ensures git-release will only run if deploy succeeds
     runs-on: ubuntu-22.04
+    # run only if the workflow was triggered by a push event, and not manually
+    if: ${{ github.event_name == 'push' }}
     steps:
       - name: Checkout
         id: checkout

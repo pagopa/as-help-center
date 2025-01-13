@@ -22,7 +22,7 @@ import {
   getBrandId,
   sleep,
   LOG_COLOR
-} from './zcli-common.js';
+} from './utils.js';
 
 const [pathToNode, pathToScript, folder, publish] = process.argv;
 

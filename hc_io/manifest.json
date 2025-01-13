@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -82,12 +82,7 @@
           "description": "Hover color for link elements",
           "label": "Link hover color",
           "value": "#2185e9"
-        }
-      ]
-    },
-    {
-      "label": "Formatting colors",
-      "variables": [
+        },
         {
           "identifier": "brand_info",
           "type": "color",
@@ -124,7 +119,7 @@
         {
           "identifier": "font_size_base",
           "type": "text",
-          "description": "Size for body text",
+          "description": "Size for html text",
           "label": "Text size",
           "value": "16px"
         },
@@ -140,161 +135,14 @@
               "value": "'Titillium web', sans-serif"
             },
             {
-              "label": "Arimo",
-              "value": "'Arimo', sans-serif"
-            },
-            {
-              "label": "Bitter",
-              "value": "'Bitter', sans-serif"
-            },
-            {
-              "label": "Catamaran",
-              "value": "'Catamaran', sans-serif"
-            },
-            {
-              "label": "Crimson Text",
-              "value": "'Crimson Text', sans-serif"
-            },
-            {
-              "label": "DM Sans",
-              "value": "'DM Sans', sans-serif"
-            },
-            {
-              "label": "EB Garamond",
-              "value": "'EB Garamond', sans-serif"
-            },
-            {
-              "label": "Epilogue",
-              "value": "'Epilogue', sans-serif"
-            },
-            {
-              "label": "Faustina",
-              "value": "'Faustina', sans-serif"
-            },
-            {
-              "label": "Fira Sans",
-              "value": "'Fira Sans', sans-serif"
-            },
-            {
-              "label": "IBM Plex Sans",
-              "value": "'IBM Plex Sans', sans-serif"
-            },
-            {
-              "label": "Inter",
-              "value": "'Inter', sans-serif"
-            },
-            {
-              "label": "Jost",
-              "value": "'Jost', sans-serif"
-            },
-            {
-              "label": "Lato",
-              "value": "'Lato', sans-serif"
-            },
-            {
-              "label": "Libre Franklin",
-              "value": "'Libre Franklin', sans-serif"
-            },
-            {
-              "label": "Lora",
-              "value": "'Lora', sans-serif"
-            },
-            {
-              "label": "Manrope",
-              "value": "'Manrope', sans-serif"
-            },
-            {
-              "label": "Merriweather",
-              "value": "'Merriweather', sans-serif"
-            },
-            {
               "label": "Montserrat",
               "value": "'Montserrat', sans-serif"
             },
             {
-              "label": "Mukta",
-              "value": "'Mukta', sans-serif"
-            },
-            {
-              "label": "Mulish",
-              "value": "'Mulish', sans-serif"
-            },
-            {
-              "label": "Noto Sans Display",
-              "value": "'Noto Sans Display', sans-serif"
-            },
-            {
-              "label": "Noto Serif",
-              "value": "'Noto Serif', sans-serif"
-            },
-            {
-              "label": "Nunito Sans",
-              "value": "'Nunito Sans', sans-serif"
-            },
-            {
-              "label": "Open Sans",
-              "value": "'Open Sans', sans-serif"
-            },
-            {
-              "label": "Oswald",
-              "value": "'Oswald', sans-serif"
-            },
-            {
-              "label": "PT Sans",
-              "value": "'PT Sans', sans-serif"
-            },
-            {
-              "label": "PT Serif",
-              "value": "'PT Serif', sans-serif"
-            },
-            {
-              "label": "Poppins",
-              "value": "'Poppins', sans-serif"
-            },
-            {
-              "label": "Prata",
-              "value": "'Prata', sans-serif"
-            },
-            {
-              "label": "Public Sans",
-              "value": "'Public Sans', sans-serif"
-            },
-            {
-              "label": "Raleway",
-              "value": "'Raleway', sans-serif"
-            },
-            {
               "label": "Roboto",
               "value": "'Roboto', sans-serif"
-            },
-            {
-              "label": "Rubik",
-              "value": "'Rubik', sans-serif"
-            },
-            {
-              "label": "Signika",
-              "value": "'Signika', sans-serif"
-            },
-            {
-              "label": "Source Sans Pro",
-              "value": "'Source Sans 3', sans-serif"
-            },
-            {
-              "label": "Ubuntu",
-              "value": "'Ubuntu', sans-serif"
-            },
-            {
-              "label": "Work Sans",
-              "value": "'Work Sans', sans-serif"
             }
           ]
-        },
-        {
-          "identifier": "heading_font_weight",
-          "type": "text",
-          "description": "Boldness of headings",
-          "label": "Heading font weight",
-          "value": "700"
         },
         {
           "identifier": "font_family_base",
@@ -308,161 +156,14 @@
               "value": "'Titillium web', sans-serif"
             },
             {
-              "label": "Arimo",
-              "value": "'Arimo', sans-serif"
-            },
-            {
-              "label": "Bitter",
-              "value": "'Bitter', sans-serif"
-            },
-            {
-              "label": "Catamaran",
-              "value": "'Catamaran', sans-serif"
-            },
-            {
-              "label": "Crimson Text",
-              "value": "'Crimson Text', sans-serif"
-            },
-            {
-              "label": "DM Sans",
-              "value": "'DM Sans', sans-serif"
-            },
-            {
-              "label": "EB Garamond",
-              "value": "'EB Garamond', sans-serif"
-            },
-            {
-              "label": "Epilogue",
-              "value": "'Epilogue', sans-serif"
-            },
-            {
-              "label": "Faustina",
-              "value": "'Faustina', sans-serif"
-            },
-            {
-              "label": "Fira Sans",
-              "value": "'Fira Sans', sans-serif"
-            },
-            {
-              "label": "IBM Plex Sans",
-              "value": "'IBM Plex Sans', sans-serif"
-            },
-            {
-              "label": "Inter",
-              "value": "'Inter', sans-serif"
-            },
-            {
-              "label": "Jost",
-              "value": "'Jost', sans-serif"
-            },
-            {
-              "label": "Lato",
-              "value": "'Lato', sans-serif"
-            },
-            {
-              "label": "Libre Franklin",
-              "value": "'Libre Franklin', sans-serif"
-            },
-            {
-              "label": "Lora",
-              "value": "'Lora', sans-serif"
-            },
-            {
-              "label": "Manrope",
-              "value": "'Manrope', sans-serif"
-            },
-            {
-              "label": "Merriweather",
-              "value": "'Merriweather', sans-serif"
-            },
-            {
               "label": "Montserrat",
               "value": "'Montserrat', sans-serif"
             },
             {
-              "label": "Mukta",
-              "value": "'Mukta', sans-serif"
-            },
-            {
-              "label": "Mulish",
-              "value": "'Mulish', sans-serif"
-            },
-            {
-              "label": "Noto Sans Display",
-              "value": "'Noto Sans Display', sans-serif"
-            },
-            {
-              "label": "Noto Serif",
-              "value": "'Noto Serif', sans-serif"
-            },
-            {
-              "label": "Nunito Sans",
-              "value": "'Nunito Sans', sans-serif"
-            },
-            {
-              "label": "Open Sans",
-              "value": "'Open Sans', sans-serif"
-            },
-            {
-              "label": "Oswald",
-              "value": "'Oswald', sans-serif"
-            },
-            {
-              "label": "PT Sans",
-              "value": "'PT Sans', sans-serif"
-            },
-            {
-              "label": "PT Serif",
-              "value": "'PT Serif', sans-serif"
-            },
-            {
-              "label": "Poppins",
-              "value": "'Poppins', sans-serif"
-            },
-            {
-              "label": "Prata",
-              "value": "'Prata', sans-serif"
-            },
-            {
-              "label": "Public Sans",
-              "value": "'Public Sans', sans-serif"
-            },
-            {
-              "label": "Raleway",
-              "value": "'Raleway', sans-serif"
-            },
-            {
               "label": "Roboto",
               "value": "'Roboto', sans-serif"
-            },
-            {
-              "label": "Rubik",
-              "value": "'Rubik', sans-serif"
-            },
-            {
-              "label": "Signika",
-              "value": "'Signika', sans-serif"
-            },
-            {
-              "label": "Source Sans Pro",
-              "value": "'Source Sans 3', sans-serif"
-            },
-            {
-              "label": "Ubuntu",
-              "value": "'Ubuntu', sans-serif"
-            },
-            {
-              "label": "Work Sans",
-              "value": "'Work Sans', sans-serif"
             }
           ]
-        },
-        {
-          "identifier": "line_height_base",
-          "type": "text",
-          "description": "Space between the lines of text",
-          "label": "Text line height",
-          "value": "1.5"
         }
       ]
     },
@@ -472,13 +173,13 @@
         {
           "identifier": "logo",
           "type": "file",
-          "description": "Company logo",
+          "description": "Brand logo",
           "label": "Logo"
         },
         {
           "identifier": "logo_height",
           "type": "text",
-          "description": "Height of the logo",
+          "description": "Height of the brand logo",
           "label": "Logo height",
           "value": "28px"
         },
@@ -489,64 +190,18 @@
           "label": "Favicon"
         },
         {
-          "identifier": "border_width",
+          "identifier": "show_help_center_name",
+          "type": "checkbox",
+          "description": "Display the Help Center name next to the logo",
+          "label": "Help Center name",
+          "value": true
+        },
+        {
+          "identifier": "help_center_name",
           "type": "text",
-          "description": "Border width for buttons and other elements",
-          "label": "Border width",
-          "value": "2px"
-        },
-        {
-          "identifier": "border_radius_base",
-          "type": "text",
-          "description": "Border radius for buttons, forms, category boxes, etc.",
-          "label": "Border radius",
-          "value": "4px"
-        },
-        {
-          "identifier": "border_radius_lg",
-          "type": "text",
-          "description": "Border radius for large elements and blocks",
-          "label": "Background elements border radius",
-          "value": "16px"
-        }
-      ]
-    },
-    {
-      "label": "Category/Section Blocks Colors",
-      "variables": [
-        {
-          "identifier": "block_icon",
-          "type": "file",
-          "description": "Icon displayed for categories, sections",
-          "label": "Icon"
-        },
-        {
-          "identifier": "block_text_color",
-          "type": "color",
-          "description": "Block text color",
-          "label": "Block text color",
-          "value": "#fff"
-        },
-        {
-          "identifier": "block_1_bg",
-          "type": "color",
-          "description": "Block 1 background color",
-          "label": "Background color",
-          "value": "#66b87f"
-        },
-        {
-          "identifier": "block_2_bg",
-          "type": "color",
-          "description": "Block 2 background color",
-          "label": "Background color",
-          "value": "#46a07f"
-        },
-        {
-          "identifier": "block_3_bg",
-          "type": "color",
-          "description": "Block 3 background color",
-          "label": "Background color",
-          "value": "#0082a9"
+          "description": "Text displayed next to the logo",
+          "label": "Help Center name text",
+          "value": "Centro assistenza"
         }
       ]
     },
@@ -556,7 +211,7 @@
         {
           "identifier": "topbar_bg",
           "type": "text",
-          "description": "Header background color",
+          "description": "Header background color (html)",
           "label": "Background color",
           "value": "linear-gradient(180deg, #0B3EE3 0%, #3C64E6 100%)"
         },
@@ -577,39 +232,6 @@
       ]
     },
     {
-      "label": "Header Elements",
-      "variables": [
-        {
-          "identifier": "show_help_center_name",
-          "type": "checkbox",
-          "description": "Display the Help Center name next to the logo",
-          "label": "Help Center name",
-          "value": true
-        },
-        {
-          "identifier": "help_center_name",
-          "type": "text",
-          "description": "Text displayed next to the logo",
-          "label": "Help Center name text",
-          "value": "Centro assistenza"
-        },
-        {
-          "identifier": "show_sign_in",
-          "type": "checkbox",
-          "description": "Show the sign-in link",
-          "label": "Sign-in",
-          "value": true
-        },
-        {
-          "identifier": "show_submit_a_request",
-          "type": "checkbox",
-          "description": "Show the Submit a request option link",
-          "label": "Submit a request",
-          "value": true
-        }
-      ]
-    },
-    {
       "label": "Footer",
       "variables": [
         {
@@ -620,10 +242,25 @@
           "value": "#fff"
         },
         {
-          "identifier": "footer_logo",
-          "type": "file",
-          "description": "Footer PagoPA logo",
-          "label": "Footer logo"
+          "identifier": "footer_show_social",
+          "type": "checkbox",
+          "description": "Show social media column",
+          "label": "Social media",
+          "value": true
+        },
+        {
+          "identifier": "footer_accessibility_label",
+          "type": "text",
+          "description": "Label of accessibility link",
+          "label": "Accessibility label",
+          "value": "Accessibilità"
+        },
+        {
+          "identifier": "footer_accessibility_link",
+          "type": "text",
+          "description": "URL of accessibility link",
+          "label": "Accessibility URL",
+          "value": "#"
         },
         {
           "identifier": "footer_owner",
@@ -649,96 +286,133 @@
       ]
     },
     {
-      "label": "Home page layout",
+      "label": "Footer column 1",
       "variables": [
         {
-          "identifier": "show_info_block",
-          "type": "checkbox",
-          "description": "Show Info block used for alert/success/warning/info",
-          "label": "Info block",
-          "value": false
+          "identifier": "footer_logo",
+          "type": "file",
+          "description": "Footer logo",
+          "label": "Logo"
         },
         {
-          "identifier": "toggle_custom_blocks",
+          "identifier": "footer_logo_url",
+          "type": "text",
+          "description": "Footer logo link",
+          "label": "Logo URL",
+          "value": "https://www.pagopa.it/it/"
+        },
+        {
+          "identifier": "footer_col1_links",
+          "type": "text",
+          "description": "Semicolon-separated footer links with label and URL",
+          "label": "Column links",
+          "value": "Chi siamo|https://www.pagopa.it/it/societa/chi-siamo; PNRR|https://www.pagopa.it/it/opportunita/pnrr/progetti; Media|https://www.pagopa.it/it/media; Lavora con noi|https://www.pagopa.it/it/lavora-con-noi"
+        }
+      ]
+    },
+    {
+      "label": "Footer column 2",
+      "variables": [
+        {
+          "identifier": "footer_col2_title",
+          "type": "text",
+          "description": "Column title of second footer column",
+          "label": "Column title",
+          "value": "PRODOTTI E SERVIZI"
+        },
+        {
+          "identifier": "footer_col2_links",
+          "type": "text",
+          "description": "Semicolon-separated footer links with label and URL",
+          "label": "Column links",
+          "value": "App IO|https://www.pagopa.it/it/prodotti-e-servizi/app-io/; Piattaforma pagoPA|https://www.pagopa.it/it/prodotti-e-servizi/piattaforma-pagopa/; Piattaforma Notifiche Digitali|https://www.pagopa.it/it/prodotti-e-servizi/send-notifiche-digitali/"
+        }
+      ]
+    },
+    {
+      "label": "Footer column 3",
+      "variables": [
+        {
+          "identifier": "footer_col3_title",
+          "type": "text",
+          "description": "Column title of third footer column",
+          "label": "Column title",
+          "value": "RISORSE"
+        },
+        {
+          "identifier": "footer_col3_links",
+          "type": "text",
+          "description": "Semicolon-separated footer links with label and URL",
+          "label": "Column links",
+          "value": "Informativa Privacy|/hc/p/info_privacy; Privacy Policy e Termini e Condizioni di utilizzo Assistenza|https://www.pagopa.it/it/privacy-policy-assistenza/; Certificazioni|https://www.pagopa.it/it/certificazioni/; Diritto alla protezione dei dati personali|https://privacyportal-de.onetrust.com/webform/77f17844-04c3-4969-a11d-462ee77acbe1/9ab6533d-be4a-482e-929a-0d8d2ab29df8; Società trasparente|https://pagopa.portaleamministrazionetrasparente.it/pagina746_altri-contenuti.html; Responsible Disclosure Policy|https://www.pagopa.it/it/responsible-disclosure-policy/; Modello 231|https://pagopa.portaleamministrazionetrasparente.it/pagina746_altri-contenuti.htmls"
+        }
+      ]
+    },
+    {
+      "label": "Footer social media",
+      "variables": [
+        {
+          "identifier": "social_media_column_title",
+          "type": "text",
+          "description": "Column title of social media column",
+          "label": "Column title",
+          "value": "SEGUICI SU"
+        },
+        {
+          "identifier": "toggle_x_icon",
           "type": "checkbox",
-          "description": "Show Custom Blocks",
-          "label": "Custom Blocks",
+          "description": "Show or hide the X (Twitter) icon",
+          "label": "X (Twitter)",
           "value": true
         },
         {
-          "identifier": "category_tree_type",
-          "type": "list",
-          "description": "Select how you would like to display categories",
-          "label": "Categories display type",
-          "value": "boxes",
-          "options": [
-            {
-              "label": "Accordion",
-              "value": "accordion"
-            },
-            {
-              "label": "Boxes",
-              "value": "boxes"
-            },
-            {
-              "label": "Tree",
-              "value": "tree"
-            }
-          ]
+          "identifier": "x_url",
+          "type": "text",
+          "description": "URL to X (Twitter) account",
+          "label": "X (Twitter) page URL",
+          "value": "https://x.com/PagoPA"
         },
         {
-          "identifier": "toggle_promoted_articles",
+          "identifier": "toggle_youtube_icon",
           "type": "checkbox",
-          "description": "Show promoted articles",
-          "label": "Promoted articles",
+          "description": "Show or hide the Youtube icon",
+          "label": "Youtube",
           "value": true
         },
         {
-          "identifier": "promoted_articles_type",
-          "type": "list",
-          "description": "Select how you would like to display promoted articles",
-          "label": "Promoted articles display type",
-          "value": "list",
-          "options": [
-            {
-              "label": "Accordion",
-              "value": "accordion"
-            },
-            {
-              "label": "List",
-              "value": "list"
-            }
-          ]
+          "identifier": "youtube_url",
+          "type": "text",
+          "description": "URL to Youtube account",
+          "label": "Youtube page URL",
+          "value": "https://www.youtube.com/@pagopaspa"
         },
         {
-          "identifier": "toggle_more_products",
+          "identifier": "toggle_linkedin_icon",
           "type": "checkbox",
-          "description": "Show the more product boxes",
-          "label": "More product Boxes",
-          "value": false
-        },
-        {
-          "identifier": "toggle_contact_request",
-          "type": "checkbox",
-          "description": "Show contact request box",
-          "label": "Contact Request box",
+          "description": "Show or hide the LinkedIn icon",
+          "label": "LinkedIn",
           "value": true
         },
         {
-          "identifier": "toggle_recent_activities",
+          "identifier": "linkedin_url",
+          "type": "text",
+          "description": "URL to LinkedIn account",
+          "label": "LinkedIn page URL",
+          "value": "https://www.linkedin.com/company/pagopa/"
+        },
+        {
+          "identifier": "toggle_instagram_icon",
           "type": "checkbox",
-          "description": "Show recent community activities",
-          "label": "Recent activities",
+          "description": "Show or hide the Instagram icon",
+          "label": "Instagram",
           "value": true
         },
         {
-          "identifier": "promoted_articles_per_line",
-          "type": "range",
-          "description": "Number of promoted articles displayed per line",
-          "label": "Number of promoted articles per line",
-          "min": 1,
-          "max": 6,
-          "value": 3
+          "identifier": "instagram_url",
+          "type": "text",
+          "description": "URL to Instagram account",
+          "label": "Instagram page URL",
+          "value": "https://www.instagram.com/pagopaspa/"
         }
       ]
     },
@@ -756,7 +430,7 @@
           "identifier": "hero_homepage_image",
           "type": "file",
           "description": "The recommended dimensions: 1600x1100px",
-          "label": "Homepage background image"
+          "label": "Hero banner background image"
         },
         {
           "identifier": "hero_title_hello",
@@ -771,13 +445,6 @@
           "description": "Text above the search field",
           "label": "Title",
           "value": "Ciao, come possiamo aiutarti?"
-        },
-        {
-          "identifier": "hero_description",
-          "type": "text",
-          "description": "Text after title",
-          "label": "Description",
-          "value": "Search our knowledge base for answers to common questions"
         },
         {
           "identifier": "search_placeholder_home",
@@ -805,13 +472,6 @@
           "type": "checkbox",
           "description": "Show the popular searches",
           "label": "Popular searches",
-          "value": true
-        },
-        {
-          "identifier": "show_bottom_decor",
-          "type": "checkbox",
-          "description": "Show the bottom decorations elements",
-          "label": "Decoration",
           "value": true
         },
         {
@@ -882,6 +542,48 @@
       ]
     },
     {
+      "label": "Home page layout",
+      "variables": [
+        {
+          "identifier": "show_info_block",
+          "type": "checkbox",
+          "description": "Show Info block used for alert/success/warning/info",
+          "label": "Info block",
+          "value": false
+        },
+        {
+          "identifier": "toggle_promoted_articles",
+          "type": "checkbox",
+          "description": "Show promoted articles",
+          "label": "Promoted articles",
+          "value": true
+        },
+        {
+          "identifier": "promoted_articles_per_line",
+          "type": "range",
+          "description": "Number of promoted articles displayed per line",
+          "label": "Number of promoted articles per line",
+          "min": 1,
+          "max": 6,
+          "value": 3
+        },
+        {
+          "identifier": "toggle_more_products",
+          "type": "checkbox",
+          "description": "Show more help center box",
+          "label": "More Help Center box",
+          "value": false
+        },
+        {
+          "identifier": "toggle_contact_request_home",
+          "type": "checkbox",
+          "description": "Show contact request box",
+          "label": "Contact Request box",
+          "value": true
+        }
+      ]
+    },
+    {
       "label": "Popular Articles Block",
       "variables": [
         {
@@ -906,8 +608,8 @@
         {
           "identifier": "categories_boxes_title",
           "type": "text",
-          "description": "Title above the categories boxes",
-          "label": "Categories boxes title",
+          "description": "Title above the categories box",
+          "label": "Categories box title",
           "value": "Esplora tutti gli argomenti"
         },
         {
@@ -921,387 +623,17 @@
         },
         {
           "identifier": "categories_bg_color",
-          "type": "text",
+          "type": "color",
           "description": "Color of card categories",
           "label": "Color of background of categories block",
           "value": "#ffffff"
         },
         {
           "identifier": "categories_card_color",
-          "type": "text",
+          "type": "color",
           "description": "Color of card categories",
           "label": "Color of card categories",
           "value": "#f8f9fa"
-        }
-      ]
-    },
-    {
-      "label": "Custom Blocks",
-      "variables": [
-        {
-          "identifier": "custom_blocks_per_line",
-          "type": "range",
-          "description": "Number of custom blocks displayed per line",
-          "label": "Number of custom blocks per line",
-          "min": 1,
-          "max": 6,
-          "value": 4
-        },
-        {
-          "identifier": "custom_blocks_title",
-          "type": "text",
-          "description": "Title custom block section",
-          "label": "Title section",
-          "value": "Getting Started"
-        },
-        {
-          "identifier": "custom_blocks_icon_size",
-          "type": "text",
-          "description": "Height of the custom blocks icons",
-          "label": "Icon height",
-          "value": "2rem"
-        }
-      ]
-    },
-    {
-      "label": "Custom Block 1",
-      "variables": [
-        {
-          "identifier": "custom_block_1_type",
-          "type": "list",
-          "description": "Custom block type",
-          "label": "Type",
-          "value": "custom",
-          "options": [
-            {
-              "label": "Hidden",
-              "value": "hidden"
-            },
-            {
-              "label": "Custom",
-              "value": "custom"
-            },
-            {
-              "label": "Community",
-              "value": "community"
-            },
-            {
-              "label": "Submit a request",
-              "value": "new_request"
-            }
-          ]
-        },
-        {
-          "identifier": "custom_block_1_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "custom_block_1_title",
-          "type": "text",
-          "description": "Custom block title",
-          "label": "Title",
-          "value": "FAQ"
-        },
-        {
-          "identifier": "custom_block_1_text",
-          "type": "text",
-          "description": "Custom block 1 text",
-          "label": "Text",
-          "value": "Questions about Lotus Themes products and services"
-        },
-        {
-          "identifier": "custom_block_1_url",
-          "type": "text",
-          "description": "Custom block URL",
-          "label": "URL",
-          "value": "#"
-        }
-      ]
-    },
-    {
-      "label": "Custom Block 2",
-      "variables": [
-        {
-          "identifier": "custom_block_2_type",
-          "type": "list",
-          "description": "Custom block type",
-          "label": "Type",
-          "value": "custom",
-          "options": [
-            {
-              "label": "Hidden",
-              "value": "hidden"
-            },
-            {
-              "label": "Custom",
-              "value": "custom"
-            },
-            {
-              "label": "Community",
-              "value": "community"
-            },
-            {
-              "label": "Submit a request",
-              "value": "new_request"
-            }
-          ]
-        },
-        {
-          "identifier": "custom_block_2_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "custom_block_2_title",
-          "type": "text",
-          "description": "Custom block title",
-          "label": "Title",
-          "value": "Guides"
-        },
-        {
-          "identifier": "custom_block_2_text",
-          "type": "text",
-          "description": "Custom block 2 text",
-          "label": "Text",
-          "value": "Instructions related to themes installation and usage"
-        },
-        {
-          "identifier": "custom_block_2_url",
-          "type": "text",
-          "description": "Custom block URL",
-          "label": "URL",
-          "value": "#"
-        }
-      ]
-    },
-    {
-      "label": "Custom Block 3",
-      "variables": [
-        {
-          "identifier": "custom_block_3_type",
-          "type": "list",
-          "description": "Custom block type",
-          "label": "Type",
-          "value": "community",
-          "options": [
-            {
-              "label": "Hidden",
-              "value": "hidden"
-            },
-            {
-              "label": "Custom",
-              "value": "custom"
-            },
-            {
-              "label": "Community",
-              "value": "community"
-            },
-            {
-              "label": "Submit a request",
-              "value": "new_request"
-            }
-          ]
-        },
-        {
-          "identifier": "custom_block_3_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "custom_block_3_title",
-          "type": "text",
-          "description": "Custom block title",
-          "label": "Title",
-          "value": "Community"
-        },
-        {
-          "identifier": "custom_block_3_text",
-          "type": "text",
-          "description": "Custom block 3 text",
-          "label": "Text",
-          "value": "Join discussions with other users"
-        },
-        {
-          "identifier": "custom_block_3_url",
-          "type": "text",
-          "description": "Custom block URL",
-          "label": "URL",
-          "value": "#"
-        }
-      ]
-    },
-    {
-      "label": "Custom Block 4",
-      "variables": [
-        {
-          "identifier": "custom_block_4_type",
-          "type": "list",
-          "description": "Custom block type",
-          "label": "Type",
-          "value": "new_request",
-          "options": [
-            {
-              "label": "Hidden",
-              "value": "hidden"
-            },
-            {
-              "label": "Custom",
-              "value": "custom"
-            },
-            {
-              "label": "Community",
-              "value": "community"
-            },
-            {
-              "label": "Submit a request",
-              "value": "new_request"
-            }
-          ]
-        },
-        {
-          "identifier": "custom_block_4_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "custom_block_4_title",
-          "type": "text",
-          "description": "Custom block title",
-          "label": "Title",
-          "value": "Submit a request"
-        },
-        {
-          "identifier": "custom_block_4_text",
-          "type": "text",
-          "description": "Custom block 4 text",
-          "label": "Text",
-          "value": "Contact us through a specially prepared form"
-        },
-        {
-          "identifier": "custom_block_4_url",
-          "type": "text",
-          "description": "Custom block URL",
-          "label": "URL",
-          "value": "#"
-        }
-      ]
-    },
-    {
-      "label": "Custom Block 5",
-      "variables": [
-        {
-          "identifier": "custom_block_5_type",
-          "type": "list",
-          "description": "Custom block type",
-          "label": "Type",
-          "value": "hidden",
-          "options": [
-            {
-              "label": "Hidden",
-              "value": "hidden"
-            },
-            {
-              "label": "Custom",
-              "value": "custom"
-            },
-            {
-              "label": "Community",
-              "value": "community"
-            },
-            {
-              "label": "Submit a request",
-              "value": "new_request"
-            }
-          ]
-        },
-        {
-          "identifier": "custom_block_5_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "custom_block_5_title",
-          "type": "text",
-          "description": "Custom block title",
-          "label": "Title",
-          "value": "Hidden"
-        },
-        {
-          "identifier": "custom_block_5_text",
-          "type": "text",
-          "description": "Custom block 5 text",
-          "label": "Text",
-          "value": "Custom block text"
-        },
-        {
-          "identifier": "custom_block_5_url",
-          "type": "text",
-          "description": "Custom block URL",
-          "label": "URL",
-          "value": "#"
-        }
-      ]
-    },
-    {
-      "label": "Custom Block 6",
-      "variables": [
-        {
-          "identifier": "custom_block_6_type",
-          "type": "list",
-          "description": "Custom block type",
-          "label": "Type",
-          "value": "hidden",
-          "options": [
-            {
-              "label": "Hidden",
-              "value": "hidden"
-            },
-            {
-              "label": "Custom",
-              "value": "custom"
-            },
-            {
-              "label": "Community",
-              "value": "community"
-            },
-            {
-              "label": "Submit a request",
-              "value": "new_request"
-            }
-          ]
-        },
-        {
-          "identifier": "custom_block_6_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "custom_block_6_title",
-          "type": "text",
-          "description": "Custom block title",
-          "label": "Title",
-          "value": "Hidden"
-        },
-        {
-          "identifier": "custom_block_6_text",
-          "type": "text",
-          "description": "Custom block 6 text",
-          "label": "Text",
-          "value": "Custom block text"
-        },
-        {
-          "identifier": "custom_block_6_url",
-          "type": "text",
-          "description": "Custom block URL",
-          "label": "URL",
-          "value": "#"
         }
       ]
     },
@@ -1318,7 +650,7 @@
         {
           "identifier": "contact_request_box_color",
           "type": "text",
-          "description": "Color of contact requet box",
+          "description": "Color of contact request box",
           "label": "Box Color",
           "value": "linear-gradient(90deg, #0D3FE3 0%, #3962E6 68.88%)"
         },
@@ -1332,51 +664,51 @@
         {
           "identifier": "contact_request_subtitle",
           "type": "text",
-          "description": "Subtitle at the bottom of the homepage section",
+          "description": "Subtitle of the contact request box",
           "label": "Box Subtitle",
           "value": "Se hai scaricato l’app IO, accedi per inviarci un messaggio e ricevere assistenza personalizzata."
         },
         {
           "identifier": "contact_request_image",
           "type": "file",
-          "description": "Image at the bottom of the homepage section",
+          "description": "Image of the contact request box",
           "label": "Box Image"
         },
         {
           "identifier": "contact_request_btn_text",
           "type": "text",
-          "description": "Button label of request contact box",
+          "description": "Button label of the contact request box",
           "label": "Button label",
           "value": "Apri IO"
         }
       ]
     },
     {
-      "label": "More Product Boxes",
+      "label": "More Help Center Block",
       "variables": [
         {
           "identifier": "more_product_boxes_title",
           "type": "text",
-          "description": "Title above the contact boxes",
-          "label": "More product boxes title",
+          "description": "Title of more Help Center box",
+          "label": "More Help Center box title",
           "value": "Cerchi assistenza su un altro prodotto?"
         }
       ]
     },
     {
-      "label": "More Product Box 1",
+      "label": "More Help Center Box 1",
       "variables": [
         {
           "identifier": "more_product_box_1_toggle",
           "type": "checkbox",
-          "description": "Show or hide the More Product Box",
-          "label": "Show More product Box",
+          "description": "Show or hide the More Help Center Box 1",
+          "label": "Show Box",
           "value": true
         },
         {
           "identifier": "more_product_box_1_url",
           "type": "text",
-          "description": "More product box URL",
+          "description": "Box 1 URL",
           "label": "URL",
           "value": "#"
         },
@@ -1389,26 +721,26 @@
         {
           "identifier": "more_product_box_1_title",
           "type": "text",
-          "description": "More Product Box title",
+          "description": "Box 1 title",
           "label": "Title",
           "value": "Piattaforma pagamenti pagoPA"
         }
       ]
     },
     {
-      "label": "More Product Box 2",
+      "label": "More Help Center Box 2",
       "variables": [
         {
           "identifier": "more_product_box_2_toggle",
           "type": "checkbox",
-          "description": "Show or hide the More Product Box",
-          "label": "Show More Product Box",
+          "description": "Show or hide the More Help Center Box 2",
+          "label": "Show Box",
           "value": true
         },
         {
           "identifier": "more_product_box_2_url",
           "type": "text",
-          "description": "More product box URL",
+          "description": "Box 2 URL",
           "label": "URL",
           "value": "#"
         },
@@ -1421,144 +753,57 @@
         {
           "identifier": "more_product_box_2_title",
           "type": "text",
-          "description": "More product Box title",
+          "description": "Box 2 title",
           "label": "Title",
           "value": "Servizio notifiche digitali"
         }
       ]
     },
     {
-      "label": "Footer social media links",
+      "label": "Section page layout",
       "variables": [
         {
-          "identifier": "toggle_facebook_icon",
+          "identifier": "show_section_title",
           "type": "checkbox",
-          "description": "Show or hide the Facebook icon",
-          "label": "Facebook",
-          "value": true
+          "description": "Show title of the section box that wraps articles",
+          "label": "Show section title",
+          "value": false
         },
         {
-          "identifier": "facebook_url",
+          "identifier": "section_title",
           "type": "text",
-          "description": "URL to Facebook account",
-          "label": "Facebook page URL",
-          "value": "https://facebook.com"
+          "description": "Title of the section box that wraps articles",
+          "label": "Section title",
+          "value": "Articoli su questo argomento"
         },
         {
-          "identifier": "toggle_x_icon",
-          "type": "checkbox",
-          "description": "Show or hide the X (Twitter) icon",
-          "label": "X (Twitter)",
-          "value": true
+          "identifier": "section_articles_per_line",
+          "type": "range",
+          "description": "Number of section articles displayed per line",
+          "label": "Number of section articles per line",
+          "min": 1,
+          "max": 3,
+          "value": 1
         },
         {
-          "identifier": "x_url",
+          "identifier": "section_articles_read_button",
           "type": "text",
-          "description": "URL to X (Twitter) account",
-          "label": "X (Twitter) page URL",
-          "value": "https://twitter.com"
+          "description": "Label of read articles button",
+          "label": "Button label of articles card",
+          "value": "Leggi l'articolo"
         },
         {
-          "identifier": "toggle_youtube_icon",
+          "identifier": "toggle_contact_request_section",
           "type": "checkbox",
-          "description": "Show or hide the Youtube icon",
-          "label": "Youtube",
-          "value": true
-        },
-        {
-          "identifier": "youtube_url",
-          "type": "text",
-          "description": "URL to Youtube account",
-          "label": "Youtube page URL",
-          "value": "https://youtube.com"
-        },
-        {
-          "identifier": "toggle_linkedin_icon",
-          "type": "checkbox",
-          "description": "Show or hide the LinkedIn icon",
-          "label": "LinkedIn",
-          "value": true
-        },
-        {
-          "identifier": "linkedin_url",
-          "type": "text",
-          "description": "URL to LinkedIn account",
-          "label": "LinkedIn page URL",
-          "value": "https://linkedin.com"
-        },
-        {
-          "identifier": "toggle_instagram_icon",
-          "type": "checkbox",
-          "description": "Show or hide the Instagram icon",
-          "label": "Instagram",
-          "value": true
-        },
-        {
-          "identifier": "instagram_url",
-          "type": "text",
-          "description": "URL to Instagram account",
-          "label": "Instagram page URL",
-          "value": "https://www.instagram.com/"
-        }
-      ]
-    },
-    {
-      "label": "Beautify Content",
-      "variables": [
-        {
-          "identifier": "beautify_article",
-          "type": "checkbox",
-          "description": "Enhance formatting content elements",
-          "label": "Beautify Text Content",
+          "description": "Show contact request box",
+          "label": "Contact Request box",
           "value": true
         }
       ]
     },
     {
-      "label": "Article page elements",
+      "label": "Article page layout",
       "variables": [
-        {
-          "identifier": "info_title",
-          "type": "text",
-          "description": "Default Info callout title",
-          "label": "Info title",
-          "value": "Note"
-        },
-        {
-          "identifier": "success_title",
-          "type": "text",
-          "description": "Default Success callout title",
-          "label": "Success title",
-          "value": "Success"
-        },
-        {
-          "identifier": "warning_title",
-          "type": "text",
-          "description": "Default Warning callout title",
-          "label": "Warning title",
-          "value": "Warning"
-        },
-        {
-          "identifier": "danger_title",
-          "type": "text",
-          "description": "Default Danger callout title",
-          "label": "Danger title",
-          "value": "Danger"
-        },
-        {
-          "identifier": "show_articles_in_section",
-          "type": "checkbox",
-          "description": "Show sidebar of articles in section",
-          "label": "Articles in section",
-          "value": true
-        },
-        {
-          "identifier": "show_article_author",
-          "type": "checkbox",
-          "description": "Show author image and name",
-          "label": "Author",
-          "value": true
-        },
         {
           "identifier": "show_article_comments",
           "type": "checkbox",
@@ -1593,230 +838,25 @@
           "description": "Table of content title of article page",
           "label": "Table of content title",
           "value": "Indice"
+        },
+        {
+          "identifier": "beautify_article",
+          "type": "checkbox",
+          "description": "Enhance formatting content elements",
+          "label": "Beautify Text Content",
+          "value": true
+        },
+        {
+          "identifier": "toggle_contact_request_article",
+          "type": "checkbox",
+          "description": "Show contact request box",
+          "label": "Contact Request box",
+          "value": true
         }
       ]
     },
     {
-      "label": "Article Box 1",
-      "variables": [
-        {
-          "identifier": "article_box_1_toggle",
-          "type": "checkbox",
-          "description": "Show or hide the article box",
-          "label": "Show article box",
-          "value": true
-        },
-        {
-          "identifier": "article_box_1_link_toggle",
-          "type": "checkbox",
-          "description": "Enable this option if you want to use the box as link",
-          "label": "Use as link",
-          "value": true
-        },
-        {
-          "identifier": "article_box_1_url",
-          "type": "text",
-          "description": "Article block URL",
-          "label": "URL",
-          "value": "#"
-        },
-        {
-          "identifier": "article_box_1_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "article_box_1_title",
-          "type": "text",
-          "description": "Article Box title",
-          "label": "Title",
-          "value": "Register your product"
-        },
-        {
-          "identifier": "article_box_1_text",
-          "type": "text",
-          "description": "Article Box title",
-          "label": "Title",
-          "value": "You can get support that’s tailored to you, owner exclusives and more"
-        }
-      ]
-    },
-    {
-      "label": "Article Box 2",
-      "variables": [
-        {
-          "identifier": "article_box_2_toggle",
-          "type": "checkbox",
-          "description": "Show or hide the article box",
-          "label": "Show article box",
-          "value": true
-        },
-        {
-          "identifier": "article_box_2_link_toggle",
-          "type": "checkbox",
-          "description": "Enable this option if you want to use the box as link",
-          "label": "Use as link",
-          "value": true
-        },
-        {
-          "identifier": "article_box_2_url",
-          "type": "text",
-          "description": "Article block URL",
-          "label": "URL",
-          "value": "#"
-        },
-        {
-          "identifier": "article_box_2_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "article_box_2_title",
-          "type": "text",
-          "description": "Article Box title",
-          "label": "Title",
-          "value": "Our helpline hours:"
-        },
-        {
-          "identifier": "article_box_2_text",
-          "type": "text",
-          "description": "Article Box title",
-          "label": "Title",
-          "value": "8:00am - 8:00pm CST Monday to Friday; 9:00am - 6:00pm CST Saturday"
-        }
-      ]
-    },
-    {
-      "label": "Article Box 3",
-      "variables": [
-        {
-          "identifier": "article_box_3_toggle",
-          "type": "checkbox",
-          "description": "Show or hide the article box",
-          "label": "Show article box",
-          "value": true
-        },
-        {
-          "identifier": "article_box_3_link_toggle",
-          "type": "checkbox",
-          "description": "Enable this option if you want to use the box as link",
-          "label": "Use as link",
-          "value": true
-        },
-        {
-          "identifier": "article_box_3_url",
-          "type": "text",
-          "description": "Article block URL",
-          "label": "URL",
-          "value": "#"
-        },
-        {
-          "identifier": "article_box_3_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "article_box_3_title",
-          "type": "text",
-          "description": "Article Box title",
-          "label": "Title",
-          "value": "Follow us on X"
-        },
-        {
-          "identifier": "article_box_3_text",
-          "type": "text",
-          "description": "Article Box title",
-          "label": "Title",
-          "value": "Get the latest news and updates first"
-        }
-      ]
-    },
-    {
-      "label": "Article Box 4",
-      "variables": [
-        {
-          "identifier": "article_box_4_toggle",
-          "type": "checkbox",
-          "description": "Show or hide the article box",
-          "label": "Show article box",
-          "value": true
-        },
-        {
-          "identifier": "article_box_4_link_toggle",
-          "type": "checkbox",
-          "description": "Enable this option if you want to use the box as link",
-          "label": "Use as link",
-          "value": true
-        },
-        {
-          "identifier": "article_box_4_url",
-          "type": "text",
-          "description": "Article block URL",
-          "label": "URL",
-          "value": "#"
-        },
-        {
-          "identifier": "article_box_4_icon",
-          "type": "file",
-          "description": "The recommended dimensions: 100x100px",
-          "label": "Icon"
-        },
-        {
-          "identifier": "article_box_4_title",
-          "type": "text",
-          "description": "Article Box title",
-          "label": "Title",
-          "value": "Youtube Support"
-        },
-        {
-          "identifier": "article_box_4_text",
-          "type": "text",
-          "description": "Article Box title",
-          "label": "Title",
-          "value": "Fow how-to and support videos please visit our channel"
-        }
-      ]
-    },
-    {
-      "label": "Section page elements",
-      "variables": [
-        {
-          "identifier": "show_section_title",
-          "type": "checkbox",
-          "description": "Show title of the section box that wraps articles",
-          "label": "Show section title",
-          "value": false
-        },
-        {
-          "identifier": "section_title",
-          "type": "text",
-          "description": "Title of the section box that wraps articles",
-          "label": "Section title",
-          "value": "Articoli su questo argomento"
-        },
-        {
-          "identifier": "section_articles_per_line",
-          "type": "range",
-          "description": "Number of section articles displayed per line",
-          "label": "Number of section articles per line",
-          "min": 1,
-          "max": 3,
-          "value": 1
-        },
-        {
-          "identifier": "section_articles_read_button",
-          "type": "text",
-          "description": "Label of read articles button",
-          "label": "Button label of articles card",
-          "value": "Leggi l'articolo"
-        }
-      ]
-    },
-    {
-      "label": "Search result elements",
+      "label": "Search result layout",
       "variables": [
         {
           "identifier": "no_result_text",
@@ -1835,7 +875,7 @@
       ]
     },
     {
-      "label": "Error page elements",
+      "label": "Error page layout",
       "variables": [
         {
           "identifier": "error_title",
@@ -1857,75 +897,6 @@
           "description": "Label button on error page",
           "label": "Error button",
           "value": "Torna alla home"
-        }
-      ]
-    },
-    {
-      "label": "Community post elements",
-      "variables": [
-        {
-          "identifier": "show_follow_community_post",
-          "type": "checkbox",
-          "description": "Users can follow a specific post",
-          "label": "Follow",
-          "value": true
-        },
-        {
-          "identifier": "show_print_post",
-          "type": "checkbox",
-          "description": "Users can click the button to print a post",
-          "label": "Print Button",
-          "value": true
-        },
-        {
-          "identifier": "show_community_post_sharing",
-          "type": "checkbox",
-          "description": "Show social media sharing on post",
-          "label": "Social sharing",
-          "value": true
-        }
-      ]
-    },
-    {
-      "label": "Community topic elements",
-      "variables": [
-        {
-          "identifier": "show_follow_community_topic",
-          "type": "checkbox",
-          "description": "Users can follow a specific topic",
-          "label": "Follow",
-          "value": true
-        }
-      ]
-    },
-    {
-      "label": "New request elements",
-      "variables": [
-        {
-          "identifier": "new_request_tip_background",
-          "type": "color",
-          "description": "Background color of the new request page tip",
-          "label": "Background color",
-          "value": "#f3fafc"
-        },
-        {
-          "identifier": "new_request_tip_text",
-          "type": "text",
-          "description": "Text of the tip to display",
-          "label": "Text",
-          "value": "Aim to include as much information and detail in your request as possible to reduce delays between replies"
-        }
-      ]
-    },
-    {
-      "label": "New Request List page",
-      "variables": [
-        {
-          "identifier": "request_list_beta",
-          "type": "checkbox",
-          "description": "Users can sort and filter requests, add and remove columns",
-          "label": "New Request list experience",
-          "value": false
         }
       ]
     }
