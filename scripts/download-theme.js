@@ -25,8 +25,6 @@ validateFolderExistence(
 );
 
 const baseUrl = `https://${SUBDOMAIN}.zendesk.com/api/v2/guide/theming`;
-const email = process.env.ZENDESK_EMAIL;
-const password = process.env.ZENDESK_API_TOKEN;
 const api_bearer_token = process.env.API_BEARER_TOKEN;
 
 const PENDING_JOB_VALUE = 'pending';
