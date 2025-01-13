@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/pagopa/as-help-center/compare/v1.3.0...v1.4.0) (2025-01-13)
+
+
+### Features
+
+* **IO HC:** manifest properties and dynamic footer + INFRA sync manifest properties action ([#9](https://github.com/pagopa/as-help-center/issues/9)) ([dcdaa5e](https://github.com/pagopa/as-help-center/commit/dcdaa5e75f2b461b8c510ac94c34a9a50ff38274))
+
 # [1.3.0](https://github.com/pagopa/as-help-center/compare/v1.2.0...v1.3.0) (2024-12-24)
 
 
