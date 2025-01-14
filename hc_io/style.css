@@ -2415,7 +2415,7 @@ input[type='submit']:active,
 
 @media (width >= 768px) {
   .lt-contact-request__text {
-    width: 40%;
+    width: 60%;
   }
 }
 

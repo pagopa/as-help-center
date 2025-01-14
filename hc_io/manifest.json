@@ -680,7 +680,7 @@
           "type": "text",
           "description": "Subtitle of the contact request box",
           "label": "Box Subtitle",
-          "value": "Se hai scaricato l’app IO, accedi per inviarci un messaggio e ricevere assistenza personalizzata."
+          "value": "Se hai scaricato l’app, accedi per scriverci e ricevere assistenza personalizzata.[newline]Ti basterà toccare il punto di domanda che si trova in alto a sinistra e aprire una richiesta."
         },
         {
           "identifier": "contact_request_image",
