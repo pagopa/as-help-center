@@ -384,7 +384,7 @@
           "type": "text",
           "description": "URL to Medium account",
           "label": "Medium page URL",
-          "value": "https://medium.com/pagopa-spa"
+          "value": "https://medium.com/io-lapp-dei-servizi-pubblici"
         },
         {
           "identifier": "toggle_youtube_icon",
