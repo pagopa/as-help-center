@@ -325,7 +325,7 @@
           "type": "text",
           "description": "Semicolon-separated footer links with label and URL",
           "label": "Column links",
-          "value": "App IO|https://www.pagopa.it/it/prodotti-e-servizi/app-io/; Piattaforma pagoPA|https://www.pagopa.it/it/prodotti-e-servizi/piattaforma-pagopa/; Piattaforma Notifiche Digitali|https://www.pagopa.it/it/prodotti-e-servizi/send-notifiche-digitali/"
+          "value": "App IO|https://www.pagopa.it/it/prodotti-e-servizi/app-io/; Piattaforma pagoPA|https://www.pagopa.it/it/prodotti-e-servizi/piattaforma-pagopa/; SEND - Servizio notifiche Digitali|https://www.pagopa.it/it/prodotti-e-servizi/send-notifiche-digitali/"
         }
       ]
     },
@@ -363,7 +363,7 @@
           "type": "checkbox",
           "description": "Show or hide the X (Twitter) icon",
           "label": "X (Twitter)",
-          "value": true
+          "value": false
         },
         {
           "identifier": "x_url",
@@ -563,9 +563,9 @@
           "type": "range",
           "description": "Number of promoted articles displayed per line",
           "label": "Number of promoted articles per line",
+          "value": 3,
           "min": 1,
-          "max": 6,
-          "value": 3
+          "max": 6
         },
         {
           "identifier": "toggle_more_products",
@@ -617,9 +617,9 @@
           "type": "range",
           "description": "Number of categories displayed per line",
           "label": "Number of categories per line",
+          "value": 3,
           "min": 1,
-          "max": 6,
-          "value": 3
+          "max": 6
         },
         {
           "identifier": "categories_bg_color",
@@ -781,9 +781,9 @@
           "type": "range",
           "description": "Number of section articles displayed per line",
           "label": "Number of section articles per line",
+          "value": 1,
           "min": 1,
-          "max": 3,
-          "value": 1
+          "max": 3
         },
         {
           "identifier": "section_articles_read_button",
