@@ -373,6 +373,20 @@
           "value": "https://x.com/PagoPA"
         },
         {
+          "identifier": "toggle_medium_icon",
+          "type": "checkbox",
+          "description": "Show or hide the Medium icon",
+          "label": "Medium",
+          "value": true
+        },
+        {
+          "identifier": "medium_url",
+          "type": "text",
+          "description": "URL to Medium account",
+          "label": "Medium page URL",
+          "value": "https://medium.com/pagopa-spa"
+        },
+        {
           "identifier": "toggle_youtube_icon",
           "type": "checkbox",
           "description": "Show or hide the Youtube icon",
