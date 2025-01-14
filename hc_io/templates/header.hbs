@@ -6,8 +6,9 @@
         {{#link 'help_center'}}
         <img class="lt-topbar__logo" src="{{settings.logo}}" alt="{{t 'logo'}}">
         {{/link}}
+        {{#link 'help_center'}}
         {{#if settings.show_help_center_name}}
-        <div class="lt-ms-3">
+        <div class="lt-ms-3 lt-color-inverse-primary lt-no-hover-color">
           {{#if settings.toggle_translations}}
           {{dc settings.help_center_name}}
           {{else}}
@@ -15,6 +16,7 @@
           {{/if}}
         </div>
         {{/if}}
+        {{/link}}
       </div>
 
       {{!-- Mobile menu toggle --}}

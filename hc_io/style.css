@@ -136,6 +136,14 @@ a:hover {
   text-decoration: none;
 }
 
+.lt-color-inverse-primary {
+  color: $brand_primary_inverse;
+}
+
+/* stylelint-disable-next-line block-no-empty */
+.lt-no-hover-color:hover {
+}
+
 figure {
   margin: 0;
 }
