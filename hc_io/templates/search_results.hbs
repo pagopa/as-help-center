@@ -93,15 +93,17 @@
           <ul class="lt-list-unstyled search-results-list lt-mt-0">
             {{#each results}}
             <li class="lt-search-result lt-search-result--{{type}} lt-mb-5">
-              <h2 class="lt-search-result__title lt-fs-4 lt-mb-3">
-                <a href="{{url}}" class="search-result-link">{{title}}</a>
-              </h2>
               <ol class="breadcrumbs lt-breadcrumbs--search-results lt-mb-3">
                 {{#each path_steps}}
                   <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
                 {{/each}}
               </ol>
-              <div class="lt-search-result__description lt-block lt-mb-3">{{text}}</div>
+              <a href="{{url}}" class="search-result-wrapper">
+                <h2 class="lt-search-result__title lt-fs-4 lt-mb-3">
+                  <span class="search-result-link">{{title}}</span>
+                </h2>
+                <div class="lt-search-result__description lt-block lt-mb-3">{{text}}...</div>
+              </a>
 
               <div class="lt-meta lt-mb-5">
                 <span class="lt-meta__item">{{date created_at timeago=true}}</span>
