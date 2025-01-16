@@ -52,13 +52,15 @@
             <ul class="lt-custom-block-list lt-p-0 lt-mb-0 lt-row lt-row-cols-md-{{settings.section_articles_per_line}}">
               {{#each section.articles}}
                 <li class="lt-custom-block-item lt-d-flex lt-section-stretch">
-                  <article
-                    class="lt-custom-block-item__card-stretch lt-block lt-block--shadow lt-p-4 lt-d-flex lt-w-100 lt-position-relative">
-                    <h3 class="lt-custom-block-item__title lt-mb-0 lt-fs-5">{{title}}</h3>
-                    <div class="read-article">
-                      <a class="read-article-stretch--link" href="{{url}}">{{../settings.section_articles_read_button}}</a>
-                    </div>
-                  </article>
+                  <a href="{{url}}" class="lt-w-100">
+                    <article
+                      class="lt-custom-block-item__card-stretch lt-block lt-block--shadow lt-p-4 lt-d-flex lt-w-100 lt-h-100 lt-position-relative">
+                      <h3 class="lt-custom-block-item__title lt-mb-0 lt-fs-5">{{title}}</h3>
+                      <div class="read-article">
+                        <span class="read-article-stretch--link">{{../settings.section_articles_read_button}}</span>
+                      </div>
+                    </article>
+                  </a>
                 </li>
               {{/each}}
             </ul>

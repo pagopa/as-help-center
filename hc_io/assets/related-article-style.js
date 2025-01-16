@@ -1,24 +1,53 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Select all li element inside related-articles list
+  // Select all li elements inside related article list
   const articleItems = document.querySelectorAll('.related-articles ul li');
-  // Iterate each <li> element (related article card)
+
   articleItems.forEach((item) => {
-    // Get related article title (a) and replace with a span with a defined class
-    const articleTitle = item.querySelector('a');
-    const span = document.createElement('span');
-    span.classList.add('related-articles-title-as-text');
-    span.innerHTML = articleTitle.innerHTML;
-    articleTitle.parentNode.replaceChild(span, articleTitle);
+    // Get original link (article title)
+    const articleLink = item.querySelector('a');
+    if (!articleLink) return; // Continua solo se esiste un <a>
+
+    // Create a tag as a wrapper
+    const wrapperLink = document.createElement('a');
+    wrapperLink.href = articleLink.href; // Use original href for the clickable card
+    wrapperLink.classList.add('lt-w-100');
+
+    // Create <article>
+    const article = document.createElement('article');
+    article.classList.add(
+      'lt-custom-block-item__card',
+      'related-articles__card',
+      'lt-block',
+      'lt-block--shadow',
+      'lt-p-4',
+      'lt-p-lg-5',
+      'lt-d-flex',
+      'lt-w-100',
+      'lt-h-100',
+      'lt-position-relative'
+    );
+
+    // Create <h3> title
+    const title = document.createElement('h3');
+    title.classList.add('lt-custom-block-item__title', 'lt-mb-3', 'lt-fs-5');
+    title.textContent = articleLink.textContent;
 
     // Create "read article" button
     const readArticleDiv = document.createElement('div');
-    readArticleDiv.classList.add('read-article'); // Aggiunge la classe CSS
-    const readArticleLink = document.createElement('a');
-    readArticleLink.href = articleTitle.href; // Prende l'href originale dell'articolo
-    readArticleLink.textContent = "Leggi l'articolo"; // Testo del bottone
-    readArticleLink.classList.add('read-article-link'); // Aggiunge una classe per ulteriori stili
-    readArticleDiv.appendChild(readArticleLink);
-    // Append "read article" button inside the card (<li> element)
-    item.appendChild(readArticleDiv);
+    readArticleDiv.classList.add('read-article');
+
+    const readArticleSpan = document.createElement('span');
+    readArticleSpan.textContent = "Leggi l'articolo";
+    readArticleDiv.appendChild(readArticleSpan);
+
+    // Put elements together
+    article.appendChild(title);
+    article.appendChild(readArticleDiv);
+    wrapperLink.appendChild(article);
+
+    // Substitute original element with wrapper
+    item.innerHTML = '';
+    item.classList.add('lt-custom-block-item', 'lt-d-flex');
+    item.appendChild(wrapperLink);
   });
 });

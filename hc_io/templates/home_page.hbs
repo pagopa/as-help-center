@@ -75,15 +75,18 @@
                 {{#each promoted_articles}}
                   {{#if (compare @index "<" 3) }}
                     <li class="lt-custom-block-item lt-d-flex">
-                      <article
-                        class="lt-custom-block-item__card lt-block lt-block--shadow lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100 lt-position-relative">
-                        <h3 class="lt-custom-block-item__title lt-mb-3 lt-fs-5">{{title}}</h3>
-                        <span class="lt-custom-block-item__desc lt-fs-6 lt-mb-3">{{excerpt body characters=120}}</span>
-                        <div class="read-article">
-                          <a href="{{url}}">{{../settings.popular_articles_read_button}}</a>
-                        </div>
-                      </article>
+                      <a href="{{url}}">
+                        <article
+                          class="lt-custom-block-item__card lt-block lt-block--shadow lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100 lt-h-100 lt-position-relative">
+                          <h3 class="lt-custom-block-item__title lt-mb-3 lt-fs-5">{{title}}</h3>
+                          <span class="lt-custom-block-item__desc lt-fs-6 lt-mb-3">{{excerpt body characters=120}}</span>
+                          <div class="read-article">
+                            <span>{{../settings.popular_articles_read_button}}</span>
+                          </div>
+                        </article>
+                      </a>
                     </li>
+                    </a>
                   {{/if}}
                 {{/each}}
               </ul>
