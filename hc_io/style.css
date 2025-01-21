@@ -142,6 +142,7 @@ a:hover {
 
 /* stylelint-disable-next-line block-no-empty */
 .lt-no-hover-color:hover {
+  color: unset !important;
 }
 
 figure {
