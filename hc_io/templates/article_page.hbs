@@ -13,13 +13,15 @@
           </div>
           <div class="lt-article__heading lt-col-sm-12 lt-col-lg-8">
             <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{article.title}}</h1>
-            <div class="lt-article__date">
-              {{#is article.created_at article.edited_at}}
-                {{date article.created_at timeago=true}}
-              {{else}}
-                {{t 'updated'}} {{date article.edited_at timeago=true}}
-              {{/is}}
-            </div>
+            {{#is settings.article_show_date}}
+              <div class="lt-article__date">
+                {{#is article.created_at article.edited_at}}
+                  {{date article.created_at timeago=true}}
+                {{else}}
+                  {{t 'updated'}} {{date article.edited_at timeago=true}}
+                {{/is}}
+              </div>
+            {{/is}}            
           </div>
         </div>
       </header>

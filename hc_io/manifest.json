@@ -866,6 +866,13 @@
           "description": "Show contact request box",
           "label": "Contact Request box",
           "value": true
+        },
+        {
+          "identifier": "article_show_date",
+          "type": "checkbox",
+          "description": "Show updated at date for articles",
+          "label": "Show article updated at date",
+          "value": false
         }
       ]
     },
@@ -885,6 +892,13 @@
           "description": "Go back home label button when no article is found on search result page",
           "label": "Fallback button",
           "value": "Torna alla home"
+        },
+        {
+          "identifier": "search_show_date",
+          "type": "checkbox",
+          "description": "Show updated at date for articles",
+          "label": "Show article updated at date",
+          "value": false
         }
       ]
     },

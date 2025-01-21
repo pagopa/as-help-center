@@ -106,7 +106,9 @@
               </a>
 
               <div class="lt-meta lt-mb-5">
-                <span class="lt-meta__item">{{date created_at timeago=true}}</span>
+                {{#is ../settings.search_show_date}}
+                  <span class="lt-meta__item">{{date created_at timeago=true}}</span>
+                {{/is}}
                 {{#if ../settings.show_article_comments}}
                 <span class="lt-meta__item">
                   <span class="sr-only">{{t 'comments_count' count=comment_count}}</span>
