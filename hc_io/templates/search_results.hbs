@@ -93,11 +93,11 @@
           <ul class="lt-list-unstyled search-results-list lt-mt-0">
             {{#each results}}
             <li class="lt-search-result lt-search-result--{{type}} lt-mb-5">
-              <ol class="breadcrumbs lt-breadcrumbs--search-results lt-mb-3">
-                {{#each path_steps}}
-                  <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
-                {{/each}}
-              </ol>
+              {{#each path_steps}}
+                {{#if @last}}
+                  <div class="lt-mb-3 search-result-category"><a class="" href="{{url}}"><span class="category-icon-wrapper search-result-category-icon-container" data-url="{{url}}"></span>{{name}}</a></div>
+                {{/if}}
+              {{/each}}
               <a href="{{url}}" class="search-result-wrapper">
                 <h2 class="lt-search-result__title lt-fs-4 lt-mb-3">
                   <span class="search-result-link">{{title}}</span>

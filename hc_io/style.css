@@ -756,6 +756,13 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   }
 }
 
+@media (width < 576px) {
+  .lt-container-hero-mobile-left {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
 .lt-search-topic {
   font-size: 0.95rem;
   font-weight: 400;
@@ -1894,6 +1901,12 @@ input[type='submit']:active,
   padding-bottom: 1.5rem;
 }
 
+.search-result-category a {
+  color: $text_light_color;
+  font-size: 15px;
+  font-weight: 600;
+}
+
 .lt-menu-toggle {
   position: relative;
   display: block;
@@ -2239,6 +2252,13 @@ input[type='submit']:active,
   font-size: 20px;
   line-height: unset !important;
   color: $brand_primary;
+}
+
+.search-result-category-icon-container .category-icon {
+  font-size: 15px;
+  margin-right: 8px;
+  line-height: unset !important;
+  color: $text_light_color;
 }
 
 .lt-block-list-item__title {
@@ -9305,4 +9325,11 @@ slider-component {
 /* show only first 3 releated articles */
 .related-articles ul li:nth-child(n + 4) {
   display: none !important;
+}
+
+.back-link {
+  color: $brand_primary_inverse;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }

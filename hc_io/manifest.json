@@ -812,6 +812,20 @@
           "description": "Show contact request box",
           "label": "Contact Request box",
           "value": true
+        },
+        {
+          "identifier": "section_back_button_label",
+          "type": "text",
+          "description": "Text displayed on back button",
+          "label": "Back button label text",
+          "value": ""
+        },
+        {
+          "identifier": "section_back_button_value",
+          "type": "text",
+          "description": "Value displayed on back button after the label",
+          "label": "Back button value text",
+          "value": "Tutte le categorie"
         }
       ]
     },
@@ -873,6 +887,13 @@
           "description": "Show updated at date for articles",
           "label": "Show article updated at date",
           "value": false
+        },
+        {
+          "identifier": "article_back_button_label",
+          "type": "text",
+          "description": "Text displayed on back button before category name",
+          "label": "Back button label text",
+          "value": ""
         }
       ]
     },

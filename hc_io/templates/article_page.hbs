@@ -1,8 +1,14 @@
 <div class="article" itemscope itemtype="http://schema.org/Article">
-  <div class="lt-start-screen-wrap lt-start-screen-wrap--pb lt-container">
+  <div class="lt-start-screen-wrap lt-start-screen-wrap--pb lt-container lt-container-hero-mobile-left">
     <div class="lt-hero-unit__bg lt-behind" data-hero-bg></div>
-    <div class="lt-container-inner lt-text-center lt-text-md-start">
-      <div class="lt-breadcrumbs-wrapper lt-pt-lg-5 lt-pb-lg-5">{{ breadcrumbs }}</div>
+    <div class="lt-container-inner lt-text-start">
+      {{!-- <div class="lt-container-inner lt-text-start"> --}}
+        <a href="{{section.url}}" aria-label="Vai alla home con focus sulla sezione delle categorie" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
+            <i class="fa-solid fa-arrow-left lt-me-2"></i>
+            {{#if settings.article_back_button_label}}<span class="lt-me-1">{{settings.article_back_button_label}}</span>{{/if}} 
+            <span class="lt-fw-bold">{{section.name}}</span>
+        </a>
+      {{!-- </div> --}}
       
       {{!-- header section: article title and update date and search bar --}}
       <header class="lt-article__header">
