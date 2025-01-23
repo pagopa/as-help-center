@@ -2235,7 +2235,7 @@ input[type='submit']:active,
   text-align: center;
 }
 
-.category-icon {
+.category-icon-container .category-icon {
   font-size: 20px;
   line-height: unset !important;
   color: $brand_primary;
