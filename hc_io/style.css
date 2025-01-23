@@ -7252,6 +7252,26 @@ blockquote::after {
   opacity: 0.15;
 }
 
+.light.callout {
+  color: $text_color;
+}
+
+.light.callout::after,
+.light.note::after,
+.light.warning::after,
+.light.danger::after,
+.light.success::after {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-color: $brand_primary_inverse;
+  border-radius: var(--border-radius-base);
+  opacity: 1;
+}
+
 [dir='ltr'] .callout::after,
 [dir='ltr'] .note::after,
 [dir='ltr'] .warning::after,

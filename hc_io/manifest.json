@@ -508,6 +508,13 @@
       "label": "Info Block",
       "variables": [
         {
+          "identifier": "show_info_block",
+          "type": "checkbox",
+          "description": "Show Info block used for alert/success/warning/info (only on home)",
+          "label": "Info block",
+          "value": false
+        },
+        {
           "identifier": "show_info_block_all_page",
           "type": "checkbox",
           "description": "Show info box on each pages",
@@ -526,14 +533,14 @@
           "type": "text",
           "description": "The main text of the block",
           "label": "Body",
-          "value": "COVID-19 might have sent us home, but we are still there for you via email and chat. Delivery info COVID-19 Your parcel will arrive on time. All orders can be processed normally. The highest hygiene standards apply in our warehouse as well as at delivery. This also applies to your package and the products you order."
+          "value": "COVID-19 might have sent us home, but we are still there for you via email and chat. Delivery info COVID-19 Your parcel will arrive on time. All orders can be processed normally."
         },
         {
           "identifier": "info_block_severity",
           "type": "list",
           "description": "Info block severity (warning, error, success, info)",
           "label": "Severity",
-          "value": "info",
+          "value": "danger",
           "options": [
             {
               "label": "Info",
@@ -548,8 +555,8 @@
               "value": "warning"
             },
             {
-              "label": "Error",
-              "value": "error"
+              "label": "Danger",
+              "value": "danger"
             }
           ]
         }
@@ -558,13 +565,6 @@
     {
       "label": "Home page layout",
       "variables": [
-        {
-          "identifier": "show_info_block",
-          "type": "checkbox",
-          "description": "Show Info block used for alert/success/warning/info",
-          "label": "Info block",
-          "value": false
-        },
         {
           "identifier": "toggle_promoted_articles",
           "type": "checkbox",

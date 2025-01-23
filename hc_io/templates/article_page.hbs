@@ -1,6 +1,29 @@
 <div class="article" itemscope itemtype="http://schema.org/Article">
   <div class="lt-start-screen-wrap lt-start-screen-wrap--pb lt-container lt-container-hero-mobile-left">
-    <div class="lt-hero-unit__bg lt-behind" data-hero-bg></div>
+    <div class="lt-hero-unit__bg lt-behind" data-hero-bg
+      {{#if settings.show_info_block}}
+        {{#if settings.show_info_block_all_page}}
+          style="background-size: contain;"
+        {{/if}}
+      {{/if}}>
+    </div>
+    {{!-- Info box --}}
+    {{#if settings.show_info_block}}
+      {{#is settings.show_info_block_all_page true}}
+        <div class="lt-container-inner lt-pt-0 lt-pt-lg-3 lt-pb-5 lt-pb-lg-4">
+          <div class="rte info-block" id="info-block">
+            <div class="callout light
+              {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
+              {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
+              {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
+              {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
+              <h4 class="callout__title">{{settings.info_block_title}}</h4>
+              <p>{{settings.info_block_text}}</p>
+            </div>
+          </div>
+        </div>
+      {{/is}}
+    {{/if}}
     <div class="lt-container-inner lt-text-start">
       {{!-- <div class="lt-container-inner lt-text-start"> --}}
         <a href="{{section.url}}" aria-label="Vai alla home con focus sulla sezione delle categorie" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
