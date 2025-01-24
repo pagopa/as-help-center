@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/pagopa/as-help-center/compare/v1.4.0...v1.5.0) (2025-01-24)
+
+
+### Features
+
+* **IO-HC:** feedback integration ([#10](https://github.com/pagopa/as-help-center/issues/10)) ([cc4959d](https://github.com/pagopa/as-help-center/commit/cc4959d0247a42d3bf9c03658939f6909ea91888))
+
 # [1.4.0](https://github.com/pagopa/as-help-center/compare/v1.3.0...v1.4.0) (2025-01-13)
 
 
