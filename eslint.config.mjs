@@ -22,6 +22,7 @@ export default [
         hljs: "readonly",
         Fancybox: "readonly",
         LotusConfig: "readonly",
+        DOMPurify: "readonly",
       }
     },
     rules: {

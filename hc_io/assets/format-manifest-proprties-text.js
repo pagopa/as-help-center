@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Substitute '[newline]' with HTML new line
     const formattedText = text.replace(/\[newline\]/g, '<br>');
 
+    // sanitize and update content
+    const sanitizedContent = DOMPurify.sanitize(formattedText);
+
     // Update content
-    element.innerHTML = formattedText;
+    element.innerHTML = sanitizedContent;
   });
 });
