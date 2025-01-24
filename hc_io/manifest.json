@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -325,7 +325,7 @@
           "type": "text",
           "description": "Semicolon-separated footer links with label and URL",
           "label": "Column links",
-          "value": "App IO|https://www.pagopa.it/it/prodotti-e-servizi/app-io/; Piattaforma pagoPA|https://www.pagopa.it/it/prodotti-e-servizi/piattaforma-pagopa/; Piattaforma Notifiche Digitali|https://www.pagopa.it/it/prodotti-e-servizi/send-notifiche-digitali/"
+          "value": "App IO|https://www.pagopa.it/it/prodotti-e-servizi/app-io/; Piattaforma pagoPA|https://www.pagopa.it/it/prodotti-e-servizi/piattaforma-pagopa/; SEND - Servizio notifiche Digitali|https://www.pagopa.it/it/prodotti-e-servizi/send-notifiche-digitali/"
         }
       ]
     },
@@ -363,7 +363,7 @@
           "type": "checkbox",
           "description": "Show or hide the X (Twitter) icon",
           "label": "X (Twitter)",
-          "value": true
+          "value": false
         },
         {
           "identifier": "x_url",
@@ -371,6 +371,20 @@
           "description": "URL to X (Twitter) account",
           "label": "X (Twitter) page URL",
           "value": "https://x.com/PagoPA"
+        },
+        {
+          "identifier": "toggle_medium_icon",
+          "type": "checkbox",
+          "description": "Show or hide the Medium icon",
+          "label": "Medium",
+          "value": true
+        },
+        {
+          "identifier": "medium_url",
+          "type": "text",
+          "description": "URL to Medium account",
+          "label": "Medium page URL",
+          "value": "https://medium.com/io-lapp-dei-servizi-pubblici"
         },
         {
           "identifier": "toggle_youtube_icon",
@@ -494,6 +508,13 @@
       "label": "Info Block",
       "variables": [
         {
+          "identifier": "show_info_block",
+          "type": "checkbox",
+          "description": "Show Info block used for alert/success/warning/info (only on home)",
+          "label": "Info block",
+          "value": false
+        },
+        {
           "identifier": "show_info_block_all_page",
           "type": "checkbox",
           "description": "Show info box on each pages",
@@ -512,14 +533,14 @@
           "type": "text",
           "description": "The main text of the block",
           "label": "Body",
-          "value": "COVID-19 might have sent us home, but we are still there for you via email and chat. Delivery info COVID-19 Your parcel will arrive on time. All orders can be processed normally. The highest hygiene standards apply in our warehouse as well as at delivery. This also applies to your package and the products you order."
+          "value": "COVID-19 might have sent us home, but we are still there for you via email and chat. Delivery info COVID-19 Your parcel will arrive on time. All orders can be processed normally."
         },
         {
           "identifier": "info_block_severity",
           "type": "list",
           "description": "Info block severity (warning, error, success, info)",
           "label": "Severity",
-          "value": "info",
+          "value": "danger",
           "options": [
             {
               "label": "Info",
@@ -534,8 +555,8 @@
               "value": "warning"
             },
             {
-              "label": "Error",
-              "value": "error"
+              "label": "Danger",
+              "value": "danger"
             }
           ]
         }
@@ -544,13 +565,6 @@
     {
       "label": "Home page layout",
       "variables": [
-        {
-          "identifier": "show_info_block",
-          "type": "checkbox",
-          "description": "Show Info block used for alert/success/warning/info",
-          "label": "Info block",
-          "value": false
-        },
         {
           "identifier": "toggle_promoted_articles",
           "type": "checkbox",
@@ -563,9 +577,9 @@
           "type": "range",
           "description": "Number of promoted articles displayed per line",
           "label": "Number of promoted articles per line",
+          "value": 3,
           "min": 1,
-          "max": 6,
-          "value": 3
+          "max": 6
         },
         {
           "identifier": "toggle_more_products",
@@ -617,9 +631,9 @@
           "type": "range",
           "description": "Number of categories displayed per line",
           "label": "Number of categories per line",
+          "value": 3,
           "min": 1,
-          "max": 6,
-          "value": 3
+          "max": 6
         },
         {
           "identifier": "categories_bg_color",
@@ -666,7 +680,7 @@
           "type": "text",
           "description": "Subtitle of the contact request box",
           "label": "Box Subtitle",
-          "value": "Se hai scaricato l’app IO, accedi per inviarci un messaggio e ricevere assistenza personalizzata."
+          "value": "Se hai scaricato l’app, accedi per scriverci e ricevere assistenza personalizzata.[newline]Ti basterà toccare il punto di domanda che si trova in alto a sinistra e aprire una richiesta."
         },
         {
           "identifier": "contact_request_image",
@@ -781,9 +795,9 @@
           "type": "range",
           "description": "Number of section articles displayed per line",
           "label": "Number of section articles per line",
+          "value": 1,
           "min": 1,
-          "max": 3,
-          "value": 1
+          "max": 3
         },
         {
           "identifier": "section_articles_read_button",
@@ -798,6 +812,20 @@
           "description": "Show contact request box",
           "label": "Contact Request box",
           "value": true
+        },
+        {
+          "identifier": "section_back_button_label",
+          "type": "text",
+          "description": "Text displayed on back button",
+          "label": "Back button label text",
+          "value": ""
+        },
+        {
+          "identifier": "section_back_button_value",
+          "type": "text",
+          "description": "Value displayed on back button after the label",
+          "label": "Back button value text",
+          "value": "Tutte le categorie"
         }
       ]
     },
@@ -852,6 +880,20 @@
           "description": "Show contact request box",
           "label": "Contact Request box",
           "value": true
+        },
+        {
+          "identifier": "article_show_date",
+          "type": "checkbox",
+          "description": "Show updated at date for articles",
+          "label": "Show article updated at date",
+          "value": false
+        },
+        {
+          "identifier": "article_back_button_label",
+          "type": "text",
+          "description": "Text displayed on back button before category name",
+          "label": "Back button label text",
+          "value": ""
         }
       ]
     },
@@ -871,6 +913,13 @@
           "description": "Go back home label button when no article is found on search result page",
           "label": "Fallback button",
           "value": "Torna alla home"
+        },
+        {
+          "identifier": "search_show_date",
+          "type": "checkbox",
+          "description": "Show updated at date for articles",
+          "label": "Show article updated at date",
+          "value": false
         }
       ]
     },

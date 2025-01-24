@@ -2,20 +2,20 @@
 <div class="lt-layout">
   <header class="lt-topbar lt-container lt-py-4 lt-d-print-none" data-topbar>
     <div class="lt-container-inner-header lt-topbar__wrap lt-d-flex lt-align-items-center lt-justify-content-between lt-w-100 lt-position-relative">
-      <div class="lt-d-flex lt-align-items-center">
-        {{#link 'help_center'}}
-        <img class="lt-topbar__logo" src="{{settings.logo}}" alt="{{t 'logo'}}">
-        {{/link}}
-        {{#if settings.show_help_center_name}}
-        <div class="lt-ms-3">
-          {{#if settings.toggle_translations}}
-          {{dc settings.help_center_name}}
-          {{else}}
-          {{settings.help_center_name}}
+        {{#link 'help_center' class="lt-no-hover-color"}}
+        <div class="lt-d-flex lt-align-items-center">
+          <img class="lt-topbar__logo" src="{{settings.logo}}" alt="{{t 'logo'}}">
+          {{#if settings.show_help_center_name}}
+            <div class="lt-ms-3 lt-color-inverse-primary" style="margin-top: 2px;">
+              {{#if settings.toggle_translations}}
+              {{dc settings.help_center_name}}
+              {{else}}
+              {{settings.help_center_name}}
+              {{/if}}
+            </div>
           {{/if}}
         </div>
-        {{/if}}
-      </div>
+        {{/link}}
 
       {{!-- Mobile menu toggle --}}
 

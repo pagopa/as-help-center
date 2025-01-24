@@ -44,6 +44,7 @@
             {{#if settings.toggle_instagram_icon}}<a href="{{settings.instagram_url}}" class="lt-footer-link" aria-label="Vai al canale social Instagram di PagoPA"><i class="fab fa-instagram"></i></a>{{/if}}
             {{#if settings.toggle_linkedin_icon}}<a href="{{settings.linkedin_url}}" class="lt-footer-link" aria-label="Vai al canale social Linkedin di PagoPA"><i class="fab fa-linkedin"></i></a>{{/if}}
             {{#if settings.toggle_youtube_icon}}<a href="{{settings.youtube_url}}" class="lt-footer-link" aria-label="Vai al canale Youtube di PagoPA"><i class="fab fa-youtube"></i></a>{{/if}}
+            {{#if settings.toggle_medium_icon}}<a href="{{settings.medium_url}}" class="lt-footer-link" aria-label="Vai al canale Medium di PagoPA"><i class="fab fa-brands fa-medium"></i></a>{{/if}}
           </div>
           <ul class="lt-list-unstyled">
             {{!-- TODO inserire --}}
@@ -115,3 +116,7 @@
 <script src="{{asset 'lotus-category-menu.js'}}"></script>
 {{!-- Open IO App CTA (deep link) --}}
 <script src="{{asset 'open-app-deeplink.js'}}"></script>
+{{!-- Format text for properties element with format-text attribute --}}
+<script src="{{asset 'format-manifest-proprties-text.js'}}"></script>
+{{!-- Show categories icon based on id or url --}}
+<script src="{{asset 'show-categories-icon.js'}}"></script>

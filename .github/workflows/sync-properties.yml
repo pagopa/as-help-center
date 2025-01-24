@@ -18,7 +18,7 @@ on:
         required: true
 
 jobs:
-  export-theme:
+  sync-manifest:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout

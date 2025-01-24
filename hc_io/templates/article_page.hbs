@@ -1,8 +1,37 @@
 <div class="article" itemscope itemtype="http://schema.org/Article">
-  <div class="lt-start-screen-wrap lt-start-screen-wrap--pb lt-container">
-    <div class="lt-hero-unit__bg lt-behind" data-hero-bg></div>
-    <div class="lt-container-inner lt-text-center lt-text-md-start">
-      <div class="lt-breadcrumbs-wrapper lt-pt-lg-5 lt-pb-lg-5">{{ breadcrumbs }}</div>
+  <div class="lt-start-screen-wrap lt-start-screen-wrap--pb lt-container lt-container-hero-mobile-left">
+    <div class="lt-hero-unit__bg lt-behind" data-hero-bg
+      {{#if settings.show_info_block}}
+        {{#if settings.show_info_block_all_page}}
+          style="background-size: contain;"
+        {{/if}}
+      {{/if}}>
+    </div>
+    {{!-- Info box --}}
+    {{#if settings.show_info_block}}
+      {{#is settings.show_info_block_all_page true}}
+        <div class="lt-container-inner lt-pt-0 lt-pt-lg-3 lt-pb-5 lt-pb-lg-4">
+          <div class="rte info-block" id="info-block">
+            <div class="callout light
+              {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
+              {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
+              {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
+              {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
+              <h4 class="callout__title">{{settings.info_block_title}}</h4>
+              <p>{{settings.info_block_text}}</p>
+            </div>
+          </div>
+        </div>
+      {{/is}}
+    {{/if}}
+    <div class="lt-container-inner lt-text-start">
+      {{!-- <div class="lt-container-inner lt-text-start"> --}}
+        <a href="{{section.url}}" aria-label="Vai alla home con focus sulla sezione delle categorie" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
+            <i class="fa-solid fa-arrow-left lt-me-2"></i>
+            {{#if settings.article_back_button_label}}<span class="lt-me-1">{{settings.article_back_button_label}}</span>{{/if}} 
+            <span class="lt-fw-bold">{{section.name}}</span>
+        </a>
+      {{!-- </div> --}}
       
       {{!-- header section: article title and update date and search bar --}}
       <header class="lt-article__header">
@@ -13,13 +42,15 @@
           </div>
           <div class="lt-article__heading lt-col-sm-12 lt-col-lg-8">
             <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{article.title}}</h1>
-            <div class="lt-article__date">
-              {{#is article.created_at article.edited_at}}
-                {{date article.created_at timeago=true}}
-              {{else}}
-                {{t 'updated'}} {{date article.edited_at timeago=true}}
-              {{/is}}
-            </div>
+            {{#if settings.article_show_date}}
+              <div class="lt-article__date">
+                {{#is article.created_at article.edited_at}}
+                  {{date article.created_at timeago=true}}
+                {{else}}
+                  {{t 'updated'}} {{date article.edited_at timeago=true}}
+                {{/is}}
+              </div>
+            {{/if}}            
           </div>
         </div>
       </header>
@@ -149,7 +180,7 @@
                   {{settings.contact_request_title}}
                 {{/if}}
               </h3>
-              <span class="lt-contact-request__descr lt-d-inline-block">
+              <span class="lt-contact-request__descr lt-d-inline-block" format-text>
                 {{#if settings.toggle_translations}}
                   {{dc settings.contact_request_subtitle}}
                 {{else}}

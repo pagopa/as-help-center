@@ -75,15 +75,18 @@
                 {{#each promoted_articles}}
                   {{#if (compare @index "<" 3) }}
                     <li class="lt-custom-block-item lt-d-flex">
-                      <article
-                        class="lt-custom-block-item__card lt-block lt-block--shadow lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100 lt-position-relative">
-                        <h3 class="lt-custom-block-item__title lt-mb-3 lt-fs-5">{{title}}</h3>
-                        <span class="lt-custom-block-item__desc lt-fs-6 lt-mb-3">{{excerpt body characters=120}}</span>
-                        <div class="read-article">
-                          <a href="{{url}}">{{../settings.popular_articles_read_button}}</a>
-                        </div>
-                      </article>
+                      <a href="{{url}}">
+                        <article
+                          class="lt-custom-block-item__card lt-block lt-block--shadow lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100 lt-h-100 lt-position-relative">
+                          <h3 class="lt-custom-block-item__title lt-mb-3 lt-fs-5">{{title}}</h3>
+                          <span class="lt-custom-block-item__desc lt-fs-6 lt-mb-3">{{excerpt body characters=120}}</span>
+                          <div class="read-article">
+                            <span>{{../settings.popular_articles_read_button}}</span>
+                          </div>
+                        </article>
+                      </a>
                     </li>
+                    </a>
                   {{/if}}
                 {{/each}}
               </ul>
@@ -118,60 +121,7 @@
                   <li class="lt-block-list-item lt-d-flex" role="listitem">
                     <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" aria-label="Apri categoria {{name}}">
                       <div class="header-category-cards">
-                        <div class="category-icon-container" aria-label="Icona categoria {{name}}">
-                          {{!-- Pagare con IO --}}
-                          {{#is id 30831027751697}} 
-                            <i class="fa-solid fa-credit-card category-icon" aria-hidden="true"></i>            
-                          {{/is}}
-                          {{!-- Inizia --}}
-                          {{#is id 30616546994321}}
-                            <i class="fa-solid fa-wand-magic-sparkles category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Accedere a IO con SPID --}}
-                          {{#is id 30616637679505}}
-                            <i class="fa-solid fa-circle-user category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Accedere a IO con CIE --}}
-                          {{#is id 30616691908241}}
-                            <i class="fa-solid fa-c category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Codici, impronta e volto --}}
-                          {{#is id 30616588447505}}
-                            <i class="fa-solid fa-fingerprint category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Documenti su IO --}}
-                          {{#is id 30616573690257}}
-                            <i class="fa-solid fa-address-card category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Messaggi --}}
-                          {{#is id 30831012755217}}
-                            <i class="fa-solid fa-message category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Notifiche SEND --}}
-                          {{#is id 30831007235089}}
-                            <i class="fa-solid fa-mobile-screen-button category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Problemi con il pagamento --}}
-                          {{#is id 30831099135633}}
-                            <i class="fa-solid fa-triangle-exclamation category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Gestione pagamenti e ricevute --}}
-                          {{#is id 30831144721169}}
-                            <i class="fa-solid fa-receipt category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Impostazioni e sicurezza --}}
-                          {{#is id 30831177675409}}
-                            <i class="fa-solid fa-gear category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Bonus e iniziative --}}
-                          {{#is id 30831196048529}}
-                            <i class="fa-solid fa-ticket category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                          {{!-- Certificati e firme --}}
-                          {{#is id 30831203351185}}
-                            <i class="fa-solid fa-pen category-icon" aria-hidden="true"></i>
-                          {{/is}}
-                        </div>
+                        <div class="category-icon-container category-icon-wrapper" data-id="{{id}}" aria-label="Icona categoria {{name}}"></div>
                         <h2 class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-my-auto">{{name}}</h2>
                       </div>
                       <p class="lt-block-list-item__text lt-fs-lg-6">{{description}}</p>
@@ -283,7 +233,7 @@
                       {{settings.contact_request_title}}
                     {{/if}}
                   </h3>
-                  <span class="lt-contact-request__descr lt-d-inline-block">
+                  <span class="lt-contact-request__descr lt-d-inline-block" format-text>
                     {{#if settings.toggle_translations}}
                       {{dc settings.contact_request_subtitle}}
                     {{else}}

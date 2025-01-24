@@ -1,5 +1,30 @@
  <div class="lt-hero-unit--search-result lt-container">
-  <div class="lt-hero-unit__bg" data-hero-bg></div>
+  <div class="lt-hero-unit__bg" data-hero-bg 
+    {{#if settings.show_info_block}}
+        {{#if settings.show_info_block_all_page}}
+          style="background-size: contain;"
+        {{/if}}
+      {{/if}}>
+  </div>
+  {{!-- Info box --}}
+    {{#if settings.show_info_block}}
+      {{#is settings.show_info_block_all_page true}}
+        <div class="lt-container lt-pt-0 lt-pb-5 lt-pb-lg-8" style="margin-top: -30px">
+          <div class="lt-container-inner rte info-block" id="info-block">
+            <div class="lt-row lt-justify-content-center">
+            <div class="callout light lt-col-lg-8 lt-col-xl-9
+              {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
+              {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
+              {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
+              {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
+              <h4 class="callout__title">{{settings.info_block_title}}</h4>
+              <p>{{settings.info_block_text}}</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      {{/is}}
+    {{/if}}
     <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
       <div class="lt-hero-unit__content lt-flex-lg-grow-1 lt-mb-9">
         {{!-- Title --}}
@@ -22,10 +47,6 @@
         <div class="lt-hero-unit__search-box lt-search-box-lg--icon lt-search-box lt-mt-6 lt-d-print-none lt-d-flex lt-justify-content-center">
           {{search instant=true placeholder=settings.search_placeholder_home submit=settings.show_hero_unit_button}}
         </div>
-        
-        {{!-- <div class="lt-search-result__search-box lt-search-box lt-search-box--small lt-search-box--icon lt-mb-4 lt-d-print-none">
-          {{search instant=true submit=false placeholder=settings.search_placeholder}}
-        </div> --}}
 
         {{!-- Popular Categories --}}
         {{#if settings.show_popular_searches}}
@@ -93,18 +114,22 @@
           <ul class="lt-list-unstyled search-results-list lt-mt-0">
             {{#each results}}
             <li class="lt-search-result lt-search-result--{{type}} lt-mb-5">
-              <h2 class="lt-search-result__title lt-fs-4 lt-mb-3">
-                <a href="{{url}}" class="search-result-link">{{title}}</a>
-              </h2>
-              <ol class="breadcrumbs lt-breadcrumbs--search-results lt-mb-3">
-                {{#each path_steps}}
-                  <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
-                {{/each}}
-              </ol>
-              <div class="lt-search-result__description lt-block lt-mb-3">{{text}}</div>
+              {{#each path_steps}}
+                {{#if @last}}
+                  <div class="lt-mb-3 search-result-category"><a class="" href="{{url}}"><span class="category-icon-wrapper search-result-category-icon-container" data-url="{{url}}"></span>{{name}}</a></div>
+                {{/if}}
+              {{/each}}
+              <a href="{{url}}" class="search-result-wrapper">
+                <h2 class="lt-search-result__title lt-fs-4 lt-mb-3">
+                  <span class="search-result-link">{{title}}</span>
+                </h2>
+                <div class="lt-search-result__description lt-block lt-mb-3">{{text}}...</div>
+              </a>
 
               <div class="lt-meta lt-mb-5">
-                <span class="lt-meta__item">{{date created_at timeago=true}}</span>
+                {{#if ../settings.search_show_date}}
+                  <span class="lt-meta__item">{{date created_at timeago=true}}</span>
+                {{/if}}
                 {{#if ../settings.show_article_comments}}
                 <span class="lt-meta__item">
                   <span class="sr-only">{{t 'comments_count' count=comment_count}}</span>
