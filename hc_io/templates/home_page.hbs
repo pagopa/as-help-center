@@ -122,7 +122,7 @@
                     <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" aria-label="Apri categoria {{name}}">
                       <div class="header-category-cards">
                         <div class="category-icon-container category-icon-wrapper" data-id="{{id}}" aria-label="Icona categoria {{name}}"></div>
-                        <h2 class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-my-auto">{{name}}</h2>
+                        <h3 class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-my-auto">{{name}}</h3>
                       </div>
                       <p class="lt-block-list-item__text lt-fs-lg-6">{{description}}</p>
                     </a>
@@ -137,7 +137,7 @@
     </div>
 
     {{!-- More Help Center --}}
-    {{#if settings.toggle_more_products}}
+    {{!-- {{#if settings.toggle_more_products}}
       <div class="lt-container lt-mt-md-5 lt-pt-5 lt-pt-md-9" id="contact-boxes">
         <div class="lt-container-inner">
           <section aria-labelledby="sectionHeading-moreHC" class="lt-pb-9">
@@ -204,7 +204,7 @@
           </section>
         </div>
       </div>
-    {{/if}}
+    {{/if}} --}}
 
     {{!-- Contact Request --}}
     {{#if settings.toggle_contact_request_home}}
