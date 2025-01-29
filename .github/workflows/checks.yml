@@ -12,6 +12,7 @@ on:
 jobs:
   check-pr-title:
     name: Check PR title
+    if: github.event.pull_request.user.login != 'renovate-pagopa[bot]'
     runs-on: ubuntu-22.04
     steps:
       - name: Check out code

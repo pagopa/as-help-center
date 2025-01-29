@@ -20,7 +20,7 @@ runs:
     # get modified brand folders (based on brand-folders.txt file)  
     - name: Check changed folders
       id: changed-brand-folders
-      uses: tj-actions/changed-files@v35
+      uses: tj-actions/changed-files@039afcd1024c210363c9d3fc8fd07e1f3fcf2867 # v35
       with:
         files_from_source_file: brand-folders.txt  # Contains all brand subfolders
         dir_names: "true" # get only dir names and not all modified file names
