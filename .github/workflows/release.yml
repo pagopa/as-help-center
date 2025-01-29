@@ -3,7 +3,7 @@ name: Release and Deployment
 on:
   push:
     # don't execute action if pushed file is one of these or their combination
-    # to skip action execution after the git release that push new changelog and new version
+    # to skip action execution after that the git release pushes new changelog and new version
     paths-ignore:
       - CHANGELOG.md
       - package-lock.json
@@ -25,7 +25,6 @@ jobs:
   # zendesk deploy        
   deploy:
     name: Deploy apps
-    if: github.actor != 'renovate-pagopa[bot]'
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
