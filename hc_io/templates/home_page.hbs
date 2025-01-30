@@ -135,6 +135,77 @@
       </div>
     </div>
 
+    {{!-- More Help Center --}}
+    {{!-- {{#if settings.toggle_more_products}}
+      <div class="lt-container lt-mt-md-5 lt-pt-5 lt-pt-md-9" id="contact-boxes">
+        <div class="lt-container-inner">
+          <section aria-labelledby="sectionHeading-moreHC" class="lt-pb-9">
+            <ul class="lt-list-unstyled lt-row lt-row-cols-md-1 lt-contact-info__list lt-p-0 lt-gy-5">
+              <div class="lt-align-content-center lt-col-lg-6">
+                <h2 id="sectionHeading-moreHC" class="lt-section-heading__title lt-fs-2 lt-m-0">
+                  {{#if settings.toggle_translations}}
+                    {{dc settings.more_product_boxes_title}}
+                  {{else}}
+                    {{settings.more_product_boxes_title}}
+                  {{/if}}
+                </h2>
+              </div>
+
+              {{#if settings.more_product_box_1_toggle}}
+              <li class="lt-d-md-flex lt-flex-grow-1 lt-col-lg-3">
+                <article
+                  class="lt-more-products-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
+                  <img class="lt-more-products-card__icon lt-mb-5" data-svg src="{{settings.more_product_box_1_icon}}" aria-hidden="true">
+                  <h3 class="lt-more-products-card__title lt-fs-4 lt-mb-2">
+                    <a class="lt-more-products-card__link" href="
+                      {{#if settings.toggle_translations}}
+                        {{dc settings.more_product_box_1_url}}
+                      {{else}}
+                        {{settings.more_product_box_1_url}}
+                      {{/if}}">
+
+                      {{#if settings.toggle_translations}}
+                        {{dc settings.more_product_box_1_title}}
+                      {{else}}
+                        {{settings.more_product_box_1_title}}
+                      {{/if}}
+                    </a>
+                  </h3>
+                </article>
+              </li>
+              {{/if}}
+
+              {{#if settings.more_product_box_2_toggle}}
+              <li class="lt-d-md-flex lt-flex-grow-1 lt-col-lg-3">
+                <article
+                  class="lt-more-products-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
+                  <img class="lt-more-products-card__icon lt-mb-5" data-svg src="{{settings.more_product_box_2_icon}}" aria-hidden="true">
+                  <h3 class="lt-more-products-card__title lt-fs-4 lt-mb-2">
+                    <a class="lt-more-products-card__link" href="
+                      {{#if settings.toggle_translations}}
+                        {{dc settings.more_product_box_2_url}}
+                      {{else}}
+                        {{settings.more_product_box_2_url}}
+                      {{/if}}">
+
+                      {{#if settings.toggle_translations}}
+                        {{dc settings.more_product_box_2_title}}
+                      {{else}}
+                        {{settings.more_product_box_2_title}}
+                      {{/if}}
+                    </a>
+                  </h3>
+                </article>
+              </li>
+              {{/if}}
+            </ul>
+
+          </section>
+        </div>
+      </div>
+    {{/if}} --}}
+
+
     {{!-- Contact Request --}}
     {{#if settings.toggle_contact_request_home}}
       <div class="lt-container lt-pt-7 lt-pb-9" id="footer-submit-ticket">
