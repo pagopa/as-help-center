@@ -9322,12 +9322,11 @@ slider-component {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  justify-content: center;
 }
 
 .related-articles li {
   flex: 1 1 calc(33.333% - 1.5rem); /* 3 card in a row */
-  max-width: calc(33.333% - 1.5rem); /* limit width */
+  max-width: calc(33.333% - 0.75rem); /* limit width */
 }
 
 @media (width <= 768px) {
