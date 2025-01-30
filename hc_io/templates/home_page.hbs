@@ -3,14 +3,12 @@
     <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
       <div class="lt-hero-unit__content lt-flex-lg-grow-1">
         {{!-- Title --}}
-        <h1 class="lt-hero-unit__title">
-          {{#if settings.toggle_translations}}
-            {{dc settings.hero_title_hello}}
-          {{else}}
-            {{settings.hero_title_hello}}
-          {{/if}}
-        </h1>
         <h1 class="lt-hero-unit__title lt-mb-3">
+          {{#if settings.hero_title_hello}}
+            {{settings.hero_title_hello}}
+            <br>
+          {{/if}}
+
           {{#if settings.toggle_translations}}
             {{dc settings.hero_title}}
           {{else}}
@@ -27,7 +25,8 @@
         {{!-- Popular Categories --}}
         {{#if settings.show_popular_searches}}
           <div class="lt-hero-unit__topics lt-search-topic lt-mt-5 lt-mb-lg-0 lt-justify-content-center lt-d-flex">
-            <div class="lt-align-content-center popular-searches-label">{{#if settings.toggle_translations}}
+            <div class="lt-align-content-center popular-searches-label">
+            {{#if settings.toggle_translations}}
               {{dc settings.popular_searches_label}}
             {{else}}
               {{settings.popular_searches_label}}
@@ -50,13 +49,13 @@
     {{!-- Info box --}}
     {{#if settings.show_info_block}}
       <div class="lt-container lt-pt-5 lt-pt-lg-0 lt-pb-7 lt-pb-lg-9">
-        <div class="lt-container-inner rte info-block" id="info-block">
+        <div class="lt-container-inner rte info-block" id="info-block" role="region" aria-labelledby="banner-title">
           <div class="callout 
             {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
             {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
             {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
             {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
-            <h4 class="callout__title">{{settings.info_block_title}}</h4>
+            <h4 class="callout__title" id="banner-title">{{settings.info_block_title}}</h4>
             <p>{{settings.info_block_text}}</p>
           </div>
         </div>
@@ -71,11 +70,11 @@
               <h2 id="sectionHeading-promotedArticles" class="lt-section-heading__title lt-fs-2 lt-m-0">{{settings.promoted_articles_title}}</h2>
             </div>
             {{#if promoted_articles}}
-              <ul class="lt-custom-block-list lt-p-0 lt-mb-0 lt-row lt-row-cols-md-{{settings.promoted_articles_per_line}} lt-gy-5">
+              <ul class="lt-custom-block-list lt-p-0 lt-mb-0 lt-row lt-row-cols-md-{{settings.promoted_articles_per_line}} lt-gy-5" role="list">
                 {{#each promoted_articles}}
                   {{#if (compare @index "<" 3) }}
-                    <li class="lt-custom-block-item lt-d-flex">
-                      <a href="{{url}}">
+                    <li class="lt-custom-block-item lt-d-flex" role="listitem">
+                      <a href="{{url}}" aria-label="Apri articolo {{title}}">
                         <article
                           class="lt-custom-block-item__card lt-block lt-block--shadow lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100 lt-h-100 lt-position-relative">
                           <h3 class="lt-custom-block-item__title lt-mb-3 lt-fs-5">{{title}}</h3>
@@ -98,11 +97,11 @@
       </div>
     {{/if}}
 
-    <div id="main-content"> {{!-- Wrapper element to avoid margin collapse --}}
+    <div id="main-content" role="main"> {{!-- Wrapper element to avoid margin collapse --}}
       {{!-- Sections and Categories --}}
       <div class="lt-container lt-block-list" id="block-list">
         <div class="lt-container-inner">
-          <section aria-labelledby="sectionHeading-sections" class="lt-pb-5 lt-pb-lg-9 lt-pt-7 lt-pt-lg-9" id="promoted-articles-list">
+          <section aria-labelledby="sectionHeading-sections" class="lt-pb-5 lt-pb-lg-9 lt-pt-7 lt-pt-lg-9" id="section-list">
             <div class="lt-section-heading lt-mb-4 lt-mb-lg-6">
               <h2 id="sectionHeading-sections" class="lt-section-heading__title lt-fs-2 lt-m-0">
                 {{#if settings.toggle_translations}}
@@ -121,7 +120,7 @@
                   <li class="lt-block-list-item lt-d-flex" role="listitem">
                     <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" aria-label="Apri categoria {{name}}">
                       <div class="header-category-cards">
-                        <div class="category-icon-container category-icon-wrapper" data-id="{{id}}" aria-label="Icona categoria {{name}}"></div>
+                        <div class="category-icon-container category-icon-wrapper" data-id="{{id}}" aria-hidden="true"></div>
                         <h3 class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-my-auto">{{name}}</h3>
                       </div>
                       <p class="lt-block-list-item__text lt-fs-lg-6">{{description}}</p>
@@ -135,76 +134,6 @@
         </div>
       </div>
     </div>
-
-    {{!-- More Help Center --}}
-    {{!-- {{#if settings.toggle_more_products}}
-      <div class="lt-container lt-mt-md-5 lt-pt-5 lt-pt-md-9" id="contact-boxes">
-        <div class="lt-container-inner">
-          <section aria-labelledby="sectionHeading-moreHC" class="lt-pb-9">
-            <ul class="lt-list-unstyled lt-row lt-row-cols-md-1 lt-contact-info__list lt-p-0 lt-gy-5">
-              <div class="lt-align-content-center lt-col-lg-6">
-                <h2 id="sectionHeading-moreHC" class="lt-section-heading__title lt-fs-2 lt-m-0">
-                  {{#if settings.toggle_translations}}
-                    {{dc settings.more_product_boxes_title}}
-                  {{else}}
-                    {{settings.more_product_boxes_title}}
-                  {{/if}}
-                </h2>
-              </div>
-
-              {{#if settings.more_product_box_1_toggle}}
-              <li class="lt-d-md-flex lt-flex-grow-1 lt-col-lg-3">
-                <article
-                  class="lt-more-products-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
-                  <img class="lt-more-products-card__icon lt-mb-5" data-svg src="{{settings.more_product_box_1_icon}}" aria-hidden="true">
-                  <h3 class="lt-more-products-card__title lt-fs-4 lt-mb-2">
-                    <a class="lt-more-products-card__link" href="
-                      {{#if settings.toggle_translations}}
-                        {{dc settings.more_product_box_1_url}}
-                      {{else}}
-                        {{settings.more_product_box_1_url}}
-                      {{/if}}">
-
-                      {{#if settings.toggle_translations}}
-                        {{dc settings.more_product_box_1_title}}
-                      {{else}}
-                        {{settings.more_product_box_1_title}}
-                      {{/if}}
-                    </a>
-                  </h3>
-                </article>
-              </li>
-              {{/if}}
-
-              {{#if settings.more_product_box_2_toggle}}
-              <li class="lt-d-md-flex lt-flex-grow-1 lt-col-lg-3">
-                <article
-                  class="lt-more-products-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
-                  <img class="lt-more-products-card__icon lt-mb-5" data-svg src="{{settings.more_product_box_2_icon}}" aria-hidden="true">
-                  <h3 class="lt-more-products-card__title lt-fs-4 lt-mb-2">
-                    <a class="lt-more-products-card__link" href="
-                      {{#if settings.toggle_translations}}
-                        {{dc settings.more_product_box_2_url}}
-                      {{else}}
-                        {{settings.more_product_box_2_url}}
-                      {{/if}}">
-
-                      {{#if settings.toggle_translations}}
-                        {{dc settings.more_product_box_2_title}}
-                      {{else}}
-                        {{settings.more_product_box_2_title}}
-                      {{/if}}
-                    </a>
-                  </h3>
-                </article>
-              </li>
-              {{/if}}
-            </ul>
-
-          </section>
-        </div>
-      </div>
-    {{/if}} --}}
 
     {{!-- Contact Request --}}
     {{#if settings.toggle_contact_request_home}}
@@ -222,7 +151,7 @@
             </div>
             <div class="lt-contact-request lt-block lt-block--shadow lt-py-5 lt-px-4 lt-d-md-flex lt-justify-content-md-between lt-pt-md-7 lt-pb-md-7 lt-px-md-7 lt-align-items-center">
               <div class="lt-contact-request__illustration lt-order-md-2 lt-d-none lt-d-md-block">
-                <img src="{{ settings.contact_request_image }}" class="lt-contact-request__img" aria-hidden="true">
+                <img src="{{ settings.contact_request_image }}" class="lt-contact-request__img" alt="">
               </div>
               <div class="lt-contact-request__text lt-order-md-1x lt-d-md-flex lt-flex-md-column lt-justify-content-md-between">
                 <div class="lt-contact-request__heading lt-flex-md-grow-1">
@@ -241,10 +170,11 @@
                     {{/if}}
                   </span>
                 </div>
-                <div class="lt-d-block lt-d-lg-none lt-btn lt-btn--square lt-btn--light" onclick="openIOApp()" id="open-io-app-cta">
+                {{!-- TODO btn focus ? --}}
+                <button class="lt-d-block lt-d-lg-none lt-btn lt-btn--square lt-btn--light" onclick="openIOApp()" id="open-io-app-cta">
                   {{settings.contact_request_btn_text}}
-                  <span aria-hidden="true" id="open-app-spinner" class="lt-d-none ml-1"><div class="fas fa-circle-notch fa-spin fa-fw"></div></span>
-                </div>
+                  <span aria-hidden="true" id="open-app-spinner" class="lt-d-none ml-1" role="status" + aria-live="polite"><div class="fas fa-circle-notch fa-spin fa-fw"></div></span>
+                </button>
                 {{!-- {{link 'new_request' class='lt-contact-request__link lt-btn lt-btn--primary'}} --}}
               </div>
             </div>
