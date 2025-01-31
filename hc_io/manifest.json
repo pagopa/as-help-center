@@ -260,7 +260,7 @@
           "type": "text",
           "description": "URL of accessibility link",
           "label": "Accessibility URL",
-          "value": "#"
+          "value": "https://form.agid.gov.it/view/6cc4cc10-dfc6-11ef-856d-e305ad095761"
         },
         {
           "identifier": "footer_owner",
