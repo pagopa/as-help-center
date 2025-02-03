@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -260,7 +260,7 @@
           "type": "text",
           "description": "URL of accessibility link",
           "label": "Accessibility URL",
-          "value": "#"
+          "value": "https://form.agid.gov.it/view/6cc4cc10-dfc6-11ef-856d-e305ad095761"
         },
         {
           "identifier": "footer_owner",

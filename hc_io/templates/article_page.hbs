@@ -1,6 +1,6 @@
 <div class="article" itemscope itemtype="http://schema.org/Article">
   <div class="lt-start-screen-wrap lt-start-screen-wrap--pb lt-container lt-container-hero-mobile-left">
-    <div class="lt-hero-unit__bg lt-behind" data-hero-bg
+    <div class="lt-hero-unit__bg lt-behind" data-hero-bg aria-hidden="true"
       {{#if settings.show_info_block}}
         {{#if settings.show_info_block_all_page}}
           style="background-size: contain;"
@@ -11,13 +11,13 @@
     {{#if settings.show_info_block}}
       {{#is settings.show_info_block_all_page true}}
         <div class="lt-container-inner lt-pt-0 lt-pt-lg-3 lt-pb-5 lt-pb-lg-4">
-          <div class="rte info-block" id="info-block">
+          <div class="rte info-block" id="info-block" role="region" aria-labelledby="banner-title">
             <div class="callout light
               {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
               {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
               {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
               {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
-              <h4 class="callout__title">{{settings.info_block_title}}</h4>
+              <h4 class="callout__title" id="banner-title">{{settings.info_block_title}}</h4>
               <p>{{settings.info_block_text}}</p>
             </div>
           </div>
@@ -26,10 +26,10 @@
     {{/if}}
     <div class="lt-container-inner lt-text-start">
       {{!-- <div class="lt-container-inner lt-text-start"> --}}
-        <a href="{{section.url}}" aria-label="Vai alla home con focus sulla sezione delle categorie" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
-            <i class="fa-solid fa-arrow-left lt-me-2"></i>
+        <a href="{{section.url}}" aria-labelledby="section-title" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
+            <i class="fa-solid fa-arrow-left lt-me-2" aria-hidden="true"></i>
             {{#if settings.article_back_button_label}}<span class="lt-me-1">{{settings.article_back_button_label}}</span>{{/if}} 
-            <span class="lt-fw-bold">{{section.name}}</span>
+            <span class="lt-fw-bold" id="section-title">{{section.name}}</span>
         </a>
       {{!-- </div> --}}
       
@@ -60,11 +60,8 @@
   {{!-- Article --}}
   <div class="lt-container lt-article-page">
     <div class="lt-container-inner">
-      <div class="lt-article-container" id="main-content">
-        <div class="lt-article-container__column lt-article-container__sidenav">
-          <sidenav-component class="lt-block lt-block--shadow" force-open="(min-width: 992px)" force-close="(max-width: 991px)"></sidenav-component>
-        </div>
-        <div class="lt-article-container__column lt-article-container__article">
+      <div class="lt-article-container" id="main-content" role="main">
+        <section class="lt-article-container__column lt-article-container__article" aria-label="Contenuto dell'articolo">
           <div class="lt-block lt-p-4 lt-p-lg-6 lt-article__box">
             {{!-- Article body --}}
             <div class="lt-article__body rte {{#if settings.beautify_article}}rte-enhanced{{/if}}" data-article itemprop="articleBody">
@@ -103,11 +100,11 @@
             {{!-- Prev next articles button --}}
             {{!-- <div data-prevnext></div> --}}
           </div>
-        </div>
+        </section>
 
         {{!-- Table of content --}}
         <div class="lt-article-container__column lt-article-container__toc lt-d-print-none">
-          <div custom-title="{{settings.article_toc_title}}" data-toc='{"showMobile": false, "mobileBreakpoint": 992, "headers":"h2"}'></div>
+          <nav aria-label="{{settings.article_toc_title}}" custom-title="{{settings.article_toc_title}}" data-toc='{"showMobile": false, "mobileBreakpoint": 992, "headers":"h2"}'></nav>
         </div>
       </div>
     </div>
@@ -146,8 +143,9 @@
 
 {{!-- Related articles --}}
 {{#if settings.show_related_articles}}
-  <div class="lt-container lt-pt-2 lt-pt-md-4 lt-pb-5" id="footer-submit-ticket">
+  <div class="lt-container lt-pt-2 lt-pt-md-4 lt-pb-5" id="related-articles">
       <div class="lt-container-inner">
+        <span id="read-related-article-label" hidden>{{settings.popular_articles_read_button}}</span>
         {{related_articles}}
       </div>
   </div>
@@ -169,7 +167,7 @@
         </div>
         <div class="lt-contact-request lt-block lt-block--shadow lt-py-5 lt-px-4 lt-d-md-flex lt-justify-content-md-between lt-pt-md-7 lt-pb-md-7 lt-px-md-7 lt-align-items-center">
           <div class="lt-contact-request__illustration lt-order-md-2 lt-d-none lt-d-md-block">
-            <img src="{{ settings.contact_request_image }}" class="lt-contact-request__img" aria-hidden="true">
+            <img src="{{ settings.contact_request_image }}" class="lt-contact-request__img" alt="">
           </div>
           <div class="lt-contact-request__text lt-order-md-1x lt-d-md-flex lt-flex-md-column lt-justify-content-md-between">
             <div class="lt-contact-request__heading lt-flex-md-grow-1">
@@ -188,10 +186,10 @@
                 {{/if}}
               </span>
             </div>
-            <div class="lt-d-block lt-d-lg-none lt-btn lt-btn--square lt-btn--light" onclick="openIOApp()" id="open-io-app-cta">
+            <button class="lt-d-block lt-d-lg-none lt-btn lt-btn--square lt-btn--light" onclick="openIOApp()" id="open-io-app-cta">
               {{settings.contact_request_btn_text}}
-              <span aria-hidden="true" id="open-app-spinner" class="lt-d-none ml-1"><div class="fas fa-circle-notch fa-spin fa-fw"></div></span>
-            </div>
+              <span aria-hidden="true" id="open-app-spinner" class="lt-d-none ml-1" role="status" + aria-live="polite"><div class="fas fa-circle-notch fa-spin fa-fw"></div></span>
+            </button>
             {{!-- {{link 'new_request' class='lt-contact-request__link lt-btn lt-btn--primary'}} --}}
           </div>
         </div>
@@ -201,7 +199,7 @@
 {{/if}}
 
 {{!-- comments --}}
-{{#if settings.show_article_comments}}
+{{!-- {{#if settings.show_article_comments}}
   <div class="lt-container lt-pt-5 lt-pt-lg-7" id="article-comments">
     <div class="lt-container-inner">
       <section class="lt-comments" itemscope aria-labelledby="sectionHeading" itemtype="http://schema.org/UserComments">
@@ -210,7 +208,7 @@
           <span class="lt-section-heading__descr lt-fs-lg-6 ">{{t 'comments_count' count=article.comment_count}}</span>
         </div>
         <div class="lt-comments-wrap">
-          {{!-- lt-mb-3 lt-d-print-none lt-block lt-py-3 lt-px-5 lt-py-md-5 --}}
+          lt-mb-3 lt-d-print-none lt-block lt-py-3 lt-px-5 lt-py-md-5
           <p class="lt-comments__callout lt-d-print-none">{{comment_callout}}</p>
           {{#form 'comment' class='lt-comment-form lt-d-print-none'}}
           <div class="lt-comment-form__body ">
@@ -341,7 +339,7 @@
       </section>
     </div>
   </div>
-{{/if}}
+{{/if}}  --}}
 
 {{!-- Related articles styling helper --}}
 <script src="{{asset 'related-article-style.js'}}"></script>

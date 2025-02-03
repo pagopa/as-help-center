@@ -1,5 +1,5 @@
  <div class="lt-hero-unit--search-result lt-container">
-  <div class="lt-hero-unit__bg" data-hero-bg 
+  <div class="lt-hero-unit__bg" data-hero-bg aria-hidden="true"
     {{#if settings.show_info_block}}
         {{#if settings.show_info_block_all_page}}
           style="background-size: contain;"
@@ -10,14 +10,14 @@
     {{#if settings.show_info_block}}
       {{#is settings.show_info_block_all_page true}}
         <div class="lt-container lt-pt-0 lt-pb-5 lt-pb-lg-8" style="margin-top: -30px">
-          <div class="lt-container-inner rte info-block" id="info-block">
+          <div class="lt-container-inner rte info-block" id="info-block" role="region" aria-labelledby="banner-title">
             <div class="lt-row lt-justify-content-center">
             <div class="callout light lt-col-lg-8 lt-col-xl-9
               {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
               {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
               {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
               {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
-              <h4 class="callout__title">{{settings.info_block_title}}</h4>
+              <h4 class="callout__title" id="banner-title">{{settings.info_block_title}}</h4>
               <p>{{settings.info_block_text}}</p>
             </div>
             </div>
@@ -28,14 +28,12 @@
     <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
       <div class="lt-hero-unit__content lt-flex-lg-grow-1 lt-mb-9">
         {{!-- Title --}}
-        <h1 class="lt-hero-unit__title">
-          {{#if settings.toggle_translations}}
-            {{dc settings.hero_title_hello}}
-          {{else}}
-            {{settings.hero_title_hello}}
-          {{/if}}
-        </h1>
         <h1 class="lt-hero-unit__title lt-mb-3">
+          {{#if settings.hero_title_hello}}
+            {{settings.hero_title_hello}}
+            <br>
+          {{/if}}
+
           {{#if settings.toggle_translations}}
             {{dc settings.hero_title}}
           {{else}}
@@ -84,9 +82,9 @@
   <div class="lt-container-inner">
     <div class="lt-row lt-justify-content-center lt-gy-5">
 
-      <div class="lt-col-lg-8 lt-col-xl-9" id="main-content">
-        <div class="lt-block lt-search-results__content">
-          <h1 class="lt-search-results__title lt-mb-5 lt-mt-2 lt-mb-lg-6">
+      <div class="lt-col-lg-8 lt-col-xl-9" id="main-content" role="main">
+        <section aria-labelledby="search-result-section-title" class="lt-block lt-search-results__content">
+          <h1 class="lt-search-results__title lt-mb-5 lt-mt-2 lt-mb-lg-6" id="search-result-section-title">
             {{#if results}}
               {{#is current_filter.identifier 'unified'}}
                 {{#if content_tag_filters }}
@@ -116,12 +114,12 @@
             <li class="lt-search-result lt-search-result--{{type}} lt-mb-5">
               {{#each path_steps}}
                 {{#if @last}}
-                  <div class="lt-mb-3 search-result-category"><a class="" href="{{url}}"><span class="category-icon-wrapper search-result-category-icon-container" data-url="{{url}}"></span>{{name}}</a></div>
+                  <div class="lt-mb-3 search-result-category"><a class="" href="{{url}}" aria-label="Apri la sezione {{name}} relativa al risultato"><span class="category-icon-wrapper search-result-category-icon-container" data-url="{{url}}" aria-hidden="true"></span>{{name}}</a></div>
                 {{/if}}
               {{/each}}
-              <a href="{{url}}" class="search-result-wrapper">
+              <a href="{{url}}" aria-labelledby="result-title" class="search-result-wrapper">
                 <h2 class="lt-search-result__title lt-fs-4 lt-mb-3">
-                  <span class="search-result-link">{{title}}</span>
+                  <span class="search-result-link" id="result-title">{{title}}</span>
                 </h2>
                 <div class="lt-search-result__description lt-block lt-mb-3">{{text}}...</div>
               </a>
@@ -142,7 +140,7 @@
             </li>
             {{/each}}
           </ul>
-        </div>
+        </section>
         {{pagination}}
       </div>
     </div>
