@@ -9354,3 +9354,7 @@ slider-component {
   display: inline-flex;
   align-items: center;
 }
+
+.no-content {
+  font-size: var(--font-size-h5);
+}
