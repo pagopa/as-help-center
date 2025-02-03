@@ -1,0 +1,60 @@
+name: AWS deploy
+
+env:
+  AWS_REGION: eu-south-1
+  APP_NAME: cac-cdn
+  BUCKET_NAME: cac-common-lib
+
+on:
+  push:
+    branches:
+      - "main"
+    paths: ['common_lib_folder/**']
+  workflow_dispatch:
+      inputs:
+        environment:
+          description: "Which environment to update."
+          type: choice
+          required: true
+          default: dev
+          options:
+            - dev
+            - prod
+
+jobs:
+    manual-trigger:
+        if: "${{ github.event.inputs.environment != '' }}"
+        name: "aws-deploy"
+        runs-on: ubuntu-22.04
+        continue-on-error: false
+        permissions:
+          id-token: write # This is required for requesting the JWT
+          contents: read # This is required for actions/checkout
+        environment: ${{ inputs.environment }}
+
+        env:
+          ALIAS_DOMAIN_NAME: ${{ inputs.environment == 'dev' && ${{ secrets.CAC_DEV_ALIAS_NAME }} || ${{ secrets.CAC_ALIAS_NAME }} }}
+          HOST_ZONE_NAME:  ${{ inputs.environment == 'dev' && ${{ secrets.CAC_DEV_DOMAIN_NAME }} || ${{ secrets.CAC_DOMAIN_NAME }}  }}
+          SSL_ARN: ${{ inputs.environment == 'dev' && ${{ secrets.CAC_DEV_SSL_ARN }} || ${{ secrets.CAC_SSL_ARN }}  }}
+          
+        steps:
+          - name: Checkout
+            id: checkout
+            uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+          
+          - name: Configure AWS Credentials
+            #aws-actions/configure-aws-credentials@1.7.0
+            uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838
+            with:
+              role-to-assume: ${{ secrets.AS_SER_AWS_GHA_ROLE_W }}
+              aws-region: ${{ env.AWS_REGION }}
+          
+            # Deploy CDN
+          - name: CDN Deploy
+            uses: aws-actions/aws-cloudformation-github-deploy@v1
+            with:
+              name: ${{ inputs.environment }}-${{ env.APP_NAME }}-vpc
+              template: ./infra/template_cdn.yml
+              no-fail-on-empty-changeset: "1"
+              parameter-overrides: BucketName=${{ env.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ end.SSL_ARN }}
+
