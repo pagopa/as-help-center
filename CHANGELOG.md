@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/pagopa/as-help-center/compare/v1.6.0...v1.6.1) (2025-02-03)
+
+
+### Bug Fixes
+
+* **HC-IO:** popular section link on home page ([#13](https://github.com/pagopa/as-help-center/issues/13)) ([f1b7a5c](https://github.com/pagopa/as-help-center/commit/f1b7a5c185adfa07342aab1425ac65eb229696e7))
+
 # [1.6.0](https://github.com/pagopa/as-help-center/compare/v1.5.0...v1.6.0) (2025-02-03)
 
 
