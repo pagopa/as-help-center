@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/pagopa/as-help-center/compare/v1.5.0...v1.6.0) (2025-02-03)
+
+
+### Features
+
+* accessibility ([#12](https://github.com/pagopa/as-help-center/issues/12)) ([006a132](https://github.com/pagopa/as-help-center/commit/006a132f0864c54bb6effc67837953157818c9d6))
+
 # [1.5.0](https://github.com/pagopa/as-help-center/compare/v1.4.0...v1.5.0) (2025-01-24)
 
 
