@@ -32,7 +32,7 @@ The project provides a centralized **Help Center** for troubleshooting, designed
 Each folder of the repository corresponds to the Help Center Platform for a specific PagoPA product, and each of them is built and deployed using Zendesk Help Center Stack.
 We have, for now, 4 product folder named as `hc_<brand_name>`:
 - **hc_home** (Root portal for accessing the actual Help Center for PagoPA products)
-- **hc_io** (Help center for the [IO App](https://io.italia.it/) product)
+- [**hc_io**](https://assistenza.ioapp.it/hc/it) (Help center for the [IO App](https://io.italia.it/) product)
 - **hc_send** (Help center for [SEND Servizio Notifiche Digitali](https://notifichedigitali.pagopa.it/it/) product)
 - **hc_pagopa** (Help center for the [pagopa](https://www.pagopa.gov.it/) product)
 
@@ -49,7 +49,8 @@ Each brand folder follows the defined structure for Zendesk Help Center themes:
 
 **CI/CD pipeline**\
 The project is managed via a CI/CD pipeline that ensures code integrity and efficient deployment. Key features include: code validation for every pull request, automatic deployment to Zendesk Help Center Library for modified brands when a pull request is merged into the main branch, deployment is limited to the folders (Brands) affected by the changes, ensuring optimized workflows and selective updates.\
-See [release](docs/extendings/release.md) process in details.
+See [release](docs/extendings/release.md) process in details.\
+See also [CMS property synchronization](docs/extendings/sync-properties.md) process.
 
 ### Main technologies used
 - HTML/CSS/js
