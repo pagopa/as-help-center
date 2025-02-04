@@ -121,10 +121,9 @@
                     {{/if}}
                   </span>
                 </div>
-                <button class="lt-d-block lt-d-lg-none lt-btn lt-btn--square lt-btn--light" onclick="openIOApp()" id="open-io-app-cta">
+                <a class="lt-d-block lt-d-lg-none lt-btn lt-btn--square lt-btn--light" href="{{settings.io_app_deeplink}}">
                   {{settings.contact_request_btn_text}}
-                  <span aria-hidden="true" id="open-app-spinner" class="lt-d-none ml-1" role="status" + aria-live="polite"><div class="fas fa-circle-notch fa-spin fa-fw"></div></span>
-                </button>
+                </a>
                 {{!-- {{link 'new_request' class='lt-contact-request__link lt-btn lt-btn--primary'}} --}}
               </div>
             </div>

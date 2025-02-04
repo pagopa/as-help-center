@@ -5,34 +5,28 @@
       <!-- Col 1: Logo and main links -->
       <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
         <a href="{{settings.footer_logo_url}}" aria-label="Vai al sito di PagoPA S.p.A."><img src="{{settings.footer_logo}}" alt="Logo PagoPA" class="lt-footer-logo"></a>
-        <ul class="lt-list-unstyled lt-my-3">
-          <span x-data="Theme.footerFirstColumnLinks()" x-cloak>
-            <template x-for="(item, index) in items" :key="index">
-              <li><a :href="item.linkURL" class="lt-footer-link" x-text="item.linkName"></a></li>
-            </template>
-          </span>
+        <ul class="lt-list-unstyled lt-my-3" x-data="Theme.footerFirstColumnLinks()" x-cloak>
+          <template x-for="(item, index) in items" :key="index">
+            <li><a :href="item.linkURL" class="lt-footer-link" x-text="item.linkName"></a></li>
+          </template>
         </ul>
       </div>
       <!-- Col 2: Products and Services -->
       <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
         <span class="lt-footer-group-title">{{settings.footer_col2_title}}</span>
-        <ul class="lt-list-unstyled lt-my-3">
-          <span x-data="Theme.footerSecondColumnLinks()" x-cloak>
-            <template x-for="(item, index) in items" :key="index">
-              <li><a :href="item.linkURL" class="lt-footer-link" x-text="item.linkName"></a></li>
-            </template>
-          </span>
+        <ul class="lt-list-unstyled lt-my-3" x-data="Theme.footerSecondColumnLinks()" x-cloak>
+          <template x-for="(item, index) in items" :key="index">
+            <li><a :href="item.linkURL" class="lt-footer-link" x-text="item.linkName"></a></li>
+          </template>
         </ul>
       </div>
       <!-- Col 3: Resources -->
       <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
         <span class="lt-footer-group-title">{{settings.footer_col3_title}}</span>
-        <ul class="lt-list-unstyled lt-my-3">
-          <span x-data="Theme.footerThirdColumnLinks()" x-cloak>
-            <template x-for="(item, index) in items" :key="index">
-              <li><a :href="item.linkURL" class="lt-footer-link" x-text="item.linkName"></a></li>
-            </template>
-          </span>
+        <ul class="lt-list-unstyled lt-my-3" x-data="Theme.footerThirdColumnLinks()" x-cloak>
+          <template x-for="(item, index) in items" :key="index">
+            <li><a :href="item.linkURL" class="lt-footer-link" x-text="item.linkName"></a></li>
+          </template>
         </ul>
       </div>
       <!-- Col 4: Social -->
@@ -47,7 +41,6 @@
             {{#if settings.toggle_medium_icon}}<a href="{{settings.medium_url}}" class="lt-footer-link" aria-label="Vai al canale Medium di PagoPA"><i class="fab fa-brands fa-medium"></i></a>{{/if}}
           </div>
           <ul class="lt-list-unstyled">
-            {{!-- TODO inserire --}}
             <li><a href="{{settings.footer_accessibility_link}}" class="lt-footer-link">{{settings.footer_accessibility_label}}</a></li>
           </ul>  
         </div>
@@ -114,8 +107,6 @@
 {{!-- <script src="{{asset 'lotus-open-tickets-badge.js'}}"></script> --}}
 
 <script src="{{asset 'lotus-category-menu.js'}}"></script>
-{{!-- Open IO App CTA (deep link) --}}
-<script src="{{asset 'open-app-deeplink.js'}}"></script>
 {{!-- Format text for properties element with format-text attribute --}}
 <script src="{{asset 'format-manifest-proprties-text.js'}}"></script>
 {{!-- Show categories icon based on id or url --}}
