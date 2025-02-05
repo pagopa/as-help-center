@@ -4,9 +4,15 @@ env:
   AWS_REGION: eu-south-1
   APP_NAME: cac-cdn
   SOURCE_DIR: source_dir
-  DEFAULT_BRANCH: main
+  environment: dev
 
 on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - "main"
   #manual trigger
   workflow_dispatch:
     inputs:
@@ -31,16 +37,14 @@ jobs:
         environment: ${{ inputs.environment }}
 
         env:
-          ALIAS_DOMAIN_NAME: ${{ inputs.environment == 'dev' && ${{ secrets.CAC_DEV_ALIAS_NAME }} || ${{ secrets.CAC_ALIAS_NAME }} }}
-          HOST_ZONE_NAME:  ${{ inputs.environment == 'dev' && ${{ secrets.CAC_DEV_DOMAIN_NAME }} || ${{ secrets.CAC_DOMAIN_NAME }}  }}
-          SSL_ARN: ${{ inputs.environment == 'dev' && ${{ secrets.CAC_DEV_SSL_ARN }} || ${{ secrets.CAC_SSL_ARN }}  }}
+          ALIAS_DOMAIN_NAME: ${{ env.environment == 'dev' && ${{ secrets.CAC_DEV_ALIAS_NAME }} || ${{ secrets.CAC_ALIAS_NAME }} }}
+          HOST_ZONE_NAME:  ${{ env.environment == 'dev' && ${{ secrets.CAC_DEV_DOMAIN_NAME }} || ${{ secrets.CAC_DOMAIN_NAME }}  }}
+          SSL_ARN: ${{ env.environment == 'dev' && ${{ secrets.CAC_DEV_SSL_ARN }} || ${{ secrets.CAC_SSL_ARN }}  }}
 
         steps:
           - name: Checkout
             id: checkout
             uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
-            with:
-              ref: ${{ env.DEFAULT_BRANCH }}
           
           - name: Configure AWS Credentials
             #aws-actions/configure-aws-credentials@1.7.0
@@ -53,7 +57,7 @@ jobs:
           - name: CDN Deploy
             uses: aws-actions/aws-cloudformation-github-deploy@v1
             with:
-              name: ${{ inputs.environment }}-${{ env.APP_NAME }}-cdn
+              name: ${{ env.environment }}-${{ env.APP_NAME }}-cdn
               template: ./infra/template_cdn.yml
               no-fail-on-empty-changeset: "1"
               parameter-overrides: BucketName=${{ secrets.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ env.SSL_ARN }}
