@@ -72,4 +72,4 @@ jobs:
 
           - name: Sync files to S3 bucket
             run: |
-              aws s3 sync ${{ env.SOURCE_DIR }}/${{ env.SOURCE_FILE }} s3://${{ env.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/
+              aws s3 sync ${{ env.SOURCE_DIR }} s3://${{ env.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/ --exclude='*' --include=${{ env.SOURCE_FILE }}
