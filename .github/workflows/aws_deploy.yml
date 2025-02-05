@@ -64,4 +64,4 @@ jobs:
 
           - name: Sync files to S3 bucket
             run: |
-              aws s3 cp ${{ env.SOURCE_DIR }} s3://${{ secrets.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/ --recursive
+              aws s3 sync ${{ env.SOURCE_DIR }} s3://${{ secrets.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/
