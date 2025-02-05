@@ -3,23 +3,21 @@ name: AWS deploy
 env:
   AWS_REGION: eu-south-1
   APP_NAME: cac-cdn
-  BUCKET_NAME: cac-common-lib
+  SOURCE_DIR: source_dir
+  DEFAULT_BRANCH: main
 
 on:
-  push:
-    branches:
-      - "main"
-    paths: ['common_lib_folder/**']
+  #manual trigger
   workflow_dispatch:
-      inputs:
-        environment:
-          description: "Which environment to update."
-          type: choice
-          required: true
-          default: dev
-          options:
-            - dev
-            - prod
+    inputs:
+      environment:
+        description: "Which environment to update."
+        type: choice
+        required: true
+        default: dev
+        options:
+          - dev
+          - prod
 
 jobs:
     manual-trigger:
@@ -36,11 +34,13 @@ jobs:
           ALIAS_DOMAIN_NAME: ${{ inputs.environment == 'dev' && ${{ secrets.CAC_DEV_ALIAS_NAME }} || ${{ secrets.CAC_ALIAS_NAME }} }}
           HOST_ZONE_NAME:  ${{ inputs.environment == 'dev' && ${{ secrets.CAC_DEV_DOMAIN_NAME }} || ${{ secrets.CAC_DOMAIN_NAME }}  }}
           SSL_ARN: ${{ inputs.environment == 'dev' && ${{ secrets.CAC_DEV_SSL_ARN }} || ${{ secrets.CAC_SSL_ARN }}  }}
-          
+
         steps:
           - name: Checkout
             id: checkout
             uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+            with:
+              ref: ${{ env.DEFAULT_BRANCH }}
           
           - name: Configure AWS Credentials
             #aws-actions/configure-aws-credentials@1.7.0
@@ -56,5 +56,8 @@ jobs:
               name: ${{ inputs.environment }}-${{ env.APP_NAME }}-vpc
               template: ./infra/template_cdn.yml
               no-fail-on-empty-changeset: "1"
-              parameter-overrides: BucketName=${{ env.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ end.SSL_ARN }}
+              parameter-overrides: BucketName=${{ secrets.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ end.SSL_ARN }}
 
+          - name: Sync files to S3 bucket
+            run: |
+              aws s3 cp ${{ env.SOURCE_DIR }} s3://${{ secrets.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/ --recursive
