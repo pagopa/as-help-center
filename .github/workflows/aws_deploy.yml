@@ -35,9 +35,9 @@ jobs:
           SOURCE_DIR: hc_io/assets
           environment: dev
           BUCKET_NAME: cac-cdn-bucket
-          ALIAS_DOMAIN_NAME: ${{ env.environment == 'dev' && ${{ secrets.CAC_DEV_ALIAS_NAME }} || ${{ secrets.CAC_ALIAS_NAME }} }}
-          HOST_ZONE_NAME:  ${{ env.environment == 'dev' && ${{ secrets.CAC_DEV_DOMAIN_NAME }} || ${{ secrets.CAC_DOMAIN_NAME }}  }}
-          SSL_ARN: ${{ env.environment == 'dev' && ${{ secrets.CAC_DEV_SSL_ARN }} || ${{ secrets.CAC_SSL_ARN }}  }}
+          ALIAS_DOMAIN_NAME: ${{ environment == 'dev' && ${{ secrets.CAC_DEV_ALIAS_NAME }} || ${{ secrets.CAC_ALIAS_NAME }} }}
+          HOST_ZONE_NAME:  ${{ environment == 'dev' && ${{ secrets.CAC_DEV_DOMAIN_NAME }} || ${{ secrets.CAC_DOMAIN_NAME }}  }}
+          SSL_ARN: ${{ environment == 'dev' && ${{ secrets.CAC_DEV_SSL_ARN }} || ${{ secrets.CAC_SSL_ARN }}  }}
 
         steps:
           - name: Checkout
