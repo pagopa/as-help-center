@@ -29,7 +29,7 @@ on:
 
 jobs:
     manual-trigger:
-        if: "${{ github.event.inputs.environment != '' }}"
+        # if: "${{ github.event.inputs.environment != '' }}"
         name: "aws-deploy"
         runs-on: ubuntu-22.04
         continue-on-error: false
