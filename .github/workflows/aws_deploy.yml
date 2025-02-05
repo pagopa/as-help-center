@@ -3,7 +3,8 @@ name: AWS deploy
 env:
   AWS_REGION: eu-south-1
   APP_NAME: cac-cdn
-  SOURCE_DIR: source_dir
+  SOURCE_FILE: lotus-category-accordion.js
+  SOURCE_DIR: hc_io/assets
   environment: dev
 
 on:
@@ -64,4 +65,4 @@ jobs:
 
           - name: Sync files to S3 bucket
             run: |
-              aws s3 sync ${{ env.SOURCE_DIR }} s3://${{ secrets.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/
+              aws s3 sync ${{ env.SOURCE_DIR }}/${{ env.SOURCE_FILE }} s3://${{ secrets.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/
