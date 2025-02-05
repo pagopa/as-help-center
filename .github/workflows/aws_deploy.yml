@@ -46,17 +46,17 @@ jobs:
             #aws-actions/configure-aws-credentials@1.7.0
             uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838
             with:
-              role-to-assume: ${{ secrets.AS_SER_AWS_GHA_ROLE_W }}
+              role-to-assume: ${{ secrets.CAC_SER_AWS_GHA_ROLE_W }}
               aws-region: ${{ env.AWS_REGION }}
           
             # Deploy CDN
           - name: CDN Deploy
             uses: aws-actions/aws-cloudformation-github-deploy@v1
             with:
-              name: ${{ inputs.environment }}-${{ env.APP_NAME }}-vpc
+              name: ${{ inputs.environment }}-${{ env.APP_NAME }}-cdn
               template: ./infra/template_cdn.yml
               no-fail-on-empty-changeset: "1"
-              parameter-overrides: BucketName=${{ secrets.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ end.SSL_ARN }}
+              parameter-overrides: BucketName=${{ secrets.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ env.SSL_ARN }}
 
           - name: Sync files to S3 bucket
             run: |
