@@ -6,6 +6,7 @@ env:
   SOURCE_FILE: lotus-category-accordion.js
   SOURCE_DIR: hc_io/assets
   environment: dev
+  BUCKET_NAME: cac-cdn-bucket
 
 on:
   pull_request:
@@ -61,8 +62,8 @@ jobs:
               name: ${{ env.environment }}-${{ env.APP_NAME }}-cdn
               template: ./infra/template_cdn.yml
               no-fail-on-empty-changeset: "1"
-              parameter-overrides: BucketName=${{ secrets.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ env.SSL_ARN }}
+              parameter-overrides: BucketName=${{ env.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ env.SSL_ARN }}
 
           - name: Sync files to S3 bucket
             run: |
-              aws s3 sync ${{ env.SOURCE_DIR }}/${{ env.SOURCE_FILE }} s3://${{ secrets.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/
+              aws s3 sync ${{ env.SOURCE_DIR }}/${{ env.SOURCE_FILE }} s3://${{ env.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/
