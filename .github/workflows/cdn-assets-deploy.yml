@@ -1,0 +1,117 @@
+name: CDN Assets Deploy
+
+env:
+  AWS_REGION: ${{ secrets.CAC_AWS_REGION }}
+  BUCKET_NAME: ${{ secrets.CAC_CDN_BUCKET_NAME }}
+  APP_NAME: cac-cdn
+  SOURCE_DIR: common_assets
+  environment: dev
+
+on:
+#   pull_request:
+#     types:
+#       - opened
+#       - synchronize
+#     branches:
+#       - "main"
+
+  #manual trigger
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Which environment to update"
+        type: choice
+        required: true
+        default: dev
+        options:
+          - dev
+          - prod
+
+jobs:
+  # check common assets changes
+  check-changes:
+    name: Check assets changes
+    runs-on: ubuntu-22.04
+    outputs:
+      any_modified: ${{ steps.changed-files.outputs.any_modified }} # true if there was a change (add, modify, rename, delete)
+      added_changed_files: ${{ steps.changed-files.outputs.all_changed_files }} # all added, copied, modified and renamed files
+      deleted_files: ${{ steps.changed-files.outputs.deleted_files }} # only deleted files
+    steps:
+      - name: Checkout
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+
+      # check if common assets were modified
+      - name: Check for common assets changes
+        id: changed-files
+        uses: tj-actions/changed-files@039afcd1024c210363c9d3fc8fd07e1f3fcf2867 # v35
+        with:
+          files: ${{ env.SOURCE_DIR }}/**
+      
+      # check if skip pipeline
+      - name: Skip pipeline if no changes detected
+        if: steps.changed-files.outputs.any_modified == 'false'
+        run: echo "No changes detected. Skipping CDN deployment." && exit 0
+
+  # common assets aws deploy      
+  deploy-cdn:
+    # ensures deploy-cdn will only run if check-changes succeeds and if there was a change
+    needs: check-changes
+    if: needs.check-changes.outputs.any_modified == 'true'
+    # github.event.inputs.environment != ''
+    name: "AWS CDN deploy"
+    runs-on: ubuntu-22.04
+    permissions:
+      id-token: write # This is required for requesting the JWT
+      contents: read # This is required for actions/checkout
+    steps:
+      # set aws variables based on environment
+      - name: Set aws variables
+        run: |
+          if [ "${{ env.environment }}" == "dev" ]; then
+            echo "ALIAS_DOMAIN_NAME=${{ secrets.CAC_DEV_ALIAS_NAME }}" >> $GITHUB_ENV
+            echo "HOST_ZONE_NAME=${{ secrets.CAC_DEV_DOMAIN_NAME }}" >> $GITHUB_ENV
+            echo "SSL_ARN=${{ secrets.CAC_DEV_SSL_ARN }}" >> $GITHUB_ENV
+          else
+            echo "ALIAS_DOMAIN_NAME=${{ secrets.CAC_ALIAS_NAME }}" >> $GITHUB_ENV
+            echo "HOST_ZONE_NAME=${{ secrets.CAC_DOMAIN_NAME }}" >> $GITHUB_ENV
+            echo "SSL_ARN=${{ secrets.CAC_SSL_ARN }}" >> $GITHUB_ENV
+          fi
+
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+      
+      # configure aws credentials by role
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838 # v1.7.0
+        with:
+          role-to-assume: ${{ secrets.CAC_SER_AWS_GHA_ROLE_W }}
+          aws-region: ${{ env.AWS_REGION }}
+      
+      # Deploy CDN on aws with cloudformation
+      - name: CDN Deploy
+        uses: aws-actions/aws-cloudformation-github-deploy@33527b83bddcf6b3f0b135d9550bde8475325c73 # v1
+        with:
+          name: ${{ env.environment }}-${{ env.APP_NAME }}-cdn
+          template: ./infra/cf_template_cdn.yml
+          no-fail-on-empty-changeset: "1"
+          parameter-overrides: BucketName=${{ env.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ env.SSL_ARN }}
+      
+      # upload and sync files from repo to s3  
+      # - name: Sync files to S3 bucket
+      #   run: |
+      #     aws s3 sync ${{ env.SOURCE_DIR }} s3://${{ env.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/ --delete
+      
+      # upload only new added files or modified files
+      - name: Upload new and modified files to S3
+        run: |
+          for file in ${{ needs.check-changes.outputs.added_changed_files }}; do
+            aws s3 cp "${{ env.SOURCE_DIR }}/$file" "s3://${{ env.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/$file"
+          done
+
+      # delete files from S3
+      - name: Delete removed files from S3
+        run: |
+          for file in ${{ needs.check-changes.outputs.deleted_files }}; do
+            aws s3 rm "s3://${{ env.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/$file"
+          done
