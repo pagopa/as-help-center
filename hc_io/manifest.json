@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -202,6 +202,13 @@
           "description": "Text displayed next to the logo",
           "label": "Help Center name text",
           "value": "Centro assistenza"
+        },
+        {
+          "identifier": "io_app_deeplink",
+          "type": "text",
+          "description": "Deeplink for opening IO App",
+          "label": "IO app deeplink",
+          "value": "https://continua.io.pagopa.it/main/messages"
         }
       ]
     },
@@ -260,7 +267,7 @@
           "type": "text",
           "description": "URL of accessibility link",
           "label": "Accessibility URL",
-          "value": "#"
+          "value": "https://form.agid.gov.it/view/6cc4cc10-dfc6-11ef-856d-e305ad095761"
         },
         {
           "identifier": "footer_owner",
@@ -680,7 +687,7 @@
           "type": "text",
           "description": "Subtitle of the contact request box",
           "label": "Box Subtitle",
-          "value": "Se hai scaricato l’app, accedi per scriverci e ricevere assistenza personalizzata.[newline]Ti basterà toccare il punto di domanda che si trova in alto a sinistra e aprire una richiesta."
+          "value": "Se hai scaricato l’app, accedi per scriverci e ricevere assistenza personalizzata.[newline]Ti basterà toccare il punto di domanda che si trova in alto a destra e aprire una richiesta."
         },
         {
           "identifier": "contact_request_image",

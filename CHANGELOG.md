@@ -1,3 +1,24 @@
+## [1.6.2](https://github.com/pagopa/as-help-center/compare/v1.6.1...v1.6.2) (2025-02-04)
+
+
+### Bug Fixes
+
+* **HC-IO:** pre-live issues - contact request label and deep link + telephone numbers recognition ([#14](https://github.com/pagopa/as-help-center/issues/14)) ([5331704](https://github.com/pagopa/as-help-center/commit/5331704a4775362a4bcfeba3776f12d869c9df29))
+
+## [1.6.1](https://github.com/pagopa/as-help-center/compare/v1.6.0...v1.6.1) (2025-02-03)
+
+
+### Bug Fixes
+
+* **HC-IO:** popular section link on home page ([#13](https://github.com/pagopa/as-help-center/issues/13)) ([f1b7a5c](https://github.com/pagopa/as-help-center/commit/f1b7a5c185adfa07342aab1425ac65eb229696e7))
+
+# [1.6.0](https://github.com/pagopa/as-help-center/compare/v1.5.0...v1.6.0) (2025-02-03)
+
+
+### Features
+
+* accessibility ([#12](https://github.com/pagopa/as-help-center/issues/12)) ([006a132](https://github.com/pagopa/as-help-center/commit/006a132f0864c54bb6effc67837953157818c9d6))
+
 # [1.5.0](https://github.com/pagopa/as-help-center/compare/v1.4.0...v1.5.0) (2025-01-24)
 
 
