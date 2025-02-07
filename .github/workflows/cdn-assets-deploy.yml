@@ -5,6 +5,7 @@ env:
   BUCKET_NAME: ${{ secrets.CAC_CDN_BUCKET_NAME }}
   APP_NAME: cac-cdn
   SOURCE_DIR: common_assets
+  MANIFEST_FILE: hc_io/manifest.json
   environment: dev
 
 on:
@@ -67,7 +68,7 @@ jobs:
       # set aws variables based on environment
       - name: Set aws variables
         run: |
-          # TODO: env = if github.event.inputs.environment != '' -> github.event.inputs.environment : "entrambi"
+          # TODO: env = if github.event.inputs.environment != '' -> github.event.inputs.environment : "prod"
           if [ "${{ env.environment }}" == "dev" ]; then
             echo "ALIAS_DOMAIN_NAME=${{ secrets.CAC_DEV_ALIAS_NAME }}" >> $GITHUB_ENV
             echo "HOST_ZONE_NAME=${{ secrets.CAC_DEV_DOMAIN_NAME }}" >> $GITHUB_ENV
@@ -110,6 +111,12 @@ jobs:
       #   run: |
       #     aws s3 sync ${{ env.SOURCE_DIR }} s3://${{ env.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/ --delete
       
+      # update url value (in manifest) using  ALIAS_DOMAIN_NAME
+      - name: Update common_lib_url in manifest file
+        shell: bash
+        run: |
+          echo $(jq --arg a "${{ env.ALIAS_DOMAIN_NAME }}/${{ env.SOURCE_DIR }}" '.common_lib_url = ($a)' ${{ MANIFEST_FILE }}) > ${{ MANIFEST_FILE }}
+
       # upload only new added files or modified files
       - name: Upload new and modified files to S3
         run: |

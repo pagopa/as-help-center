@@ -4,6 +4,7 @@
   "version": "1.0.9",
   "api_version": 2,
   "default_locale": "it",
+  "common_lib_url": "", 
   "settings": [
     {
       "label": "Translations",
