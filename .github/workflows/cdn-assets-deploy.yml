@@ -99,6 +99,12 @@ jobs:
           no-fail-on-empty-changeset: "1"
           parameter-overrides: BucketName=${{ env.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ env.SSL_ARN }}
       
+      # update url value (in manifest) using  ALIAS_DOMAIN_NAME
+      - name: Update common_lib_url in manifest file
+        shell: bash
+        run: |
+          echo $(jq --arg a "${{ env.ALIAS_DOMAIN_NAME }}/${{ env.SOURCE_DIR }}" '.common_lib_url = ($a)' ${{ MANIFEST_FILE }}) > ${{ MANIFEST_FILE }}
+
       # css and js minification
       - name: Replace js and css files with minified ones
         uses: nizarmah/auto-minify@v3
@@ -110,12 +116,6 @@ jobs:
       # - name: Sync files to S3 bucket
       #   run: |
       #     aws s3 sync ${{ env.SOURCE_DIR }} s3://${{ env.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/ --delete
-      
-      # update url value (in manifest) using  ALIAS_DOMAIN_NAME
-      - name: Update common_lib_url in manifest file
-        shell: bash
-        run: |
-          echo $(jq --arg a "${{ env.ALIAS_DOMAIN_NAME }}/${{ env.SOURCE_DIR }}" '.common_lib_url = ($a)' ${{ MANIFEST_FILE }}) > ${{ MANIFEST_FILE }}
 
       # upload only new added files or modified files
       - name: Upload new and modified files to S3
