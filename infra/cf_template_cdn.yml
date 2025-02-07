@@ -47,21 +47,38 @@ Resources:
   CloudFrontCachePolicy:
     Type: "AWS::CloudFront::CachePolicy"
     Properties:
-      CachePolicyConfig:
-        Comment: "Caching policy"
-        MinTTL: !If [IsProductionEnvironment, 1, 0]
-        MaxTTL: !If [IsProductionEnvironment, 31536000, 0]
-        ParametersInCacheKeyAndForwardedToOrigin:
-          QueryStringsConfig:
-            QueryStringBehavior: "none"
-          EnableAcceptEncodingBrotli: true
-          HeadersConfig:
-            HeaderBehavior: "none"
-          CookiesConfig:
-            CookieBehavior: "none"
-          EnableAcceptEncodingGzip: true
-        DefaultTTL: !If [IsProductionEnvironment, 86400, 0] 
-        Name: "CachingCACPolicy"
+      !If
+        - IsProductionEnvironment
+        - CachePolicyConfig:
+            Comment: "Enabled Caching policy"
+            MinTTL: 1
+            MaxTTL: 31536000
+            ParametersInCacheKeyAndForwardedToOrigin:
+              QueryStringsConfig:
+                QueryStringBehavior: "none"
+              EnableAcceptEncodingBrotli: true
+              HeadersConfig:
+                HeaderBehavior: "none"
+              CookiesConfig:
+                CookieBehavior: "none"
+              EnableAcceptEncodingGzip: true
+            DefaultTTL: 86400
+            Name: "CachingCACPolicy"
+        - CachePolicyConfig:
+            Comment: "Disabled Caching policy"
+            MinTTL: 0
+            MaxTTL: 0
+            ParametersInCacheKeyAndForwardedToOrigin:
+              QueryStringsConfig:
+                QueryStringBehavior: "none"
+              EnableAcceptEncodingBrotli: false
+              HeadersConfig:
+                HeaderBehavior: "none"
+              CookiesConfig:
+                CookieBehavior: "none"
+              EnableAcceptEncodingGzip: false
+            DefaultTTL: 0
+            Name: "CachingCACPolicy"
   CloudFrontOriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
