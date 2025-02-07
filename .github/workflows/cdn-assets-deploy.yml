@@ -97,7 +97,7 @@ jobs:
           name: ${{ env.environment }}-${{ env.APP_NAME }}-cdn
           template: ./infra/cf_template_cdn.yml
           no-fail-on-empty-changeset: "1"
-          parameter-overrides: BucketName=${{ env.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ env.SSL_ARN }}
+          parameter-overrides: BucketName=${{ env.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ env.SSL_ARN }}, EnvSub=${{ env.environment }}
       
       # update url value (in manifest) using  ALIAS_DOMAIN_NAME
       - name: Update common_lib_url in manifest file
