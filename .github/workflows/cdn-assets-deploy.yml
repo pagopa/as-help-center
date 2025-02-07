@@ -67,6 +67,7 @@ jobs:
       # set aws variables based on environment
       - name: Set aws variables
         run: |
+          # TODO: env = if github.event.inputs.environment != '' -> github.event.inputs.environment : "entrambi"
           if [ "${{ env.environment }}" == "dev" ]; then
             echo "ALIAS_DOMAIN_NAME=${{ secrets.CAC_DEV_ALIAS_NAME }}" >> $GITHUB_ENV
             echo "HOST_ZONE_NAME=${{ secrets.CAC_DEV_DOMAIN_NAME }}" >> $GITHUB_ENV
@@ -97,6 +98,13 @@ jobs:
           no-fail-on-empty-changeset: "1"
           parameter-overrides: BucketName=${{ env.BUCKET_NAME }}, AliasDomainName=${{ env.ALIAS_DOMAIN_NAME }}, HostedZoneName=${{ env.HOST_ZONE_NAME }}, SSLCertificareArn=${{ env.SSL_ARN }}
       
+      # css and js minification
+      - name: Replace js and css files with minified ones
+        uses: nizarmah/auto-minify@v3
+        with:
+          directory: ${{ env.SOURCE_DIR }}
+          overwrite: true
+
       # upload and sync files from repo to s3  
       # - name: Sync files to S3 bucket
       #   run: |
@@ -115,3 +123,5 @@ jobs:
           for file in ${{ needs.check-changes.outputs.deleted_files }}; do
             aws s3 rm "s3://${{ env.BUCKET_NAME }}/${{ env.SOURCE_DIR }}/$file"
           done
+      
+      # TODO cache
