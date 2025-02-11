@@ -9265,6 +9265,12 @@ slider-component {
   border-radius: 8px;
 }
 
+@media (width <= 767px) {
+  .otnotice-menu-mobile {
+    display: none !important;
+  }
+}
+
 .otnotice-content .otnotice-sections .otnotice-section-content h2 strong:nth-child(1) {
   font-weight: 700 !important;
   font-size: var(--font-size-h2) !important;
