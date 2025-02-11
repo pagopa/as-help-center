@@ -7441,6 +7441,10 @@ blockquote::after {
   border-left: var(--callout-border-width) solid var(--info-callout-color);
 }
 
+[dir='ltr'] .callout--info.light {
+  border-left: var(--callout-border-width) solid #a4b7f4;
+}
+
 [dir='rtl'] .note,
 [dir='rtl'] .note--default,
 [dir='rtl'] .callout,
