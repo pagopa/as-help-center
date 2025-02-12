@@ -52,10 +52,14 @@
   --warning-callout-icon: url($assets-icon-warning-svg);
   --danger-callout-icon: url($assets-icon-danger-svg);
   --success-callout-icon: url($assets-icon-success-svg);
-  --copy-code-icon: url($assets-icon-copy-svg);
-  --anchor-list-icon: url($assets-icon-anchor-svg);
-  --anchor-file-icon: url($assets-icon-file-svg);
-  --blockqoute-icon: url($assets-icon-blockquotes-svg);
+
+  /* --copy-code-icon: url($assets-icon-copy-svg); */
+
+  /* --anchor-list-icon: url($assets-icon-anchor-svg); */
+
+  /* --anchor-file-icon: url($assets-icon-file-svg); */
+
+  /* --blockqoute-icon: url($assets-icon-blockquotes-svg); */
   --dots-left-bg: url($assets-dots-left-svg);
   --callout-padding: 2rem;
   --callout-border-width: 4px;
@@ -7170,7 +7174,8 @@ blockquote::before {
   color: var(--color-text-primary);
   content: '';
   background-color: var(--color-text-primary);
-  mask: var(--blockqoute-icon) center/contain no-repeat;
+
+  /* mask: var(--blockqoute-icon) center/contain no-repeat; */
   mask-size: cover;
 }
 
@@ -7594,7 +7599,8 @@ pre {
 [dir='ltr'] .lt-copy-code::before {
   margin-right: 5px;
   background: var(--color-dark-theme-text, var(--color-text-primary));
-  mask: var(--copy-code-icon) center/contain no-repeat;
+
+  /* mask: var(--copy-code-icon) center/contain no-repeat; */
 }
 
 [dir='rtl'] .lt-copy-code {
@@ -7604,7 +7610,8 @@ pre {
 [dir='rtl'] .lt-copy-code::before {
   margin-left: 5px;
   background: var(--color-dark-theme-text, var(--color-text-primary));
-  mask: var(--copy-code-icon) center/contain no-repeat;
+
+  /* mask: var(--copy-code-icon) center/contain no-repeat; */
 }
 
 [dir] .lt-copy-code::before {
@@ -7910,12 +7917,14 @@ pre {
 
 .list-anchor > li::before {
   top: 0.4rem;
-  background: var(--anchor-list-icon) center/contain no-repeat;
+
+  /* background: var(--anchor-list-icon) center/contain no-repeat; */
 }
 
 .list-file > li::before {
   top: 0.5rem;
-  background: var(--anchor-file-icon) center/contain no-repeat;
+
+  /* background: var(--anchor-file-icon) center/contain no-repeat; */
 }
 
 .list-bullet > li::before,

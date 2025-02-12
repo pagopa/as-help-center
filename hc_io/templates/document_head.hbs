@@ -71,20 +71,11 @@
   });
 </script>
 <script src="{{asset 'lotus-utils.js'}}"></script>
-<script src="{{asset 'lotus-dropdown.js'}}"></script>
-<script src="{{asset 'lotus-defaults.js'}}"></script>
 <script defer src="{{asset 'lotus-components.js'}}"></script>
 <script src="{{asset 'lotus-hero-unit.js'}}"></script>
 <script src="{{asset 'lotus-scroll-to-top.js'}}"></script>
-<script src="{{asset 'lotus-category-accordion.js'}}"></script>
-<script src="{{asset 'lotus-search-results.js'}}"></script>
-<script src="{{asset 'lotus-notification.js'}}"></script>
-<script src="{{asset 'lotus-promoted-articles-accordion.js'}}"></script>
-<script src="{{asset 'lotus-icons.js'}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.min.js" integrity="sha512-Ll+TuDvrWDNNRnFFIM8dOiw7Go7dsHyxRp4RutiIFW/wm3DgDmCnRZow6AqbXnCbpWu93yM1O34q+4ggzGeXVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 <script src="{{asset 'toc-min.js'}}"></script>
-
 <script src="{{asset 'redirect-error.js'}}"></script>
 
 {{!-- One Trust --}}
@@ -95,3 +86,9 @@
 <script>
   var ogImageUrl = "{{asset 'io_og_img.png'}}"; 
 </script>
+
+{{!-- HIDDEN_SCRIPT include 'lotus-dropdown.js' for dropdown menu --}}
+{{!-- HIDDEN_SCRIPT include 'lotus-notification.js' for error form manager --}}
+{{!-- HIDDEN_SCRIPT include 'lotus-search-results.js' for search filter --}}
+{{!-- HIDDEN_SCRIPT include 'lotus-filter-faq' for faq box --> it takes a group of articles tagged with a specific label 'faq' and save it on browser storage with expiring date (after that needs to fetch again) 
+      i.e. const url = `/api/v2/help_center/${LotusUtils.getLocale()}/articles.json?label_names=faq`; --}}
