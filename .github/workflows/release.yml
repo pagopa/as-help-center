@@ -80,7 +80,7 @@ jobs:
           done
 
       # Minify files
-      - name: minify common assets files
+      - name: Minify common assets files
         uses: nizarmah/auto-minify@v3
         with:
           directory: 'common_assets'
