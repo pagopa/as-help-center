@@ -10,6 +10,12 @@ NOCOLOR='\033[0m'
 upload_template() {
   brand_folder=$1
 
+  # Create common_assets folder
+  mkdir -p $brand_folder/assets/common_assets
+
+  # copy common_assets files securely excluding loop
+  rsync -a --exclude=$brand_folder/assets/common_assets common_assets/ $brand_folder/assets/common_assets
+
   # set zendesk env var to authenticate 
   export $(cat "$brand_folder/.env" | xargs)
   # upload zendesk template
