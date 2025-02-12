@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
   const siteTitle = document.querySelector('title').innerText;
-  const ogImg = '';
+  // eslint-disable-next-line no-undef
+  const ogImg = ogImageUrl;
 
   // for the homepage
   if (currentPageType === '' || currentPageType === '/' || currentPageType === 'index.html') {
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setMeta('property', ogProps.title, siteTitle);
     setMeta('property', ogProps.description, ogDescription);
     setMeta('property', ogProps.url, window.location.origin);
-    // setMeta('property', ogProps.image, ogImg);
+    setMeta('property', ogProps.image, ogImg);
   }
   // section page
   else if (currentPageType.startsWith('sections/')) {
@@ -59,7 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('meta[name="description"]').innerText
     );
     setMeta('property', ogProps.url, window.location.origin);
-    // setMeta('property', ogProps.image, ogImg);
+    setMeta('property', ogProps.image, ogImg);
+  }
+  // articles page
+  else if (currentPageType.startsWith('articles/')) {
+    setMeta('property', ogProps.image, ogImg);
   }
   // info privacy page
   else if (currentPageType === 'p/info_privacy') {
