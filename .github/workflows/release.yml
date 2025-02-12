@@ -105,8 +105,11 @@ jobs:
             # set/export zendesk env var to authentication 
             export $(cat "$folder/.env" | xargs)
 
-            # copy common_assets folder
-            cp -r common_assets $folder/assets/common_assets
+            # Create common_assets folder
+            mkdir -p $folder/assets/common_assets
+
+            # copy common_assets files securely excluding loop
+            rsync -a --exclude=$folder/assets/common_assets common_assets/ $folder/assets/common_assets
 
             #log tree
             find $folder/assets -print | sed -E 's|[^/]*/|  |g'
