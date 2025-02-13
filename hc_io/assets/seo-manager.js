@@ -9,10 +9,6 @@ const ogProps = {
 
 // script for adding a meta description
 document.addEventListener('DOMContentLoaded', function () {
-  // Script per aggiungere o aggiornare la meta description
-  let userLocale = LotusUtils.getLocale();
-  let currentPageType = window.location.pathname.slice(5 + userLocale.length);
-
   // function for creating meta tag
   let setMeta = (attr, attrValue, content) => {
     let head = document.getElementsByTagName('head')[0];
@@ -33,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const ogImg = ogImageUrl;
 
   // for the homepage
-  if (currentPageType === '' || currentPageType === '/' || currentPageType === 'index.html') {
+  if (LotusUtils.isHomePage()) {
     const description =
       "Scopri le guide pratiche e il supporto ufficiale per usare l'app e risolvere problemi nel Centro assistenza di IO.";
     const ogDescription = 'Supporto e guide ufficiali usare l’app IO e risolvere problemi.';
@@ -47,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setMeta('property', ogProps.image, ogImg);
   }
   // section page
-  else if (currentPageType.startsWith('sections/')) {
+  else if (LotusUtils.isSectionPage()) {
     // open graph
     const siteName = siteTitle.split(' - ')[1];
     const title = siteTitle.split(' - ')[0];
@@ -63,11 +59,11 @@ document.addEventListener('DOMContentLoaded', function () {
     setMeta('property', ogProps.image, ogImg);
   }
   // articles page
-  else if (currentPageType.startsWith('articles/')) {
+  else if (LotusUtils.isArticlePage()) {
     setMeta('property', ogProps.image, ogImg);
   }
   // info privacy page
-  else if (currentPageType === 'p/info_privacy') {
+  else if (LotusUtils.isCustomPage('info_privacy')) {
     setMeta('name', 'robots', 'noindex, follow');
   }
 });

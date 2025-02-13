@@ -353,6 +353,21 @@ const LotusUtils = {
   },
 
   /**
+   * Is custom page given in input
+   * @memberof LotusUtils
+   * @param {string=} pageName custom page name
+   * @returns {boolean}
+   */
+  isCustomPage(pageName) {
+    if (!pageName) {
+      return false;
+    }
+    const userLocale = this.getLocale();
+    let currentPage = window.location.pathname.slice(5 + userLocale.length);
+    return currentPage === `p/${pageName}`;
+  },
+
+  /**
    * Is end user
    * @memberof LotusUtils
    * @param {object|undefined} user user info object, getting from this.getCurrentUser()
