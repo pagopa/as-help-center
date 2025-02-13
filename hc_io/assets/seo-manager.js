@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (LotusUtils.isHomePage()) {
     const description =
       "Scopri le guide pratiche e il supporto ufficiale per usare l'app e risolvere problemi nel Centro assistenza di IO.";
-    const ogDescription = 'Supporto e guide ufficiali usare l’app IO e risolvere problemi.';
+    const ogDescription = 'Supporto e guide ufficiali per usare l’app IO e risolvere problemi.';
     // description
     setMeta('name', 'description', description);
     // open graph
