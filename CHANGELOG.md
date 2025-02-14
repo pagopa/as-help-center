@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/pagopa/as-help-center/compare/v1.6.2...v1.7.0) (2025-02-14)
+
+
+### Features
+
+* **IO-HC:** SEO and accessibility ([#16](https://github.com/pagopa/as-help-center/issues/16)) ([10dc10a](https://github.com/pagopa/as-help-center/commit/10dc10a2f9da310c727c2a07011e9dd982c237ea))
+
 ## [1.6.2](https://github.com/pagopa/as-help-center/compare/v1.6.1...v1.6.2) (2025-02-04)
 
 
