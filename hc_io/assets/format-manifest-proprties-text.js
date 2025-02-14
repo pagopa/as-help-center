@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = element.textContent;
 
     // Substitute '[newline]' with HTML new line
-    const formattedText = text.replace(/\[newline\]/g, '<br>');
+    // const formattedText = text.replace(/\[newline\]/g, '<br>');
 
     // sanitize and update content
-    const sanitizedContent = DOMPurify.sanitize(formattedText);
+    const sanitizedContent = DOMPurify.sanitize(text);
 
     // Update content
     element.innerHTML = sanitizedContent;

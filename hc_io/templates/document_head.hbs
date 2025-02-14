@@ -1,7 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-{{!-- TODO delete with final deploy --}}
-<meta name="robots" content="noindex" />
+{{!-- Google search console tag --}}
+<meta name="google-site-verification" content="5hl_cVSx7flbf8w3CtMRXNHYlXtjtmzjNBuSX7SEyhg" />
 
 {{!-- automatic telephone link recognition disabled (i.e. safari) --}}
 <meta name="format-detection" content="telephone=no">
@@ -70,23 +70,38 @@
   });
 </script>
 <script src="{{asset 'lotus-utils.js'}}"></script>
-<script src="{{asset 'lotus-dropdown.js'}}"></script>
-<script src="{{asset 'lotus-defaults.js'}}"></script>
 <script defer src="{{asset 'lotus-components.js'}}"></script>
 <script src="{{asset 'lotus-hero-unit.js'}}"></script>
 <script src="{{asset 'lotus-scroll-to-top.js'}}"></script>
-<script src="{{asset 'lotus-category-accordion.js'}}"></script>
-<script src="{{asset 'lotus-search-results.js'}}"></script>
-<script src="{{asset 'lotus-notification.js'}}"></script>
-<script src="{{asset 'lotus-promoted-articles-accordion.js'}}"></script>
-<script src="{{asset 'lotus-icons.js'}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.min.js" integrity="sha512-Ll+TuDvrWDNNRnFFIM8dOiw7Go7dsHyxRp4RutiIFW/wm3DgDmCnRZow6AqbXnCbpWu93yM1O34q+4ggzGeXVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 <script src="{{asset 'toc-min.js'}}"></script>
-
 <script src="{{asset 'redirect-error.js'}}"></script>
+
+{{!-- SEO manager --> add meta description --}}
+<script src="{{asset 'seo-manager.js'}}"></script>
+{{!-- Open Graph --}}
+{{!-- it's not possible to manage open graph in seo-manager.js because og needs to be in source code before js injection --}}
+{{!-- standard og for every page except for article page (article injects is own og tag) --}}
+<meta property="og:image" content="{{asset 'io_og_img.png'}}" />
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{help_center.name}}">
+<meta property="og:description" content="Supporto e guide ufficiali per usare l’app IO e risolvere problemi.">
+{{!-- / --> https://assistenza.ioapp.it --}}
+<meta property="og:url" content="/"> 
+{{!-- get og:title automatically from website title tag  --}}
+
 
 {{!-- One Trust --}}
 <script src="https://privacyportalde-cdn.onetrust.com/privacy-notice-scripts/otnotice-1.0.min.js" type="text/javascript" charset="UTF-8" id="otprivacy-notice-script">
     settings="eyJjYWxsYmFja1VybCI6Imh0dHBzOi8vcHJpdmFjeXBvcnRhbC1kZS5vbmV0cnVzdC5jb20vcmVxdWVzdC92MS9wcml2YWN5Tm90aWNlcy9zdGF0cy92aWV3cyJ9"
 </script>
+
+<script>
+  var ogImageUrl = "{{asset 'io_og_img.png'}}"; 
+</script>
+
+{{!-- HIDDEN_SCRIPT include 'lotus-dropdown.js' for dropdown menu --}}
+{{!-- HIDDEN_SCRIPT include 'lotus-notification.js' for error form manager --}}
+{{!-- HIDDEN_SCRIPT include 'lotus-search-results.js' for search filter --}}
+{{!-- HIDDEN_SCRIPT include 'lotus-filter-faq' for faq box --> it takes a group of articles tagged with a specific label 'faq' and save it on browser storage with expiring date (after that needs to fetch again) 
+      i.e. const url = `/api/v2/help_center/${LotusUtils.getLocale()}/articles.json?label_names=faq`; --}}
