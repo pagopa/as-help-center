@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -540,7 +540,7 @@
           "type": "text",
           "description": "The main text of the block",
           "label": "Body",
-          "value": "COVID-19 might have sent us home, but we are still there for you via email and chat. Delivery info COVID-19 Your parcel will arrive on time. All orders can be processed normally."
+          "value": "COVID-19 might have sent us home, but we are still there for you via email and chat. <a href='https://www.google.it/?hl=it'>Test link</a> Delivery info COVID-19 Your parcel will arrive on time. All orders can be processed normally."
         },
         {
           "identifier": "info_block_severity",
@@ -687,7 +687,7 @@
           "type": "text",
           "description": "Subtitle of the contact request box",
           "label": "Box Subtitle",
-          "value": "Se hai scaricato l’app, accedi per scriverci e ricevere assistenza personalizzata.[newline]Ti basterà toccare il punto di domanda che si trova in alto a destra e aprire una richiesta."
+          "value": "Se hai scaricato l’app, accedi per scriverci e ricevere assistenza personalizzata.<br>Ti basterà toccare il punto di domanda che si trova in alto a destra e aprire una richiesta."
         },
         {
           "identifier": "contact_request_image",
