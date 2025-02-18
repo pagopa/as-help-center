@@ -34,6 +34,7 @@ export default [
       "*.min.js",
       "*.log",
       "*.tmp",
+      ".**/assets/common-*"
     ]
   },
   js.configs.recommended,
