@@ -7,6 +7,7 @@
   --gray-lightest: #f7f7f9;
   --bacground-gray-color: #eff4f3;
   --meta-text-color: #6b7280;
+  --gray-description-color: #d8e0fb;
   --grid-gutter-width: 1rem;
   --padding-base-horizontal: 12px;
   --font-size-small: calc($font_size_base * 0.875);
@@ -795,7 +796,6 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   transition: all 200ms;
 }
 
-/* TODO focus */
 .badge:hover {
   color: white;
   background: rgb(255 255 255 / 40%);
@@ -805,14 +805,6 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
 
 @media (width >= 768px) {
   .badge {
-    /* TODO verificare */
-
-    /* background: rgb(255 255 255 / 20%);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600; */
     margin-inline: 4px !important;
     margin: 0 4px;
     display: inline-block;
@@ -1056,7 +1048,6 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
 }
 
 .lt-footer-copyright {
-  /* TODO metterlo in rem */
   font-size: 14px;
 }
 
@@ -1244,7 +1235,6 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   }
 
   .lt-hero-unit__title {
-    /* TODO metterlo in rem */
     font-size: 44px;
     line-height: 3.625rem;
   }
@@ -1604,8 +1594,6 @@ input[type='submit']:active,
 .recent-activity-controls a {
   color: $text_color;
   background-color: $color_bg_secondary;
-
-  /* TODO parametrized shadow */
   box-shadow: 0 4px 16px 0 rgb(14 15 19 / 10%);
 }
 
@@ -4861,9 +4849,7 @@ a .lt-search-result__description {
   font-style: normal;
   font-weight: var(--strong-font-weight);
   color: $brand_primary;
-
-  /* TODO parametrized color */
-  background: #d8e0fb;
+  background: var(--gray-description-color);
   border-radius: 3px;
 }
 
@@ -5932,7 +5918,6 @@ html.toc-enabled .lt-article-container__sidebar {
   display: block;
 }
 
-/* TODO focus */
 .lt-article-vote__item {
   --size: 3.625rem;
 
