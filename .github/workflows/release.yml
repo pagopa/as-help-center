@@ -79,13 +79,6 @@ jobs:
               "$folder/.env.example" > "$folder/.env"
           done
 
-      # Minify files
-      - name: Minify common assets files
-        uses: nizarmah/auto-minify@v3
-        with:
-          directory: 'common_assets'
-          overwrite: true
-
       # Deploying theme
       - name: Upload theme
         id: upload-themes
@@ -105,14 +98,10 @@ jobs:
             # set/export zendesk env var to authentication 
             export $(cat "$folder/.env" | xargs)
 
-            # Create common_assets folder
-            mkdir -p $folder/assets/common_assets
-
-            # copy common_assets files securely excluding loop
-            rsync -a --exclude=$folder/assets/common_assets common_assets/ $folder/assets/common_assets
-
-            #log tree
-            find $folder/assets -print | sed -E 's|[^/]*/|  |g'
+            # copy common_assets files
+            bash scripts/include-common-assets.sh $folder
+            # minify assets
+            bash scripts/minify-assets.sh $folder
 
             # Run the deployment script
             node scripts/theme-upload.js "$folder" "$PUBLISH"
