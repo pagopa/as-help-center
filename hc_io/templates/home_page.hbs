@@ -44,7 +44,6 @@
 </div>
 
 <div class="lt-main-content lt-bg-light">
-  <div class="lt-padding-gen">
 
     {{!-- Info box --}}
     {{#if settings.show_info_block}}
@@ -56,7 +55,7 @@
             {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
             {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
             <h4 class="callout__title" id="banner-title">{{settings.info_block_title}}</h4>
-            <p format-textπhe>{{settings.info_block_text}}</p>
+            <p format-text>{{settings.info_block_text}}</p>
           </div>
         </div>
       </div>
@@ -241,7 +240,6 @@
                     {{/if}}
                   </span>
                 </div>
-                {{!-- TODO btn focus ? --}}
                 <a class="lt-d-block lt-d-lg-none lt-btn lt-btn--square lt-btn--light" href="{{settings.io_app_deeplink}}">
                   {{settings.contact_request_btn_text}}
                   {{!-- <span aria-hidden="true" id="open-app-spinner" class="lt-d-none ml-1" role="status" + aria-live="polite"><div class="fas fa-circle-notch fa-spin fa-fw"></div></span> --}}
@@ -253,6 +251,4 @@
         </div>
       </div>
     {{/if}}
-
-  </div>
 </div>

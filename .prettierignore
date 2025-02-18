@@ -3,3 +3,4 @@ dist/
 *.config.js
 *.config.mjs
 *.tmp
+**/assets/common-*

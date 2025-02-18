@@ -22,27 +22,27 @@ on:
           - prod
 
 jobs:
-  # zendesk deploy        
+  # zendesk deploy
   deploy:
     name: Deploy apps
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b  
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
 
       # call common node setup workflow
       - name: Node setup
         id: node-setup
         uses: ./.github/workflows/node-setup
         with:
-          node-version-file: ".nvmrc"
-      
+          node-version-file: '.nvmrc'
+
       # call common get modified-brand-folders workflow
       - name: Get modified Brand folders
         id: modified-brands
         uses: ./.github/workflows/modified-brand-folders
-      
+
       # Set zendesk env variables for each changed brand (for zendesk auth)
       - name: Set zendesk env variables for each brand
         id: zendesk-env
@@ -53,7 +53,7 @@ jobs:
           # Define subdomain and brand mappings
           declare -A SUBDOMAIN_MAPPING
           declare -A BRAND_ID_MAPPING
-          
+
           # integrate when a new brand is added/removed (with folder name)
           SUBDOMAIN_MAPPING["hc_io"]="${{ secrets.ZENDESK_SUBDOMAIN_IO }}"
           SUBDOMAIN_MAPPING["hc_send"]="${{ secrets.ZENDESK_SUBDOMAIN_SEND }}"
@@ -69,7 +69,7 @@ jobs:
           # Loop each changed brand folder and create .env with zendesk env variables needed for authentication
           for folder in $CHANGED_BRANDS; do
             echo "Creating .env for brand: $folder"
-
+            
             # Based on .env.example, replace placeholders and save as .env
             sed \
               -e "s|<your_email@example.com>|${{ secrets.ZENDESK_EMAIL }}|g" \
@@ -77,8 +77,8 @@ jobs:
               -e "s|<brand_subdomain>|${SUBDOMAIN_MAPPING[$folder]}|g" \
               -e "s|<brand_id>|${BRAND_ID_MAPPING[$folder]}|g" \
               "$folder/.env.example" > "$folder/.env"
-          done  
-      
+          done
+
       # Deploying theme
       - name: Upload theme
         id: upload-themes
@@ -98,11 +98,16 @@ jobs:
             # set/export zendesk env var to authentication 
             export $(cat "$folder/.env" | xargs)
 
+            # copy common_assets files
+            bash scripts/include-common-assets.sh $folder
+            # minify assets
+            bash scripts/minify-assets.sh $folder
+
             # Run the deployment script
             node scripts/theme-upload.js "$folder" "$PUBLISH"
           done
 
-  # release git        
+  # release git
   git-release:
     needs: deploy # ensures git-release will only run if deploy succeeds
     runs-on: ubuntu-22.04
@@ -120,9 +125,9 @@ jobs:
         id: node-setup
         uses: ./.github/workflows/node-setup
         with:
-          node-version-file: ".nvmrc"
-      
-      # Create a release  
+          node-version-file: '.nvmrc'
+
+      # Create a release
       - name: Release
         id: semantic-release
         run: npx semantic-release
@@ -132,4 +137,4 @@ jobs:
           GIT_AUTHOR_EMAIL: ${{ secrets.RELEASE_BOT_GIT_EMAIL }}
           GIT_COMMITTER_NAME: ${{ secrets.RELEASE_BOT_GIT_NAME }}
           GIT_COMMITTER_EMAIL: ${{ secrets.RELEASE_BOT_GIT_EMAIL }}
-          SLACK_WEBHOOK: ${{ secrets.RELEASE_SLACK_WEBHOOK }}       
+          SLACK_WEBHOOK: ${{ secrets.RELEASE_SLACK_WEBHOOK }}

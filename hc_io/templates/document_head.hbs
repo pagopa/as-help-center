@@ -43,7 +43,6 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/github.min.css">
-<link rel="stylesheet" href="{{asset 'lotus-utilities.css'}}">
 <script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
 <link
@@ -51,8 +50,7 @@
   href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
 />
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.min.js" integrity="sha512-Ll+TuDvrWDNNRnFFIM8dOiw7Go7dsHyxRp4RutiIFW/wm3DgDmCnRZow6AqbXnCbpWu93yM1O34q+4ggzGeXVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   window.LotusConfig = {};
   LotusConfig.css = {
@@ -69,13 +67,19 @@
     });
   });
 </script>
-<script src="{{asset 'lotus-utils.js'}}"></script>
-<script defer src="{{asset 'lotus-components.js'}}"></script>
-<script src="{{asset 'lotus-hero-unit.js'}}"></script>
-<script src="{{asset 'lotus-scroll-to-top.js'}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.min.js" integrity="sha512-Ll+TuDvrWDNNRnFFIM8dOiw7Go7dsHyxRp4RutiIFW/wm3DgDmCnRZow6AqbXnCbpWu93yM1O34q+4ggzGeXVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="{{asset 'toc-min.js'}}"></script>
-<script src="{{asset 'redirect-error.js'}}"></script>
+
+{{!-- hc common assets js --}}
+<script src="{{asset 'lotus-utils.js' prefix='common-'}}"></script>
+<script defer src="{{asset 'lotus-components.js' prefix='common-'}}"></script>
+<script src="{{asset 'lotus-hero-unit.js' prefix='common-'}}"></script>
+<script src="{{asset 'lotus-scroll-to-top.js' prefix='common-'}}"></script>
+<script src="{{asset 'toc-min.js' prefix='common-'}}"></script>
+<script src="{{asset 'redirect-error.js' prefix='common-'}}"></script>
+{{!-- hc common assets css --}}
+<link rel="stylesheet" href="{{asset 'lotus-utilities.css' prefix='common-'}}">
+
+
+
 
 {{!-- SEO manager --> add meta description --}}
 <script src="{{asset 'seo-manager.js'}}"></script>
@@ -94,10 +98,6 @@
 {{!-- One Trust --}}
 <script src="https://privacyportalde-cdn.onetrust.com/privacy-notice-scripts/otnotice-1.0.min.js" type="text/javascript" charset="UTF-8" id="otprivacy-notice-script">
     settings="eyJjYWxsYmFja1VybCI6Imh0dHBzOi8vcHJpdmFjeXBvcnRhbC1kZS5vbmV0cnVzdC5jb20vcmVxdWVzdC92MS9wcml2YWN5Tm90aWNlcy9zdGF0cy92aWV3cyJ9"
-</script>
-
-<script>
-  var ogImageUrl = "{{asset 'io_og_img.png'}}"; 
 </script>
 
 {{!-- HIDDEN_SCRIPT include 'lotus-dropdown.js' for dropdown menu --}}

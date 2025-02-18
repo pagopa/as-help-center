@@ -11,6 +11,9 @@ NOCOLOR='\033[0m'
 start_template_app() {
   brand_folder=$1
 
+  # copy common_assets files
+  bash scripts/include-common-assets.sh $brand_folder
+
   # set zendesk env var to authenticate 
   export $(cat "$brand_folder/.env" | xargs)
   # start zendesk template

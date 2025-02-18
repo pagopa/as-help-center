@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -519,7 +519,7 @@
           "type": "checkbox",
           "description": "Show Info block used for alert/success/warning/info (only on home)",
           "label": "Info block",
-          "value": false
+          "value": true
         },
         {
           "identifier": "show_info_block_all_page",
@@ -533,21 +533,21 @@
           "type": "text",
           "description": "Text displayed on the top of the block",
           "label": "Title",
-          "value": "This is an info callout"
+          "value": "Il tuo accesso rapido all'app IO potrebbe essere scaduto"
         },
         {
           "identifier": "info_block_text",
           "type": "text",
           "description": "The main text of the block",
           "label": "Body",
-          "value": "COVID-19 might have sent us home, but we are still there for you via email and chat. <a href='https://www.google.it/?hl=it'>Test link</a> Delivery info COVID-19 Your parcel will arrive on time. All orders can be processed normally."
+          "value": "Per accedere all'app senza autenticarti con SPID o CIE ogni 30 giorni, devi <b> rinnovare l'accesso rapido ogni 12 mesi</b>. Se il tuo accesso rapido è scaduto, accedi di nuovo con SPID o CIE. Problemi ad accedere? Scopri <a href='https://assistenza.ioapp.it/hc/it/articles/32616176301713-Cosa-fare-quando-la-sessione-scade'> cosa fare quando la sessione scade.</a>"
         },
         {
           "identifier": "info_block_severity",
           "type": "list",
           "description": "Info block severity (warning, error, success, info)",
           "label": "Severity",
-          "value": "danger",
+          "value": "warning",
           "options": [
             {
               "label": "Info",
