@@ -6,6 +6,7 @@ The release is automated by a workflow that includes the deployment of themes to
 -	**Deployment Phase**:
 	- Identifying modified folders: the modified brand folders are identified to deploy only the Zendesk themes needed.
 	- Creating environment variables for each brand: environment variables containing the necessary credentials and configurations for Zendesk authentication.
+	- Including common assets from the common folder into the <brand>/assets folder, and minifying them.
 	- Uploading themes: The modified brand themes are uploaded to Zendesk. If the environment is prod or if a PR is merged to main, the themes are published as “live”. Otherwise, they are only imported.
 -	**Git Release Phase**:
 	- After the deployment phase is successfully completed, a Git release is created using the **semantic-release** package, with automated tags and versioning. Also a changelog is automatically created with significant changes.
