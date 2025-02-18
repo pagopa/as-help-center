@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/pagopa/as-help-center/compare/v1.7.0...v1.8.0) (2025-02-18)
+
+
+### Features
+
+* **HC-IO:** common assets + warning banner ([#17](https://github.com/pagopa/as-help-center/issues/17)) ([740f9e0](https://github.com/pagopa/as-help-center/commit/740f9e0869b879c8384dd81c56a44ad8faf72182))
+
 # [1.7.0](https://github.com/pagopa/as-help-center/compare/v1.6.2...v1.7.0) (2025-02-14)
 
 
