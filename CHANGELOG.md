@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/pagopa/as-help-center/compare/v1.8.0...v1.8.1) (2025-02-21)
+
+
+### Bug Fixes
+
+* **HC-IO:** assets minification naming conflicts ([#18](https://github.com/pagopa/as-help-center/issues/18)) ([3155692](https://github.com/pagopa/as-help-center/commit/3155692e0c53833225531d234c477a8588e1f61b))
+
 # [1.8.0](https://github.com/pagopa/as-help-center/compare/v1.7.0...v1.8.0) (2025-02-18)
 
 
