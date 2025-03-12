@@ -2434,7 +2434,7 @@ input[type='submit']:active,
 .lt-contact-request {
   text-align: left;
   background: transparent;
-  border: 1px solid #D2D6E3;
+  border: 1px solid #d2d6e3;
   gap: 20px;
 }
 
@@ -2472,7 +2472,7 @@ input[type='submit']:active,
 
 .lt-contact-request__descr-grey {
   line-height: 1.5rem;
-  color: $text_light_color;;
+  color: $text_light_color;
 }
 
 /* Smartphone */
