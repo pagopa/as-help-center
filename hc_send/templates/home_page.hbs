@@ -116,15 +116,18 @@
                   <p></p>
                 {{else}}
                   {{#each sections}}
-                  <li class="lt-block-list-item lt-d-flex" role="listitem">
-                    <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" aria-label="Apri categoria {{name}}">
-                      <div class="header-category-cards">
-                        <div class="category-icon-container category-icon-wrapper" data-id="{{id}}" aria-hidden="true"></div>
-                        <h3 class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-my-auto">{{name}}</h3>
-                      </div>
-                      <p class="lt-block-list-item__text lt-fs-lg-6">{{description}}</p>
-                    </a>
-                  </li>
+                    {{!-- 33395901813009 = Contatti section --}}
+                    {{#isnt id 33395901813009}}
+                      <li class="lt-block-list-item lt-d-flex" role="listitem">
+                        <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" aria-label="Apri categoria {{name}}">
+                          <div class="header-category-cards">
+                            <div class="category-icon-container category-icon-wrapper" data-id="{{id}}" aria-hidden="true"></div>
+                            <h3 class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-my-auto">{{name}}</h3>
+                          </div>
+                          <p class="lt-block-list-item__text lt-fs-lg-6">{{description}}</p>
+                        </a>
+                      </li>
+                    {{/isnt}}
                   {{/each}}
                 {{/if}}
               {{/each}}
@@ -204,10 +207,8 @@
       </div>
     {{/if}} --}}
 
-
-    {{!-- Contact Request --}}
     {{#if settings.toggle_contact_request_home}}
-      <div class="lt-container lt-pt-7 lt-pb-9" id="footer-submit-ticket">
+    <div class="lt-container lt-pt-7 lt-pb-9" id="contacts">
         <div class="lt-container-inner">
           <section aria-labelledby="sectionHeading-contacts">
             <div class="lt-section-heading lt-mb-4">
@@ -219,36 +220,40 @@
                 {{/if}}
               </h2>
             </div>
-            <div class="lt-contact-request lt-block lt-block--shadow lt-py-5 lt-px-4 lt-d-md-flex lt-justify-content-md-between lt-pt-md-7 lt-pb-md-7 lt-px-md-7 lt-align-items-center">
-              <div class="lt-contact-request__illustration lt-order-md-2 lt-d-none lt-d-md-block">
-                <img src="{{ settings.contact_request_image }}" class="lt-contact-request__img" alt="">
-              </div>
-              <div class="lt-contact-request__text lt-order-md-1x lt-d-md-flex lt-flex-md-column lt-justify-content-md-between">
-                <div class="lt-contact-request__heading lt-flex-md-grow-1">
-                  <h3 class="lt-contact-request__title lt-fs-3 lt-mb-3">
-                    {{#if settings.toggle_translations}}
-                      {{dc settings.contact_request_title}}
-                    {{else}}
-                      {{settings.contact_request_title}}
-                    {{/if}}
-                  </h3>
+            <div class="lt-contact-request lt-block lt-py-4 lt-px-4 lt-d-md-flex lt-justify-content-md-between lt-pt-md-4 lt-pb-md-4 lt-px-md-4">
+              
+              <div class="lt-contact-request-bg lt-block lt-py-5 lt-px-4 lt-d-md-flex lt-justify-content-md-between lt-pt-md-5 lt-pb-md-5 lt-px-md-7 lt-align-items-center">
+                <div class="lt-contact-request__text lt-order-md-1x lt-d-md-flex lt-flex-md-column lt-justify-content-md-between">
+                  <div class="lt-contact-request__heading lt-flex-md-grow-1">
+                    <h3 class="lt-mb-2">{{settings.contact_request_title}}</h3>
+                  </div>
                   <span class="lt-contact-request__descr lt-d-inline-block" format-text>
-                    {{#if settings.toggle_translations}}
-                      {{dc settings.contact_request_subtitle}}
-                    {{else}}
-                      {{settings.contact_request_subtitle}}
-                    {{/if}}
+                    {{settings.contact_request_subtitle}}
                   </span>
                 </div>
-                <a class="lt-d-block lt-d-lg-none lt-btn lt-btn--square lt-btn--light" href="{{settings.io_app_deeplink}}">
-                  {{settings.contact_request_btn_text}}
-                  {{!-- <span aria-hidden="true" id="open-app-spinner" class="lt-d-none ml-1" role="status" + aria-live="polite"><div class="fas fa-circle-notch fa-spin fa-fw"></div></span> --}}
-                </a>
-                {{!-- {{link 'new_request' class='lt-contact-request__link lt-btn lt-btn--primary'}} --}}
               </div>
+
+              <div class="lt-contact-request no-border lt-block lt-py-5 lt-px-4 lt-d-md-flex lt-justify-content-md-between lt-pt-md-5 lt-pb-md-5 lt-px-md-7 lt-mt-3 lt-mt-md-0 lt-align-items-center">
+                <div class="lt-contact-request__text lt-order-md-1x lt-d-md-flex lt-flex-md-column lt-justify-content-md-between">
+                  <div class="lt-flex-md-grow-1 lt-mb-4">
+                    <img src="{{settings.contact_request_icon}}" alt="" width="26" class="lt-mb-2">
+                    <h3>{{settings.contact_request_login_title}}</h3>
+                    <span class="lt-contact-request__descr-grey lt-d-inline-block" format-text>
+                      {{settings.contact_request_login_subtitle}}
+                    </span>
+                  </div>
+                  <div class="lt-contact-request__descr lt-d-inline-block">
+                    <a class="arrow-link" href="{{settings.contact_request_btn_link}}">
+                      <span>{{settings.contact_request_btn_text}}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
           </section>
         </div>
       </div>
-    {{/if}}
+      {{/if}}
 </div>

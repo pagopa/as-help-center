@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     32378054945297: 'fa-solid fa-sliders', // Configurazione e utilizzo
     32378036091025: 'fa-solid fa-bell', // Notifiche SEND
     32378012561937: 'fa-solid fa-credit-card', // Modalità di pagamento e ricevute
-    32378029410449: 'fa-solid fa-handshake-simple' // Deleghe
+    32378029410449: 'fa-solid fa-handshake-simple', // Deleghe
+    33395901813009: 'fa-solid fa-address-card' // Contatti
   };
 
   // Func to extract ID from URL

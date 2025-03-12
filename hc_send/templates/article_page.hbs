@@ -26,11 +26,19 @@
     {{/if}}
     <div class="lt-container-inner lt-text-start">
       {{!-- <div class="lt-container-inner lt-text-start"> --}}
-        <a href="{{section.url}}" aria-labelledby="section-title" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
+      {{#isnt article.id 33395906409745}}
+        <a id="article-back-link" href="{{section.url}}" aria-labelledby="section-title" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
             <i class="fa-solid fa-arrow-left lt-me-2" aria-hidden="true"></i>
             {{#if settings.article_back_button_label}}<span class="lt-me-1">{{settings.article_back_button_label}}</span>{{/if}} 
             <span class="lt-fw-bold" id="section-title">{{section.name}}</span>
         </a>
+      {{else}}
+        <a id="article-back-link" href="{{help_center.url}}" aria-labelledby="section-title" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
+            <i class="fa-solid fa-arrow-left lt-me-2" aria-hidden="true"></i>
+            {{#if settings.article_back_button_label}}<span class="lt-me-1">{{settings.article_back_button_label}}</span>{{/if}} 
+            <span class="lt-fw-bold" id="section-title">Home</span>
+        </a>
+      {{/isnt}} 
       {{!-- </div> --}}
       
       {{!-- header section: article title and update date and search bar --}}
@@ -153,48 +161,35 @@
 
 {{!-- Contact request --}}
 {{#if settings.toggle_contact_request_article}}
-  <div class="lt-container lt-pt-7 lt-pt-md-9 lt-pb-9" id="footer-submit-ticket">
-    <div class="lt-container-inner">
-      <section aria-labelledby="sectionHeading-contacts">
-        <div class="lt-section-heading lt-mb-4">
-          <h2 id="sectionHeading-contacts" class="lt-section-heading__title lt-fs-2 lt-m-0">
-            {{#if settings.toggle_translations}}
-              {{dc settings.contact_request_section_title}}
-            {{else}}
-              {{settings.contact_request_section_title}}
-            {{/if}}
-          </h2>
-        </div>
-        <div class="lt-contact-request lt-block lt-block--shadow lt-py-5 lt-px-4 lt-d-md-flex lt-justify-content-md-between lt-pt-md-7 lt-pb-md-7 lt-px-md-7 lt-align-items-center">
-          <div class="lt-contact-request__illustration lt-order-md-2 lt-d-none lt-d-md-block">
-            <img src="{{ settings.contact_request_image }}" class="lt-contact-request__img" alt="">
-          </div>
-          <div class="lt-contact-request__text lt-order-md-1x lt-d-md-flex lt-flex-md-column lt-justify-content-md-between">
-            <div class="lt-contact-request__heading lt-flex-md-grow-1">
-              <h3 class="lt-contact-request__title lt-fs-3 lt-mb-3">
-                {{#if settings.toggle_translations}}
-                  {{dc settings.contact_request_title}}
-                {{else}}
-                  {{settings.contact_request_title}}
-                {{/if}}
-              </h3>
-              <span class="lt-contact-request__descr lt-d-inline-block" format-text>
-                {{#if settings.toggle_translations}}
-                  {{dc settings.contact_request_subtitle}}
-                {{else}}
-                  {{settings.contact_request_subtitle}}
-                {{/if}}
-              </span>
-            </div>
-            <a class="lt-d-block lt-d-lg-none lt-btn lt-btn--square lt-btn--light" href="{{settings.io_app_deeplink}}">
-              {{settings.contact_request_btn_text}}
-            </a>
-            {{!-- {{link 'new_request' class='lt-contact-request__link lt-btn lt-btn--primary'}} --}}
-          </div>
-        </div>
-      </section>
+  {{!-- 33395906409745 = Contatti article --}}
+  {{#isnt article.id 33395906409745}}
+    <div class="lt-container lt-pt-3 lt-pt-md-4 lt-pb-3 lt-pb-md-4" id="contact-request-article">
+      <div class="lt-container-inner">
+        <hr>
+      </div>
     </div>
-  </div>
+
+    <div class="lt-container lt-pt-5 lt-pb-9" id="article-contacts">
+      <div class="lt-container-inner">
+        <section aria-labelledby="sectionHeading-contacts">
+          <div class="lt-section-heading lt-mb-4">
+            <h2 id="sectionHeading-contacts" class="lt-section-heading__title lt-fs-6 lt-m-0">
+              {{#if settings.toggle_translations}}
+                {{dc settings.article_contact_box_title}}
+              {{else}}
+                {{settings.article_contact_box_title}}
+              {{/if}}
+            </h2>
+          </div>
+          <div format-text class="cr-subtitle-article" id="cr-article-subtitle">
+            {{settings.article_contact_box_subtitle}}
+          </div>
+        </section>
+      </div>
+    </div>
+  {{else}}
+    <span class="lt-container lt-pt-3 lt-pt-md-4 lt-pb-3 lt-pb-md-4" />
+  {{/isnt}}
 {{/if}}
 
 {{!-- comments --}}

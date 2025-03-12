@@ -2433,13 +2433,32 @@ input[type='submit']:active,
 
 .lt-contact-request {
   text-align: left;
-  background: $contact_request_box_color;
-  color: $brand_primary_inverse;
+  background: transparent;
+  border: 1px solid #D2D6E3;
+  gap: 20px;
 }
 
-@media (width >= 768px) {
-  .lt-contact-request__text {
-    width: 60%;
+.lt-contact-request-bg {
+  text-align: left;
+  background: $contact_request_box_color;
+  width: 100%;
+  color: var(--color-brand-primary-inverse);
+  align-content: center;
+}
+
+.no-border {
+  border: unset !important;
+}
+
+@media (width <= 767px) {
+  .lt-contact-request-bg {
+    min-height: 180px;
+  }
+}
+
+@media (width <= 606px) {
+  .lt-contact-request-bg {
+    min-height: 210px;
   }
 }
 
@@ -2449,6 +2468,11 @@ input[type='submit']:active,
 
 .lt-contact-request__descr {
   line-height: 1.5rem;
+}
+
+.lt-contact-request__descr-grey {
+  line-height: 1.5rem;
+  color: $text_light_color;;
 }
 
 /* Smartphone */
@@ -3789,7 +3813,7 @@ a.notification-dismiss {
 
 .lt-promoted-articles-item__descr {
   line-height: 1.25rem;
-  color: $text_light_color;
+  color: #4a596a;
 }
 
 /* Accordion view */
@@ -5845,6 +5869,55 @@ html.toc-enabled .lt-article-container__sidebar {
   font-size: 10px;
   color: #fbce0a;
   vertical-align: middle;
+}
+
+.arrow-link:hover span {
+  color: darken($brand_primary, 10%) !important;
+  transition: all 200ms !important;
+}
+
+.arrow-link:hover span::before {
+  width: 100%;
+}
+
+.arrow-link:hover span::after {
+  opacity: 0;
+  transform: translateX(21px);
+}
+
+.arrow-link {
+  margin-top: 16px;
+}
+
+.arrow-link span {
+  color: $brand_primary !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  transition: all 200ms !important;
+  position: relative !important;
+}
+
+.arrow-link span::before {
+  content: '';
+  height: 2px;
+  position: absolute;
+  z-index: 2;
+  width: 0;
+  bottom: -6px;
+  left: 0;
+  background-color: darken($brand_primary, 10%);
+  transition: all 0.3s ease-in-out;
+}
+
+.arrow-link span::after {
+  opacity: 1;
+  top: 1px;
+  content: '\2192';
+  height: 2px;
+  position: absolute;
+  right: -12px;
+  transform: translateX(7px);
+  transition: all 0.3s ease-in-out;
 }
 
 .lt-custom-block-item__card:hover .read-article span,
@@ -9366,4 +9439,8 @@ slider-component {
 
 .lt-mb-10 {
   margin-bottom: 10px;
+}
+
+.cr-subtitle-article a {
+  font-weight: 700;
 }

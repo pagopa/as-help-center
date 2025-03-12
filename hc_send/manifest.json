@@ -1,5 +1,5 @@
 {
-  "name": "pagopa-help-center",
+  "name": "send-help-center",
   "author": "PagoPa S.p.A.",
   "version": "1.0.0",
   "api_version": 2,
@@ -673,34 +673,55 @@
           "type": "text",
           "description": "Color of contact request box",
           "label": "Box Color",
-          "value": "linear-gradient(90deg, #0D3FE3 0%, #3962E6 68.88%)"
+          "value": "linear-gradient(90deg, #0B218B 0%, #3C56EB 68.88%)"
         },
         {
           "identifier": "contact_request_title",
           "type": "text",
           "description": "Title inside contact request box",
           "label": "Box Title",
-          "value": "Scrivici su IO"
+          "value": "Scrivici su SEND"
         },
         {
           "identifier": "contact_request_subtitle",
           "type": "text",
           "description": "Subtitle of the contact request box",
           "label": "Box Subtitle",
-          "value": "Se hai scaricato l’app, accedi per scriverci e ricevere assistenza personalizzata.<br>Ti basterà toccare il punto di domanda che si trova in alto a destra e aprire una richiesta."
+          "value": "Accedi alla piattaforma per scriverci e ricevere assistenza personalizzata"
         },
         {
-          "identifier": "contact_request_image",
+          "identifier": "contact_request_login_title",
+          "type": "text",
+          "description": "Title of the contact request login section",
+          "label": "Login Box Title",
+          "value": "Cittadini"
+        },
+        {
+          "identifier": "contact_request_login_subtitle",
+          "type": "text",
+          "description": "Subtitle of the contact request login section",
+          "label": "Login Box Subtitle",
+          "value": "Accedi come persona fisica, libero professionista o ditta individuale"
+        },
+        {
+          "identifier": "contact_request_icon",
           "type": "file",
-          "description": "Image of the contact request box",
-          "label": "Box Image"
+          "description": "Icon of the contact request box",
+          "label": "Box Icon"
         },
         {
           "identifier": "contact_request_btn_text",
           "type": "text",
           "description": "Button label of the contact request box",
           "label": "Button label",
-          "value": "Apri IO"
+          "value": "Accedi a SEND"
+        },
+        {
+          "identifier": "contact_request_btn_link",
+          "type": "text",
+          "description": "Button link of the contact request box",
+          "label": "Button link",
+          "value": "https://cittadini.notifichedigitali.it/auth/login"
         }
       ]
     },
@@ -887,6 +908,20 @@
           "description": "Show contact request box",
           "label": "Contact Request box",
           "value": true
+        },
+        {
+          "identifier": "article_contact_box_title",
+          "type": "text",
+          "description": "Title of the contact request box",
+          "label": "Contact Request box Title",
+          "value": "Non hai trovato la risposta che cercavi?"
+        },
+        {
+          "identifier": "article_contact_box_subtitle",
+          "type": "text",
+          "description": "Subtitle of the contact request box",
+          "label": "Contact Request box Subtitle",
+          "value": "Se non hai trovato una risposta alla tua domanda e hai ancora bisogno di aiuto, scopri come <a href='#'>contattare l’assistenza</a>.<br>Ricorda che l’assistenza SEND non può fornirti supporto sul contenuto degli atti notificati."
         },
         {
           "identifier": "article_show_date",
