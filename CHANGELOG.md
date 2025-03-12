@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/pagopa/as-help-center/compare/v1.8.1...v1.9.0) (2025-03-12)
+
+
+### Features
+
+* **HC-SEND:** send help center ([#19](https://github.com/pagopa/as-help-center/issues/19)) ([8c274eb](https://github.com/pagopa/as-help-center/commit/8c274eb6d1cdb1b4e147b3db7817648493bb6ceb))
+
 ## [1.8.1](https://github.com/pagopa/as-help-center/compare/v1.8.0...v1.8.1) (2025-02-21)
 
 
