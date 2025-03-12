@@ -1,0 +1,149 @@
+ <div class="lt-hero-unit--search-result lt-container">
+  <div class="lt-hero-unit__bg" data-hero-bg aria-hidden="true"
+    {{#if settings.show_info_block}}
+        {{#if settings.show_info_block_all_page}}
+          style="background-size: contain;"
+        {{/if}}
+      {{/if}}>
+  </div>
+  {{!-- Info box --}}
+    {{#if settings.show_info_block}}
+      {{#is settings.show_info_block_all_page true}}
+        <div class="lt-container lt-pt-0 lt-pb-5 lt-pb-lg-8" style="margin-top: -30px">
+          <div class="lt-container-inner rte info-block" id="info-block" role="region" aria-labelledby="banner-title">
+            <div class="lt-row lt-justify-content-center">
+            <div class="callout light lt-col-lg-8 lt-col-xl-9
+              {{#is settings.info_block_severity 'info'}}callout--info{{/is}}
+              {{#is settings.info_block_severity 'warning'}}callout--warning{{/is}}
+              {{#is settings.info_block_severity 'success'}}callout--success{{/is}}
+              {{#is settings.info_block_severity 'danger'}}callout--danger{{/is}}">
+              <h4 class="callout__title" id="banner-title">{{settings.info_block_title}}</h4>
+              <p format-text>{{settings.info_block_text}}</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      {{/is}}
+    {{/if}}
+    <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
+      <div class="lt-hero-unit__content lt-flex-lg-grow-1 lt-mb-9">
+        {{!-- Title --}}
+        <h1 class="lt-hero-unit__title lt-mb-3">
+          {{#if settings.hero_title_hello}}
+            {{settings.hero_title_hello}}
+            <br>
+          {{/if}}
+
+          {{#if settings.toggle_translations}}
+            {{dc settings.hero_title}}
+          {{else}}
+            {{settings.hero_title}}
+          {{/if}}
+        </h1>
+
+        {{!-- Search Bar --}}
+        <div class="lt-hero-unit__search-box lt-search-box-lg--icon lt-search-box lt-mt-6 lt-d-print-none lt-d-flex lt-justify-content-center">
+          {{search instant=true placeholder=settings.search_placeholder_home submit=settings.show_hero_unit_button}}
+        </div>
+
+        {{!-- Popular Categories --}}
+        {{#if settings.show_popular_searches}}
+          <div class="lt-hero-unit__topics lt-search-topic lt-mt-5 lt-mb-lg-0 lt-justify-content-center lt-d-flex">
+            <div class="lt-align-content-center popular-searches-label">{{#if settings.toggle_translations}}
+              {{dc settings.popular_searches_label}}
+            {{else}}
+              {{settings.popular_searches_label}}
+            {{/if}}</div>
+            <span class="lt-align-content-center" x-data="Theme.popularCategories()" x-cloak>
+              <template x-for="(item, index) in items" :key="index">
+                <a class="badge" :href="item.link" x-text="item.categoryName"></a>
+              </template>
+            </span>
+          </div> 
+        {{/if}}
+
+        {{#unless results}}
+          <div class="lt-search-results__no-result">
+            <p class="lt-block lt-block--shadow lt-text-center lt-p-4">
+            {{settings.no_result_text}}
+            {{#link 'help_center'}}
+            <span class="lt-pt-1 lt-pt-md-0 lt-d-md-inline-block lt-d-block no-search-result-link search-result-link">{{settings.no_result_back_home}}</span>
+            {{/link}}
+            </p>
+          </div>
+        {{/unless}}
+      </div>
+
+    </div>
+</div>
+
+{{#if results}}
+<div class="lt-container lt-search-results-page lt-pb-8 lt-position-relative">
+  <div class="lt-container-inner">
+    <div class="lt-row lt-justify-content-center lt-gy-5">
+
+      <div class="lt-col-lg-8 lt-col-xl-9" id="main-content" role="main">
+        <section aria-labelledby="search-result-section-title" class="lt-block lt-search-results__content">
+          <h1 class="lt-search-results__title lt-mb-5 lt-mt-2 lt-mb-lg-6" id="search-result-section-title">
+            {{#if results}}
+              {{#is current_filter.identifier 'unified'}}
+                {{#if content_tag_filters }}
+                  {{#each (filter content_tag_filters on="selected" equals=true)}}
+                    {{t 'results_content_tag' content_tag=name count=../results_count}}
+                  {{/each}}
+                {{else}}
+                  {{t 'results' query=query count=results_count}}
+                {{/if}}
+              {{else}}
+                {{#if content_tag_filters }}
+                  {{#each (filter content_tag_filters on="selected" equals=true)}}
+                    {{t 'results_content_tag' content_tag=name count=../results_count}}
+                  {{/each}}
+                {{else}}
+                  {{#unless current_subfilter.identifier}}
+                    {{t 'results' query=query count=results_count}}
+                  {{else}}
+                    {{t 'results_with_scope' query=query count=results_count scope_name=current_subfilter.name}}
+                  {{/unless}}
+                {{/if}}
+              {{/is}}
+            {{/if}}
+          </h1>
+          <ul class="lt-list-unstyled search-results-list lt-mt-0">
+            {{#each results}}
+            <li class="lt-search-result lt-search-result--{{type}} lt-mb-5">
+              {{#each path_steps}}
+                {{#if @last}}
+                  <div class="lt-mb-3 search-result-category"><a class="" href="{{url}}" aria-label="Apri la sezione {{name}} relativa al risultato"><span class="category-icon-wrapper search-result-category-icon-container" data-url="{{url}}" aria-hidden="true"></span>{{name}}</a></div>
+                {{/if}}
+              {{/each}}
+              <a href="{{url}}" aria-labelledby="result-title" class="search-result-wrapper">
+                <h2 class="lt-search-result__title lt-fs-4 lt-mb-3">
+                  <span class="search-result-link" id="result-title">{{title}}</span>
+                </h2>
+                <div class="lt-search-result__description lt-block lt-mb-3">{{text}}...</div>
+              </a>
+
+              <div class="lt-meta lt-mb-5">
+                {{#if ../settings.search_show_date}}
+                  <span class="lt-meta__item">{{date created_at timeago=true}}</span>
+                {{/if}}
+                {{#if ../settings.show_article_comments}}
+                <span class="lt-meta__item">
+                  <span class="sr-only">{{t 'comments_count' count=comment_count}}</span>
+                  <span aria-hidden="true">
+                  {{t 'comments_count' count=comment_count}}
+                  </span>
+                </span>
+                {{/if}}
+              </div>
+            </li>
+            {{/each}}
+          </ul>
+        </section>
+        {{pagination}}
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}
