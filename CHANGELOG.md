@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/pagopa/as-help-center/compare/v1.9.0...v1.10.0) (2025-03-18)
+
+
+### Features
+
+* **HC_SEND:** back button to previous article on contact article ([#21](https://github.com/pagopa/as-help-center/issues/21)) ([b84c483](https://github.com/pagopa/as-help-center/commit/b84c483bc43914d6d85d87185ca0d22203bd5d17))
+
 # [1.9.0](https://github.com/pagopa/as-help-center/compare/v1.8.1...v1.9.0) (2025-03-12)
 
 
