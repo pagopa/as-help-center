@@ -519,7 +519,7 @@
           "type": "checkbox",
           "description": "Show Info block used for alert/success/warning/info (only on home)",
           "label": "Info block",
-          "value": false
+          "value": true
         },
         {
           "identifier": "show_info_block_all_page",
@@ -533,21 +533,21 @@
           "type": "text",
           "description": "Text displayed on the top of the block",
           "label": "Title",
-          "value": "Il tuo accesso rapido all'app IO potrebbe essere scaduto"
+          "value": "Ricevi le tue comunicazioni a valore legale su IO!"
         },
         {
           "identifier": "info_block_text",
           "type": "text",
           "description": "The main text of the block",
           "label": "Body",
-          "value": "Per accedere all'app senza autenticarti con SPID o CIE ogni 30 giorni, devi <b> rinnovare l'accesso rapido ogni 12 mesi</b>. Se il tuo accesso rapido è scaduto, accedi di nuovo con SPID o CIE. Problemi ad accedere? Scopri <a href='https://assistenza.ioapp.it/hc/it/articles/32616176301713-Cosa-fare-quando-la-sessione-scade'> cosa fare quando la sessione scade.</a>"
+          "value": "Attiva il servizio SEND - Notifiche digitali su IO per ricevere e pagare le tue notifiche SEND comodamente in app. <a href='https://continua.io.pagopa.it/services/service-detail?serviceId=01G40DWQGKY5GRWSNM4303VNRP'> Attiva SEND su IO </a>"
         },
         {
           "identifier": "info_block_severity",
           "type": "list",
           "description": "Info block severity (warning, error, success, info)",
           "label": "Severity",
-          "value": "warning",
+          "value": "info",
           "options": [
             {
               "label": "Info",
