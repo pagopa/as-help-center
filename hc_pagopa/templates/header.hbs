@@ -1,0 +1,29 @@
+<a class="lt-skip-navigation" tabindex="1" href="#main-content">{{t 'skip_navigation' }}</a>
+<div class="lt-layout">
+  <header class="lt-topbar lt-container lt-py-4 lt-d-print-none" data-topbar>
+    <div class="lt-container-inner-header lt-topbar__wrap lt-d-flex lt-align-items-center lt-justify-content-between lt-w-100 lt-position-relative">
+        {{#link 'help_center' class="lt-no-hover-color"}}
+        <div class="lt-d-flex lt-align-items-center">
+          <img class="lt-topbar__logo" src="{{settings.logo}}" alt="Vai alla home del centro assistenza IO">
+          {{#if settings.show_help_center_name}}
+            <div class="lt-ms-3 lt-color-inverse-primary" style="margin-top: 2px;">
+              {{#if settings.toggle_translations}}
+              {{dc settings.help_center_name}}
+              {{else}}
+              {{settings.help_center_name}}
+              {{/if}}
+            </div>
+          {{/if}}
+        </div>
+        {{/link}}
+
+      {{!-- Mobile menu toggle --}}
+
+      {{!-- Sign in --}}
+
+      {{!-- Languages menu --}}
+    </div>
+    <div class="lt-topbar__line"></div>
+  </header>
+
+<div>
