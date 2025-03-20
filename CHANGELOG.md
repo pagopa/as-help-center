@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/pagopa/as-help-center/compare/v1.10.0...v1.11.0) (2025-03-20)
+
+
+### Features
+
+* **HC_SEND:** google console tag ([#22](https://github.com/pagopa/as-help-center/issues/22)) ([5e066b5](https://github.com/pagopa/as-help-center/commit/5e066b5630d1dcfce93c26e6cafc455b2c583872))
+
 # [1.10.0](https://github.com/pagopa/as-help-center/compare/v1.9.0...v1.10.0) (2025-03-18)
 
 
