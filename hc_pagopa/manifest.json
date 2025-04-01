@@ -666,21 +666,21 @@
           "type": "text",
           "description": "Color of contact request box",
           "label": "Box Color",
-          "value": "linear-gradient(90deg, #0D3FE3 0%, #3962E6 68.88%)"
+          "value": "linear-gradient(90deg, #0066CC 0%, #084787 100%)"
         },
         {
           "identifier": "contact_request_title",
           "type": "text",
           "description": "Title inside contact request box",
           "label": "Box Title",
-          "value": "Scrivici su IO"
+          "value": "Se hai pagato con pagoPA o con l’app IO"
         },
         {
           "identifier": "contact_request_subtitle",
           "type": "text",
           "description": "Subtitle of the contact request box",
           "label": "Box Subtitle",
-          "value": "Se hai scaricato l’app, accedi per scriverci e ricevere assistenza personalizzata.<br>Ti basterà toccare il punto di domanda che si trova in alto a destra e aprire una richiesta."
+          "value": "Il nostro team di assistenza è pronto a rispondere alle tue domande."
         },
         {
           "identifier": "contact_request_image",
@@ -693,7 +693,42 @@
           "type": "text",
           "description": "Button label of the contact request box",
           "label": "Button label",
-          "value": "Apri IO"
+          "value": "Scopri come contattarci"
+        },
+        {
+          "identifier": "contact_request_btn_link",
+          "type": "text",
+          "description": "Button link of the contact request box",
+          "label": "Button link",
+          "value": "https:/google.it"
+        },
+        {
+          "identifier": "contact_request_other_title",
+          "type": "text",
+          "description": "Title of the contact request login section",
+          "label": "Login Box Title",
+          "value": "Per altri canali di pagamento"
+        },
+        {
+          "identifier": "contact_request_other_subtitle",
+          "type": "text",
+          "description": "Subtitle of the contact request login section",
+          "label": "Login Box Subtitle",
+          "value": "L’app della tua banca, altri servizi online, esercenti convenzionati"
+        },
+        {
+          "identifier": "contact_request_other_btn_text",
+          "type": "text",
+          "description": "Button label of the contact request box",
+          "label": "Button label",
+          "value": "Scopri cosa fare"
+        },
+        {
+          "identifier": "contact_request_other_btn_link",
+          "type": "text",
+          "description": "Button link of the contact request box",
+          "label": "Button link",
+          "value": "https://google.it"
         }
       ]
     },
@@ -880,6 +915,20 @@
           "description": "Show contact request box",
           "label": "Contact Request box",
           "value": true
+        },
+        {
+          "identifier": "article_contact_box_title",
+          "type": "text",
+          "description": "Title of the contact request box",
+          "label": "Contact Request box Title",
+          "value": "Non hai trovato la risposta che cercavi?"
+        },
+        {
+          "identifier": "article_contact_box_subtitle",
+          "type": "text",
+          "description": "Subtitle of the contact request box",
+          "label": "Contact Request box Subtitle",
+          "value": "Se hai pagato con pagoPA o l’app IO, scopri come <a href='#'>contattare l’assistenza</a>.<br>Se hai pagato con uno degli altri canali disponibili <a href='#'>scopri come puoi ricevere assistenza</a>."
         },
         {
           "identifier": "article_show_date",
