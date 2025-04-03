@@ -659,7 +659,7 @@
           "type": "text",
           "description": "Title of contact request section",
           "label": "Section Title",
-          "value": "Non hai trovato la risposta che cercavi?"
+          "value": "Hai ancora bisogno di aiuto?"
         },
         {
           "identifier": "contact_request_box_color",
