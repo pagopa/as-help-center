@@ -696,13 +696,6 @@
           "value": "Scopri come contattarci"
         },
         {
-          "identifier": "contact_request_btn_link",
-          "type": "text",
-          "description": "Button link of the contact request box",
-          "label": "Button link",
-          "value": "https:/google.it"
-        },
-        {
           "identifier": "contact_request_other_title",
           "type": "text",
           "description": "Title of the contact request login section",
@@ -722,13 +715,6 @@
           "description": "Button label of the contact request box",
           "label": "Button label",
           "value": "Scopri cosa fare"
-        },
-        {
-          "identifier": "contact_request_other_btn_link",
-          "type": "text",
-          "description": "Button link of the contact request box",
-          "label": "Button link",
-          "value": "https://google.it"
         }
       ]
     },
@@ -928,7 +914,7 @@
           "type": "text",
           "description": "Subtitle of the contact request box",
           "label": "Contact Request box Subtitle",
-          "value": "Se hai pagato con pagoPA o l’app IO, scopri come <a href='#'>contattare l’assistenza</a>.<br>Se hai pagato con uno degli altri canali disponibili <a href='#'>scopri come puoi ricevere assistenza</a>."
+          "value": "Se hai pagato con pagoPA o con l’app IO, scopri come <a href='#'>contattare l’assistenza</a>.<br>Se hai pagato con uno degli altri canali disponibili online o sul territorio scopri <a href='#'>cosa fare per ricevere assistenza</a>."
         },
         {
           "identifier": "article_show_date",
