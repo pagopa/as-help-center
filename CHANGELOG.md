@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/pagopa/as-help-center/compare/v1.11.0...v1.12.0) (2025-04-04)
+
+
+### Features
+
+* **hc-pagopa:** pagopa brand ([#23](https://github.com/pagopa/as-help-center/issues/23)) ([735edc0](https://github.com/pagopa/as-help-center/commit/735edc08e8a79cb6987b41f29e1c82013b0ad425))
+
 # [1.11.0](https://github.com/pagopa/as-help-center/compare/v1.10.0...v1.11.0) (2025-03-20)
 
 
