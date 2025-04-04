@@ -1,0 +1,50 @@
+{{!-- OneTrust Privacy Notice start --}}
+{{!-- Container in which the privacy notice will be rendered --}}
+<div class="content-info-privacy lt-container">
+    <div id="otnotice-a1f881b7-cb0b-4452-9154-ee3a277df6d6" class="otnotice"></div>
+</div>
+
+<script type="text/javascript" charset="UTF-8">
+    // To ensure external settings are loaded, use the Initialized promise:
+    OneTrust.NoticeApi.Initialized.then(function() {
+    OneTrust.NoticeApi.LoadNotices(["https://privacyportalde-cdn.onetrust.com/77f17844-04c3-4969-a11d-462ee77acbe1/privacy-notices/a1f881b7-cb0b-4452-9154-ee3a277df6d6.json"]);
+    });
+</script>
+{{!-- OneTrust Privacy Notice end --}}
+
+{{!-- Wrap cookie table into a checked div (for css overflow styling) --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // show loading spinner
+        const loadingSpinner = $('#loading-spinner');
+        loadingSpinner.removeClass('lt-d-none');
+        
+        const cookieTableNode = document.querySelector("#otnotice-a1f881b7-cb0b-4452-9154-ee3a277df6d6");
+
+        // observe mutation from DOM
+        const observer = new MutationObserver(function (mutationsList, observer) {
+            for (let mutation of mutationsList) {
+                if (mutation.type === "childList") {
+                    const table = cookieTableNode.querySelector("table");
+                    if (table) {
+                        // hide loading spinner
+                        loadingSpinner.delay(200).fadeOut();
+
+                        const wrapperDiv = document.createElement("div");
+                        wrapperDiv.className = "otnotice-cookie-table-container";
+
+                        table.parentNode.insertBefore(wrapperDiv, table);
+                        wrapperDiv.appendChild(table);
+
+                        // Observer interrup (when table is found)
+                        observer.disconnect();
+                    }
+                }
+            }
+        });
+
+        // Config observer to get changes about container (cookieTableNode) children
+        const config = { childList: true, subtree: true };
+        observer.observe(cookieTableNode, config);
+    });
+</script>

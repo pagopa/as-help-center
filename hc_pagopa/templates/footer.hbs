@@ -1,0 +1,114 @@
+</div>
+<footer class="lt-footer lt-d-print-none">
+  <div class="lt-container">
+    <div class="lt-row lt-py-8 lt-pt-8 lt-pb-4">
+      <!-- Col 1: Logo and main links -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <a href="{{settings.footer_logo_url}}" aria-label="Vai al sito di PagoPA S.p.A."><img src="{{settings.footer_logo}}" alt="Logo PagoPA" class="lt-footer-logo"></a>
+        <ul class="lt-list-unstyled lt-my-3" x-data="Theme.footerFirstColumnLinks()" x-cloak>
+          <template x-for="(item, index) in items" :key="index">
+            <li><a :href="item.linkURL" class="lt-footer-link" x-text="item.linkName"></a></li>
+          </template>
+        </ul>
+      </div>
+      <!-- Col 2: Products and Services -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <span class="lt-footer-group-title">{{settings.footer_col2_title}}</span>
+        <ul class="lt-list-unstyled lt-my-3" x-data="Theme.footerSecondColumnLinks()" x-cloak>
+          <template x-for="(item, index) in items" :key="index">
+            <li><a :href="item.linkURL" class="lt-footer-link" x-text="item.linkName"></a></li>
+          </template>
+        </ul>
+      </div>
+      <!-- Col 3: Resources -->
+      <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+        <span class="lt-footer-group-title">{{settings.footer_col3_title}}</span>
+        <ul class="lt-list-unstyled lt-my-3" x-data="Theme.footerThirdColumnLinks()" x-cloak>
+          <template x-for="(item, index) in items" :key="index">
+            <li><a :href="item.linkURL" class="lt-footer-link" x-text="item.linkName"></a></li>
+          </template>
+        </ul>
+      </div>
+      <!-- Col 4: Social -->
+      {{#if settings.footer_show_social}}
+        <div class="lt-col-12 lt-col-md-3 lt-col-lg-2 lt-mx-auto lt-text-center lt-text-md-start lt-mb-5">
+          <span class="lt-footer-group-title">{{settings.social_media_column_title}}</span>
+          <div class="lt-social-footer lt-d-flex lt-gap-3 lt-mt-3 lt-justify-content-center lt-justify-content-md-start">
+            {{#if settings.toggle_x_icon}}<a href="{{settings.x_url}}" class="lt-footer-link" aria-label="Vai al canale social X di PagoPA"><i class="fab fa-square-x-twitter"></i></a>{{/if}}
+            {{#if settings.toggle_instagram_icon}}<a href="{{settings.instagram_url}}" class="lt-footer-link" aria-label="Vai al canale social Instagram di PagoPA"><i class="fab fa-instagram"></i></a>{{/if}}
+            {{#if settings.toggle_linkedin_icon}}<a href="{{settings.linkedin_url}}" class="lt-footer-link" aria-label="Vai al canale social Linkedin di PagoPA"><i class="fab fa-linkedin"></i></a>{{/if}}
+            {{#if settings.toggle_youtube_icon}}<a href="{{settings.youtube_url}}" class="lt-footer-link" aria-label="Vai al canale Youtube di PagoPA"><i class="fab fa-youtube"></i></a>{{/if}}
+            {{#if settings.toggle_medium_icon}}<a href="{{settings.medium_url}}" class="lt-footer-link" aria-label="Vai al canale Medium di PagoPA"><i class="fab fa-brands fa-medium"></i></a>{{/if}}
+          </div>
+          <ul class="lt-list-unstyled">
+            <li><a href="{{settings.footer_accessibility_link}}" class="lt-footer-link">{{settings.footer_accessibility_label}}</a></li>
+          </ul>  
+        </div>
+      {{/if}}
+    </div>
+    <div class="lt-row lt-border-top lt-py-3">
+      <div class="lt-col-12 lt-text-center lt-footer-copyright">
+          <span class="lt-fw-bold">{{settings.footer_owner}} -</span> {{settings.footer_owner_data_1}}<br>{{settings.footer_owner_data_2}}
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+
+
+{{#if settings.toggle_translations}}
+  <div hidden data-lt-i18n-dictionary>
+    <div data-lt-i18n="search_placeholder">{{dc settings.search_placeholder}}
+    </div>
+  </div>
+
+  <script>
+    var $ltDictionary = $('[data-lt-i18n-dictionary]');
+    $('[role="search"] input[type="search"]').each(function (index, el) {
+      $(el).attr('placeholder', $ltDictionary.find('[data-lt-i18n="search_placeholder"]').html());
+    });
+  </script>
+{{/if}}
+
+{{!-- popular categories --}}
+<div hidden data-popular-categories>
+  {{#if settings.toggle_translations}}
+    {{dc settings.popular_searches_categories}}
+  {{else}}
+    {{settings.popular_searches_categories}}
+  {{/if}}
+</div>
+
+{{!-- Footer first column links --}}
+<div hidden data-footer-first-column-links>
+  {{settings.footer_col1_links}}
+</div>
+
+{{!-- Footer second column links --}}
+<div hidden data-footer-second-column-links>
+  {{settings.footer_col2_links}}
+</div>
+
+{{!-- Footer third column links --}}
+<div hidden data-footer-third-column-links>
+  {{settings.footer_col3_links}}
+</div>
+
+{{!-- Loading spinner overlay --}}
+<div class="loading-spinner-overlay lt-d-none" aria-hidden="true" id="loading-spinner">
+    <div class="lt-text-center"><div class="fas fa-circle-notch fa-spin fa-3x fa-fw"></div></div>
+</div>
+
+<script src="{{asset 'lotus-popular-searches.js' prefix='common-'}}"></script>
+<script src="{{asset 'footer-column-links.js' prefix='common-'}}"></script>
+
+{{!-- open ticket --}}
+{{!-- HIDDEN_SCRIPT include script when enabling reserved area for open ticket badge --}}
+{{!-- <script src="{{asset 'lotus-open-tickets-badge.js'}}"></script> --}}
+
+{{!-- Format text for properties element with format-text attribute --}}
+<script src="{{asset 'format-manifest-properties-text.js' prefix='common-'}}"></script>
+{{!-- Show categories icon based on id or url --}}
+<script src="{{asset 'show-categories-icon.js'}}"></script>
+{{!-- Contact article link --}}
+<script src="{{asset 'contact-article-link.js'}}"></script>
