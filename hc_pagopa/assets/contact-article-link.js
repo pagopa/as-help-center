@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let backLink = document.querySelector('#article-back-link');
 
     let params = new URLSearchParams(window.location.search);
-    let prevArticleId = params.get('prevId'); // if we come from an article
-    let prevPageLink = params.get('prevPage'); // if we come from home or section page
-    let prevPageTitle = params.get('prevTitle');
+    let prevArticleId = DOMPurify.sanitize(params.get('prevId')); // if we come from an article
+    let prevPageLink = DOMPurify.sanitize(params.get('prevPage')); // if we come from home or section page
+    let prevPageTitle = DOMPurify.sanitize(params.get('prevTitle'));
 
     let backLinkLabel = document.querySelector('#article-back-link #section-title');
 
@@ -34,10 +34,21 @@ document.addEventListener('DOMContentLoaded', function () {
       backLinkLabel.innerText = prevPageTitle;
     }
 
+    const authorizedUrlsPattern = [
+      /^\/hc\/.*$/, // /hc/*
+      /^\/hc\/.*\/sections\/.*$/ // /hc/*/sections/*
+    ];
+
+    const isAuthorized = (url) => {
+      return authorizedUrlsPattern.some((regex) => regex.test(url));
+    };
+
     // if we come from home or section page
     if (backLink && prevPageLink && prevPageTitle && backLinkLabel) {
-      backLink.href = prevPageLink;
-      backLinkLabel.innerText = prevPageTitle;
+      if (isAuthorized(prevPageLink)) {
+        backLink.href = prevPageLink;
+        backLinkLabel.innerText = prevPageTitle;
+      }
     }
 
     // hide article contacts and add a bottom space
