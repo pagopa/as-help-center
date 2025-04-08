@@ -26,19 +26,11 @@
     {{/if}}
     <div class="lt-container-inner lt-text-start">
       {{!-- <div class="lt-container-inner lt-text-start"> --}}
-      {{#isnt article.id 33395906409745}}
-        <a id="article-back-link" href="{{section.url}}" aria-labelledby="section-title" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
-            <i class="fa-solid fa-arrow-left lt-me-2" aria-hidden="true"></i>
-            {{#if settings.article_back_button_label}}<span class="lt-me-1">{{settings.article_back_button_label}}</span>{{/if}} 
-            <span class="lt-fw-bold" id="section-title">{{section.name}}</span>
-        </a>
-      {{else}}
-        <a id="article-back-link" href="{{help_center.url}}" aria-labelledby="section-title" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
-            <i class="fa-solid fa-arrow-left lt-me-2" aria-hidden="true"></i>
-            {{#if settings.article_back_button_label}}<span class="lt-me-1">{{settings.article_back_button_label}}</span>{{/if}} 
-            <span class="lt-fw-bold" id="section-title">Home</span>
-        </a>
-      {{/isnt}} 
+      <a id="article-back-link" href="{{section.url}}" aria-labelledby="section-title" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
+          <i class="fa-solid fa-arrow-left lt-me-2" aria-hidden="true"></i>
+          {{#if settings.article_back_button_label}}<span class="lt-me-1">{{settings.article_back_button_label}}</span>{{/if}} 
+          <span class="lt-fw-bold" id="section-title">{{section.name}}</span>
+      </a>
       {{!-- </div> --}}
       
       {{!-- header section: article title and update date and search bar --}}
@@ -159,10 +151,13 @@
   </div>
 {{/if}}
 
+<span data-article-id hidden>{{article.id}}</span>
+<span data-article-title hidden>{{article.title}}</span>
+
 {{!-- Contact request --}}
 {{#if settings.toggle_contact_request_article}}
-  {{!-- 33395906409745 = Contatti article --}}
-  {{#isnt article.id 33395906409745}}
+  {{!-- Contatti article --}}
+  <span id="article-contact-box">
     <div class="lt-container lt-pt-3 lt-pt-md-4 lt-pb-3 lt-pb-md-4" id="contact-request-article">
       <div class="lt-container-inner">
         <hr>
@@ -187,12 +182,9 @@
         </section>
       </div>
     </div>
-
-    <span data-article-id hidden>{{article.id}}</span>
-    <span data-article-title hidden>{{article.title}}</span>
-  {{else}}
-    <span class="lt-container lt-pt-3 lt-pt-md-4 lt-pb-3 lt-pb-md-4" />
-  {{/isnt}}
+  </span>
+  
+  <span id="article-no-contact-box" class="lt-container lt-pt-3 lt-pt-md-4 lt-pb-3 lt-pb-md-4 hidden" />
 {{/if}}
 
 {{!-- comments --}}

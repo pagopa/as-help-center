@@ -26,5 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
       backLink.href = `${baseUrlArticle}/${prevArticleId}`;
       backLinkLabel.innerText = prevArticleTitle;
     }
+
+    /// hide article contacts and add a bottom space
+    document.querySelector('#article-contact-box').classList.add('hidden');
+    document.querySelector('#article-no-contact-box').classList.remove('hidden');
   }
 });
