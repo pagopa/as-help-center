@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/pagopa/as-help-center/compare/v1.13.0...v1.14.0) (2025-04-08)
+
+
+### Features
+
+* **HC-PAGOPA:** seo description ([#25](https://github.com/pagopa/as-help-center/issues/25)) ([65bcdd3](https://github.com/pagopa/as-help-center/commit/65bcdd36cc64c24919d09e390d8b2e145c78e527))
+
 # [1.13.0](https://github.com/pagopa/as-help-center/compare/v1.12.0...v1.13.0) (2025-04-08)
 
 
