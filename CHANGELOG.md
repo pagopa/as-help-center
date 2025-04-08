@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/pagopa/as-help-center/compare/v1.12.0...v1.13.0) (2025-04-08)
+
+
+### Features
+
+* **hc-io hc-send:** new voting system title + send contact article flow improvement + io apple icon ([#24](https://github.com/pagopa/as-help-center/issues/24)) ([9bd0194](https://github.com/pagopa/as-help-center/commit/9bd0194bcefa5067385b38f1fe7a2d5ccce91a52))
+
 # [1.12.0](https://github.com/pagopa/as-help-center/compare/v1.11.0...v1.12.0) (2025-04-04)
 
 
