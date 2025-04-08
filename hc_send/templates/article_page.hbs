@@ -126,7 +126,7 @@
       {{#with article}}
       <div class="lt-row lt-lg-8">
         <div class="lt-article-vote lt-col-md-5 lt-mb-6 lt-lg-0">
-          <div class="lt-article-vote__question lt-fs-5 lt-mb-4">{{t 'was_this_article_helpful'}}</div>
+          <div class="lt-article-vote__question lt-fs-5 lt-mb-4">{{../settings.article_vote_label}}</div>
           <div class="lt-article-vote__controls ">
             {{vote 'up' class='lt-article-vote__item lt-block--shadow lt-article-vote__item--up lt-me-1' selected_class='lt-article-vote__item--voted' role='button'}}
             {{vote 'down' class='lt-article-vote__item lt-block--shadow lt-article-vote__item--down lt-ms-1' selected_class='lt-article-vote__item--voted' role='button'}}

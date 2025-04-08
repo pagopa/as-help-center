@@ -202,13 +202,6 @@
           "description": "Text displayed next to the logo",
           "label": "Help Center name text",
           "value": "Centro assistenza"
-        },
-        {
-          "identifier": "io_app_deeplink",
-          "type": "text",
-          "description": "Deeplink for opening IO App",
-          "label": "IO app deeplink",
-          "value": "https://continua.io.pagopa.it/main/messages"
         }
       ]
     },
@@ -936,6 +929,13 @@
           "description": "Text displayed on back button before category name",
           "label": "Back button label text",
           "value": ""
+        },
+        {
+          "identifier": "article_vote_label",
+          "type": "text",
+          "description": "Title displayed for article voting system",
+          "label": "Voting system title",
+          "value": "Questo articolo ha risolto il tuo problema?"
         }
       ]
     },
