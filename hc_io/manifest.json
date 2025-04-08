@@ -901,6 +901,13 @@
           "description": "Text displayed on back button before category name",
           "label": "Back button label text",
           "value": ""
+        },
+        {
+          "identifier": "article_vote_label",
+          "type": "text",
+          "description": "Title displayed for article voting system",
+          "label": "Voting system title",
+          "value": "Questo articolo ha risolto il tuo problema?"
         }
       ]
     },
