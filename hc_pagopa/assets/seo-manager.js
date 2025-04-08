@@ -19,7 +19,7 @@ let setMeta = (attr, attrValue, content) => {
 // for the homepage
 if (LotusUtils.isHomePage()) {
   const description =
-    'Scopri le guide pratiche e il supporto ufficiale per usare il sito e risolvere problemi di pagamento nel Centro assistenza della piattaforma pagoPA.';
+    'Scopri le guide pratiche e il supporto ufficiale per risolvere problemi che riguardano i tuoi pagamenti pagoPA nel Centro assistenza dedicato.';
   setMeta('name', 'description', description);
 }
 // info privacy page
