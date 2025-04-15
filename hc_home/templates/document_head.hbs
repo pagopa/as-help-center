@@ -1,0 +1,109 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="apple-touch-icon" href="{{asset 'apple-touch-icon.svg'}}">
+
+{{!-- Google search console tag --}}
+<meta name="google-site-verification" content="g1Yo8chuUCKgh1omlSHQ4Ugk1MfpniUehOofJZNR4DM" />
+
+{{!-- automatic telephone link recognition disabled (i.e. safari) --}}
+<meta name="format-detection" content="telephone=no">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+{{#is settings.font_family_base "'Montserrat', sans-serif"}}
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet">
+{{/is}}
+
+{{#is settings.font_family_base "'Roboto', sans-serif"}}
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet">
+{{/is}}
+
+{{#is settings.font_family_base "'Titillium web', sans-serif"}}
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" 
+    rel="stylesheet">
+{{/is}}
+
+
+{{#is settings.heading_font "'Montserrat', sans-serif"}}
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet">
+{{/is}}
+
+{{#is settings.heading_font "'Roboto', sans-serif"}}
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet">
+{{/is}}
+
+{{#is settings.heading_font "'Titillium web', sans-serif"}}
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" 
+    rel="stylesheet">
+{{/is}}
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/github.min.css">
+<script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.min.js" integrity="sha512-Ll+TuDvrWDNNRnFFIM8dOiw7Go7dsHyxRp4RutiIFW/wm3DgDmCnRZow6AqbXnCbpWu93yM1O34q+4ggzGeXVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  window.LotusConfig = {};
+  LotusConfig.css = {
+    activeClass: 'is-active',
+    hiddenClass: 'is-hidden'
+  };
+  LotusConfig.signedIn = {{#if signed_in}}true{{else}}false{{/if}};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+  document.addEventListener("alpine:init", () => {
+    Alpine.store('mobileMenu', {
+      isOpen: false,
+    });
+  });
+</script>
+
+{{!-- hc common assets js --}}
+<script src="{{asset 'lotus-utils.js' prefix='common-'}}"></script>
+<script defer src="{{asset 'lotus-components.js' prefix='common-'}}"></script>
+<script src="{{asset 'lotus-hero-unit.js' prefix='common-'}}"></script>
+<script src="{{asset 'lotus-scroll-to-top.js' prefix='common-'}}"></script>
+<script src="{{asset 'toc-min.js' prefix='common-'}}"></script>
+<script src="{{asset 'redirect-error.js' prefix='common-'}}"></script>
+{{!-- hc common assets css --}}
+<link rel="stylesheet" href="{{asset 'lotus-utilities.css' prefix='common-'}}">
+
+
+
+
+{{!-- SEO manager --> add meta description --}}
+<script src="{{asset 'seo-manager.js'}}"></script>
+{{!-- Open Graph --}}
+{{!-- it's not possible to manage open graph in seo-manager.js because og needs to be in source code before js injection --}}
+{{!-- standard og for every page except for article page (article injects is own og tag) --}}
+<meta property="og:image" content="{{asset 'pagopa_og_img.png'}}" />
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{help_center.name}}">
+<meta property="og:description" content="Visita i centri assistenza ufficiali se hai bisogno di aiuto per l'app IO, pagamenti pagoPA o SEND.">
+{{!-- / --> https://assistenza.ioapp.it --}}
+<meta property="og:url" content="/"> 
+{{!-- get og:title automatically from website title tag  --}}
+
+
+{{!-- One Trust --}}
+<script src="https://privacyportalde-cdn.onetrust.com/privacy-notice-scripts/otnotice-1.0.min.js" type="text/javascript" charset="UTF-8" id="otprivacy-notice-script">
+    settings="eyJjYWxsYmFja1VybCI6Imh0dHBzOi8vcHJpdmFjeXBvcnRhbC1kZS5vbmV0cnVzdC5jb20vcmVxdWVzdC92MS9wcml2YWN5Tm90aWNlcy9zdGF0cy92aWV3cyJ9"
+</script>
+
+{{!-- HIDDEN_SCRIPT include 'lotus-dropdown.js' for dropdown menu --}}
+{{!-- HIDDEN_SCRIPT include 'lotus-notification.js' for error form manager --}}
+{{!-- HIDDEN_SCRIPT include 'lotus-search-results.js' for search filter --}}
+{{!-- HIDDEN_SCRIPT include 'lotus-filter-faq' for faq box --> it takes a group of articles tagged with a specific label 'faq' and save it on browser storage with expiring date (after that needs to fetch again) 
+      i.e. const url = `/api/v2/help_center/${LotusUtils.getLocale()}/articles.json?label_names=faq`; --}}

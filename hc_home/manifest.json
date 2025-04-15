@@ -1,0 +1,656 @@
+{
+  "name": "home-help-center",
+  "author": "PagoPa S.p.A.",
+  "version": "1.0.0",
+  "api_version": 2,
+  "default_locale": "it",
+  "settings": [
+    {
+      "label": "Translations",
+      "variables": [
+        {
+          "identifier": "toggle_translations",
+          "type": "checkbox",
+          "description": "Enable this option to use dynamic content placeholders in the settings",
+          "label": "Use dynamic content translations",
+          "value": false
+        }
+      ]
+    },
+    {
+      "label": "Colors",
+      "variables": [
+        {
+          "identifier": "body_bg",
+          "type": "color",
+          "description": "Background color of your Help Center",
+          "label": "Background color",
+          "value": "#f8f9fa"
+        },
+        {
+          "identifier": "color_bg_secondary",
+          "type": "color",
+          "description": "Used for menus, search filters, request filters, etc.",
+          "label": "Secondary background color",
+          "value": "#fff"
+        },
+        {
+          "identifier": "brand_primary",
+          "type": "color",
+          "description": "Brand color for major navigational elements",
+          "label": "Brand primary color",
+          "value": "#0073E6"
+        },
+        {
+          "identifier": "brand_primary_inverse",
+          "type": "color",
+          "description": "Text color for element states where the primary background color is used",
+          "label": "Primary inverse color",
+          "value": "#fff"
+        },
+        {
+          "identifier": "text_color",
+          "type": "color",
+          "description": "Text color for body and heading elements",
+          "label": "Text color",
+          "value": "#17324D"
+        },
+        {
+          "identifier": "border_color",
+          "type": "color",
+          "description": "Color for border elements",
+          "label": "Border color",
+          "value": "#eceeef"
+        },
+        {
+          "identifier": "text_light_color",
+          "type": "color",
+          "description": "Text color for blocks",
+          "label": "Text light color",
+          "value": "#5C6F82"
+        },
+        {
+          "identifier": "link_color",
+          "type": "color",
+          "description": "Text color for link elements",
+          "label": "Link color",
+          "value": "#0B3EE3"
+        },
+        {
+          "identifier": "link_hover_color",
+          "type": "color",
+          "description": "Hover color for link elements",
+          "label": "Link hover color",
+          "value": "#2185e9"
+        },
+        {
+          "identifier": "brand_info",
+          "type": "color",
+          "description": "Color for info elements",
+          "label": "Brand info color",
+          "value": "#1B50F7"
+        },
+        {
+          "identifier": "brand_success",
+          "type": "color",
+          "description": "Color for success elements",
+          "label": "Brand success color",
+          "value": "#05BB0C"
+        },
+        {
+          "identifier": "brand_warning",
+          "type": "color",
+          "description": "Color for warning elements",
+          "label": "Brand warning color",
+          "value": "#DB8709"
+        },
+        {
+          "identifier": "brand_danger",
+          "type": "color",
+          "description": "Color for danger elements",
+          "label": "Brand danger color",
+          "value": "#C70606"
+        }
+      ]
+    },
+    {
+      "label": "Text",
+      "variables": [
+        {
+          "identifier": "font_size_base",
+          "type": "text",
+          "description": "Size for html text",
+          "label": "Text size",
+          "value": "16px"
+        },
+        {
+          "identifier": "heading_font",
+          "type": "list",
+          "description": "Font for headings",
+          "label": "Heading Font",
+          "value": "'Titillium web', sans-serif",
+          "options": [
+            {
+              "label": "Titillium web",
+              "value": "'Titillium web', sans-serif"
+            },
+            {
+              "label": "Montserrat",
+              "value": "'Montserrat', sans-serif"
+            },
+            {
+              "label": "Roboto",
+              "value": "'Roboto', sans-serif"
+            }
+          ]
+        },
+        {
+          "identifier": "font_family_base",
+          "type": "list",
+          "description": "Font for body text",
+          "label": "Text font",
+          "value": "'Titillium web', sans-serif",
+          "options": [
+            {
+              "label": "Titillium web",
+              "value": "'Titillium web', sans-serif"
+            },
+            {
+              "label": "Montserrat",
+              "value": "'Montserrat', sans-serif"
+            },
+            {
+              "label": "Roboto",
+              "value": "'Roboto', sans-serif"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Brand",
+      "variables": [
+        {
+          "identifier": "logo",
+          "type": "file",
+          "description": "Brand logo",
+          "label": "Logo"
+        },
+        {
+          "identifier": "logo_height",
+          "type": "text",
+          "description": "Height of the brand logo",
+          "label": "Logo height",
+          "value": "34px"
+        },
+        {
+          "identifier": "favicon",
+          "type": "file",
+          "description": "Icon displayed in the address bar of your browser",
+          "label": "Favicon"
+        },
+        {
+          "identifier": "show_help_center_name",
+          "type": "checkbox",
+          "description": "Display the Help Center name next to the logo",
+          "label": "Help Center name",
+          "value": true
+        },
+        {
+          "identifier": "help_center_name",
+          "type": "text",
+          "description": "Text displayed next to the logo",
+          "label": "Help Center name text",
+          "value": "Centro assistenza"
+        }
+      ]
+    },
+    {
+      "label": "Header Colors",
+      "variables": [
+        {
+          "identifier": "topbar_bg",
+          "type": "text",
+          "description": "Header background color (html)",
+          "label": "Background color",
+          "value": "#F8F9FA"
+        },
+        {
+          "identifier": "topbar_text_color",
+          "type": "color",
+          "description": "Header text color",
+          "label": "Text color",
+          "value": "#000000"
+        }
+      ]
+    },
+    {
+      "label": "Footer",
+      "variables": [
+        {
+          "identifier": "footer_bg",
+          "type": "color",
+          "description": "Footer background color",
+          "label": "Background color",
+          "value": "#fff"
+        },
+        {
+          "identifier": "footer_show_social",
+          "type": "checkbox",
+          "description": "Show social media column",
+          "label": "Social media",
+          "value": true
+        },
+        {
+          "identifier": "footer_accessibility_label",
+          "type": "text",
+          "description": "Label of accessibility link",
+          "label": "Accessibility label",
+          "value": "Accessibilità"
+        },
+        {
+          "identifier": "footer_accessibility_link",
+          "type": "text",
+          "description": "URL of accessibility link",
+          "label": "Accessibility URL",
+          "value": "https://form.agid.gov.it/view/6cc4cc10-dfc6-11ef-856d-e305ad095761"
+        },
+        {
+          "identifier": "footer_owner",
+          "type": "text",
+          "description": "Owner company to show on footer",
+          "label": "Owner company",
+          "value": "PagoPA S.p.A."
+        },
+        {
+          "identifier": "footer_owner_data_1",
+          "type": "text",
+          "description": "Owner company first part data to show on footer",
+          "label": "Owner fisrt company data part",
+          "value": "Società per azioni con socio unico - Capitale sociale di euro 1.000.000 interamente versato - Sede legale in Roma, Piazza Colonna 370,"
+        },
+        {
+          "identifier": "footer_owner_data_2",
+          "type": "text",
+          "description": "Owner company second part data to show on footer",
+          "label": "Owner second company data part",
+          "value": "CAP 00187 - N. di iscrizione a Registro Imprese di Roma, CF e P.IVA 15376371009"
+        }
+      ]
+    },
+    {
+      "label": "Footer column 1",
+      "variables": [
+        {
+          "identifier": "footer_logo",
+          "type": "file",
+          "description": "Footer logo",
+          "label": "Logo"
+        },
+        {
+          "identifier": "footer_logo_url",
+          "type": "text",
+          "description": "Footer logo link",
+          "label": "Logo URL",
+          "value": "https://www.pagopa.it/it/"
+        },
+        {
+          "identifier": "footer_col1_links",
+          "type": "text",
+          "description": "Semicolon-separated footer links with label and URL",
+          "label": "Column links",
+          "value": "Chi siamo|https://www.pagopa.it/it/societa/chi-siamo; PNRR|https://www.pagopa.it/it/opportunita/pnrr/progetti; Media|https://www.pagopa.it/it/media; Lavora con noi|https://www.pagopa.it/it/lavora-con-noi"
+        }
+      ]
+    },
+    {
+      "label": "Footer column 2",
+      "variables": [
+        {
+          "identifier": "footer_col2_title",
+          "type": "text",
+          "description": "Column title of second footer column",
+          "label": "Column title",
+          "value": "PRODOTTI E SERVIZI"
+        },
+        {
+          "identifier": "footer_col2_links",
+          "type": "text",
+          "description": "Semicolon-separated footer links with label and URL",
+          "label": "Column links",
+          "value": "App IO|https://www.pagopa.it/it/prodotti-e-servizi/app-io/; Piattaforma pagoPA|https://www.pagopa.it/it/prodotti-e-servizi/piattaforma-pagopa/; SEND - Servizio notifiche Digitali|https://www.pagopa.it/it/prodotti-e-servizi/send-notifiche-digitali/"
+        }
+      ]
+    },
+    {
+      "label": "Footer column 3",
+      "variables": [
+        {
+          "identifier": "footer_col3_title",
+          "type": "text",
+          "description": "Column title of third footer column",
+          "label": "Column title",
+          "value": "RISORSE"
+        },
+        {
+          "identifier": "footer_col3_links",
+          "type": "text",
+          "description": "Semicolon-separated footer links with label and URL",
+          "label": "Column links",
+          "value": "Informativa Privacy|/hc/p/info_privacy; Privacy Policy e Termini e Condizioni di utilizzo Assistenza|https://www.pagopa.it/it/privacy-policy-assistenza/; Certificazioni|https://www.pagopa.it/it/certificazioni/; Diritto alla protezione dei dati personali|https://privacyportal-de.onetrust.com/webform/77f17844-04c3-4969-a11d-462ee77acbe1/9ab6533d-be4a-482e-929a-0d8d2ab29df8; Società trasparente|https://pagopa.portaleamministrazionetrasparente.it/pagina746_altri-contenuti.html; Responsible Disclosure Policy|https://www.pagopa.it/it/responsible-disclosure-policy/; Modello 231|https://pagopa.portaleamministrazionetrasparente.it/pagina746_altri-contenuti.htmls"
+        }
+      ]
+    },
+    {
+      "label": "Footer social media",
+      "variables": [
+        {
+          "identifier": "social_media_column_title",
+          "type": "text",
+          "description": "Column title of social media column",
+          "label": "Column title",
+          "value": "SEGUICI SU"
+        },
+        {
+          "identifier": "toggle_x_icon",
+          "type": "checkbox",
+          "description": "Show or hide the X (Twitter) icon",
+          "label": "X (Twitter)",
+          "value": false
+        },
+        {
+          "identifier": "x_url",
+          "type": "text",
+          "description": "URL to X (Twitter) account",
+          "label": "X (Twitter) page URL",
+          "value": "https://x.com/PagoPA"
+        },
+        {
+          "identifier": "toggle_medium_icon",
+          "type": "checkbox",
+          "description": "Show or hide the Medium icon",
+          "label": "Medium",
+          "value": true
+        },
+        {
+          "identifier": "medium_url",
+          "type": "text",
+          "description": "URL to Medium account",
+          "label": "Medium page URL",
+          "value": "https://medium.com/pagopa-spa"
+        },
+        {
+          "identifier": "toggle_youtube_icon",
+          "type": "checkbox",
+          "description": "Show or hide the Youtube icon",
+          "label": "Youtube",
+          "value": true
+        },
+        {
+          "identifier": "youtube_url",
+          "type": "text",
+          "description": "URL to Youtube account",
+          "label": "Youtube page URL",
+          "value": "https://www.youtube.com/@pagopaspa"
+        },
+        {
+          "identifier": "toggle_linkedin_icon",
+          "type": "checkbox",
+          "description": "Show or hide the LinkedIn icon",
+          "label": "LinkedIn",
+          "value": true
+        },
+        {
+          "identifier": "linkedin_url",
+          "type": "text",
+          "description": "URL to LinkedIn account",
+          "label": "LinkedIn page URL",
+          "value": "https://www.linkedin.com/company/pagopa/"
+        },
+        {
+          "identifier": "toggle_instagram_icon",
+          "type": "checkbox",
+          "description": "Show or hide the Instagram icon",
+          "label": "Instagram",
+          "value": true
+        },
+        {
+          "identifier": "instagram_url",
+          "type": "text",
+          "description": "URL to Instagram account",
+          "label": "Instagram page URL",
+          "value": "https://www.instagram.com/pagopaspa/"
+        }
+      ]
+    },
+    {
+      "label": "Info Block",
+      "variables": [
+        {
+          "identifier": "show_info_block",
+          "type": "checkbox",
+          "description": "Show Info block used for alert/success/warning/info (only on home)",
+          "label": "Info block",
+          "value": false
+        },
+        {
+          "identifier": "info_block_title",
+          "type": "text",
+          "description": "Text displayed on the top of the block",
+          "label": "Title",
+          "value": "Il tuo accesso rapido all'app IO potrebbe essere scaduto"
+        },
+        {
+          "identifier": "info_block_text",
+          "type": "text",
+          "description": "The main text of the block",
+          "label": "Body",
+          "value": "Per accedere all'app senza autenticarti con SPID o CIE ogni 30 giorni, devi <b> rinnovare l'accesso rapido ogni 12 mesi</b>. Se il tuo accesso rapido è scaduto, accedi di nuovo con SPID o CIE. Problemi ad accedere? Scopri <a href='https://assistenza.ioapp.it/hc/it/articles/32616176301713-Cosa-fare-quando-la-sessione-scade'> cosa fare quando la sessione scade.</a>"
+        },
+        {
+          "identifier": "info_block_severity",
+          "type": "list",
+          "description": "Info block severity (warning, error, success, info)",
+          "label": "Severity",
+          "value": "warning",
+          "options": [
+            {
+              "label": "Info",
+              "value": "info"
+            },
+            {
+              "label": "Success",
+              "value": "success"
+            },
+            {
+              "label": "Warning",
+              "value": "warning"
+            },
+            {
+              "label": "Danger",
+              "value": "danger"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Home page layout",
+      "variables": [
+        {
+          "identifier": "products_title",
+          "type": "text",
+          "description": "Products section title",
+          "label": "Title label of products box",
+          "value": "Per cosa hai bisogno di aiuto?"
+        },
+        {
+          "identifier": "products_card_color",
+          "type": "color",
+          "description": "Color of card categories",
+          "label": "Color of card categories",
+          "value": "#ffff"
+        },
+        {
+          "identifier": "products_per_line",
+          "type": "range",
+          "description": "Number of products displayed per line",
+          "label": "Number of products per line",
+          "value": 3,
+          "min": 1,
+          "max": 6
+        },
+        {
+          "identifier": "product_hc_button",
+          "type": "text",
+          "description": "Label of visit help center product card button",
+          "label": "Button label of visit help center product",
+          "value": "Vai al centro assistenza"
+        }
+      ]
+    },
+    {
+      "label": "pagoPA help center",
+      "variables": [
+        {
+          "identifier": "pagopa_product_url",
+          "type": "text",
+          "description": "pagoPA help center URL",
+          "label": "URL",
+          "value": "https://assistenza.pagopa.gov.it/hc"
+        },
+        {
+          "identifier": "pagopa_product_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "pagopa_product_title",
+          "type": "text",
+          "description": "pagoPA help center title",
+          "label": "Title",
+          "value": "Piattaforma pagamenti pagoPA"
+        },
+        {
+          "identifier": "pagopa_product_subtitle",
+          "type": "text",
+          "description": "pagoPA help center subtitle",
+          "label": "Subtitle",
+          "value": "Scopri risposte e guide pratiche per chiarire dubbi o risolvere problemi relativi alla piattaforma pagoPA."
+        },
+        {
+          "identifier": "pagopa_product_website",
+          "type": "text",
+          "description": "Label of real product website",
+          "label": "Go to real website label",
+          "value": "Scopri di più su <a href='https://www.pagopa.gov.it'>pagoPA</a>"
+        }
+      ]
+    },
+    {
+      "label": "IO help center",
+      "variables": [
+        {
+          "identifier": "io_product_url",
+          "type": "text",
+          "description": "IO help center URL",
+          "label": "URL",
+          "value": "https://assistenza.ioapp.it/hc"
+        },
+        {
+          "identifier": "io_product_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "io_product_title",
+          "type": "text",
+          "description": "IO help center title",
+          "label": "Title",
+          "value": "IO - L'app dei servizi pubblici"
+        },
+        {
+          "identifier": "io_product_subtitle",
+          "type": "text",
+          "description": "IO help center subtitle",
+          "label": "Subtitle",
+          "value": "Scopri risposte e guide pratiche per chiarire dubbi o risolvere problemi relativi alle funzionalità dell'app IO."
+        },
+        {
+          "identifier": "io_product_website",
+          "type": "text",
+          "description": "Label of real product website",
+          "label": "Go to real website label",
+          "value": "Scopri di più su <a href='https://ioapp.it'>IO</a>"
+        }
+      ]
+    },
+    {
+      "label": "SEND help center",
+      "variables": [
+        {
+          "identifier": "send_product_url",
+          "type": "text",
+          "description": "SEND help center URL",
+          "label": "URL",
+          "value": "https://assistenza.notifichedigitali.it/hc"
+        },
+        {
+          "identifier": "send_product_icon",
+          "type": "file",
+          "description": "The recommended dimensions: 100x100px",
+          "label": "Icon"
+        },
+        {
+          "identifier": "send_product_title",
+          "type": "text",
+          "description": "SEND help center title",
+          "label": "Title",
+          "value": "SEND - Notifiche digitali"
+        },
+        {
+          "identifier": "send_product_subtitle",
+          "type": "text",
+          "description": "SEND help center subtitle",
+          "label": "Subtitle",
+          "value": "Scopri risposte e guide pratiche per chiarire dubbi o risolvere problemi relativi alle funzionalità di SEND."
+        },
+        {
+          "identifier": "send_product_website",
+          "type": "text",
+          "description": "Label of real product website",
+          "label": "Go to real website label",
+          "value": "Scopri di più su <a href='https://notifichedigitali.it'>SEND</a>"
+        }
+      ]
+    },
+    {
+      "label": "Error page layout",
+      "variables": [
+        {
+          "identifier": "error_title",
+          "type": "text",
+          "description": "Error page title",
+          "label": "Title",
+          "value": "Questa pagina non esiste"
+        },
+        {
+          "identifier": "error_subtitle",
+          "type": "text",
+          "description": "Error page subtitle",
+          "label": "Subtitle",
+          "value": "Potremmo averla spostata, o l’indirizzo potrebbe non essere corretto."
+        },
+        {
+          "identifier": "error_button_label",
+          "type": "text",
+          "description": "Label button on error page",
+          "label": "Error button",
+          "value": "Torna alla home"
+        }
+      ]
+    }
+  ]
+}

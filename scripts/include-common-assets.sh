@@ -13,8 +13,16 @@ fi
 # Get root directory (prev path from the script location)
 root_dir="$(cd "$(dirname "$0")/.." && pwd)"
 
-BRAND_FOLDER=$root_dir/$1
-COMMON_ASSETS_FOLDER=$root_dir/common_assets/
-BRAND_ASSETS_FOLDER=$BRAND_FOLDER/assets
+BRAND_NAME="$1"
+BRAND_FOLDER="$root_dir/$BRAND_NAME"
+COMMON_ASSETS_FOLDER="$root_dir/common_assets"
+BRAND_ASSETS_FOLDER="$BRAND_FOLDER/assets"
 
-find $COMMON_ASSETS_FOLDER -type f ! -name "*.txt" -exec bash -c 'rsync -a "$0" "$1/common-$(basename "$0")"' {} "$BRAND_ASSETS_FOLDER" \;
+if [ "$BRAND_NAME" == "hc_home" ]; then
+  # Copy only root files in common_assets (excluding subfolder)
+  find "$COMMON_ASSETS_FOLDER" -maxdepth 1 -type f ! -name "*.txt" -exec bash -c 'rsync -a "$0" "$1/common-$(basename "$0")"' {} "$BRAND_ASSETS_FOLDER" \;
+
+else
+  # Copy all files from common_assets excluding .txt files, changing prefix with common-
+  find $COMMON_ASSETS_FOLDER -type f ! -name "*.txt" -exec bash -c 'rsync -a "$0" "$1/common-$(basename "$0")"' {} "$BRAND_ASSETS_FOLDER" \;
+fi
