@@ -1,7 +1,7 @@
 {
   "name": "home-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
