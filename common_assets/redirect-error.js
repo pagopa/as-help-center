@@ -13,6 +13,14 @@ $(document).ready(function () {
     '/subscriptions/'
   ];
 
+  // Check if the hostname is centroassistenza.pagopa.it (home)
+  const currentHostname = window.location.hostname;
+
+  if (currentHostname === 'centroassistenza.pagopa.it') {
+    // add more path
+    restrictedPaths.push('/hc/it/articles/', '/hc/it/sections/', '/hc/it/search');
+  }
+
   // current url
   const currentPath = window.location.pathname;
 
