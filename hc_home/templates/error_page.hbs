@@ -1,0 +1,26 @@
+<div class="lt-start-screen-wrap lt-start-screen-wrap--pb lt-container">
+  <div class="lt-container-inner lt-text-center">
+    <div class="lt-row lt-align-items-center lt-pt-lg-8">
+      <div class="lt-page__heading lt-col-12" id="main-content" role="main">
+        {{!-- {{#is error 'unauthorized'}}
+          <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{link 'sign_in'}}</h1>
+        {{/is}}
+        {{#is error 'forbidden'}}
+          <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{t 'not_authorized'}}</h1>
+        {{/is}}
+        {{#is error 'not_found'}}
+          <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{t 'nonexistent_page'}}</h1>
+          <p class="lt-page__desc">{{t 'mistyped_address_or_moved_page'}}</p>
+        {{/is}} --}}
+
+        <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{settings.error_title}}</h1>
+        <p class="lt-page__desc lt-mb-5">{{settings.error_subtitle}}</p>
+
+        {{#link 'help_center' class="lt-btn lt-btn--square lt-btn--dark" }}
+          {{settings.error_button_label}}
+        {{/link}}
+
+      </div>
+    </div>
+  </div>
+</div>
