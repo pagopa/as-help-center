@@ -485,13 +485,6 @@
           "value": "Per cosa hai bisogno di aiuto?"
         },
         {
-          "identifier": "products_card_color",
-          "type": "color",
-          "description": "Color of card categories",
-          "label": "Color of card categories",
-          "value": "#ffff"
-        },
-        {
           "identifier": "products_per_line",
           "type": "range",
           "description": "Number of products displayed per line",
@@ -503,8 +496,8 @@
         {
           "identifier": "product_hc_button",
           "type": "text",
-          "description": "Label of visit help center product card button",
-          "label": "Button label of visit help center product",
+          "description": "Products button card label",
+          "label": "Label of product button box",
           "value": "Vai al centro assistenza"
         }
       ]
