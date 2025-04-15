@@ -55,7 +55,6 @@
   --success-callout-icon: url($assets-common-icon-success-svg);
   --search-icon: url($assets-common-icon-search-svg);
   --topbar-link-color: $topbar_text_color;
-  #000000
 
   /* --copy-code-icon: url($assets-icon-copy-svg); */
 
@@ -360,6 +359,7 @@ address {
 }
 
 /* TODO mod */
+
 /* .lt-main-content {
   padding-top: 8.2rem;
 }
@@ -889,12 +889,12 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
     left: 0;
     z-index: 2;
     width: 100%;
-    border: 1px solid #C7C7C780;
+    border: 1px solid #c7c7c780;
   }
 }
 
 .lt-topbar-text {
-  color: $topbar_text_color
+  color: $topbar_text_color;
 }
 
 .lt-topbar__wrap {
@@ -930,7 +930,7 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
   .lt-topbar__link:hover,
   .lt-topbar__link:focus,
   .lt-topbar__link:active {
-    color: darken(#000000, 14%);
+    color: darken(#000, 14%);
   }
 }
 
@@ -1708,7 +1708,7 @@ input[type='submit']:active,
   .lt-btn--topbar:hover,
   .lt-btn--topbar:focus,
   .lt-btn--topbar:active {
-    color: darken(#000000, 12%);
+    color: darken(#000, 12%);
   }
 }
 
@@ -1741,9 +1741,9 @@ input[type='submit']:active,
 .lt-btn--hero:hover,
 .lt-btn--hero:focus,
 .lt-btn--hero:active {
-  color: darken(#000000, 12%);
+  color: darken(#000, 12%);
   background-color: transparent;
-  border-color: darken(#000000, 12%);
+  border-color: darken(#000, 12%);
 }
 
 .lt-organization-subscribe button {
