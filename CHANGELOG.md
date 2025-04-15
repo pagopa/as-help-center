@@ -1,3 +1,11 @@
+# [1.15.0](https://github.com/pagopa/as-help-center/compare/v1.14.0...v1.15.0) (2025-04-15)
+
+
+### Features
+
+* **hc-home:** home brand ([#27](https://github.com/pagopa/as-help-center/issues/27)) ([25a144f](https://github.com/pagopa/as-help-center/commit/25a144ff68a2f49b22db8a1ddfae6b23421ccb8b))
+* home brand ([#26](https://github.com/pagopa/as-help-center/issues/26)) ([6bd26df](https://github.com/pagopa/as-help-center/commit/6bd26df99c9119e10e37270cbe22a3a1a840cc52))
+
 # [1.14.0](https://github.com/pagopa/as-help-center/compare/v1.13.0...v1.14.0) (2025-04-08)
 
 
