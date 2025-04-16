@@ -6351,6 +6351,16 @@ html.toc-enabled .lt-article-container__sidebar {
   color: $text_color;
 }
 
+.lt-fs-title-responsive {
+  font-size: var(--font-size-h1);
+}
+
+@media (width <= 798px) {
+  .lt-fs-title-responsive {
+    font-size: 36px;
+  }
+}
+
 .lt-section-heading__descr {
   font-size: 0.875rem;
   line-height: 1.5;

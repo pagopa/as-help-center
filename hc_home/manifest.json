@@ -478,6 +478,13 @@
       "label": "Home page layout",
       "variables": [
         {
+          "identifier": "home_title",
+          "type": "text",
+          "description": "Home title",
+          "label": "Home page title label",
+          "value": "Centro assistenza PagoPA S.p.A."
+        },
+        {
           "identifier": "products_title",
           "type": "text",
           "description": "Products section title",
@@ -523,21 +530,21 @@
           "type": "text",
           "description": "pagoPA help center title",
           "label": "Title",
-          "value": "Piattaforma pagamenti pagoPA"
+          "value": "Pagamenti pagoPA"
         },
         {
           "identifier": "pagopa_product_subtitle",
           "type": "text",
           "description": "pagoPA help center subtitle",
           "label": "Subtitle",
-          "value": "Scopri risposte e guide pratiche per chiarire dubbi o risolvere problemi relativi alla piattaforma pagoPA."
+          "value": "Trova assistenza su avvisi pagoPA, pagamenti in corso, ricevute, metodi di pagamento, esiti, rimborsi, commissioni."
         },
         {
           "identifier": "pagopa_product_website",
           "type": "text",
           "description": "Label of real product website",
           "label": "Go to real website label",
-          "value": "Scopri di più su <a href='https://www.pagopa.gov.it'>pagoPA</a>"
+          "value": "Per saperne di più su <a href='https://www.pagopa.gov.it' aria-label='Per saperne di più su pagoPA'>pagoPA</a>"
         }
       ]
     },
@@ -569,14 +576,14 @@
           "type": "text",
           "description": "IO help center subtitle",
           "label": "Subtitle",
-          "value": "Scopri risposte e guide pratiche per chiarire dubbi o risolvere problemi relativi alle funzionalità dell'app IO."
+          "value": "Trova assistenza su documenti digitali su IO, codice di sblocco, accesso con SPID o CIE, messaggi, bonus e iniziative, pagamenti in app."
         },
         {
           "identifier": "io_product_website",
           "type": "text",
           "description": "Label of real product website",
           "label": "Go to real website label",
-          "value": "Scopri di più su <a href='https://ioapp.it'>IO</a>"
+          "value": "Per saperne di più su <a href='https://ioapp.it' aria-label='Per saperne di più su IO'>IO</a>"
         }
       ]
     },
@@ -608,14 +615,14 @@
           "type": "text",
           "description": "SEND help center subtitle",
           "label": "Subtitle",
-          "value": "Scopri risposte e guide pratiche per chiarire dubbi o risolvere problemi relativi alle funzionalità di SEND."
+          "value": "Trova assistenza su notifiche SEND, recapiti, configurazione e utilizzo, deleghe, modalità di pagamento e ricevute."
         },
         {
           "identifier": "send_product_website",
           "type": "text",
           "description": "Label of real product website",
           "label": "Go to real website label",
-          "value": "Scopri di più su <a href='https://notifichedigitali.it'>SEND</a>"
+          "value": "Per saperne di più su <a href='https://notifichedigitali.it' aria-label='Per saperne di più su SEND'>SEND</a>"
         }
       ]
     },
