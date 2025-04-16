@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/pagopa/as-help-center/compare/v1.16.0...v1.17.0) (2025-04-16)
+
+
+### Features
+
+* **hc-pagopa:** phishing section icon ([#29](https://github.com/pagopa/as-help-center/issues/29)) ([1566b2d](https://github.com/pagopa/as-help-center/commit/1566b2d7fa78279bceeb68bbac194036f3e087d6))
+
 # [1.16.0](https://github.com/pagopa/as-help-center/compare/v1.15.0...v1.16.0) (2025-04-16)
 
 
