@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/pagopa/as-help-center/compare/v1.15.0...v1.16.0) (2025-04-16)
+
+
+### Features
+
+* **hc-home:** new ui and new copy ([#28](https://github.com/pagopa/as-help-center/issues/28)) ([17134c7](https://github.com/pagopa/as-help-center/commit/17134c7a1f6caee9aa39a84b0483721a61b9800f))
+
 # [1.15.0](https://github.com/pagopa/as-help-center/compare/v1.14.0...v1.15.0) (2025-04-15)
 
 
