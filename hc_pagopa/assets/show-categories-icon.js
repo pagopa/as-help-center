@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const iconMap = {
     32550674474641: 'fa-solid fa-credit-card', // Come pagare con pagoPA
     31957404459025: 'fa-solid fa-triangle-exclamation', // Problemi con il pagamento
-    31957401197969: 'fa-solid fa-receipt' // Esito del pagamento rimborsi e ricevute
+    31957401197969: 'fa-solid fa-receipt', // Esito del pagamento rimborsi e ricevute
+    34448853492113: 'fa-solid fa-shield-halved' // Phishing e altre truffe online
   };
 
   // Func to extract ID from URL
