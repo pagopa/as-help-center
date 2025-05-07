@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/pagopa/as-help-center/compare/v1.17.0...v1.18.0) (2025-05-07)
+
+
+### Features
+
+* more help center box ([#30](https://github.com/pagopa/as-help-center/issues/30)) ([56217ad](https://github.com/pagopa/as-help-center/commit/56217ada8cf923c54a8966e21d612e3b8c2028e0))
+
 # [1.17.0](https://github.com/pagopa/as-help-center/compare/v1.16.0...v1.17.0) (2025-04-16)
 
 

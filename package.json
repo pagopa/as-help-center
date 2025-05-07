@@ -1,6 +1,6 @@
 {
   "name": "as-help-center",
-  "version": "1.17.0",
+  "version": "1.18.0",
   "description": "Global Help Center serves as a single reference for troubleshooting",
   "type": "module",
   "scripts": {
