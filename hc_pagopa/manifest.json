@@ -631,7 +631,7 @@
           "type": "range",
           "description": "Number of categories displayed per line",
           "label": "Number of categories per line",
-          "value": 3,
+          "value": 2,
           "min": 1,
           "max": 6
         },
