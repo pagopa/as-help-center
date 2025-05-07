@@ -2111,7 +2111,6 @@ input[type='submit']:active,
 
 .lt-more-products-card__link {
   color: $text_color;
-  transition: all 0.2s;
 }
 
 .lt-more-products-card__link::before {
@@ -2119,18 +2118,6 @@ input[type='submit']:active,
   inset: 0;
   z-index: 2;
   content: '';
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .lt-more-products-card__link:hover,
-  .lt-more-products-card__link:focus {
-    color: $brand_primary !important;
-    transition: all 0.2s;
-  }
-}
-
-.lt-more-products-card__link:active {
-  color: $text_color !important;
 }
 
 .lt-more-products-card__title {
