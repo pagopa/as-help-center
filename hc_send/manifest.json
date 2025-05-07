@@ -1,7 +1,7 @@
 {
   "name": "send-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -586,7 +586,7 @@
           "type": "checkbox",
           "description": "Show more help center box",
           "label": "More Help Center box",
-          "value": false
+          "value": true
         },
         {
           "identifier": "toggle_contact_request_home",
@@ -745,7 +745,7 @@
           "type": "text",
           "description": "Box 1 URL",
           "label": "URL",
-          "value": "#"
+          "value": "https://assistenza.pagopa.gov.it/hc/it"
         },
         {
           "identifier": "more_product_box_1_icon",
@@ -758,7 +758,7 @@
           "type": "text",
           "description": "Box 1 title",
           "label": "Title",
-          "value": "Piattaforma pagamenti pagoPA"
+          "value": "Pagamenti pagoPA"
         }
       ]
     },
@@ -777,7 +777,7 @@
           "type": "text",
           "description": "Box 2 URL",
           "label": "URL",
-          "value": "#"
+          "value": "https://assistenza.ioapp.it/hc/it"
         },
         {
           "identifier": "more_product_box_2_icon",
@@ -790,7 +790,7 @@
           "type": "text",
           "description": "Box 2 title",
           "label": "Title",
-          "value": "Servizio notifiche digitali"
+          "value": "IO - L'app dei servizi pubblici"
         }
       ]
     },

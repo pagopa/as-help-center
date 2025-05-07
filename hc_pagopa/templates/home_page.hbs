@@ -138,7 +138,7 @@
     </div>
 
     {{!-- More Help Center --}}
-    {{!-- {{#if settings.toggle_more_products}}
+    {{#if settings.toggle_more_products}}
       <div class="lt-container lt-mt-md-5 lt-pt-5 lt-pt-md-9" id="contact-boxes">
         <div class="lt-container-inner">
           <section aria-labelledby="sectionHeading-moreHC" class="lt-pb-9">
@@ -159,7 +159,7 @@
                   class="lt-more-products-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
                   <img class="lt-more-products-card__icon lt-mb-5" data-svg src="{{settings.more_product_box_1_icon}}" aria-hidden="true">
                   <h3 class="lt-more-products-card__title lt-fs-4 lt-mb-2">
-                    <a class="lt-more-products-card__link" href="
+                    <a class="lt-more-products-card__link lt-no-hover-color" href="
                       {{#if settings.toggle_translations}}
                         {{dc settings.more_product_box_1_url}}
                       {{else}}
@@ -183,7 +183,7 @@
                   class="lt-more-products-card lt-flex-column lt-block lt-block--shadow lt-position-relative lt-p-4 lt-p-lg-5 lt-d-flex lt-w-100">
                   <img class="lt-more-products-card__icon lt-mb-5" data-svg src="{{settings.more_product_box_2_icon}}" aria-hidden="true">
                   <h3 class="lt-more-products-card__title lt-fs-4 lt-mb-2">
-                    <a class="lt-more-products-card__link" href="
+                    <a class="lt-more-products-card__link lt-no-hover-color" href="
                       {{#if settings.toggle_translations}}
                         {{dc settings.more_product_box_2_url}}
                       {{else}}
@@ -202,13 +202,17 @@
               {{/if}}
             </ul>
 
+            {{!-- <div class="lt-mt-5 lt-pt-5">
+                <hr>
+              </div> --}}
+
           </section>
         </div>
       </div>
-    {{/if}} --}}
+    {{/if}}
 
     {{#if settings.toggle_contact_request_home}}
-    <div class="lt-container lt-pt-7 lt-pb-9" id="contacts">
+    <div class="lt-container lt-pt-6 lt-pt-lg-8 lt-pb-9" id="contacts">
         <div class="lt-container-inner">
           <section aria-labelledby="sectionHeading-contacts">
             <div class="lt-section-heading lt-mb-4">
