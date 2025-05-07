@@ -512,7 +512,7 @@
           "type": "checkbox",
           "description": "Show Info block used for alert/success/warning/info (only on home)",
           "label": "Info block",
-          "value": false
+          "value": true
         },
         {
           "identifier": "show_info_block_all_page",
@@ -526,14 +526,14 @@
           "type": "text",
           "description": "Text displayed on the top of the block",
           "label": "Title",
-          "value": "Il tuo accesso rapido all'app IO potrebbe essere scaduto"
+          "value": "Fai attenzione alle truffe online"
         },
         {
           "identifier": "info_block_text",
           "type": "text",
           "description": "The main text of the block",
           "label": "Body",
-          "value": "Per accedere all'app senza autenticarti con SPID o CIE ogni 30 giorni, devi <b> rinnovare l'accesso rapido ogni 12 mesi</b>. Se il tuo accesso rapido è scaduto, accedi di nuovo con SPID o CIE. Problemi ad accedere? Scopri <a href='https://assistenza.ioapp.it/hc/it/articles/32616176301713-Cosa-fare-quando-la-sessione-scade'> cosa fare quando la sessione scade.</a>"
+          "value": "Scopri come riconoscere ed evitare i <a href='https://assistenza.pagopa.gov.it/hc/it/sections/34448853492113-Phishing-e-altre-truffe-online'>tentativi di phishing e altre truffe a nome di pagoPA</a>"
         },
         {
           "identifier": "info_block_severity",
