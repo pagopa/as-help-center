@@ -6,13 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Get text element
     const text = element.textContent;
 
-    // Substitute '[newline]' with HTML new line
-    // const formattedText = text.replace(/\[newline\]/g, '<br>');
-
     // sanitize and update content
     const sanitizedContent = DOMPurify.sanitize(text);
 
     // Update content
     element.innerHTML = sanitizedContent;
+
+    const parentObj = element.parentElement;
+    if (parentObj.classList.contains('callout-lazy')) {
+      // parent obj = callout obj
+      parentObj.classList.add('ready');
+    }
   });
 });

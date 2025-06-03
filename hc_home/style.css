@@ -9428,3 +9428,13 @@ slider-component {
 .no-content {
   font-size: var(--font-size-h5);
 }
+
+.callout-lazy {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+.callout-lazy.ready {
+  visibility: visible;
+  opacity: 1;
+}
