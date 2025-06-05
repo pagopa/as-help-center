@@ -9461,3 +9461,14 @@ slider-component {
 .cr-subtitle-article a {
   font-weight: 700;
 }
+
+.callout-lazy {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+.callout-lazy.ready {
+  visibility: visible;
+  opacity: 1;
+}
