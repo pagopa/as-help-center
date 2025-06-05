@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/pagopa/as-help-center/compare/v1.18.0...v1.18.1) (2025-06-05)
+
+
+### Bug Fixes
+
+* callout html rendering workaround ([#31](https://github.com/pagopa/as-help-center/issues/31)) ([5bfca23](https://github.com/pagopa/as-help-center/commit/5bfca23a76f19fef38dec1c329c908c9085598bb))
+
 # [1.18.0](https://github.com/pagopa/as-help-center/compare/v1.17.0...v1.18.0) (2025-05-07)
 
 
