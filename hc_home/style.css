@@ -9434,6 +9434,7 @@ slider-component {
   opacity: 0;
   transition: opacity 0.2s ease-in;
 }
+
 .callout-lazy.ready {
   visibility: visible;
   opacity: 1;
