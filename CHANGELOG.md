@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/pagopa/as-help-center/compare/v1.18.1...v1.19.0) (2025-06-20)
+
+
+### Features
+
+* **hc-io:** split bonus section ([#32](https://github.com/pagopa/as-help-center/issues/32)) ([312a0bb](https://github.com/pagopa/as-help-center/commit/312a0bbe4d3953e33af59f769b10d594670d05be))
+
 ## [1.18.1](https://github.com/pagopa/as-help-center/compare/v1.18.0...v1.18.1) (2025-06-05)
 
 
