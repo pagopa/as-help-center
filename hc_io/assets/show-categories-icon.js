@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     30831099135633: 'fa-solid fa-triangle-exclamation', // Problemi con il pagamento
     30831144721169: 'fa-solid fa-receipt', // Gestione pagamenti e ricevute
     30831177675409: 'fa-solid fa-gear', // Impostazioni e sicurezza
-    30831196048529: 'fa-solid fa-ticket', // Bonus e iniziative
+    30831196048529: 'fa-solid fa-ticket', // Carta Giovani Nazionale
+    36385489298577: 'fa-solid fa-gift', // Altre iniziative
     30831203351185: 'fa-solid fa-pen' // Certificati e firme
   };
 
