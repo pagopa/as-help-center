@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/pagopa/as-help-center/compare/v1.19.0...v1.20.0) (2025-07-03)
+
+
+### Features
+
+* IT wallet hidden section and article ([#33](https://github.com/pagopa/as-help-center/issues/33)) ([16277b8](https://github.com/pagopa/as-help-center/commit/16277b8ead0d9a49762fc97177ccf1ea0ef1ee68))
+
 # [1.19.0](https://github.com/pagopa/as-help-center/compare/v1.18.1...v1.19.0) (2025-06-20)
 
 
