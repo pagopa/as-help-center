@@ -26,11 +26,19 @@
     {{/if}}
     <div class="lt-container-inner lt-text-start">
       {{!-- <div class="lt-container-inner lt-text-start"> --}}
+      {{!-- TODO: hidden article (remove) --}}
+      {{#is article.id 35541811236113}}
+        {{#link 'help_center' class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5"}}
+            <i class="fa-solid fa-arrow-left lt-me-2" aria-hidden="true"></i>
+            <span class="lt-fw-bold" id="section-title">Home</span>
+        {{/link}}
+      {{else}}
         <a href="{{section.url}}" aria-labelledby="section-title" class="back-link lt-no-hover-color lt-pb-4 lt-pt-lg-5 lt-pb-lg-5">
             <i class="fa-solid fa-arrow-left lt-me-2" aria-hidden="true"></i>
             {{#if settings.article_back_button_label}}<span class="lt-me-1">{{settings.article_back_button_label}}</span>{{/if}} 
             <span class="lt-fw-bold" id="section-title">{{section.name}}</span>
-        </a>
+        </a>  
+      {{/is}}  
       {{!-- </div> --}}
       
       {{!-- header section: article title and update date and search bar --}}
