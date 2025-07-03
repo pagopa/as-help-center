@@ -33,4 +33,10 @@ else if (LotusUtils.isArticlePage()) {
   if (artId && HiddenArticles.getIds().includes(artId)) {
     setMeta('name', 'robots', 'noindex, follow');
   }
+} else if (LotusUtils.isSectionPage()) {
+  const sectionId = LotusUtils.getSectionId();
+  // eslint-disable-next-line no-undef
+  if (sectionId && HiddenSections.getIds().includes(sectionId)) {
+    setMeta('name', 'robots', 'noindex, follow');
+  }
 }
