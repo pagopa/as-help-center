@@ -26,3 +26,10 @@ if (LotusUtils.isHomePage()) {
 else if (LotusUtils.isCustomPage('info_privacy')) {
   setMeta('name', 'robots', 'noindex, follow');
 }
+// TODO: hidden article page (remove)
+else if (LotusUtils.isArticlePage()) {
+  const artId = LotusUtils.getArticleId();
+  if (artId && (HiddenArticles.getIds()).includes(artId)) {
+    setMeta('name', 'robots', 'noindex, follow');
+  }
+}
