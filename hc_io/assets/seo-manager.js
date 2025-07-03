@@ -29,7 +29,8 @@ else if (LotusUtils.isCustomPage('info_privacy')) {
 // TODO: hidden article page (remove)
 else if (LotusUtils.isArticlePage()) {
   const artId = LotusUtils.getArticleId();
-  if (artId && (HiddenArticles.getIds()).includes(artId)) {
+  // eslint-disable-next-line no-undef
+  if (artId && HiddenArticles.getIds().includes(artId)) {
     setMeta('name', 'robots', 'noindex, follow');
   }
 }

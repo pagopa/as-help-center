@@ -1,5 +1,3 @@
-/* eslint-disable no-useless-escape */
-
 /**
  * @namespace HiddenArticles
  */
@@ -22,7 +20,7 @@ const HiddenArticles = {
   getTitles() {
     const hiddenTitles = ['Cosa serve per usare IT-Wallet', 'Cosa serve per usare Documenti su IO'];
     return hiddenTitles;
-  },
+  }
 };
 
 window.HiddenArticles = HiddenArticles;
