@@ -26,3 +26,17 @@ if (LotusUtils.isHomePage()) {
 else if (LotusUtils.isCustomPage('info_privacy')) {
   setMeta('name', 'robots', 'noindex, follow');
 }
+// TODO: hidden article page (remove)
+else if (LotusUtils.isArticlePage()) {
+  const artId = LotusUtils.getArticleId();
+  // eslint-disable-next-line no-undef
+  if (artId && HiddenArticles.getIds().includes(artId)) {
+    setMeta('name', 'robots', 'noindex, follow');
+  }
+} else if (LotusUtils.isSectionPage()) {
+  const sectionId = LotusUtils.getSectionId();
+  // eslint-disable-next-line no-undef
+  if (sectionId && HiddenSections.getIds().includes(sectionId)) {
+    setMeta('name', 'robots', 'noindex, follow');
+  }
+}

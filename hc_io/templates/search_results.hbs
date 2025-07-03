@@ -111,33 +111,36 @@
           </h1>
           <ul class="lt-list-unstyled search-results-list lt-mt-0">
             {{#each results}}
-            <li class="lt-search-result lt-search-result--{{type}} lt-mb-5">
-              {{#each path_steps}}
-                {{#if @last}}
-                  <div class="lt-mb-3 search-result-category"><a class="" href="{{url}}" aria-label="Apri la sezione {{name}} relativa al risultato"><span class="category-icon-wrapper search-result-category-icon-container" data-url="{{url}}" aria-hidden="true"></span>{{name}}</a></div>
-                {{/if}}
-              {{/each}}
-              <a href="{{url}}" aria-labelledby="result-title" class="search-result-wrapper">
-                <h2 class="lt-search-result__title lt-fs-4 lt-mb-3">
-                  <span class="search-result-link" id="result-title">{{title}}</span>
-                </h2>
-                <div class="lt-search-result__description lt-block lt-mb-3">{{text}}...</div>
-              </a>
+              {{!-- TODO: hidden articles (remove) --}}
+              {{#isnt title "Cosa serve per usare IT-Wallet"}}
+                <li class="lt-search-result lt-search-result--{{type}} lt-mb-5">
+                  {{#each path_steps}}
+                    {{#if @last}}
+                      <div class="lt-mb-3 search-result-category"><a class="" href="{{url}}" aria-label="Apri la sezione {{name}} relativa al risultato"><span class="category-icon-wrapper search-result-category-icon-container" data-url="{{url}}" aria-hidden="true"></span>{{name}}</a></div>
+                    {{/if}}
+                  {{/each}}
+                  <a href="{{url}}" aria-labelledby="result-title" class="search-result-wrapper">
+                    <h2 class="lt-search-result__title lt-fs-4 lt-mb-3">
+                      <span class="search-result-link" id="result-title">{{title}}</span>
+                    </h2>
+                    <div class="lt-search-result__description lt-block lt-mb-3">{{text}}...</div>
+                  </a>
 
-              <div class="lt-meta lt-mb-5">
-                {{#if ../settings.search_show_date}}
-                  <span class="lt-meta__item">{{date created_at timeago=true}}</span>
-                {{/if}}
-                {{#if ../settings.show_article_comments}}
-                <span class="lt-meta__item">
-                  <span class="sr-only">{{t 'comments_count' count=comment_count}}</span>
-                  <span aria-hidden="true">
-                  {{t 'comments_count' count=comment_count}}
-                  </span>
-                </span>
-                {{/if}}
-              </div>
-            </li>
+                  <div class="lt-meta lt-mb-5">
+                    {{#if ../settings.search_show_date}}
+                      <span class="lt-meta__item">{{date created_at timeago=true}}</span>
+                    {{/if}}
+                    {{#if ../settings.show_article_comments}}
+                    <span class="lt-meta__item">
+                      <span class="sr-only">{{t 'comments_count' count=comment_count}}</span>
+                      <span aria-hidden="true">
+                      {{t 'comments_count' count=comment_count}}
+                      </span>
+                    </span>
+                    {{/if}}
+                  </div>
+                </li>
+              {{/isnt}}
             {{/each}}
           </ul>
         </section>
