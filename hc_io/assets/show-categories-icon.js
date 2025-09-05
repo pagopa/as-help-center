@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     30831177675409: 'fa-solid fa-gear', // Impostazioni e sicurezza
     30831196048529: 'fa-solid fa-ticket', // Carta Giovani Nazionale
     36385489298577: 'fa-solid fa-gift', // Altre iniziative
-    30831203351185: 'fa-solid fa-pen' // Certificati e firme
+    30831203351185: 'fa-solid fa-pen', // Certificati e firme
+    38759466652817: 'fa-solid fa-book', // Carta della Cultura
+    38759512549393: 'fa-solid fa-plug' // Bonus Elettrodomestici
   };
 
   // Func to extract ID from URL
