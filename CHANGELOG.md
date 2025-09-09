@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/pagopa/as-help-center/compare/v1.20.0...v1.21.0) (2025-09-09)
+
+
+### Features
+
+* **hc-io:** add new sections with icons ([#34](https://github.com/pagopa/as-help-center/issues/34)) ([96213e2](https://github.com/pagopa/as-help-center/commit/96213e224081ef1bb571eeb37a8998b1743fcb65))
+
 # [1.20.0](https://github.com/pagopa/as-help-center/compare/v1.19.0...v1.20.0) (2025-07-03)
 
 
