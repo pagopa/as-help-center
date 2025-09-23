@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/pagopa/as-help-center/compare/v1.21.0...v1.22.0) (2025-09-23)
+
+
+### Features
+
+* new a11y url ([#36](https://github.com/pagopa/as-help-center/issues/36)) ([1e1e249](https://github.com/pagopa/as-help-center/commit/1e1e249697e0856506760d6cc928027a42f1d374))
+
 # [1.21.0](https://github.com/pagopa/as-help-center/compare/v1.20.0...v1.21.0) (2025-09-09)
 
 
