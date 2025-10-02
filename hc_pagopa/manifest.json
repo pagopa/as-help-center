@@ -1,7 +1,7 @@
 {
   "name": "pagopa-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
