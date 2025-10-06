@@ -1,3 +1,10 @@
+## [1.22.1](https://github.com/pagopa/as-help-center/compare/v1.22.0...v1.22.1) (2025-10-06)
+
+
+### Bug Fixes
+
+* **google console report:** error redirect ([#37](https://github.com/pagopa/as-help-center/issues/37)) ([19e8296](https://github.com/pagopa/as-help-center/commit/19e82963b3e6eaa589cf633698467612136d8f2e))
+
 # [1.22.0](https://github.com/pagopa/as-help-center/compare/v1.21.0...v1.22.0) (2025-09-23)
 
 
