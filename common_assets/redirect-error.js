@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // error page URL
   const locale = LotusUtils.getLocale();
-  const errorPage = `/hc/${locale}/error_preview`;
+  const errorPage = `/hc/${locale}/error`;
 
   // paths that should redirect to error page
   const restrictedPaths = [
