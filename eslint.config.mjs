@@ -7,6 +7,16 @@ import jquery  from "eslint-plugin-jquery";
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
+    ignores: [
+      "node_modules/",
+      "dist/",
+      "**/*.min.js",
+      "**/*.log",
+      "**/*.tmp",
+      "**/assets/common-*"
+    ],
+  },
+  {
     files: ["**/*.js"],
     plugins: {
       jquery
@@ -28,14 +38,6 @@ export default [
     rules: {
       "prettier/prettier": "error", // report formatting problems as error
     },
-    ignores: [
-      "node_modules/",
-      "dist/",
-      "*.min.js",
-      "*.log",
-      "*.tmp",
-      ".**/assets/common-*"
-    ]
   },
   js.configs.recommended,
   eslintPluginPrettierRecommended,

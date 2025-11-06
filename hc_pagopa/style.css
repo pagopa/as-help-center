@@ -9472,3 +9472,80 @@ slider-component {
   visibility: visible;
   opacity: 1;
 }
+
+/* email contact form */
+.lt-contact-email-page {
+  padding-top: 120px;
+  padding-bottom: 100px;
+  max-width: 700px;
+}
+
+.lt-email-login-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.lt-email-login-subtitle {
+  font-size: 18px;
+  margin-bottom: 3rem;
+}
+
+.lt-input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.lt-input:focus {
+  border-color: #06c;
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(0 102 204 / 20%);
+}
+
+.lt-btn-container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.lt-btn--outline {
+  background: transparent;
+  color: $brand_primary;
+  border: 1px solid $brand_primary;
+  transition: background 0.2s ease;
+}
+
+.lt-btn--outline:hover {
+  color: $link_hover_color;
+}
+
+.lt-btn--primary:hover {
+  background-color: darken($brand_primary, 5%) !important;
+  border-color: darken($brand_primary, 5%);
+}
+
+.lt-email-login-footer {
+  margin-top: 4rem;
+  font-size: 1rem;
+}
+
+.lt-email-login-footer-title {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.input-container {
+  width: 85%;
+}
+
+.mdc-text-field.extended {
+  width: 100% !important;
+}
+
+label.mdc-text-field {
+  margin-bottom: 0 !important;
+}
