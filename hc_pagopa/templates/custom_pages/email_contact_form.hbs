@@ -7,11 +7,11 @@
                 {{settings.email_contact_form_subtitle}}
             </p>
 
-            <div>
-                <div class="lt-container-inner rte info-block lt-mb-6" id="info-block" role="region" aria-labelledby="banner-title" style="display:none;" aria-hidden="true">
-                <div class="callout danger callout--danger">
-                    <p id="error-message">Si è verificato un errore</p>
-                </div>
+            <div class="email-contact-alert-error-wrapper">
+                <div class="lt-container-inner rte info-block lt-mb-6 email-contact-alert-error" id="info-block" role="region" aria-labelledby="banner-title" style="" aria-hidden="true">
+                    <div class="callout danger callout--danger">
+                        <p id="error-message">Si è verificato un errore</p>
+                    </div>
                 </div>
             </div>
 
@@ -100,13 +100,19 @@
         const errorMessageEl = document.getElementById('error-message');
         const hideErrorBox = () => {
             if (errorBox) {
-                errorBox.style.display = 'none';
-                errorBox.setAttribute('aria-hidden', 'true');
+                errorBox.style.opacity = '0';
+                setTimeout(() => {
+                    errorBox.style.display = 'none';
+                    errorBox.setAttribute('aria-hidden', 'true');
+                }, 300); // match transition duration
             }
         };
         const showErrorBox = (errorMessage) => {
             if (errorBox) {
                 errorBox.style.display = 'block';
+                // Force reflow to ensure transition works
+                errorBox.offsetHeight;
+                errorBox.style.opacity = '1';
                 errorBox.setAttribute('aria-hidden', 'false');
             }
             if (errorMessageEl && errorMessage) {

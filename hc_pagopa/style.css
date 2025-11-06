@@ -9549,3 +9549,13 @@ slider-component {
 label.mdc-text-field {
   margin-bottom: 0 !important;
 }
+
+.email-contact-alert-error-wrapper {
+  max-width: 85%;
+}
+
+.email-contact-alert-error {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
