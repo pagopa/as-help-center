@@ -823,8 +823,8 @@ ul[data-hc-pills-container][data-hc-focus='true'] {
 }
 
 .lt-container-inner-header {
-  max-width: 1120px;
-  margin: 0 20px;
+  max-width: 100%;
+  padding: 0 20px;
 }
 
 .lt-layout {
@@ -9558,4 +9558,11 @@ label.mdc-text-field {
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+}
+
+/* header auth */
+@media (width <= 991px) {
+  .lt-topbar__controls {
+    margin-top: 50px;
+  }
 }

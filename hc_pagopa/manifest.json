@@ -1084,6 +1084,13 @@
           "description": "Zendesk return to address",
           "label": "Indirizzo return to post login",
           "value": "/requests/new"
+        },
+        {
+          "identifier": "sso_logout_return_to_address",
+          "type": "text",
+          "description": "Zendesk logout return to address",
+          "label": "Indirizzo return to post logout",
+          "value": "/"
         }
       ]
     },

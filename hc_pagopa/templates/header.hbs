@@ -17,13 +17,44 @@
         </div>
         {{/link}}
 
-      {{!-- Mobile menu toggle --}}
+      {{#if signed_in}}
+        {{!-- Mobile menu toggle --}}
+        <button class="lt-menu-toggle" aria-label="{{t 'toggle_navigation'}}" aria-controls="user-nav" type="button"
+          x-data="{}" x-bind:aria-expanded="$store.mobileMenu.isOpen" x-bind:class="{'is-active': $store.mobileMenu.isOpen}"
+          x-on:click="$store.mobileMenu.isOpen = !$store.mobileMenu.isOpen"
+          x-on:keydown.escape="$store.mobileMenu.isOpen = false">
+          <span></span>
+        </button>
 
-      {{!-- Sign in --}}
+        {{!-- Desktop nav menu --}}
+        <nav
+          class="lt-topbar__controls lt-d-flex lt-flex-column lt-align-items-start lt-flex-lg-row lt-justify-content-lg-end lt-flex-lg-grow-1 lt-align-items-lg-center"
+          id="user-nav" x-data="{}" x-bind:aria-expanded="$store.mobileMenu.isOpen"
+          x-bind:class="{'is-active': $store.mobileMenu.isOpen}" x-on:keydown.escape="$store.mobileMenu.isOpen = false">
+          <div class="lt-topbar__right">
+            {{!-- Sign out --}}
+            <a href="#" type="button" id="btn-logout" class="lt-btn lt-btn--light"><i class="fa-solid fa-right-from-bracket lt-me-2" aria-hidden="true"></i> Esci</a>
+          </div>
+        </nav>
+      {{/if}}
 
-      {{!-- Languages menu --}}
     </div>
     <div class="lt-topbar__line"></div>
   </header>
 
 <div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const logoutBtn = document.getElementById('btn-logout');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const origin = window.location.origin || (window.location.protocol + '//' + window.location.host);
+        const returnToPath = origin + '/hc/' + LotusUtils.getLocale() + '{{settings.sso_logout_return_to_address}}';
+        const logoutUrl = '/access/logout?return_to=' + encodeURIComponent(returnToPath);
+        window.location.href = logoutUrl;
+      });
+    }
+  });
+</script>
