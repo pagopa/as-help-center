@@ -33,7 +33,7 @@
                     <div class="mdc-text-field-helper-line">
                     <div class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
                         aria-hidden="true">
-                        {{settings.email_contact_email_helper_text}}
+                        {{settings.email_contact_helper}}
                     </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                         <span class="mdc-notched-outline">
                             <span class="mdc-notched-outline__leading"></span>
                             <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="email-repeat-label">{{settings.email_contact_email_repeat_input}}</span>
+                            <span class="mdc-floating-label" id="email-repeat-label">{{settings.email_contact_repeat_input}}</span>
                             </span>
                             <span class="mdc-notched-outline__trailing"></span>
                         </span>
@@ -54,7 +54,7 @@
                     <div class="mdc-text-field-helper-line">
                     <div class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
                         aria-hidden="true">
-                        {{settings.email_contact_email_repeat_helper_text}}
+                        {{settings.email_contact_repeat_helper}}
                     </div>
                     </div>
                 </div>
@@ -145,17 +145,17 @@
             const emailRepeat = emailRepeatEl && emailRepeatEl.value && emailRepeatEl.value.trim();
 
             if (!email || !emailRepeat) {
-                showErrorBox('{{settings.email_contact_form_fields_required_error}}');
+                showErrorBox('{{settings.email_contact_required_error}}');
                 if (emailEl) emailEl.focus();
                 return;
             }
             if (!isValidEmail(email)) {
-                showErrorBox('{{settings.email_contact_form_email_format_error}}');
+                showErrorBox('{{settings.email_contact_format_error}}');
                 if (emailEl) emailEl.focus();
                 return;
             }
             if (email !== emailRepeat) {
-                showErrorBox('{{settings.email_contact_form_email_match_error}}');
+                showErrorBox('{{settings.email_contact_match_error}}');
                 if (emailEl) emailEl.focus();
                 return;
             }
