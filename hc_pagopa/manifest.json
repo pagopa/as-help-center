@@ -990,21 +990,21 @@
           "value": "Indirizzo email"
         },
         {
-          "identifier": "email_contact_email_helper_text",
+          "identifier": "email_contact_helper",
           "type": "text",
           "description": "Email error helper text",
           "label": "Testo helper per errore email",
           "value": "Inserisci un indirizzo email valido (es. nome@dominio.it)."
         },
         {
-          "identifier": "email_contact_email_repeat_input",
+          "identifier": "email_contact_repeat_input",
           "type": "text",
           "description": "Email repeat input placeholder",
           "label": "Placeholder email ripetuta input",
           "value": "Indirizzo email"
         },
         {
-          "identifier": "email_contact_email_repeat_helper_text",
+          "identifier": "email_contact_repeat_helper",
           "type": "text",
           "description": "Email repeat error helper text",
           "label": "Testo helper per errore email ripetuta",
@@ -1029,7 +1029,7 @@
           "type": "text",
           "description": "Footer note title",
           "label": "Titolo della nota nel footer",
-          "value": "Non hai un’identità digitale?"
+          "value": "Non hai un'identità digitale?"
         },
         {
           "identifier": "email_contact_note_subtitle",
@@ -1039,32 +1039,25 @@
           "value": "Scrivici via email a <a href='mailto:pagamenti@assistenza.pagopa.it'>pagamenti@assistenza.pagopa.it</a> da una casella di posta ordinaria (non PEC)"
         },
         {
-          "identifier": "email_contact_form_fields_required_error",
+          "identifier": "email_contact_required_error",
           "type": "text",
           "description": "Error message - Required fields",
           "label": "Campi richiesti error message",
           "value": "Ripeti indirizzo email"
         },
         {
-          "identifier": "email_contact_form_email_format_error",
+          "identifier": "email_contact_format_error",
           "type": "text",
           "description": "Error message - Email wrong format",
           "label": "Formato email error message",
           "value": "Inserisci un indirizzo email valido."
         },
         {
-          "identifier": "email_contact_form_email_match_error",
+          "identifier": "email_contact_match_error",
           "type": "text",
           "description": "Error message - Emails don't match",
           "label": "Email non coincidenti error message",
           "value": "Le email non coincidono"
-        },
-        {
-          "identifier": "error_button_label",
-          "type": "text",
-          "description": "Label button on error page",
-          "label": "Error button",
-          "value": "Torna alla home"
         }
       ]
     },
@@ -1076,14 +1069,14 @@
           "type": "text",
           "description": "SSO remote auth id",
           "label": "ID SSO autenticazione remoto",
-          "value": "37000484755473"
+          "value": "40816150552081"
         },
         {
           "identifier": "sso_login_address",
           "type": "text",
           "description": "Zendesk login address",
           "label": "Indirizzo login SSO Zendesk",
-          "value": "https://pagopa1726070539.zendesk.com/auth/v2/login/continue_with_sso_tracking"
+          "value": "https://pagopa.zendesk.com/auth/v2/login/continue_with_sso_tracking"
         },
         {
           "identifier": "sso_return_to_address",
