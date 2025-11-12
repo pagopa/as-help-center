@@ -980,7 +980,7 @@
           "type": "text",
           "description": "Error contact form page subtitle",
           "label": "Subtitle",
-          "value": "Riceverai qui la conferma della richiesta e potrai seguire gli avanzamenti da questo indirizzo"
+          "value": "Riceverai su questo indirizzo email la conferma della richiesta e potrai seguire gli avanzamenti"
         },
         {
           "identifier": "email_contact_email_input",
@@ -1001,7 +1001,7 @@
           "type": "text",
           "description": "Email repeat input placeholder",
           "label": "Placeholder email ripetuta input",
-          "value": "Indirizzo email"
+          "value": "Ripeti email"
         },
         {
           "identifier": "email_contact_repeat_helper",
@@ -1036,7 +1036,7 @@
           "type": "text",
           "description": "Footer note subtitle",
           "label": "Sottotitolo della nota nel footer",
-          "value": "Scrivici via email a <a href='mailto:pagamenti@assistenza.pagopa.it'>pagamenti@assistenza.pagopa.it</a> da una casella di posta ordinaria (non PEC)"
+          "value": "Scrivici via email a <b>pagamenti@assistenza.pagopa.it</b> da una casella di posta ordinaria (non PEC)"
         },
         {
           "identifier": "email_contact_required_error",
