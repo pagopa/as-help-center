@@ -13,8 +13,8 @@
           <p class="lt-page__desc">{{t 'mistyped_address_or_moved_page'}}</p>
         {{/is}} --}}
 
-        <h1 class="lt-page__title lt-mb-3 lt-order-md-0">{{settings.error_title}}</h1>
-        <p class="lt-page__desc lt-mb-5">{{settings.error_subtitle}}</p>
+        <h1 id="error-page-title" class="lt-page__title lt-mb-3 lt-order-md-0">{{settings.error_title}}</h1>
+        <p id="error-page-subtitle"class="lt-page__desc lt-mb-5">{{settings.error_subtitle}}</p>
 
         {{#link 'help_center' class="lt-btn lt-btn--square lt-btn--dark" }}
           {{settings.error_button_label}}
@@ -24,3 +24,14 @@
     </div>
   </div>
 </div>
+
+<div id="auth-error-strings" hidden
+     data-default-title="{{settings.error_title}}"
+     data-default-subtitle="{{settings.error_subtitle}}"
+     data-auth-title="{{settings.error_auth_title}}"
+     data-invalid-data="{{settings.error_invalid_data}}"
+     data-invalid-email="{{settings.error_invalid_email}}"
+     data-auth-error="{{settings.error_auth}}">
+</div>
+
+<script src="{{asset 'auth-error-messages.js'}}"></script>
