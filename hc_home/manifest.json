@@ -651,6 +651,13 @@
           "value": "Torna alla home"
         },
         {
+          "identifier": "error_back_label",
+          "type": "text",
+          "description": "Label back button on error page",
+          "label": "Back button label",
+          "value": "Indietro"
+        },
+        {
           "identifier": "error_invalid_data",
           "type": "text",
           "description": "Invalid data message on error page",

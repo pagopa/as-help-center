@@ -44,4 +44,29 @@ document.addEventListener('DOMContentLoaded', function () {
   const subtitleEl = document.getElementById('error-page-subtitle');
   if (titleEl && mapped.title) titleEl.textContent = mapped.title;
   if (subtitleEl && mapped.subtitle) subtitleEl.textContent = mapped.subtitle;
+
+  // if we matched an auth error, change action button to go back in history
+  const actionBtn = document.querySelector('.error-action-btn');
+  if (actionBtn && mapped.title && mapped.subtitle) {
+    // preserve original href for fallback
+    if (!actionBtn.getAttribute('data-default-href')) {
+      const originalHref = actionBtn.getAttribute('href') || '/';
+      actionBtn.setAttribute('data-default-href', originalHref);
+    }
+
+    actionBtn.setAttribute('href', '#');
+    const backLabel = errors.btnBackError || 'Indietro';
+    actionBtn.textContent = backLabel;
+    actionBtn.textContent = backLabel;
+
+    actionBtn.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      if (window.history && window.history.length > 1) {
+        window.history.back();
+      } else {
+        // fallback: go to home
+        window.location.href = actionBtn.getAttribute('data-default-href') || '/';
+      }
+    });
+  }
 });
