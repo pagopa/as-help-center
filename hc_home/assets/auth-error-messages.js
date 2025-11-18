@@ -35,6 +35,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Returns a safe URL for redirects.
+  function getSafeHref(href) {
+    if (typeof href !== 'string') return '/';
+    try {
+      // Only allow same-origin URLs or root-relative paths
+      var url = new URL(href, window.location.origin);
+      if (url.origin !== window.location.origin) return '/';
+      // If the href starts with 'javascript:', block it
+      if (/^javascript:/i.test(href.trim())) return '/';
+      // For relative URLs, require starting with '/'
+      if (!url.pathname.startsWith('/')) return '/';
+      return url.pathname + url.search + url.hash;
+    } catch {
+      return '/';
+    }
+  }
+
   const code = getQueryParam('code');
   if (!code) return;
   const mapped = codeMap[code];
@@ -65,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.history.back();
       } else {
         // fallback: go to home
-        window.location.href = actionBtn.getAttribute('data-default-href') || '/';
+        window.location.href = getSafeHref(actionBtn.getAttribute('data-default-href') || '/');
       }
     });
   }
