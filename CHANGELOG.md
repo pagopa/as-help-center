@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/pagopa/as-help-center/compare/v1.22.1...v1.23.0) (2025-11-18)
+
+
+### Features
+
+* **hc-home:** auth error messages handling ([#38](https://github.com/pagopa/as-help-center/issues/38)) ([b979dcd](https://github.com/pagopa/as-help-center/commit/b979dcd4b83822d7b0f2468f7e2bea2420450ed4))
+
 ## [1.22.1](https://github.com/pagopa/as-help-center/compare/v1.22.0...v1.22.1) (2025-10-06)
 
 
