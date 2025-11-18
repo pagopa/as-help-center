@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -533,21 +533,21 @@
           "type": "text",
           "description": "Text displayed on the top of the block",
           "label": "Title",
-          "value": "Il tuo accesso rapido all'app IO potrebbe essere scaduto"
+          "value": "Hai bisogno di informazioni sul Bonus Elettrodomestici?"
         },
         {
           "identifier": "info_block_text",
           "type": "text",
           "description": "The main text of the block",
           "label": "Body",
-          "value": "Per accedere all'app senza autenticarti con SPID o CIE ogni 30 giorni, devi <b> rinnovare l'accesso rapido ogni 12 mesi</b>. Se il tuo accesso rapido è scaduto, accedi di nuovo con SPID o CIE. Problemi ad accedere? Scopri <a href='https://assistenza.ioapp.it/hc/it/articles/32616176301713-Cosa-fare-quando-la-sessione-scade'> cosa fare quando la sessione scade.</a>"
+          "value": "Scopri come richiederlo, come utilizzarlo e trova le risposte alle domande più frequenti <a href='https://assistenza.ioapp.it/hc/it/sections/38759512549393-Bonus-Elettrodomestici'>nella categoria dedicata</a>."
         },
         {
           "identifier": "info_block_severity",
           "type": "list",
           "description": "Info block severity (warning, error, success, info)",
           "label": "Severity",
-          "value": "warning",
+          "value": "info",
           "options": [
             {
               "label": "Info",
