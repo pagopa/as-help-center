@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (/^javascript:/i.test(href.trim())) return '/';
       // For relative URLs, require starting with '/'
       if (!url.pathname.startsWith('/')) return '/';
+      // Only allow URLs that do not contain any HTML meta-characters
+      if (/[<>"'`]/.test(url.pathname + url.search + url.hash)) return '/';
       return url.pathname + url.search + url.hash;
     } catch {
       return '/';
