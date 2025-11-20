@@ -9560,9 +9560,26 @@ label.mdc-text-field {
   transition: opacity 0.3s ease-in-out;
 }
 
+/* Submit button disabled state: clearer and no pointer */
+#btn-submit[disabled],
+.lt-btn[disabled] {
+  opacity: 0.65;
+  cursor: default;
+  pointer-events: none;
+  filter: grayscale(10%);
+}
+
+.submit-spinner {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* header auth */
-@media (width <= 991px) {
+
+/* @media (width <= 991px) {
   .lt-topbar__controls {
     margin-top: 50px;
   }
-}
+} */

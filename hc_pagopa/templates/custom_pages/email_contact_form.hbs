@@ -61,8 +61,9 @@
 
                 <div class="lt-btn-container">
                     <button type="button" id="btn-back" class="lt-btn lt-btn--square lt-btn--outline">{{settings.email_contact_back_btn}}</button>
-                    <button type="submit" class="lt-btn lt-btn--square lt-btn--primary">
-                        {{settings.email_contact_confirm_btn}}
+                    <button type="submit" class="lt-btn lt-btn--square lt-btn--primary" id="btn-submit">
+                        <i class="fa-solid fa-circle-notch fa-spin lt-me-2 submit-spinner" aria-hidden="true" style="display:none;"></i>
+                        <span class="submit-text">{{settings.email_contact_confirm_btn}}</span>
                     </button>
                 </div>
             </form>
@@ -124,6 +125,27 @@
         // initialize by hiding error box
         hideErrorBox();
 
+        // enable/disable submit and show spinner
+        const submitBtn = document.getElementById('btn-submit');
+        const submitSpinner = submitBtn && submitBtn.querySelector('.submit-spinner');
+        const submitText = submitBtn && submitBtn.querySelector('.submit-text');
+        const disableSubmit = () => {
+            if (submitBtn) {
+                submitBtn.setAttribute('disabled', 'disabled');
+                submitBtn.setAttribute('aria-busy', 'true');
+            } 
+            if (submitSpinner) submitSpinner.style.display = 'inline-block';
+        };
+        const enableSubmit = () => {
+            if (submitBtn) {
+                submitBtn.removeAttribute('disabled');
+                submitBtn.removeAttribute('aria-busy');
+            }
+            if (submitSpinner) submitSpinner.style.display = 'none';
+        };
+
+        enableSubmit();
+
         const emailEl = document.getElementById('email');
         const emailRepeatEl = document.getElementById('email-repeat');
         // hide error alert when user modifies inputs
@@ -159,6 +181,8 @@
                 if (emailEl) emailEl.focus();
                 return;
             }
+
+            disableSubmit();
 
             // Build return_to URL (origin + path) and ensure proper encoding
             const origin = window.location.origin || (window.location.protocol + '//' + window.location.host);
