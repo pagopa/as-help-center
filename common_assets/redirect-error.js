@@ -24,8 +24,16 @@ $(document).ready(function () {
   // current url
   const currentPath = window.location.pathname;
 
+  const hostnamesAllowingNewRequest = ['assistenza.pagopa.gov.it'];
+
   // check current path with restricted paths
   for (const path of restrictedPaths) {
+    console.log(currentPath, path);
+    if (
+      currentPath.includes('/requests/new') &&
+      hostnamesAllowingNewRequest.includes(currentHostname)
+    )
+      break;
     if (currentPath.includes(path)) {
       // if current path matches a restricted path, redirect to error page
       const loadingSpinner = $('#loading-spinner');
