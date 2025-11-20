@@ -2507,12 +2507,12 @@ input[type='submit']:active,
 }
 
 .lt-btn--square {
-  display: inline;
-  width: fit-content;
-  border-radius: 4px;
-  font-size: 16px;
-  height: 48px;
-  align-content: center;
+  display: inline !important;
+  width: fit-content !important;
+  border-radius: 4px !important;
+  font-size: 16px !important;
+  height: 48px !important;
+  align-content: center !important;
 }
 
 .lt-btn--light {
@@ -9515,7 +9515,7 @@ slider-component {
 .lt-btn--outline {
   background: transparent;
   color: $brand_primary;
-  border: 1px solid $brand_primary;
+  border: 2px solid $brand_primary;
   transition: background 0.2s ease;
 }
 
@@ -9574,6 +9574,42 @@ label.mdc-text-field {
   height: 1em;
   display: inline-block;
   vertical-align: middle;
+}
+
+/* new requests */
+.lt-hero-unit__content.new-requests {
+  text-align: start;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.container-new-requests-hero {
+  height: 150px;
+  align-content: center;
+}
+
+.mdc-text-field--disabled .mdc-floating-label.mdc-floating-label--float-above,
+input[disabled].mdc-text-field__input {
+  color: rgb(0 0 0 / 45%) !important;
+}
+
+.mdc-text-field--disabled .mdc-notched-outline__trailing,
+.mdc-text-field--disabled .mdc-notched-outline__leading,
+.mdc-text-field--disabled .mdc-notched-outline__notch {
+  border-color: rgb(0 0 0 / 12%) !important;
+}
+
+#upload-dropzone {
+  width: fit-content;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  text-align: left !important;
+  background: transparent !important;
+}
+
+#upload-dropzone .lt-btn {
+  margin: 0;
 }
 
 /* header auth */

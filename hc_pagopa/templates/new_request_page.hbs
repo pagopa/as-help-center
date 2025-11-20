@@ -1,0 +1,174 @@
+ <div class="lt-hero-unit lt-container">
+    <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
+      <div class="lt-hero-unit__content new-requests lt-flex-lg-grow-1">
+        {{!-- Title --}}
+        <h1 class="lt-hero-unit__title lt-mb-3">
+          {{t 'submit_a_request'}}
+        </h1>
+      </div>
+    </div>
+</div>
+
+<div class="lt-container lt-new-request-page lt-pb-8 lt-pb-8 lt-pt-6 lt-pt-lg-8 lt-position-relative">
+  <div class="lt-container-inner">
+    <div class="lt-row">
+      <div class="lt-col-md-8 lt-offset-md-2" id="main-content">
+
+        <div class="lt-page-header lt-mb-9 lt-pb-2" style="text-align:left;">
+          <h2 class="lt-auth-user lt-fs-3" style="font-weight:700; margin:0 0 0.25rem 0;">Hai effettuato l’accesso come {{user.name}}</h2>
+          <h3 class="lt-auth-ask" style="font-size:1.3rem; font-weight:500; margin:0 0 0.75rem 0;">Dicci di cosa hai bisogno</h3>
+        </div>
+
+        <div class="lt-mb-6">
+          <p class="lt-form-label" style="margin:0 0 1rem 0; font-weight:600; font-size: 18px">La mail su cui riceverai risposta</p>
+          <label class="mdc-text-field extended mdc-text-field--outlined mdc-text-field--disabled">
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span class="mdc-floating-label" id="email-label">Email</span>
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="text" class="mdc-text-field__input"
+                 aria-labelledby="email-label" id="email"
+                 name="email" value="test@email.com" disabled>
+          </label>
+        </div>
+
+        <div class="lt-new-request-form">
+            {{request_form }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  // Transform all text inputs rendered by request_form into MDC text fields
+  window.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.lt-new-request-form form');
+    if (!form) return;
+
+    // Find submit controls and set desired classes
+    try {
+      const submits = form.querySelectorAll('input[type="submit"], button[type="submit"]');
+      submits.forEach((btn) => {
+        // replace classes with the requested ones
+        btn.className = 'lt-btn lt-btn--square lt-btn--outline';
+      });
+    } catch (err) {
+      // ignore
+    }
+
+    // Find all text inputs that need MDC wrapping (exclude hidden, checkbox, radio, file, submit)
+    const textInputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"], input:not([type])');
+    
+    textInputs.forEach((input) => {
+      // Skip if already wrapped
+      if (input.closest('.mdc-text-field')) return;
+
+      // Get original label if present
+      const originalLabel = input.previousElementSibling?.tagName === 'LABEL' ? input.previousElementSibling : null;
+      const labelText = originalLabel ? originalLabel.textContent.trim() : (input.getAttribute('placeholder') || '');
+      const labelId = input.id ? `${input.id}-label` : `label-${Math.random().toString(36).substr(2, 9)}`;
+
+      // Create MDC wrapper structure
+      const mdcLabel = document.createElement('label');
+      mdcLabel.className = 'mdc-text-field extended mdc-text-field--outlined';
+
+      const outline = document.createElement('span');
+      outline.className = 'mdc-notched-outline';
+
+      const leading = document.createElement('span');
+      leading.className = 'mdc-notched-outline__leading';
+
+      const notch = document.createElement('span');
+      notch.className = 'mdc-notched-outline__notch';
+
+      const floatingLabel = document.createElement('span');
+      floatingLabel.className = 'mdc-floating-label';
+      floatingLabel.id = labelId;
+      floatingLabel.textContent = labelText;
+
+      const trailing = document.createElement('span');
+      trailing.className = 'mdc-notched-outline__trailing';
+
+      notch.appendChild(floatingLabel);
+      outline.appendChild(leading);
+      outline.appendChild(notch);
+      outline.appendChild(trailing);
+      mdcLabel.appendChild(outline);
+
+      // Update input classes and attributes
+      input.classList.add('mdc-text-field__input');
+      input.setAttribute('aria-labelledby', labelId);
+      
+      // Remove original label if exists
+      if (originalLabel) {
+        originalLabel.remove();
+      }
+
+      // Insert MDC wrapper before input and move input inside
+      input.parentNode.insertBefore(mdcLabel, input);
+      mdcLabel.appendChild(input);
+
+      // Initialize MDC component
+      try {
+        if (window.mdc && window.mdc.textField) {
+          mdc.textField.MDCTextField.attachTo(mdcLabel);
+        }
+      } catch (e) {
+        console.error('MDC init error:', e);
+      }
+    });
+
+    // Also handle existing .mdc-text-field that might be already in the form
+    document.querySelectorAll('.mdc-text-field').forEach((el) => {
+      try {
+        if (window.mdc && window.mdc.textField) {
+          mdc.textField.MDCTextField.attachTo(el);
+        }
+      } catch (e) {
+        // already initialized or error
+      }
+    });
+
+    // Transform file input for attachments
+    const uploadDropzone = form.querySelector('#upload-dropzone');
+    const fileInput = form.querySelector('#request-attachments');
+    
+    if (uploadDropzone && fileInput) {
+      // Hide the original dropzone text
+      const dropzoneText = uploadDropzone.querySelector('span');
+      if (dropzoneText) {
+        dropzoneText.style.display = 'none';
+      }
+
+      // Create custom button
+      const customBtn = document.createElement('button');
+      customBtn.type = 'button';
+      customBtn.className = 'lt-btn lt-btn--square lt-btn--outline';
+      customBtn.innerHTML = '<i class="fa-solid fa-circle-plus lt-me-2" aria-hidden="true"></i>Aggiungi allegato';
+      
+      // Insert custom button inside the dropzone
+      uploadDropzone.insertBefore(customBtn, uploadDropzone.firstChild);
+
+      // Trigger file input when custom button is clicked
+      customBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        fileInput.click();
+      });
+
+      // Optional: show selected file names
+      fileInput.addEventListener('change', () => {
+        const files = Array.from(fileInput.files);
+        if (files.length > 0) {
+          const fileNames = files.map(f => f.name).join(', ');
+          console.log('File selezionati:', fileNames);
+        }
+      });
+    }
+  });
+</script>
