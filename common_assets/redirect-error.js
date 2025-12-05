@@ -24,11 +24,10 @@ $(document).ready(function () {
   // current url
   const currentPath = window.location.pathname;
 
-  const hostnamesAllowingNewRequest = ['assistenza.pagopa.gov.it'];
+  const hostnamesAllowingNewRequest = ['assistenza.pagopa.gov.it', 'cac-uat2.zendesk.com'];
 
   // check current path with restricted paths
   for (const path of restrictedPaths) {
-    console.log(currentPath, path);
     if (
       currentPath.includes('/requests/new') &&
       hostnamesAllowingNewRequest.includes(currentHostname)

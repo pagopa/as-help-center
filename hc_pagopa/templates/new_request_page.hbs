@@ -1,3 +1,10 @@
+<script>
+  // Redirect to error page if user is not logged in
+  {{#unless signed_in}}
+    window.location.href = '/hc/' + (LotusUtils.getLocale ? LotusUtils.getLocale() : 'it') + '/error?code=AUTH_REQUIRED';
+  {{/unless}}
+</script>
+
  <div class="lt-hero-unit lt-container">
     <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
       <div class="lt-hero-unit__content new-requests lt-flex-lg-grow-1">
@@ -20,7 +27,7 @@
         </div>
 
         <div class="lt-mb-6">
-          <p class="lt-form-label" style="margin:0 0 1rem 0; font-weight:600; font-size: 18px">La mail su cui riceverai risposta</p>
+          <p class="lt-form-label request-new">La mail su cui riceverai risposta</p>
           <label class="mdc-text-field extended mdc-text-field--outlined mdc-text-field--disabled">
             <span class="mdc-notched-outline">
               <span class="mdc-notched-outline__leading"></span>
@@ -45,16 +52,21 @@
 </div>
 
 <script type="module">
-  // Transform all text inputs rendered by request_form into MDC text fields
+  // Transform form inputs to material design components
   window.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.lt-new-request-form form');
     if (!form) return;
 
-    // Find submit controls and set desired classes
+    // Hide request_subject field
+    const subjectField = form.querySelector('.form-field.string.request_subject');
+    if (subjectField) {
+      subjectField.classList.add('hidden');
+    }
+
+    // transform submit buttons
     try {
       const submits = form.querySelectorAll('input[type="submit"], button[type="submit"]');
       submits.forEach((btn) => {
-        // replace classes with the requested ones
         btn.className = 'lt-btn lt-btn--square lt-btn--outline';
       });
     } catch (err) {
@@ -63,14 +75,18 @@
 
     // Find all text inputs that need MDC wrapping (exclude hidden, checkbox, radio, file, submit)
     const textInputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"], input:not([type])');
-    
     textInputs.forEach((input) => {
       // Skip if already wrapped
       if (input.closest('.mdc-text-field')) return;
+      
+      // Skip if original input has display: none
+      const computedStyle = window.getComputedStyle(input);
+      if (computedStyle.display === 'none' || input.style.display === 'none') return;
 
       // Get original label if present
       const originalLabel = input.previousElementSibling?.tagName === 'LABEL' ? input.previousElementSibling : null;
       const labelText = originalLabel ? originalLabel.textContent.trim() : (input.getAttribute('placeholder') || '');
+      // TODO: check if id needs to be the same as old
       const labelId = input.id ? `${input.id}-label` : `label-${Math.random().toString(36).substr(2, 9)}`;
 
       // Create MDC wrapper structure
@@ -94,9 +110,9 @@
       const trailing = document.createElement('span');
       trailing.className = 'mdc-notched-outline__trailing';
 
-      notch.appendChild(floatingLabel);
+      // notch.appendChild(floatingLabel);
       outline.appendChild(leading);
-      outline.appendChild(notch);
+      // outline.appendChild(notch);
       outline.appendChild(trailing);
       mdcLabel.appendChild(outline);
 
@@ -105,9 +121,9 @@
       input.setAttribute('aria-labelledby', labelId);
       
       // Remove original label if exists
-      if (originalLabel) {
+      /*if (originalLabel) {
         originalLabel.remove();
-      }
+      }*/
 
       // Insert MDC wrapper before input and move input inside
       input.parentNode.insertBefore(mdcLabel, input);
@@ -131,6 +147,145 @@
         }
       } catch (e) {
         // already initialized or error
+      }
+    });
+
+    // Fix datepicker fields: remove duplicate "(facoltativo)" and fix floating label
+    /*const fixDatepickerFields = () => {
+      const datepickerContainers = form.querySelectorAll('.form-field');
+      
+      datepickerContainers.forEach((container) => {
+        const datepickerInput = container.querySelector('input.datepicker');
+        if (!datepickerInput) return;
+        
+        const mdcTextField = container.querySelector('.mdc-text-field');
+        const floatingLabel = mdcTextField ? mdcTextField.querySelector('.mdc-floating-label') : null;
+        
+        if (floatingLabel) {
+          // Remove "(facoltativo)" from label text
+          let labelText = floatingLabel.textContent;
+          labelText = labelText.replace(/\(facoltativo\)/gi, '').trim();
+          floatingLabel.textContent = labelText;
+          
+          // Watch for changes on the hidden input (actual value holder)
+          const hiddenInput = container.querySelector('input[data-datepicker]');
+          if (hiddenInput && mdcTextField) {
+            const mdcInstance = mdcTextField.MDCTextField;
+            
+            // Create observer to watch for value changes
+            const observer = new MutationObserver(() => {
+              if (hiddenInput.value) {
+                // Add floated class when date is selected
+                floatingLabel.classList.add('mdc-floating-label--float-above');
+              } else {
+                // Remove floated class when cleared
+                floatingLabel.classList.remove('mdc-floating-label--float-above');
+              }
+            });
+            
+            observer.observe(hiddenInput, {
+              attributes: true,
+              attributeFilter: ['value']
+            });
+            
+            // Also watch visible input for changes
+            datepickerInput.addEventListener('change', () => {
+              if (datepickerInput.value || hiddenInput.value) {
+                floatingLabel.classList.add('mdc-floating-label--float-above');
+              }
+            });
+            
+            // Initial state check
+            if (hiddenInput.value || datepickerInput.value) {
+              floatingLabel.classList.add('mdc-floating-label--float-above');
+            }
+          }
+        }
+      });
+    };*/
+    
+    // Run immediately for existing fields
+    //fixDatepickerFields();
+    
+    // Re-run when new fields are added dynamically
+    /* const datepickerObserver = new MutationObserver(() => {
+      fixDatepickerFields();
+    }); */
+    
+    /* datepickerObserver.observe(form, {
+      childList: true,
+      subtree: true
+    }); */
+
+    // Transform textarea elements into MDC textarea
+    const textareas = form.querySelectorAll('textarea');
+    
+    textareas.forEach((textarea) => {
+      // Skip if already wrapped
+      if (textarea.closest('.mdc-text-field')) return;
+
+      // Get original label if present
+      const container = textarea.closest('.form-field');
+      const originalLabel = container ? container.querySelector('label') : null;
+      const labelText = originalLabel ? originalLabel.textContent.trim() : (textarea.getAttribute('aria-label') || '');
+      const labelId = textarea.id ? `${textarea.id}-label` : `label-${Math.random().toString(36).substr(2, 9)}`;
+
+      // Create static label above textarea
+      const staticLabel = document.createElement('p');
+      staticLabel.className = 'lt-form-label request-new';
+      staticLabel.style.cssText = 'margin:0 0 1rem 0; font-weight:600; font-size: 18px';
+      staticLabel.textContent = labelText;
+      staticLabel.id = labelId;
+
+      // Create MDC textarea wrapper structure
+      const mdcLabel = document.createElement('label');
+      mdcLabel.className = 'mdc-text-field extended mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label';
+
+      const outline = document.createElement('span');
+      outline.className = 'mdc-notched-outline';
+
+      const leading = document.createElement('span');
+      leading.className = 'mdc-notched-outline__leading';
+
+      const trailing = document.createElement('span');
+      trailing.className = 'mdc-notched-outline__trailing';
+
+      const resizer = document.createElement('span');
+      resizer.className = 'mdc-text-field__resizer';
+
+      outline.appendChild(leading);
+      outline.appendChild(trailing);
+      mdcLabel.appendChild(outline);
+
+      // Update textarea classes and attributes
+      textarea.classList.add('mdc-text-field__input');
+      textarea.setAttribute('aria-labelledby', labelId);
+      
+      // Set textarea size (rows)
+      if (!textarea.hasAttribute('rows')) {
+        textarea.setAttribute('rows', '6');
+      }
+      
+      // Remove original label if exists
+      if (originalLabel) {
+        originalLabel.style.display = 'none';
+      }
+
+      // Insert static label and MDC wrapper before textarea
+      textarea.parentNode.insertBefore(staticLabel, textarea);
+      textarea.parentNode.insertBefore(mdcLabel, textarea);
+      
+      // Move textarea inside resizer, then resizer inside mdcLabel
+      resizer.appendChild(textarea);
+      mdcLabel.appendChild(resizer);
+
+      // Initialize MDC component
+      try {
+        if (window.mdc && window.mdc.textField) {
+          mdc.textField.MDCTextField.attachTo(mdcLabel);
+        }
+      } catch (e) {
+        console.error('MDC textarea init error:', e);
       }
     });
 
@@ -170,5 +325,195 @@
         }
       });
     }
+
+    // Transform custom field select (nesty-input) into MDC Select
+    const transformCustomFieldSelect = (container) => {
+      const hiddenInput = container.querySelector('input[type="hidden"][data-tagger]');
+      const nestyInput = container.querySelector('.nesty-input');
+      const originalLabel = container.querySelector('label');
+      
+      if (!hiddenInput || !nestyInput || !originalLabel) return;
+      
+      // Skip if already transformed
+      if (container.querySelector('.mdc-select')) return;
+      
+      // Parse tagger data to get options
+      let options = [];
+      try {
+        const taggerData = hiddenInput.getAttribute('data-tagger');
+        options = JSON.parse(taggerData);
+        
+        // Filter out unwanted options
+        const hiddenValues = ['richiesta_di_informazioni_non_pertinente'];
+        options = options.filter(opt => !hiddenValues.includes(opt.value));
+      } catch (e) {
+        console.error('Failed to parse tagger data:', e);
+        return;
+      }
+      
+      // Get label text and IDs
+      const labelText = originalLabel.textContent.trim();
+      const labelId = `${hiddenInput.id}-mdc-label`;
+      const selectId = `mdc-select-${hiddenInput.id}`;
+      
+      // Create static label above the select
+      const staticLabel = document.createElement('p');
+      staticLabel.className = 'lt-form-label request-new';
+      staticLabel.textContent = labelText;
+      staticLabel.id = labelId;
+      
+      // Create MDC Select structure (without floating label in notch)
+      const mdcSelect = document.createElement('div');
+      mdcSelect.className = 'mdc-select extended mdc-select--outlined';
+      mdcSelect.id = selectId;
+      
+      const anchor = document.createElement('div');
+      anchor.className = 'mdc-select__anchor';
+      anchor.setAttribute('aria-labelledby', labelId);
+      
+      const outline = document.createElement('span');
+      outline.className = 'mdc-notched-outline';
+      
+      const leading = document.createElement('span');
+      leading.className = 'mdc-notched-outline__leading';
+      
+      const notch = document.createElement('span');
+      notch.className = 'mdc-notched-outline__notch';
+      // No floating label inside notch
+      
+      const trailing = document.createElement('span');
+      trailing.className = 'mdc-notched-outline__trailing';
+      
+      const selectedTextContainer = document.createElement('span');
+      selectedTextContainer.className = 'mdc-select__selected-text-container';
+      
+      const selectedText = document.createElement('span');
+      selectedText.className = 'mdc-select__selected-text';
+      selectedText.id = `${selectId}-selected-text`;
+      
+      const dropdownIcon = document.createElement('span');
+      dropdownIcon.className = 'mdc-select__dropdown-icon';
+      dropdownIcon.innerHTML = `
+        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+          <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+          <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+        </svg>
+      `;
+      
+      // Build menu
+      const menu = document.createElement('div');
+      menu.className = 'mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth';
+      
+      const list = document.createElement('ul');
+      list.className = 'mdc-list';
+      list.setAttribute('role', 'listbox');
+      list.setAttribute('aria-label', labelText);
+      
+      // Find default option (first one or empty value)
+      let defaultOption = options[0];
+      
+      // Populate list items from options
+      options.forEach((option, index) => {
+        const listItem = document.createElement('li');
+        listItem.className = 'mdc-list-item';
+        listItem.setAttribute('data-value', option.value);
+        listItem.setAttribute('role', 'option');
+        
+        // Select first option by default
+        if (index === 0) {
+          listItem.classList.add('mdc-list-item--selected');
+          listItem.setAttribute('aria-selected', 'true');
+          selectedText.textContent = option.label;
+        } else {
+          listItem.setAttribute('aria-selected', 'false');
+        }
+        
+        const ripple = document.createElement('span');
+        ripple.className = 'mdc-list-item__ripple';
+        
+        const text = document.createElement('span');
+        text.className = 'mdc-list-item__text';
+        text.textContent = option.label;
+        
+        listItem.appendChild(ripple);
+        listItem.appendChild(text);
+        list.appendChild(listItem);
+      });
+      
+      // Assemble structure
+      outline.appendChild(leading);
+      outline.appendChild(notch);
+      outline.appendChild(trailing);
+      
+      selectedTextContainer.appendChild(selectedText);
+      
+      anchor.appendChild(outline);
+      anchor.appendChild(selectedTextContainer);
+      anchor.appendChild(dropdownIcon);
+      
+      menu.appendChild(list);
+      
+      mdcSelect.appendChild(anchor);
+      mdcSelect.appendChild(menu);
+      
+      // Hide original elements
+      nestyInput.style.display = 'none';
+      originalLabel.style.display = 'none';
+      
+      // Insert static label and MDC select before hidden input
+      container.insertBefore(staticLabel, hiddenInput);
+      container.insertBefore(mdcSelect, hiddenInput);
+      
+      // Initialize MDC Select and sync with hidden input
+      try {
+        if (window.mdc && window.mdc.select) {
+          const mdcSelectInstance = mdc.select.MDCSelect.attachTo(mdcSelect);
+          
+          // Set default value (first option, usually "-")
+          if (defaultOption) {
+            mdcSelectInstance.value = defaultOption.value;
+            hiddenInput.value = defaultOption.value;
+          }
+          
+          // Sync selection with hidden input
+          mdcSelectInstance.listen('MDCSelect:change', () => {
+            hiddenInput.value = mdcSelectInstance.value;
+            // Trigger change event on hidden input for any validation logic
+            hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+          });
+        }
+      } catch (e) {
+        console.error('MDC Select init error:', e);
+      }
+    };
+
+    // Transform all existing custom field selects
+    const customFieldContainers = form.querySelectorAll('.form-field.string.required, .form-field.string');
+    customFieldContainers.forEach(transformCustomFieldSelect);
+
+    // Watch for dynamically added custom field selects
+    /* const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1) { // Element node
+            // Check if the added node itself is a form-field
+            if (node.classList && node.classList.contains('form-field')) {
+              transformCustomFieldSelect(node);
+            }
+            // Check if any descendants are form-fields
+            if (node.querySelectorAll) {
+              const newFields = node.querySelectorAll('.form-field.string.required, .form-field.string');
+              newFields.forEach(transformCustomFieldSelect);
+            }
+          }
+        });
+      });
+    });
+
+    // Start observing the form for changes
+    observer.observe(form, {
+      childList: true,
+      subtree: true
+    }); */
   });
 </script>

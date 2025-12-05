@@ -9542,7 +9542,8 @@ slider-component {
   width: 85%;
 }
 
-.mdc-text-field.extended {
+.mdc-text-field.extended,
+.mdc-select.extended {
   width: 100% !important;
 }
 
@@ -9586,6 +9587,14 @@ label.mdc-text-field {
 .container-new-requests-hero {
   height: 150px;
   align-content: center;
+}
+
+.lt-form-label.request-new {
+  /* stylelint-disable-next-line shorthand-property-no-redundant-values */
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  font-size: 18px;
+  color: $text_color;
 }
 
 .mdc-text-field--disabled .mdc-floating-label.mdc-floating-label--float-above,
