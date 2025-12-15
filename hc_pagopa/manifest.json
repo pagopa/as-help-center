@@ -980,7 +980,7 @@
           "type": "text",
           "description": "Error contact form page subtitle",
           "label": "Subtitle",
-          "value": "Riceverai su questo indirizzo email la conferma della richiesta e potrai seguire gli avanzamenti"
+          "value": "Riceverai su questo indirizzo email le risposte e gli aggiornamenti relativi alla tua richiesta di assistenza."
         },
         {
           "identifier": "email_contact_email_input",
@@ -994,7 +994,7 @@
           "type": "text",
           "description": "Email error helper text",
           "label": "Testo helper per errore email",
-          "value": "Inserisci un indirizzo email valido (es. nome@dominio.it)."
+          "value": "Inserisci un indirizzo email valido"
         },
         {
           "identifier": "email_contact_repeat_input",
@@ -1008,7 +1008,7 @@
           "type": "text",
           "description": "Email repeat error helper text",
           "label": "Testo helper per errore email ripetuta",
-          "value": "Compila questo campo"
+          "value": "Ripeti indirizzo email"
         },
         {
           "identifier": "email_contact_back_btn",
@@ -1022,7 +1022,7 @@
           "type": "text",
           "description": "Confirm button label",
           "label": "Label per tasto di conferma",
-          "value": "Entra con la tua identità digitale"
+          "value": "Continua con la tua identità digitale"
         },
         {
           "identifier": "email_contact_note_title",
