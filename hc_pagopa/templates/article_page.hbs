@@ -332,3 +332,14 @@
 
 {{!-- Related articles styling helper --}}
 <script src="{{asset 'related-article-style.js' prefix='common-'}}"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    {{#if signed_in}}
+        const contactFormPageSignedHref = '/hc/' + (LotusUtils.getLocale ? LotusUtils.getLocale() : 'it') + '/requests/new';
+        const contactFormLink = document.getElementById('contact_form_link');
+        if (contactFormLink) {
+          contactFormLink.setAttribute('href', contactFormPageSignedHref);
+        }
+    {{/if}}
+  });
+</script>
