@@ -1,0 +1,39 @@
+<div id="logout-timer-page" class="content-request-detail lt-container">
+
+    <div class="lt-container lt-request-page lt-pb-8">
+    <div class="lt-container-inner lt-text-center lt-py-8">
+        <div class="lt-mb-4">
+        <span class="fa-solid fa-check lt-fs-1 success-icon" aria-hidden="true"></span>
+        </div>
+
+        <h1 class="lt-mb-4 request-detail-body-title">
+            {{settings.request_detail_title}}
+        </h1>
+
+        <p class="lt-mb-2 request-detail-body-text">
+            {{settings.request_detail_subtitle}}
+        </p>
+
+        <p class="lt-mb-6 request-detail-body-text">
+            {{settings.request_detail_ticket}}
+            <b>#{{request.id}}</b>
+        </p>
+
+        <p>
+            <button id="btn-logout" class="lt-btn lt-btn--square lt-btn--primary">{{settings.request_detail_btn}}</button>
+        </p>
+    </div>
+    </div>
+
+</div>
+
+<!-- logout timeout feedback modal -->
+<div id="session-timeout-modal" class="modal-wrapper">
+  <div class="modal-container">
+    <button id="close-modal-btn" class="modal-close-btn" aria-label="Chiudi">&times;</button>
+    <h3 class="modal-title">{{settings.request_detail_timer_title}}</h3>
+    <p class="modal-subtitle">
+      {{settings.request_detail_timer_subtitle}} <strong id="session-countdown">10</strong> secondi.
+    </format-text>
+  </div>
+</div>

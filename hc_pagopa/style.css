@@ -9621,6 +9621,76 @@ input[disabled].mdc-text-field__input {
   margin: 0;
 }
 
+/* Request detail page */
+.content-request-detail {
+  margin-top: 6.5rem;
+}
+
+@media (width >= 768px) {
+  .content-request-detail {
+    margin-top: 7.5rem;
+  }
+}
+
+.request-detail-body-title {
+  font-size: 2.5rem;
+}
+
+.request-detail-body-text {
+  font-size: 18px;
+}
+
+.success-icon {
+  color: $brand_success
+}
+
+.modal-wrapper {
+  display: none; 
+  position: fixed; 
+  z-index: 9999; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.5); 
+  align-items: center; 
+  justify-content: center;
+}
+
+.modal-container {
+  background-color: white; 
+  padding: 32px; 
+  border-radius: 8px; 
+  max-width: 500px; 
+  margin: 0 16px; 
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2); 
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute; 
+  top: 12px; 
+  right: 12px; 
+  background: none; 
+  border: none; 
+  font-size: 24px; 
+  cursor: pointer; 
+  color: #666; 
+  padding: 4px 8px; 
+  line-height: 1;
+}
+
+.modal-title {
+  margin: 0 0 16px 0; 
+  font-size: 20px; 
+  font-weight: 600;
+}
+
+.modal-subtitle {
+  margin: 0 0 24px 0; 
+  color: #666; 
+  line-height: 1.5;
+}
 /* header auth */
 
 /* @media (width <= 991px) {

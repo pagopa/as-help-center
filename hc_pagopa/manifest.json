@@ -1062,6 +1062,62 @@
       ]
     },
     {
+      "label": "Request detail layout",
+      "variables": [
+        {
+          "identifier": "request_detail_title",
+          "type": "text",
+          "description": "Request detail page title",
+          "label": "Title",
+          "value": "Richiesta inviata"
+        },
+        {
+          "identifier": "request_detail_subtitle",
+          "type": "text",
+          "description": "Request detail page subtitle",
+          "label": "Subtitle",
+          "value": "Riceverai al più presto una risposta da parte di un operatore all'indirizzo email che hai indicato."
+        },
+        {
+          "identifier": "request_detail_ticket",
+          "type": "text",
+          "description": "Request detail page ticket description",
+          "label": "Ticket description",
+          "value": "Questo è il numero di ticket associato alla tua richiesta"
+        },
+        {
+          "identifier": "request_detail_btn",
+          "type": "text",
+          "description": "Label button on request detail page",
+          "label": "Button label",
+          "value": "Torna al centro assistenza"
+        },
+        {
+          "identifier": "request_detail_logout_timer",
+          "type": "range",
+          "description": "Minutes after which the user is logged out from the request detail page",
+          "label": "Logout timer (minutes)",
+          "value": 1,
+          "min": 1,
+          "max": 10
+        },
+        {
+          "identifier": "request_detail_timer_title",
+          "type": "text",
+          "description": "Title of timer modal box on request detail page",
+          "label": "Timer modal title",
+          "value": "La tua sessione sta per scadere"
+        },
+        {
+          "identifier": "request_detail_timer_subtitle",
+          "type": "text",
+          "description": "Subitle of timer modal box on request detail page",
+          "label": "Timer modal subtitle",
+          "value": "Verrai reindirizzato alla pagina iniziale del centro assistenza tra "
+        }
+      ]
+    },
+    {
       "label": "Zendesk SSO auth values",
       "variables": [
         {

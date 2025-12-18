@@ -94,6 +94,16 @@
   {{settings.footer_col3_links}}
 </div>
 
+{{!-- SSO logout return to address --}}
+<div hidden data-auth-sso-logout-return-to-address>
+  {{settings.sso_logout_return_to_address}}
+</div>
+
+{{!-- Request detail logout timer --}}
+<div hidden data-auth-timeout-logout-duration>
+  {{settings.request_detail_logout_timer}}
+</div>
+
 {{!-- Loading spinner overlay --}}
 <div class="loading-spinner-overlay lt-d-none" aria-hidden="true" id="loading-spinner">
     <div class="lt-text-center"><div class="fas fa-circle-notch fa-spin fa-3x fa-fw"></div></div>
@@ -112,3 +122,6 @@
 <script src="{{asset 'show-categories-icon.js'}}"></script>
 {{!-- Contact article link --}}
 <script src="{{asset 'contact-article-link.js'}}"></script>
+
+{{!-- Auth utils --}}
+<script src="{{asset 'auth-utils.js'}}"></script>

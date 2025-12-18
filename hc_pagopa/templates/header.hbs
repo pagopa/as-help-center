@@ -43,18 +43,3 @@
   </header>
 
 <div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const logoutBtn = document.getElementById('btn-logout');
-    if (logoutBtn) {
-      logoutBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const origin = window.location.origin || (window.location.protocol + '//' + window.location.host);
-        const returnToPath = origin + '/hc/' + LotusUtils.getLocale() + '{{settings.sso_logout_return_to_address}}';
-        const logoutUrl = '/access/logout?return_to=' + encodeURIComponent(returnToPath);
-        window.location.href = logoutUrl;
-      });
-    }
-  });
-</script>
