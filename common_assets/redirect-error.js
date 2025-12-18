@@ -21,7 +21,6 @@ $(document).ready(function () {
     restrictedPaths.push('/hc/it/articles/', '/hc/it/sections/', '/hc/it/search');
   }
 
-
   const currentPath = window.location.pathname;
 
   const hostnamesAllowingNewRequest = ['assistenza.pagopa.gov.it', 'cac-uat2.zendesk.com'];

@@ -9637,25 +9637,25 @@ label span.optional {
   font-weight: 500;
 }
 
-label[for="request-attachments"] {
+label[for='request-attachments'] {
   font-weight: 500 !important;
   font-size: 18px !important;
   margin-top: 1rem !important;
 }
 
 .new-request-header {
-  text-align:left;
+  text-align: left;
 }
 
 .new-request-header h2 {
-  font-weight:700;
-  margin:0 0 0.25rem 0;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
 }
 
 .new-request-header h3 {
-  ffont-size:1.3rem; 
-  font-weight:500; 
-  margin:0 0 0.75rem 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0 0 0.75rem;
 }
 
 /* Request detail page */
@@ -9678,56 +9678,57 @@ label[for="request-attachments"] {
 }
 
 .success-icon {
-  color: $brand_success
+  color: $brand_success;
 }
 
 .modal-wrapper {
-  display: none; 
-  position: fixed; 
-  z-index: 9999; 
-  left: 0; 
-  top: 0; 
-  width: 100%; 
-  height: 100%; 
-  background-color: rgba(0,0,0,0.5); 
-  align-items: center; 
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 50%);
+  align-items: center;
   justify-content: center;
 }
 
 .modal-container {
-  background-color: white; 
-  padding: 32px; 
-  border-radius: 8px; 
-  max-width: 500px; 
-  margin: 0 16px; 
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2); 
+  background-color: white;
+  padding: 32px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 16px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
   position: relative;
 }
 
 .modal-close-btn {
-  position: absolute; 
-  top: 12px; 
-  right: 12px; 
-  background: none; 
-  border: none; 
-  font-size: 24px; 
-  cursor: pointer; 
-  color: #666; 
-  padding: 4px 8px; 
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 4px 8px;
   line-height: 1;
 }
 
 .modal-title {
-  margin: 0 0 16px 0; 
-  font-size: 20px; 
+  margin: 0 0 16px;
+  font-size: 20px;
   font-weight: 600;
 }
 
 .modal-subtitle {
-  margin: 0 0 24px 0; 
-  color: #666; 
+  margin: 0 0 24px;
+  color: #666;
   line-height: 1.5;
 }
+
 /* header auth */
 
 /* @media (width <= 991px) {
