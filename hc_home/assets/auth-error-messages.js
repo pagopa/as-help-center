@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
   if (actionBtn && mapped.title && mapped.subtitle) {
       // preserve original href from the HTML (usually help center home)
       if (!actionBtn.getAttribute('data-default-href')) {
-        const originalHref = actionBtn.getAttribute('href') || '/';
+        const rawHref = actionBtn.getAttribute('href') || '/';
+        const originalHref = getSafeHref(rawHref);
         actionBtn.setAttribute('data-default-href', originalHref);
       }
 
