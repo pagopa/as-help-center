@@ -73,44 +73,44 @@ document.addEventListener('DOMContentLoaded', function () {
   // if we matched an auth error, change action button to go back in history
   const actionBtn = document.querySelector('.error-action-btn');
   if (actionBtn && mapped.title && mapped.subtitle) {
-      // preserve original href from the HTML (usually help center home)
-      if (!actionBtn.getAttribute('data-default-href')) {
-        const rawHref = actionBtn.getAttribute('href') || '/';
-        const originalHref = getSafeHref(rawHref);
-        actionBtn.setAttribute('data-default-href', originalHref);
+    // preserve original href from the HTML (usually help center home)
+    if (!actionBtn.getAttribute('data-default-href')) {
+      const rawHref = actionBtn.getAttribute('href') || '/';
+      const originalHref = getSafeHref(rawHref);
+      actionBtn.setAttribute('data-default-href', originalHref);
+    }
+
+    // mapped.btn contains the final label text (from dataset), so compare it
+    const mappedBtnText = mapped.btn;
+    const retryText = errors.btnRetryError;
+    const defaultText = errors.btnDefaultError;
+
+    // If mapped button text equals the retry label, make it a history-back action
+    if (mappedBtnText && retryText && mappedBtnText === retryText) {
+      actionBtn.setAttribute('href', '#');
+      actionBtn.textContent = mappedBtnText;
+      // remove any title attribute coming from the template
+      if (actionBtn.hasAttribute && actionBtn.hasAttribute('title')) {
+        actionBtn.removeAttribute('title');
       }
-
-      // mapped.btn contains the final label text (from dataset), so compare it
-      const mappedBtnText = mapped.btn;
-      const retryText = errors.btnRetryError;
-      const defaultText = errors.btnDefaultError;
-
-      // If mapped button text equals the retry label, make it a history-back action
-      if (mappedBtnText && retryText && mappedBtnText === retryText) {
-        actionBtn.setAttribute('href', '#');
-        actionBtn.textContent = mappedBtnText;
-        // remove any title attribute coming from the template
-        if (actionBtn.hasAttribute && actionBtn.hasAttribute('title')) {
-          actionBtn.removeAttribute('title');
+      actionBtn.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        if (window.history && window.history.length > 1) {
+          window.history.back();
+        } else {
+          // fallback: go to home
+          window.location.href = getSafeHref(actionBtn.getAttribute('data-default-href') || '/');
         }
-        actionBtn.addEventListener('click', function (ev) {
-          ev.preventDefault();
-          if (window.history && window.history.length > 1) {
-            window.history.back();
-          } else {
-            // fallback: go to home
-            window.location.href = getSafeHref(actionBtn.getAttribute('data-default-href') || '/');
-          }
-        });
-      } else {
-        // For default/back (or any other case), keep the original href from HTML
-        const originalHref = getSafeHref(actionBtn.getAttribute('data-default-href') || '/');
-        actionBtn.setAttribute('href', originalHref);
-        // Use mapped.btn if present, otherwise fall back to available labels
-        actionBtn.textContent = mappedBtnText || defaultText || 'Torna alla home';
-        // Remove any previously attached click handlers by replacing the node
-        const newBtn = actionBtn.cloneNode(true);
-        actionBtn.parentNode.replaceChild(newBtn, actionBtn);
-      }
+      });
+    } else {
+      // For default/back (or any other case), keep the original href from HTML
+      const originalHref = getSafeHref(actionBtn.getAttribute('data-default-href') || '/');
+      actionBtn.setAttribute('href', originalHref);
+      // Use mapped.btn if present, otherwise fall back to available labels
+      actionBtn.textContent = mappedBtnText || defaultText || 'Torna alla home';
+      // Remove any previously attached click handlers by replacing the node
+      const newBtn = actionBtn.cloneNode(true);
+      actionBtn.parentNode.replaceChild(newBtn, actionBtn);
+    }
   }
 });
