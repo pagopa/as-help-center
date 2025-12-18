@@ -26,9 +26,12 @@
           <h3 class="lt-auth-ask">{{settings.new_request_subtitle}}</h3>
         </div>
 
-        <div id="contact_email_wrapper" class="lt-mb-4" style="opacity: 0;">
+        <div id="contact_email_wrapper" class="lt-mb-4" style="opacity: 0;" role="status" aria-live="polite">
           <p class="email-contact-read-label">{{settings.new_request_email_label}} <span id="contact_email" class="email-contact-read"></span></p>
         </div>
+
+        <!-- Screen reader only: loading announcement - a11y -->
+        <div id="sr-loading-email" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
 
         {{!-- <div class="lt-mb-6">
           <p class="lt-form-label request-new">{{settings.new_request_email_label}}</p>
@@ -63,7 +66,14 @@
 
     // Get current user and display email
     const loadingSpinner = $('#loading-spinner');
+    // a11y
+    const srLoadingAnnouncement = document.getElementById('sr-loading-email');
+    
     loadingSpinner.removeClass('lt-d-none');
+    // a11y
+    if (srLoadingAnnouncement) {
+      srLoadingAnnouncement.textContent = 'Caricamento informazioni utente in corso';
+    }
     
     LotusUtils.getCurrentUser((error, user) => {
       const emailWrapper = document.getElementById('contact_email_wrapper');
@@ -82,6 +92,12 @@
         if (emailWrapper) {
           $(emailWrapper).fadeTo(400, 1);
         }
+        // a11y
+        if (srLoadingAnnouncement) {
+          srLoadingAnnouncement.textContent = 'Email caricata: ' + user.email;
+          // Clear after announcement
+          setTimeout(() => { srLoadingAnnouncement.textContent = ''; }, 1000);
+        }
       }
       // If no email, wrapper stays hidden
     });
@@ -90,6 +106,10 @@
     const subjectField = form.querySelector('.form-field.string.request_subject');
     if (subjectField) {
       subjectField.classList.add('hidden');
+      // a11y
+      subjectField.setAttribute('aria-hidden', 'true');
+      const inputs = subjectField.querySelectorAll('input, select, textarea');
+      inputs.forEach(input => input.setAttribute('tabindex', '-1'));
     }
 
     // transform submit buttons
@@ -149,6 +169,11 @@
       // Update input classes and attributes
       input.classList.add('mdc-text-field__input');
       input.setAttribute('aria-labelledby', labelId);
+      
+      // a11y - Add aria-required if input is required
+      if (input.required || input.hasAttribute('required')) {
+        input.setAttribute('aria-required', 'true');
+      }
       
       // Remove original label if exists
       if (originalLabel) {
@@ -232,6 +257,11 @@
       textarea.classList.add('mdc-text-field__input');
       textarea.setAttribute('aria-labelledby', labelId);
       
+      // a11y - Add aria-required if textarea is required
+      if (textarea.required || textarea.hasAttribute('required')) {
+        textarea.setAttribute('aria-required', 'true');
+      }
+      
       // Set textarea size (rows)
       if (!textarea.hasAttribute('rows')) {
         textarea.setAttribute('rows', '6');
@@ -295,11 +325,30 @@
         fileInput.click();
       });
 
-      // Optional: show selected file names
+      // a11y - Create screen reader announcement area for file upload
+      const srFileAnnouncement = document.createElement('div');
+      srFileAnnouncement.className = 'sr-only';
+      srFileAnnouncement.setAttribute('aria-live', 'polite');
+      srFileAnnouncement.setAttribute('aria-atomic', 'true');
+      uploadDropzone.appendChild(srFileAnnouncement);
+
+      // Add aria-describedby to file input
+      if (attachmentsLabel) {
+        const labelId = 'file-upload-description';
+        attachmentsLabel.id = labelId;
+        fileInput.setAttribute('aria-describedby', labelId);
+      }
+
+      // Announce selected file names to screen readers
       fileInput.addEventListener('change', () => {
         const files = Array.from(fileInput.files);
         if (files.length > 0) {
           const fileNames = files.map(f => f.name).join(', ');
+          // a11y
+          srFileAnnouncement.textContent = `${files.length} file: ${fileNames}`;
+        } else {
+          // a11y
+          srFileAnnouncement.textContent = 'Nessun file selezionato';
         }
       });
     }

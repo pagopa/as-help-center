@@ -35,12 +35,20 @@
 </div>
 
 <!-- logout timeout feedback modal -->
-<div id="session-timeout-modal" class="modal-wrapper">
+<div id="session-timeout-modal" 
+     class="modal-wrapper" 
+     role="dialog" 
+     aria-modal="true"
+     aria-labelledby="modal-title"
+     aria-describedby="modal-description">
   <div class="modal-container">
-    <button id="close-modal-btn" class="modal-close-btn" aria-label="Chiudi">&times;</button>
-    <h3 class="modal-title">{{settings.request_detail_timer_title}}</h3>
-    <p class="modal-subtitle">
-      {{settings.request_detail_timer_subtitle}} <strong id="session-countdown">10</strong> secondi.
-    </format-text>
+    <button id="close-modal-btn" 
+            class="modal-close-btn" 
+            aria-label="Chiudi avviso timeout sessione"
+            type="button">&times;</button>
+    <h3 id="modal-title" class="modal-title">{{settings.request_detail_timer_title}}</h3>
+    <p id="modal-description" class="modal-subtitle">
+      {{settings.request_detail_timer_subtitle}} <strong id="session-countdown" aria-live="polite" aria-atomic="true">10</strong> secondi.
+    </p>
   </div>
 </div>

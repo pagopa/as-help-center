@@ -18,12 +18,12 @@
             <div class="email-contact-alert-error-wrapper">
                 <div class="lt-container-inner rte info-block lt-mb-6 email-contact-alert-error" id="info-block" role="region" aria-labelledby="banner-title" style="" aria-hidden="true">
                     <div class="callout danger callout--danger">
-                        <p id="error-message">Si è verificato un errore</p>
+                        <p id="error-message" role="alert" aria-live="assertive">Si è verificato un errore</p>
                     </div>
                 </div>
             </div>
 
-            <form id="contact-email-form" class="lt-email-login-form">
+            <form id="contact-email-form" class="lt-email-login-form" aria-label="Modulo per inserimento email di contatto">
 
                 <div class="input-container lt-mb-3">
                     <label class="mdc-text-field extended mdc-text-field--outlined">
@@ -35,12 +35,12 @@
                             <span class="mdc-notched-outline__trailing"></span>
                         </span>
                     <input type="email" class="mdc-text-field__input custom-validation"
-                            aria-labelledby="email-label" required autocomplete="email" id="email"
+                            aria-labelledby="email-label" aria-describedby="email-helper" 
+                            aria-required="true" required autocomplete="email" id="email"
                             name="email" value="">
                     </label>
                     <div class="mdc-text-field-helper-line">
-                    <div class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
-                        aria-hidden="true">
+                    <div id="email-helper" class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" aria-hidden="true">
                         {{settings.email_contact_helper}}
                     </div>
                     </div>
@@ -55,25 +55,28 @@
                             </span>
                             <span class="mdc-notched-outline__trailing"></span>
                         </span>
-                    <input type="text" class="mdc-text-field__input custom-validation"
-                            aria-labelledby="email-repeat-label" required autocomplete="off" id="email-repeat"
+                    <input type="email" class="mdc-text-field__input custom-validation"
+                            aria-labelledby="email-repeat-label" aria-describedby="email-repeat-helper" 
+                            aria-required="true" required autocomplete="off" id="email-repeat"
                             name="email-repeat" value="">
                     </label>
                     <div class="mdc-text-field-helper-line">
-                    <div class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
-                        aria-hidden="true">
+                    <div id="email-repeat-helper" class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg" aria-hidden="true">
                         {{settings.email_contact_repeat_helper}}
                     </div>
                     </div>
                 </div>
 
                 <div class="lt-btn-container">
-                    <button type="button" id="btn-back" class="lt-btn lt-btn--square lt-btn--outline">{{settings.email_contact_back_btn}}</button>
-                    <button type="submit" class="lt-btn lt-btn--square lt-btn--primary" id="btn-submit">
+                    <button type="button" id="btn-back" class="lt-btn lt-btn--square lt-btn--outline" aria-label="Torna alla pagina precedente">{{settings.email_contact_back_btn}}</button>
+                    <button type="submit" class="lt-btn lt-btn--square lt-btn--primary" id="btn-submit" aria-label="Conferma e procedi">
                         <i class="fa-solid fa-circle-notch fa-spin lt-me-2 submit-spinner" aria-hidden="true" style="display:none;"></i>
                         <span class="submit-text">{{settings.email_contact_confirm_btn}}</span>
                     </button>
                 </div>
+                
+                <!-- Screen reader announcement for form submission -->
+                <div class="sr-only" id="sr-submit-status" aria-live="polite" aria-atomic="true"></div>
             </form>
 
             <div class="lt-email-login-footer">
@@ -129,6 +132,16 @@
                 errorMessageEl.textContent = errorMessage;
             }
         };
+        
+        const setFieldInvalidA11y = (field) => {
+            if (!field) return;
+            field.setAttribute('aria-invalid', 'true');
+        };
+        
+        const clearFieldInvalidA11y = (field) => {
+            if (!field) return;
+            field.removeAttribute('aria-invalid');
+        };
 
         // initialize by hiding error box
         hideErrorBox();
@@ -137,19 +150,29 @@
         const submitBtn = document.getElementById('btn-submit');
         const submitSpinner = submitBtn && submitBtn.querySelector('.submit-spinner');
         const submitText = submitBtn && submitBtn.querySelector('.submit-text');
+        const srSubmitStatus = document.getElementById('sr-submit-status');
+        
         const disableSubmit = () => {
             if (submitBtn) {
                 submitBtn.setAttribute('disabled', 'disabled');
                 submitBtn.setAttribute('aria-busy', 'true');
+                submitBtn.setAttribute('aria-label', 'Invio in corso...');
             } 
             if (submitSpinner) submitSpinner.style.display = 'inline-block';
+            if (srSubmitStatus) {
+                srSubmitStatus.textContent = 'Invio in corso...';
+            }
         };
         const enableSubmit = () => {
             if (submitBtn) {
                 submitBtn.removeAttribute('disabled');
                 submitBtn.removeAttribute('aria-busy');
+                submitBtn.setAttribute('aria-label', 'Conferma e procedi');
             }
             if (submitSpinner) submitSpinner.style.display = 'none';
+            if (srSubmitStatus) {
+                srSubmitStatus.textContent = '';
+            }
         };
 
         enableSubmit();
@@ -160,14 +183,26 @@
                 // Page was loaded from back/forward cache
                 enableSubmit();
                 hideErrorBox();
+                clearFieldInvalidA11y(emailEl);
+                clearFieldInvalidA11y(emailRepeatEl);
             }
         });
 
         const emailEl = document.getElementById('email');
         const emailRepeatEl = document.getElementById('email-repeat');
-        // hide error alert when user modifies inputs
-        if (emailEl) emailEl.addEventListener('input', hideErrorBox);
-        if (emailRepeatEl) emailRepeatEl.addEventListener('input', hideErrorBox);
+        // hide error alert and clear invalid state when user modifies inputs
+        if (emailEl) {
+            emailEl.addEventListener('input', function() {
+                hideErrorBox();
+                clearFieldInvalidA11y(emailEl);
+            });
+        }
+        if (emailRepeatEl) {
+            emailRepeatEl.addEventListener('input', function() {
+                hideErrorBox();
+                clearFieldInvalidA11y(emailRepeatEl);
+            });
+        }
 
         const brandId = '{{brand.id}}';
         const remoteAuthId = '{{settings.sso_remote_auth_id}}';
@@ -185,16 +220,22 @@
 
             if (!email || !emailRepeat) {
                 showErrorBox('{{settings.email_contact_required_error}}');
-                if (emailEl) emailEl.focus();
+                if (!email) setFieldInvalidA11y(emailEl);
+                if (!emailRepeat) setFieldInvalidA11y(emailRepeatEl);
+                const firstInvalid = !email ? emailEl : emailRepeatEl;
+                if (firstInvalid) firstInvalid.focus();
                 return;
             }
             if (!isValidEmail(email)) {
                 showErrorBox('{{settings.email_contact_format_error}}');
+                setFieldInvalidA11y(emailEl);
                 if (emailEl) emailEl.focus();
                 return;
             }
             if (email !== emailRepeat) {
                 showErrorBox('{{settings.email_contact_match_error}}');
+                setFieldInvalidA11y(emailEl);
+                setFieldInvalidA11y(emailRepeatEl);
                 if (emailEl) emailEl.focus();
                 return;
             }

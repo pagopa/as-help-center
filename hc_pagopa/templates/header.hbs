@@ -33,7 +33,7 @@
           x-bind:class="{'is-active': $store.mobileMenu.isOpen}" x-on:keydown.escape="$store.mobileMenu.isOpen = false">
           <div class="lt-topbar__right">
             {{!-- Sign out --}}
-            <a href="#" type="button" id="btn-logout" class="lt-btn lt-btn--light"><i class="fa-solid fa-right-from-bracket lt-me-2" aria-hidden="true"></i> Esci</a>
+            <button type="button" id="btn-logout" class="lt-btn lt-btn--light" aria-label="Esci dalla sessione"><i class="fa-solid fa-right-from-bracket lt-me-2" aria-hidden="true"></i> Esci</button>
           </div>
         </nav>
       {{/if}}
