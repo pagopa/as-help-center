@@ -986,78 +986,85 @@
           "identifier": "email_contact_email_input",
           "type": "text",
           "description": "Email input placeholder",
-          "label": "Placeholder email input",
+          "label": "Email placeholder",
           "value": "Indirizzo email"
         },
         {
           "identifier": "email_contact_helper",
           "type": "text",
           "description": "Email error helper text",
-          "label": "Testo helper per errore email",
+          "label": "Error helper text for email input",
           "value": "Inserisci un indirizzo email valido"
         },
         {
           "identifier": "email_contact_repeat_input",
           "type": "text",
           "description": "Email repeat input placeholder",
-          "label": "Placeholder email ripetuta input",
+          "label": "Email repeat placeholder",
           "value": "Ripeti email"
         },
         {
           "identifier": "email_contact_repeat_helper",
           "type": "text",
           "description": "Email repeat error helper text",
-          "label": "Testo helper per errore email ripetuta",
+          "label": "Error helper text for email repeat input",
           "value": "Ripeti indirizzo email"
         },
         {
           "identifier": "email_contact_back_btn",
           "type": "text",
           "description": "Back button label",
-          "label": "Label per tasto indietro",
+          "label": "Back button label",
           "value": "Indietro"
         },
         {
           "identifier": "email_contact_confirm_btn",
           "type": "text",
           "description": "Confirm button label",
-          "label": "Label per tasto di conferma",
+          "label": "Confirm button label",
           "value": "Continua con la tua identità digitale"
         },
         {
           "identifier": "email_contact_note_title",
           "type": "text",
           "description": "Footer note title",
-          "label": "Titolo della nota nel footer",
+          "label": "Footer note title",
           "value": "Non hai un'identità digitale?"
         },
         {
           "identifier": "email_contact_note_subtitle",
           "type": "text",
           "description": "Footer note subtitle",
-          "label": "Sottotitolo della nota nel footer",
+          "label": "Footer note subtitle",
           "value": "Scrivici via email a <b>pagamenti@assistenza.pagopa.it</b> da una casella di posta ordinaria (non PEC)"
         },
         {
           "identifier": "email_contact_required_error",
           "type": "text",
           "description": "Error message - Required fields",
-          "label": "Campi richiesti error message",
+          "label": "Required fields error message",
           "value": "Ripeti indirizzo email"
         },
         {
           "identifier": "email_contact_format_error",
           "type": "text",
           "description": "Error message - Email wrong format",
-          "label": "Formato email error message",
+          "label": "Email format error message",
           "value": "Inserisci un indirizzo email valido."
         },
         {
           "identifier": "email_contact_match_error",
           "type": "text",
           "description": "Error message - Emails don't match",
-          "label": "Email non coincidenti error message",
+          "label": "Emails don't match error message",
           "value": "Le email non coincidono"
+        },
+        {
+          "identifier": "email_contact_match_title_error",
+          "type": "text",
+          "description": "Error title - Emails don't match",
+          "label": "Emails don't match error title",
+          "value": "Si è verificato un errore"
         }
       ]
     },
@@ -1120,7 +1127,7 @@
           "label": "Button submit label",
           "value": "Invia la richiesta"
         }
-      ]  
+      ]
     },
     {
       "label": "Request detail layout",
@@ -1208,6 +1215,13 @@
           "description": "Zendesk logout return to address",
           "label": "Indirizzo return to post logout",
           "value": "/"
+        },
+        {
+          "identifier": "sso_logout_label_btn",
+          "type": "text",
+          "description": "Logout button label",
+          "label": "Logout button label",
+          "value": "Esci"
         }
       ]
     },

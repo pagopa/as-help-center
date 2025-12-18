@@ -18,7 +18,7 @@
             <div class="email-contact-alert-error-wrapper">
                 <div class="lt-container-inner rte info-block lt-mb-6 email-contact-alert-error" id="info-block" role="region" aria-labelledby="banner-title" style="" aria-hidden="true">
                     <div class="callout danger callout--danger">
-                        <p id="error-message" role="alert" aria-live="assertive">Si è verificato un errore</p>
+                        <p id="error-message" role="alert" aria-live="assertive">{{settings.email_contact_match_title_error}}</p>
                     </div>
                 </div>
             </div>
@@ -274,7 +274,6 @@
                     const ref = document.referrer;
                     if (ref) {
                         const refUrl = new URL(ref);
-                        console.log('refUlr', refUrl);
                         const currentOrigin = window.location.origin || (window.location.protocol + '//' + window.location.host);
                         const currentHost = new URL(currentOrigin).host;
                         if (refUrl.host === currentHost) {
