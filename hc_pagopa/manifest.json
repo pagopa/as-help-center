@@ -1062,6 +1062,67 @@
       ]
     },
     {
+      "label": "New reques layout",
+      "variables": [
+        {
+          "identifier": "new_request_hi_title",
+          "type": "text",
+          "description": "New request page hi title",
+          "label": "Hi title",
+          "value": "Ciao"
+        },
+        {
+          "identifier": "new_request_subtitle",
+          "type": "text",
+          "description": "New request page subtitle",
+          "label": "Subtitle",
+          "value": "Compila il modulo per inviare una richiesta di assistenza."
+        },
+        {
+          "identifier": "new_request_email_label",
+          "type": "text",
+          "description": "New request page email label",
+          "label": "Email label",
+          "value": "La mail su cui riceverai risposta è"
+        },
+        {
+          "identifier": "new_request_details_ph",
+          "type": "text",
+          "description": "New request page details placeholder",
+          "label": "Details input placeholder",
+          "value": "Riporta tutti i dettagli necessari. Se hai riscontrato un problema con un pagamento può essere utile riportare il codice errore di riferimento"
+        },
+        {
+          "identifier": "new_request_attachments_label",
+          "type": "text",
+          "description": "New request page attachments label",
+          "label": "Attachments label",
+          "value": "Se necessario, aggiungi un file o un'immagine che può aiutarci ad approfondire la tua richiesta."
+        },
+        {
+          "identifier": "new_request_attachments_btn",
+          "type": "text",
+          "description": "New request page attachments button label",
+          "label": "Attachments button label",
+          "value": "Aggiungi allegato"
+        },
+        {
+          "identifier": "new_request_hidden_options",
+          "type": "text",
+          "description": "New request page select options to hide (semicolon-separated values)",
+          "label": "Select options to hide",
+          "value": "richiesta_di_informazioni_non_pertinente"
+        },
+        {
+          "identifier": "new_request_submit_label",
+          "type": "text",
+          "description": "New request page submit label",
+          "label": "Button submit label",
+          "value": "Invia la richiesta"
+        }
+      ]  
+    },
+    {
       "label": "Request detail layout",
       "variables": [
         {

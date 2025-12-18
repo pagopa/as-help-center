@@ -21,13 +21,17 @@
     <div class="lt-row">
       <div class="lt-col-md-8 lt-offset-md-2" id="main-content">
 
-        <div class="lt-page-header lt-mb-9 lt-pb-2" style="text-align:left;">
-          <h2 class="lt-auth-user lt-fs-3" style="font-weight:700; margin:0 0 0.25rem 0;">Hai effettuato l’accesso come {{user.name}}</h2>
-          <h3 class="lt-auth-ask" style="font-size:1.3rem; font-weight:500; margin:0 0 0.75rem 0;">Dicci di cosa hai bisogno</h3>
+        <div class="lt-page-header lt-mb-8 lt-pb-2 new-request-header">
+          <h2 class="lt-auth-user lt-fs-3">{{settings.new_request_hi_title}} {{user.name}}</h2>
+          <h3 class="lt-auth-ask">{{settings.new_request_subtitle}}</h3>
         </div>
 
-        <div class="lt-mb-6">
-          <p class="lt-form-label request-new">La mail su cui riceverai risposta</p>
+        <div id="contact_email_wrapper" class="lt-mb-4" style="opacity: 0;">
+          <p class="email-contact-read-label">{{settings.new_request_email_label}} <span id="contact_email" class="email-contact-read"></span></p>
+        </div>
+
+        {{!-- <div class="lt-mb-6">
+          <p class="lt-form-label request-new">{{settings.new_request_email_label}}</p>
           <label class="mdc-text-field extended mdc-text-field--outlined mdc-text-field--disabled">
             <span class="mdc-notched-outline">
               <span class="mdc-notched-outline__leading"></span>
@@ -40,7 +44,7 @@
                  aria-labelledby="email-label" id="email"
                  name="email" value="test@email.com" disabled>
           </label>
-        </div>
+        </div> --}}
 
         <div class="lt-new-request-form">
             {{request_form }}
@@ -57,6 +61,31 @@
     const form = document.querySelector('.lt-new-request-form form');
     if (!form) return;
 
+    // Get current user and display email
+    const loadingSpinner = $('#loading-spinner');
+    loadingSpinner.removeClass('lt-d-none');
+    
+    LotusUtils.getCurrentUser((error, user) => {
+      const emailWrapper = document.getElementById('contact_email_wrapper');
+      const emailSpan = document.getElementById('contact_email');
+      
+      // Hide loading spinner
+      if (loadingSpinner) {
+        loadingSpinner.delay(200).fadeOut();
+      }
+      
+      if (!error && user && user.email) {
+        // Show wrapper and update email if available
+        if (emailSpan) {
+          emailSpan.textContent = user.email;
+        }
+        if (emailWrapper) {
+          $(emailWrapper).fadeTo(400, 1);
+        }
+      }
+      // If no email, wrapper stays hidden
+    });
+    
     // Hide request_subject field
     const subjectField = form.querySelector('.form-field.string.request_subject');
     if (subjectField) {
@@ -68,14 +97,14 @@
       const submits = form.querySelectorAll('input[type="submit"], button[type="submit"]');
       submits.forEach((btn) => {
         btn.className = 'lt-btn lt-btn--square lt-btn--outline';
+        btn.value = "{{settings.new_request_submit_label}}";
       });
     } catch (err) {
       // ignore
     }
 
-    // Find all text inputs that need MDC wrapping (exclude hidden, checkbox, radio, file, submit)
-    const textInputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"], input:not([type])');
-    textInputs.forEach((input) => {
+    // Function to transform a single text input into MDC text field
+    const transformTextInput = (input) => {
       // Skip if already wrapped
       if (input.closest('.mdc-text-field')) return;
       
@@ -86,12 +115,23 @@
       // Get original label if present
       const originalLabel = input.previousElementSibling?.tagName === 'LABEL' ? input.previousElementSibling : null;
       const labelText = originalLabel ? originalLabel.textContent.trim() : (input.getAttribute('placeholder') || '');
-      // TODO: check if id needs to be the same as old
       const labelId = input.id ? `${input.id}-label` : `label-${Math.random().toString(36).substr(2, 9)}`;
+
+      // Create static label above input
+      const staticLabel = document.createElement('p');
+      staticLabel.className = 'lt-form-label request-new';
+      staticLabel.style.cssText = 'margin:0 0 1rem 0; font-weight:600; font-size: 18px';
+      staticLabel.textContent = labelText;
+      staticLabel.id = labelId;
 
       // Create MDC wrapper structure
       const mdcLabel = document.createElement('label');
       mdcLabel.className = 'mdc-text-field extended mdc-text-field--outlined';
+      
+      // Add disabled class only if input is actually disabled
+      if (input.disabled || input.hasAttribute('disabled')) {
+        mdcLabel.classList.add('mdc-text-field--disabled');
+      }
 
       const outline = document.createElement('span');
       outline.className = 'mdc-notched-outline';
@@ -99,20 +139,10 @@
       const leading = document.createElement('span');
       leading.className = 'mdc-notched-outline__leading';
 
-      const notch = document.createElement('span');
-      notch.className = 'mdc-notched-outline__notch';
-
-      const floatingLabel = document.createElement('span');
-      floatingLabel.className = 'mdc-floating-label';
-      floatingLabel.id = labelId;
-      floatingLabel.textContent = labelText;
-
       const trailing = document.createElement('span');
       trailing.className = 'mdc-notched-outline__trailing';
 
-      // notch.appendChild(floatingLabel);
       outline.appendChild(leading);
-      // outline.appendChild(notch);
       outline.appendChild(trailing);
       mdcLabel.appendChild(outline);
 
@@ -121,11 +151,12 @@
       input.setAttribute('aria-labelledby', labelId);
       
       // Remove original label if exists
-      /*if (originalLabel) {
+      if (originalLabel) {
         originalLabel.remove();
-      }*/
+      }
 
       // Insert MDC wrapper before input and move input inside
+      input.parentNode.insertBefore(staticLabel, input);
       input.parentNode.insertBefore(mdcLabel, input);
       mdcLabel.appendChild(input);
 
@@ -137,7 +168,11 @@
       } catch (e) {
         console.error('MDC init error:', e);
       }
-    });
+    };
+
+    // Find all text inputs that need MDC wrapping (exclude hidden, checkbox, radio, file, submit)
+    const textInputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"], input:not([type])');
+    textInputs.forEach(transformTextInput);
 
     // Also handle existing .mdc-text-field that might be already in the form
     document.querySelectorAll('.mdc-text-field').forEach((el) => {
@@ -150,79 +185,15 @@
       }
     });
 
-    // Fix datepicker fields: remove duplicate "(facoltativo)" and fix floating label
-    /*const fixDatepickerFields = () => {
-      const datepickerContainers = form.querySelectorAll('.form-field');
-      
-      datepickerContainers.forEach((container) => {
-        const datepickerInput = container.querySelector('input.datepicker');
-        if (!datepickerInput) return;
-        
-        const mdcTextField = container.querySelector('.mdc-text-field');
-        const floatingLabel = mdcTextField ? mdcTextField.querySelector('.mdc-floating-label') : null;
-        
-        if (floatingLabel) {
-          // Remove "(facoltativo)" from label text
-          let labelText = floatingLabel.textContent;
-          labelText = labelText.replace(/\(facoltativo\)/gi, '').trim();
-          floatingLabel.textContent = labelText;
-          
-          // Watch for changes on the hidden input (actual value holder)
-          const hiddenInput = container.querySelector('input[data-datepicker]');
-          if (hiddenInput && mdcTextField) {
-            const mdcInstance = mdcTextField.MDCTextField;
-            
-            // Create observer to watch for value changes
-            const observer = new MutationObserver(() => {
-              if (hiddenInput.value) {
-                // Add floated class when date is selected
-                floatingLabel.classList.add('mdc-floating-label--float-above');
-              } else {
-                // Remove floated class when cleared
-                floatingLabel.classList.remove('mdc-floating-label--float-above');
-              }
-            });
-            
-            observer.observe(hiddenInput, {
-              attributes: true,
-              attributeFilter: ['value']
-            });
-            
-            // Also watch visible input for changes
-            datepickerInput.addEventListener('change', () => {
-              if (datepickerInput.value || hiddenInput.value) {
-                floatingLabel.classList.add('mdc-floating-label--float-above');
-              }
-            });
-            
-            // Initial state check
-            if (hiddenInput.value || datepickerInput.value) {
-              floatingLabel.classList.add('mdc-floating-label--float-above');
-            }
-          }
-        }
-      });
-    };*/
-    
-    // Run immediately for existing fields
-    //fixDatepickerFields();
-    
-    // Re-run when new fields are added dynamically
-    /* const datepickerObserver = new MutationObserver(() => {
-      fixDatepickerFields();
-    }); */
-    
-    /* datepickerObserver.observe(form, {
-      childList: true,
-      subtree: true
-    }); */
-
     // Transform textarea elements into MDC textarea
-    const textareas = form.querySelectorAll('textarea');
-    
-    textareas.forEach((textarea) => {
+    const transformTextAreaInput = (textarea) => {
       // Skip if already wrapped
       if (textarea.closest('.mdc-text-field')) return;
+
+      // Add placeholder for request description textarea
+      if (textarea.name === 'request[description]') {
+        textarea.setAttribute('placeholder', "{{settings.new_request_details_ph}}");
+      }
 
       // Get original label if present
       const container = textarea.closest('.form-field');
@@ -287,13 +258,21 @@
       } catch (e) {
         console.error('MDC textarea init error:', e);
       }
-    });
+    };
+    const textareas = form.querySelectorAll('textarea');
+    textareas.forEach(transformTextAreaInput);
 
     // Transform file input for attachments
     const uploadDropzone = form.querySelector('#upload-dropzone');
     const fileInput = form.querySelector('#request-attachments');
     
     if (uploadDropzone && fileInput) {
+      // Update attachments label text
+      const attachmentsLabel = form.querySelector('label[for="request-attachments"]');
+      if (attachmentsLabel) {
+        attachmentsLabel.innerHTML = "{{settings.new_request_attachments_label}}";
+      }
+
       // Hide the original dropzone text
       const dropzoneText = uploadDropzone.querySelector('span');
       if (dropzoneText) {
@@ -304,7 +283,7 @@
       const customBtn = document.createElement('button');
       customBtn.type = 'button';
       customBtn.className = 'lt-btn lt-btn--square lt-btn--outline';
-      customBtn.innerHTML = '<i class="fa-solid fa-circle-plus lt-me-2" aria-hidden="true"></i>Aggiungi allegato';
+      customBtn.innerHTML = '<i class="fa-solid fa-circle-plus lt-me-2" aria-hidden="true"></i>' + "{{settings.new_request_attachments_btn}}";
       
       // Insert custom button inside the dropzone
       uploadDropzone.insertBefore(customBtn, uploadDropzone.firstChild);
@@ -321,12 +300,11 @@
         const files = Array.from(fileInput.files);
         if (files.length > 0) {
           const fileNames = files.map(f => f.name).join(', ');
-          console.log('File selezionati:', fileNames);
         }
       });
     }
 
-    // Transform custom field select (nesty-input) into MDC Select
+    // Transform select field (nesty-input) into MDC Select
     const transformCustomFieldSelect = (container) => {
       const hiddenInput = container.querySelector('input[type="hidden"][data-tagger]');
       const nestyInput = container.querySelector('.nesty-input');
@@ -344,7 +322,8 @@
         options = JSON.parse(taggerData);
         
         // Filter out unwanted options
-        const hiddenValues = ['richiesta_di_informazioni_non_pertinente'];
+        const hiddenValuesString = "{{settings.new_request_hidden_options}}";
+        const hiddenValues = hiddenValuesString.split(';').map(s => s.trim());
         options = options.filter(opt => !hiddenValues.includes(opt.value));
       } catch (e) {
         console.error('Failed to parse tagger data:', e);
@@ -491,29 +470,73 @@
     const customFieldContainers = form.querySelectorAll('.form-field.string.required, .form-field.string');
     customFieldContainers.forEach(transformCustomFieldSelect);
 
-    // Watch for dynamically added custom field selects
-    /* const observer = new MutationObserver((mutations) => {
+    // Watch for dynamically added fields and attribute changes (for conditional fields)
+    const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
+        // Handle attribute changes (when Zendesk removes 'hidden' or 'disabled')
+        if (mutation.type === 'attributes') {
+          const target = mutation.target;
+          
+          // If a form-field container is no longer hidden, transform its fields
+          if (mutation.attributeName === 'hidden' && target.classList && target.classList.contains('form-field')) {
+            if (!target.hasAttribute('hidden')) {
+              // Container is now visible, transform its inputs
+              transformCustomFieldSelect(target);
+              
+              const inputs = target.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"]');
+              inputs.forEach(transformTextInput);
+              
+              const textareas = target.querySelectorAll('textarea');
+              textareas.forEach(transformTextAreaInput);
+            }
+          }
+          
+          // If an input's disabled attribute changes, update the MDC wrapper
+          if (mutation.attributeName === 'disabled') {
+            const input = target;
+            const mdcWrapper = input.closest('.mdc-text-field');
+            
+            if (mdcWrapper) {
+              if (input.disabled || input.hasAttribute('disabled')) {
+                mdcWrapper.classList.add('mdc-text-field--disabled');
+              } else {
+                mdcWrapper.classList.remove('mdc-text-field--disabled');
+              }
+            }
+          }
+        }
+        
+        // Handle added nodes
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === 1) { // Element node
-            // Check if the added node itself is a form-field
+            // Transform select fields
             if (node.classList && node.classList.contains('form-field')) {
               transformCustomFieldSelect(node);
             }
-            // Check if any descendants are form-fields
+            // Check if any descendants are form-fields (selects)
             if (node.querySelectorAll) {
-              const newFields = node.querySelectorAll('.form-field.string.required, .form-field.string');
-              newFields.forEach(transformCustomFieldSelect);
+              const newSelectFields = node.querySelectorAll('.form-field.string.required, .form-field.string');
+              newSelectFields.forEach(transformCustomFieldSelect);
+              
+              // Transform text inputs
+              const newTextInputs = node.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"], input:not([type])');
+              newTextInputs.forEach(transformTextInput);
+              
+              // Transform textareas
+              const newTextareas = node.querySelectorAll('textarea');
+              newTextareas.forEach(transformTextAreaInput);
             }
           }
         });
       });
     });
 
-    // Start observing the form for changes
+    // Start observing the form for changes (both DOM changes and attribute changes)
     observer.observe(form, {
       childList: true,
-      subtree: true
-    }); */
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['hidden', 'disabled']
+    });
   });
 </script>
