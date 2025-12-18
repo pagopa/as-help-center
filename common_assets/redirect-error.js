@@ -31,8 +31,9 @@ $(document).ready(function () {
     // Allow /requests/new and /requests/{numeric_id} on specific hostnames
     const isRequestNewPage = currentPath.includes('/requests/new');
     const isRequestDetailPage = /\/requests\/\d+/.test(currentPath);
+    const isRequestsPage = currentPath.includes('/requests');
     if (
-      (isRequestNewPage || isRequestDetailPage) &&
+      (isRequestNewPage || isRequestDetailPage || isRequestsPage) &&
       hostnamesAllowingNewRequest.includes(currentHostname)
     ) {
       break;
