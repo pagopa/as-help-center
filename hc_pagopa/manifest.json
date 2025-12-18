@@ -1060,7 +1060,7 @@
           "value": "Le email non coincidono"
         },
         {
-          "identifier": "email_contact_match_title_error",
+          "identifier": "email_c_match_title_error",
           "type": "text",
           "description": "Error title - Emails don't match",
           "label": "Emails don't match error title",
