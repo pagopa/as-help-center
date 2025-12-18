@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       } else {
         // For default/back (or any other case), keep the original href from HTML
-        const originalHref = actionBtn.getAttribute('data-default-href') || '/';
+        const originalHref = getSafeHref(actionBtn.getAttribute('data-default-href') || '/');
         actionBtn.setAttribute('href', originalHref);
         // Use mapped.btn if present, otherwise fall back to available labels
         actionBtn.textContent = mappedBtnText || defaultText || 'Torna alla home';
