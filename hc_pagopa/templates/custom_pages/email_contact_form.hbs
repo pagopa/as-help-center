@@ -1,3 +1,11 @@
+<script>
+    // Redirect to new request page if user is already signed in
+    {{#if signed_in}}
+        window.location.href = '/hc/' + (LotusUtils.getLocale ? LotusUtils.getLocale() : 'it') + '/requests/new';
+        return;
+    {{/if}}
+</script>
+
 <div class="lt-main-content lt-bg-light">
     <div class="lt-container">
         <div class="lt-container-inner lt-contact-email-page">
@@ -94,12 +102,6 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Redirect to new request page if user is already signed in
-        {{#if signed_in}}
-            window.location.href = '/hc/' + (LotusUtils.getLocale ? LotusUtils.getLocale() : 'it') + '/requests/new';
-            return;
-        {{/if}}
-
         const form = document.getElementById('contact-email-form');
         if (!form) return;
 
