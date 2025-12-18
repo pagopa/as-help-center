@@ -494,6 +494,12 @@ const LotusUtils = {
       }
       return obj;
     }, {});
+  },
+  getNewRequestPageUrl() {
+    return '/hc/' + (this.getLocale ? this.getLocale() : 'it') + '/requests/new';
+  },
+  getErrorPageNoAuth() {
+    return '/hc/' + (this.getLocale ? this.getLocale() : 'it') + '/error?code=AUTH_REQUIRED';
   }
 };
 

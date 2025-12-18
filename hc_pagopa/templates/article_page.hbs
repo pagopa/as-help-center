@@ -332,13 +332,14 @@
 
 {{!-- Related articles styling helper --}}
 <script src="{{asset 'related-article-style.js' prefix='common-'}}"></script>
+
+{{!-- Redirect to new request page if user is already signed in instead of email contact form --}}
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     {{#if signed_in}}
-        const contactFormPageSignedHref = '/hc/' + (LotusUtils.getLocale ? LotusUtils.getLocale() : 'it') + '/requests/new';
         const contactFormLink = document.getElementById('contact_form_link');
         if (contactFormLink) {
-          contactFormLink.setAttribute('href', contactFormPageSignedHref);
+          contactFormLink.setAttribute('href', LotusUtils.getNewRequestPageUrl());
         }
     {{/if}}
   });
