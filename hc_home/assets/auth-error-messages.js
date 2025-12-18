@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
   if (actionBtn && mapped.title && mapped.subtitle) {
       // preserve original href from the HTML (usually help center home)
       if (!actionBtn.getAttribute('data-default-href')) {
-        const originalHref = actionBtn.getAttribute('href') || '/';
+        const rawHref = actionBtn.getAttribute('href') || '/';
+        const originalHref = getSafeHref(rawHref);
         actionBtn.setAttribute('data-default-href', originalHref);
       }
 
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       } else {
         // For default/back (or any other case), keep the original href from HTML
-        const originalHref = actionBtn.getAttribute('data-default-href') || '/';
+        const originalHref = getSafeHref(actionBtn.getAttribute('data-default-href') || '/');
         actionBtn.setAttribute('href', originalHref);
         // Use mapped.btn if present, otherwise fall back to available labels
         actionBtn.textContent = mappedBtnText || defaultText || 'Torna alla home';
