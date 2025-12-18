@@ -112,6 +112,22 @@
       inputs.forEach(input => input.setAttribute('tabindex', '-1'));
     }
 
+    // Hide org field and select _users_hc_cac
+    const orgSelector = form.querySelector('.form-field.request_organization_id a');
+    if (orgSelector) {
+      orgSelector.click();
+      const org_to_be_selected = '_users_hc_cac';
+      const org_option_id = orgSelector.getAttribute("aria-controls");
+      const items = document.querySelectorAll(`#${org_option_id} li`);
+      items.forEach(function(item) {
+      if (item.textContent.trim() === org_to_be_selected) {
+          item.click();
+      }
+      });
+      const orgContainer = form.querySelector('.form-field.request_organization_id');
+      orgContainer.classList.add('hidden');
+    }
+
     // transform submit buttons
     try {
       const submits = form.querySelectorAll('input[type="submit"], button[type="submit"]');
