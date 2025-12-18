@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/pagopa/as-help-center/compare/v1.23.0...v1.24.0) (2025-12-18)
+
+
+### Features
+
+* auth error be copy ([#41](https://github.com/pagopa/as-help-center/issues/41)) ([d9d0eaa](https://github.com/pagopa/as-help-center/commit/d9d0eaaa85efad04e51a52d2b00c92e261de5f2a))
+
 # [1.23.0](https://github.com/pagopa/as-help-center/compare/v1.22.1...v1.23.0) (2025-11-18)
 
 

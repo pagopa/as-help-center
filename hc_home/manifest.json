@@ -1,7 +1,7 @@
 {
   "name": "home-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -658,32 +658,60 @@
           "value": "Indietro"
         },
         {
-          "identifier": "error_invalid_data",
+          "identifier": "error_default_title",
           "type": "text",
-          "description": "Invalid data message on error page",
-          "label": "Invalid data error",
-          "value": "Dati non validi. Controlla i campi inseriti e riprova."
+          "description": "Default title on auth error page",
+          "label": "Default error title",
+          "value": "Qualcosa non ha funzionato"
+        },
+        {
+          "identifier": "error_invalid_email_title",
+          "type": "text",
+          "description": "Invalid email title on auth error page",
+          "label": "Invalid email error title",
+          "value": "Hai inserito un'email non valida"
         },
         {
           "identifier": "error_invalid_email",
           "type": "text",
-          "description": "Invalid email message on error page",
+          "description": "Invalid email message on auth error page",
           "label": "Invalid email error",
-          "value": "Inserisci un indirizzo e‑mail corretto."
+          "value": "Assicurati di inserire un indirizzo email valido e in uso. Riceverai su questo indirizzo email le risposte e gli aggiornamenti relativi alla tua richiesta di assistenza."
         },
         {
           "identifier": "error_auth",
           "type": "text",
-          "description": "Authentication error message on error page",
+          "description": "Authentication error message on auth error page",
           "label": "Authentication error",
-          "value": "Si è verificato un problema durante l'accesso. Riprova più tardi."
+          "value": "In questo momento non è possibile procedere con la richiesta. Riprova più tardi."
         },
         {
-          "identifier": "error_auth_title",
+          "identifier": "error_invalid_data",
           "type": "text",
-          "description": "Authentication error title error page",
-          "label": "Auth error title",
-          "value": "Errore di autenticazione"
+          "description": "Invalid data message on auth error page",
+          "label": "Invalid data error",
+          "value": "Si è verificato un problema durante l’accesso. Riprova più tardi."
+        },
+        {
+          "identifier": "error_generic",
+          "type": "text",
+          "description": "Generic error message on auth error page",
+          "label": "Generic error",
+          "value": "Si è verificato un errore imprevisto. Riprova più tardi."
+        },
+        {
+          "identifier": "error_retry_button_label",
+          "type": "text",
+          "description": "Retry label button on auth error page",
+          "label": "Retry error button",
+          "value": "Riprova"
+        },
+        {
+          "identifier": "error_default_button_label",
+          "type": "text",
+          "description": "Default label button on auth error page",
+          "label": "Auth error button",
+          "value": "Torna al centro assistenza"
         }
       ]
     }
