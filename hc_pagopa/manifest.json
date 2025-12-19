@@ -1,7 +1,7 @@
 {
   "name": "pagopa-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -962,6 +962,266 @@
           "description": "Show updated at date for articles",
           "label": "Show article updated at date",
           "value": false
+        }
+      ]
+    },
+    {
+      "label": "Email contact form layout",
+      "variables": [
+        {
+          "identifier": "email_contact_form_title",
+          "type": "text",
+          "description": "Email contact form page title",
+          "label": "Title",
+          "value": "Inserisci la tua email"
+        },
+        {
+          "identifier": "email_contact_form_subtitle",
+          "type": "text",
+          "description": "Error contact form page subtitle",
+          "label": "Subtitle",
+          "value": "Riceverai su questo indirizzo email le risposte e gli aggiornamenti relativi alla tua richiesta di assistenza."
+        },
+        {
+          "identifier": "email_contact_email_input",
+          "type": "text",
+          "description": "Email input placeholder",
+          "label": "Email placeholder",
+          "value": "Indirizzo email"
+        },
+        {
+          "identifier": "email_contact_helper",
+          "type": "text",
+          "description": "Email error helper text",
+          "label": "Error helper text for email input",
+          "value": "Inserisci un indirizzo email valido"
+        },
+        {
+          "identifier": "email_contact_repeat_input",
+          "type": "text",
+          "description": "Email repeat input placeholder",
+          "label": "Email repeat placeholder",
+          "value": "Ripeti email"
+        },
+        {
+          "identifier": "email_contact_repeat_helper",
+          "type": "text",
+          "description": "Email repeat error helper text",
+          "label": "Error helper text for email repeat input",
+          "value": "Ripeti indirizzo email"
+        },
+        {
+          "identifier": "email_contact_back_btn",
+          "type": "text",
+          "description": "Back button label",
+          "label": "Back button label",
+          "value": "Indietro"
+        },
+        {
+          "identifier": "email_contact_confirm_btn",
+          "type": "text",
+          "description": "Confirm button label",
+          "label": "Confirm button label",
+          "value": "Continua con la tua identità digitale"
+        },
+        {
+          "identifier": "email_contact_note_title",
+          "type": "text",
+          "description": "Footer note title",
+          "label": "Footer note title",
+          "value": "Non hai un'identità digitale?"
+        },
+        {
+          "identifier": "email_contact_note_subtitle",
+          "type": "text",
+          "description": "Footer note subtitle",
+          "label": "Footer note subtitle",
+          "value": "Scrivici via email a <b>pagamenti@assistenza.pagopa.it</b> da una casella di posta ordinaria (non PEC)"
+        },
+        {
+          "identifier": "email_contact_required_error",
+          "type": "text",
+          "description": "Error message - Required fields",
+          "label": "Required fields error message",
+          "value": "Ripeti indirizzo email"
+        },
+        {
+          "identifier": "email_contact_format_error",
+          "type": "text",
+          "description": "Error message - Email wrong format",
+          "label": "Email format error message",
+          "value": "Inserisci un indirizzo email valido."
+        },
+        {
+          "identifier": "email_contact_match_error",
+          "type": "text",
+          "description": "Error message - Emails don't match",
+          "label": "Emails don't match error message",
+          "value": "Le email non coincidono"
+        },
+        {
+          "identifier": "email_c_match_title_error",
+          "type": "text",
+          "description": "Error title - Emails don't match",
+          "label": "Emails don't match error title",
+          "value": "Si è verificato un errore"
+        }
+      ]
+    },
+    {
+      "label": "New reques layout",
+      "variables": [
+        {
+          "identifier": "new_request_hi_title",
+          "type": "text",
+          "description": "New request page hi title",
+          "label": "Hi title",
+          "value": "Ciao"
+        },
+        {
+          "identifier": "new_request_subtitle",
+          "type": "text",
+          "description": "New request page subtitle",
+          "label": "Subtitle",
+          "value": "Compila il modulo per inviare una richiesta di assistenza."
+        },
+        {
+          "identifier": "new_request_email_label",
+          "type": "text",
+          "description": "New request page email label",
+          "label": "Email label",
+          "value": "La mail su cui riceverai risposta è"
+        },
+        {
+          "identifier": "new_request_details_ph",
+          "type": "text",
+          "description": "New request page details placeholder",
+          "label": "Details input placeholder",
+          "value": "Riporta tutti i dettagli necessari. Se hai riscontrato un problema con un pagamento può essere utile riportare il codice errore di riferimento"
+        },
+        {
+          "identifier": "new_request_attachments_label",
+          "type": "text",
+          "description": "New request page attachments label",
+          "label": "Attachments label",
+          "value": "Se necessario, aggiungi un file o un'immagine che può aiutarci ad approfondire la tua richiesta."
+        },
+        {
+          "identifier": "new_request_attachments_btn",
+          "type": "text",
+          "description": "New request page attachments button label",
+          "label": "Attachments button label",
+          "value": "Aggiungi allegato"
+        },
+        {
+          "identifier": "new_request_hidden_options",
+          "type": "text",
+          "description": "New request page select options to hide (semicolon-separated values)",
+          "label": "Select options to hide",
+          "value": "richiesta_di_informazioni_non_pertinente"
+        },
+        {
+          "identifier": "new_request_submit_label",
+          "type": "text",
+          "description": "New request page submit label",
+          "label": "Button submit label",
+          "value": "Invia la richiesta"
+        }
+      ]
+    },
+    {
+      "label": "Request detail layout",
+      "variables": [
+        {
+          "identifier": "request_detail_title",
+          "type": "text",
+          "description": "Request detail page title",
+          "label": "Title",
+          "value": "Richiesta inviata"
+        },
+        {
+          "identifier": "request_detail_subtitle",
+          "type": "text",
+          "description": "Request detail page subtitle",
+          "label": "Subtitle",
+          "value": "Riceverai al più presto una risposta da parte di un operatore all'indirizzo email che hai indicato."
+        },
+        {
+          "identifier": "request_detail_ticket",
+          "type": "text",
+          "description": "Request detail page ticket description",
+          "label": "Ticket description",
+          "value": "Questo è il numero di ticket associato alla tua richiesta"
+        },
+        {
+          "identifier": "request_detail_btn",
+          "type": "text",
+          "description": "Label button on request detail page",
+          "label": "Button label",
+          "value": "Torna al centro assistenza"
+        },
+        {
+          "identifier": "request_detail_logout_timer",
+          "type": "range",
+          "description": "Minutes after which the user is logged out from the request detail page",
+          "label": "Logout timer (minutes)",
+          "value": 1,
+          "min": 1,
+          "max": 10
+        },
+        {
+          "identifier": "request_detail_timer_title",
+          "type": "text",
+          "description": "Title of timer modal box on request detail page",
+          "label": "Timer modal title",
+          "value": "La tua sessione sta per scadere"
+        },
+        {
+          "identifier": "request_detail_timer_subtitle",
+          "type": "text",
+          "description": "Subitle of timer modal box on request detail page",
+          "label": "Timer modal subtitle",
+          "value": "Verrai reindirizzato alla pagina iniziale del centro assistenza tra "
+        }
+      ]
+    },
+    {
+      "label": "Zendesk SSO auth values",
+      "variables": [
+        {
+          "identifier": "sso_remote_auth_id",
+          "type": "text",
+          "description": "SSO remote auth id",
+          "label": "ID SSO autenticazione remoto",
+          "value": "40816150552081"
+        },
+        {
+          "identifier": "sso_login_address",
+          "type": "text",
+          "description": "Zendesk login address",
+          "label": "Indirizzo login SSO Zendesk",
+          "value": "https://pagopa.zendesk.com/auth/v2/login/continue_with_sso_tracking"
+        },
+        {
+          "identifier": "sso_return_to_address",
+          "type": "text",
+          "description": "Zendesk return to address",
+          "label": "Indirizzo return to post login",
+          "value": "/requests/new"
+        },
+        {
+          "identifier": "sso_logout_return_to_address",
+          "type": "text",
+          "description": "Zendesk logout return to address",
+          "label": "Indirizzo return to post logout",
+          "value": "/"
+        },
+        {
+          "identifier": "sso_logout_label_btn",
+          "type": "text",
+          "description": "Logout button label",
+          "label": "Logout button label",
+          "value": "Esci"
         }
       ]
     },

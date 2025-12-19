@@ -10,22 +10,33 @@ $(document).ready(function () {
     '/contributions/',
     '/profiles/',
     '/requests/',
+    '/requests',
     '/subscriptions/'
   ];
 
-  // Check if the hostname is centroassistenza.pagopa.it (home)
   const currentHostname = window.location.hostname;
 
+  // Additional restricted path if current hostname is centroassistenza.pagopa.it (home)
   if (currentHostname === 'centroassistenza.pagopa.it') {
-    // add more path
     restrictedPaths.push('/hc/it/articles/', '/hc/it/sections/', '/hc/it/search');
   }
 
-  // current url
   const currentPath = window.location.pathname;
+
+  const hostnamesAllowingNewRequest = ['assistenza.pagopa.gov.it', 'cac-uat2.zendesk.com'];
 
   // check current path with restricted paths
   for (const path of restrictedPaths) {
+    // Allow /requests/new and /requests/{numeric_id} on specific hostnames
+    const isRequestNewPage = currentPath.includes('/requests/new');
+    const isRequestDetailPage = /\/requests\/\d+/.test(currentPath);
+    const isRequestsPage = currentPath.includes('/requests');
+    if (
+      (isRequestNewPage || isRequestDetailPage || isRequestsPage) &&
+      hostnamesAllowingNewRequest.includes(currentHostname)
+    ) {
+      break;
+    }
     if (currentPath.includes(path)) {
       // if current path matches a restricted path, redirect to error page
       const loadingSpinner = $('#loading-spinner');

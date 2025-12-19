@@ -284,6 +284,17 @@ const LotusUtils = {
   },
 
   /**
+   * Is email contact custom page
+   * @memberof LotusUtils
+   * @param {string=} pageUrl page url
+   * @returns {boolean}
+   */
+  isEmailContactFormPage(pageUrl) {
+    const url = pageUrl || window.location.href;
+    return /\/hc\/([a-z-0-9_]+\/)?p\/email_contact_form(\/)?([?#].*)?$/i.test(url);
+  },
+
+  /**
    * Is community topic list page
    * @memberof LotusUtils
    * @param {string=} pageUrl page url
@@ -494,6 +505,12 @@ const LotusUtils = {
       }
       return obj;
     }, {});
+  },
+  getNewRequestPageUrl() {
+    return '/hc/' + (this.getLocale ? this.getLocale() : 'it') + '/requests/new';
+  },
+  getErrorPageNoAuth() {
+    return '/hc/' + (this.getLocale ? this.getLocale() : 'it') + '/error?code=AUTH_REQUIRED';
   }
 };
 

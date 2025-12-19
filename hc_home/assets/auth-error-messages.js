@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (titleEl && mapped.title) titleEl.textContent = mapped.title;
   if (subtitleEl && mapped.subtitle) subtitleEl.textContent = mapped.subtitle;
 
-  // if we matched an auth error, change action button to go back in history
+  // if we matched an auth error, change action button behavior
   const actionBtn = document.querySelector('.error-action-btn');
   if (actionBtn && mapped.title && mapped.subtitle) {
     // preserve original href from the HTML (usually help center home)
@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
       actionBtn.setAttribute('data-default-href', originalHref);
     }
 
-    // mapped.btn contains the final label text (from dataset), so compare it
     const mappedBtnText = mapped.btn;
     const retryText = errors.btnRetryError;
     const defaultText = errors.btnDefaultError;
