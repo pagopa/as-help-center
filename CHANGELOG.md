@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/pagopa/as-help-center/compare/v1.24.0...v1.25.0) (2025-12-19)
+
+
+### Features
+
+* authentication and open ticket ([#42](https://github.com/pagopa/as-help-center/issues/42)) ([b9f36f9](https://github.com/pagopa/as-help-center/commit/b9f36f97f90151985a61b1658088d1a2c6455872))
+
 # [1.24.0](https://github.com/pagopa/as-help-center/compare/v1.23.0...v1.24.0) (2025-12-18)
 
 
