@@ -9658,6 +9658,10 @@ label[for='request-attachments'] {
   margin: 0 0 0.75rem;
 }
 
+.new-request-form-submit {
+  margin-top: 2.5rem;
+}
+
 /* Request detail page */
 .content-request-detail {
   margin-top: 6.5rem;

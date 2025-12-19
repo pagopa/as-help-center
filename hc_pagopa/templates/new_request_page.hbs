@@ -125,7 +125,7 @@
     try {
       const submits = form.querySelectorAll('input[type="submit"], button[type="submit"]');
       submits.forEach((btn) => {
-        btn.className = 'lt-btn lt-btn--square lt-btn--outline';
+        btn.className = 'lt-btn lt-btn--square lt-btn--outline new-request-form-submit';
         btn.value = "{{settings.new_request_submit_label}}";
       });
     } catch (err) {
@@ -143,7 +143,9 @@
 
       // Get original label if present
       const originalLabel = input.previousElementSibling?.tagName === 'LABEL' ? input.previousElementSibling : null;
-      const labelText = originalLabel ? originalLabel.textContent.trim() : (input.getAttribute('placeholder') || '');
+      let labelText = originalLabel ? originalLabel.textContent.trim() : (input.getAttribute('placeholder') || '');
+      // Remove "(facoltativo)", "(optional)" or similar text from label to avoid duplication
+      labelText = labelText.replace(/\s*\(facoltativo\)\s*/gi, '').replace(/\s*\(optional\)\s*/gi, '').trim();
       const labelId = input.id ? `${input.id}-label` : `label-${Math.random().toString(36).substr(2, 9)}`;
 
       // Create static label above input
@@ -232,7 +234,9 @@
       // Get original label if present
       const container = textarea.closest('.form-field');
       const originalLabel = container ? container.querySelector('label') : null;
-      const labelText = originalLabel ? originalLabel.textContent.trim() : (textarea.getAttribute('aria-label') || '');
+      let labelText = originalLabel ? originalLabel.textContent.trim() : (textarea.getAttribute('aria-label') || '');
+      // Remove "(facoltativo)", "(optional)" or similar text from label to avoid duplication
+      labelText = labelText.replace(/\s*\(facoltativo\)\s*/gi, '').replace(/\s*\(optional\)\s*/gi, '').trim();
       const labelId = textarea.id ? `${textarea.id}-label` : `label-${Math.random().toString(36).substr(2, 9)}`;
 
       // Create static label above textarea
