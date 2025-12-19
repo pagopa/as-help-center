@@ -1,3 +1,10 @@
+# [1.26.0](https://github.com/pagopa/as-help-center/compare/v1.25.0...v1.26.0) (2025-12-19)
+
+
+### Features
+
+* **hc_pagopa:** hide webform prod fields ([#43](https://github.com/pagopa/as-help-center/issues/43)) ([32e2b9f](https://github.com/pagopa/as-help-center/commit/32e2b9f5284fb84481384f2d1028a222220bb913))
+
 # [1.25.0](https://github.com/pagopa/as-help-center/compare/v1.24.0...v1.25.0) (2025-12-19)
 
 
