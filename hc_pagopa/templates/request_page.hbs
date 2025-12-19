@@ -1,11 +1,4 @@
-<script>
-  // Redirect to error page if user is not logged in
-  {{#unless signed_in}}
-    window.location.href = LotusUtils.getErrorPageNoAuth();
-  {{/unless}}
-</script>
-
-<div id="logout-timer-page" class="content-request-detail lt-container">
+<div id="logout-timer-wrapper" class="content-request-detail lt-container">
 
     <div class="lt-container lt-request-page lt-pb-8">
     <div class="lt-container-inner lt-text-center lt-py-8">

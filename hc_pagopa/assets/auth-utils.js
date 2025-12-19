@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Logout timer logic for request detail page
 
-  const isLogoutTimerPage = document.getElementById('logout-timer-page');
-  if (isLogoutTimerPage) {
+  const isLogoutTimerWrapper = document.getElementById('logout-timer-wrapper');
+  if (LotusUtils.isRequestPage() && isLogoutTimerWrapper) {
     const timeoutLogoutDurationWrapper = document.querySelector(
       `[data-auth-timeout-logout-duration]`
     );
@@ -94,5 +94,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     startLogoutTimer();
+  }
+});
+
+// Article page -> Redirect to new request page if user is already signed in instead of email contact form
+document.addEventListener('DOMContentLoaded', function () {
+  if (LotusConfig.signedIn && LotusUtils.isArticlePage()) {
+    const contactFormLink = document.getElementById('contact_form_link');
+    if (contactFormLink) {
+      contactFormLink.setAttribute('href', LotusUtils.getNewRequestPageUrl());
+    }
   }
 });

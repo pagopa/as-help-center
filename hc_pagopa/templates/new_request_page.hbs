@@ -1,11 +1,4 @@
-<script>
-  // Redirect to error page if user is not logged in
-  {{#unless signed_in}}
-    window.location.href = LotusUtils.getErrorPageNoAuth();
-  {{/unless}}
-</script>
-
- <div class="lt-hero-unit lt-container">
+<div class="lt-hero-unit lt-container">
     <div class="lt-container-inner lt-hero-unit__wrapper lt-d-flex lt-flex-column lt-flex-lg-row lt-justify-content-lg-between">
       <div class="lt-hero-unit__content new-requests lt-flex-lg-grow-1">
         {{!-- Title --}}
