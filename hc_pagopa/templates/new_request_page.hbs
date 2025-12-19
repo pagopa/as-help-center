@@ -510,8 +510,14 @@
         if (window.mdc && window.mdc.select) {
           const mdcSelectInstance = mdc.select.MDCSelect.attachTo(mdcSelect);
           
-          // Set default value (first option, usually "-")
-          if (defaultOption) {
+          // Check if hidden input already has a value (from Zendesk after validation error)
+          const existingValue = hiddenInput.value;
+          
+          if (existingValue && existingValue !== '' && existingValue !== '-') {
+            // Restore the previously selected value
+            mdcSelectInstance.value = existingValue;
+          } else if (defaultOption) {
+            // Set default value (first option, usually "-")
             mdcSelectInstance.value = defaultOption.value;
             hiddenInput.value = defaultOption.value;
           }
@@ -522,6 +528,11 @@
             // Trigger change event on hidden input for any validation logic
             hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
           });
+          
+          // If we restored a value, trigger change to show conditional fields
+          if (existingValue && existingValue !== '' && existingValue !== '-') {
+            hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+          }
         }
       } catch (e) {
         console.error('MDC Select init error:', e);
