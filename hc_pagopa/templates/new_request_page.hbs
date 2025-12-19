@@ -105,6 +105,22 @@
       inputs.forEach(input => input.setAttribute('tabindex', '-1'));
     }
 
+    // Hide request_description_hint if present
+    const descriptionHint = form.querySelector('#request_description_hint');
+    if (descriptionHint) {
+      descriptionHint.style.display = 'none';
+      descriptionHint.setAttribute('aria-hidden', 'true');
+    }
+
+    // Hide request_priority field if present
+    const priorityField = form.querySelector('.request_priority');
+    if (priorityField) {
+      priorityField.style.display = 'none';
+      priorityField.setAttribute('aria-hidden', 'true');
+      const inputs = priorityField.querySelectorAll('input, select, textarea');
+      inputs.forEach(input => input.setAttribute('tabindex', '-1'));
+    }
+
     // Hide org field and select _users_hc_cac
     const orgSelector = form.querySelector('.form-field.request_organization_id a');
     if (orgSelector) {
