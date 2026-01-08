@@ -1,3 +1,10 @@
+# [1.27.0](https://github.com/pagopa/as-help-center/compare/v1.26.0...v1.27.0) (2026-01-08)
+
+
+### Features
+
+* **hc_io:** sync manifest properties ([#44](https://github.com/pagopa/as-help-center/issues/44)) ([a252e4b](https://github.com/pagopa/as-help-center/commit/a252e4b04937851acbd49bdaa071bc6754b2a315))
+
 # [1.26.0](https://github.com/pagopa/as-help-center/compare/v1.25.0...v1.26.0) (2025-12-19)
 
 
