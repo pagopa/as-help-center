@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -540,7 +540,7 @@
           "type": "text",
           "description": "The main text of the block",
           "label": "Body",
-          "value": "Scopri come richiederlo, come utilizzarlo e trova le risposte alle domande più frequenti <a href='https://assistenza.ioapp.it/hc/it/sections/38759512549393-Bonus-Elettrodomestici'>nella categoria dedicata</a>."
+          "value": "Hai tempo fino alle <strong>ore 23.59 del 31 dicembre 2025</strong> per richiederlo: scopri come ottenerlo, come utilizzarlo e trova le risposte alle domande più frequenti <a href='https://assistenza.ioapp.it/hc/it/sections/38759512549393-Bonus-Elettrodomestici'>nella categoria dedicata</a>."
         },
         {
           "identifier": "info_block_severity",
