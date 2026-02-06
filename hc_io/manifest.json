@@ -519,7 +519,7 @@
           "type": "checkbox",
           "description": "Show Info block used for alert/success/warning/info (only on home)",
           "label": "Info block",
-          "value": true
+          "value": false
         },
         {
           "identifier": "show_info_block_all_page",
