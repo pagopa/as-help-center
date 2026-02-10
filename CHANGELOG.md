@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/pagopa/as-help-center/compare/v1.27.0...v1.28.0) (2026-02-10)
+
+
+### Features
+
+* **hc_io:** sync manifest bonus elettro off ([#45](https://github.com/pagopa/as-help-center/issues/45)) ([a2d5f2d](https://github.com/pagopa/as-help-center/commit/a2d5f2d992f636bed043d46abd90ba1e151d756d))
+
 # [1.27.0](https://github.com/pagopa/as-help-center/compare/v1.26.0...v1.27.0) (2026-01-08)
 
 
