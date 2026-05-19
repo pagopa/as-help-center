@@ -1,7 +1,7 @@
 {
   "name": "send-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.0.10",
+  "version": "1.0.9",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -714,7 +714,7 @@
           "type": "text",
           "description": "Button link of the contact request box",
           "label": "Button link",
-          "value": "https://cittadini.notifichedigitali.it/auth/login"
+          "value": "https://cittadini.notifichedigitali.it/?utm_source=centro_assistenza&utm_medium=website&utm_campaign=accesso_assistenza"
         }
       ]
     },
