@@ -1,3 +1,10 @@
+# [1.29.0](https://github.com/pagopa/as-help-center/compare/v1.28.0...v1.29.0) (2026-05-20)
+
+
+### Features
+
+* **hc-send:** update URL bottom banner ([#50](https://github.com/pagopa/as-help-center/issues/50)) ([f265cdb](https://github.com/pagopa/as-help-center/commit/f265cdbee2a144a0305c6e12615e90a6bf2fd5ea))
+
 # [1.28.0](https://github.com/pagopa/as-help-center/compare/v1.27.0...v1.28.0) (2026-02-10)
 
 
