@@ -1,7 +1,7 @@
 {
   "name": "pagopa-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -987,7 +987,7 @@
           "type": "text",
           "description": "Email input placeholder",
           "label": "Email placeholder",
-          "value": "Indirizzo email"
+          "value": "Indirizzo email (non PEC)"
         },
         {
           "identifier": "email_contact_helper",
@@ -1050,7 +1050,7 @@
           "type": "text",
           "description": "Error message - Email wrong format",
           "label": "Email format error message",
-          "value": "Inserisci un indirizzo email valido."
+          "value": "Inserisci un indirizzo email valido (non PEC)"
         },
         {
           "identifier": "email_contact_match_error",
