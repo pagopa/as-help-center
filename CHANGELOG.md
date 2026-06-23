@@ -1,3 +1,10 @@
+## [1.29.1](https://github.com/pagopa/as-help-center/compare/v1.29.0...v1.29.1) (2026-06-23)
+
+
+### Bug Fixes
+
+* **zendesk svg issue:** hero_homepage_image as png instead of svg ([#53](https://github.com/pagopa/as-help-center/issues/53)) ([972771e](https://github.com/pagopa/as-help-center/commit/972771e97270d481793f50059abba9636041c9c3))
+
 # [1.29.0](https://github.com/pagopa/as-help-center/compare/v1.28.0...v1.29.0) (2026-05-20)
 
 
