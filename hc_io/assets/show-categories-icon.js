@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     36385489298577: 'fa-solid fa-gift', // Altre iniziative
     30831203351185: 'fa-solid fa-pen', // Certificati e firme
     38759466652817: 'fa-solid fa-book', // Carta della Cultura
-    38759512549393: 'fa-solid fa-plug' // Bonus Elettrodomestici
+    38759512549393: 'fa-solid fa-plug', // Bonus Elettrodomestici
+    50536370055953: 'fa-solid fa-video-camera' // Come iniziare
   };
 
   // Func to extract ID from URL
