@@ -1,3 +1,10 @@
+# [1.31.0](https://github.com/pagopa/as-help-center/compare/v1.30.0...v1.31.0) (2026-09-07)
+
+
+### Features
+
+* add IT-Wallet icon and update version to 1.1.15 ([#56](https://github.com/pagopa/as-help-center/issues/56)) ([f8aeafe](https://github.com/pagopa/as-help-center/commit/f8aeafebc821f76f3d8d3798154eb4f7fb9bb0eb))
+
 # [1.30.0](https://github.com/pagopa/as-help-center/compare/v1.29.1...v1.30.0) (2026-09-04)
 
 
