@@ -1,3 +1,10 @@
+# [1.32.0](https://github.com/pagopa/as-help-center/compare/v1.31.0...v1.32.0) (2026-09-24)
+
+
+### Features
+
+* update-all-footers ([#57](https://github.com/pagopa/as-help-center/issues/57)) ([1e54197](https://github.com/pagopa/as-help-center/commit/1e54197a21c0450b97fb1f85cd30f5462030610c))
+
 # [1.31.0](https://github.com/pagopa/as-help-center/compare/v1.30.0...v1.31.0) (2026-09-07)
 
 
