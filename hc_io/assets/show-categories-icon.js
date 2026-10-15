@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     38759466652817: 'fa-solid fa-book', // Carta della Cultura
     38759512549393: 'fa-solid fa-plug', // Bonus Elettrodomestici
     50536370055953: 'fa-solid fa-video-camera', // Come iniziare
-    50617618333841: 'fa-solid fa-wallet' // IT-Wallet
+    50617618333841: 'fa-solid fa-wallet', // IT-Wallet
+    51868365559697: 'fa-solid fa-id-card-clip' // Carta Europea della Disabilità
   };
 
   // Func to extract ID from URL
