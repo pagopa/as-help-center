@@ -1,3 +1,10 @@
+# [1.33.0](https://github.com/pagopa/as-help-center/compare/v1.32.0...v1.33.0) (2026-10-15)
+
+
+### Features
+
+* add icon for European Disability Card and update manifest version ([#59](https://github.com/pagopa/as-help-center/issues/59)) ([ff702dc](https://github.com/pagopa/as-help-center/commit/ff702dcaaa55e5fd62088035f442f620183b31d3))
+
 # [1.32.0](https://github.com/pagopa/as-help-center/compare/v1.31.0...v1.32.0) (2026-09-24)
 
 
