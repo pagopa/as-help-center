@@ -72,8 +72,8 @@ jobs:
             
             # Based on .env.example, replace placeholders and save as .env
             sed \
-              -e "s|<your_email@example.com>|${{ secrets.ZENDESK_EMAIL }}|g" \
-              -e "s|<your_api_token>|${{ secrets.ZENDESK_API_TOKEN }}|g" \
+              -e "s|<your_client_id>|${{ secrets.ZENDESK_OAUTH_CLIENT_ID }}|g" \
+              -e "s|<your_client_secret>|${{ secrets.ZENDESK_OAUTH_CLIENT_SECRET }}|g" \
               -e "s|<brand_subdomain>|${SUBDOMAIN_MAPPING[$folder]}|g" \
               -e "s|<brand_id>|${BRAND_ID_MAPPING[$folder]}|g" \
               "$folder/.env.example" > "$folder/.env"
