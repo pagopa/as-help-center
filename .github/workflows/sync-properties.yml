@@ -43,9 +43,15 @@ jobs:
 
       # download zip theme
       - name: Download Theme
-        env:
-          API_BEARER_TOKEN: ${{ secrets.API_BEARER_TOKEN }}
         run: |
+          # fetching API access token using client credentials grant
+          export API_BEARER_TOKEN=$(curl -X POST ${{ secrets.ZENDESK_OAUTH_URL }} \
+          -H "Content-Type: application/x-www-form-urlencoded" \
+          --data-urlencode "grant_type=client_credentials" \
+          --data-urlencode "client_id=${{ secrets.ZENDESK_OAUTH_CLIENT_ID }}" \
+          --data-urlencode "client_secret=${{ secrets.ZENDESK_OAUTH_CLIENT_SECRET }}" \
+          --data-urlencode "scope=read write" | node -e "fs=require('fs'); console.log(JSON.parse(fs.readFileSync(0, 'utf-8')).access_token)")
+
           # running the download theme script 
           node scripts/download-theme.js "${{ inputs.brand }}" "${{ inputs.theme_id }}"
 
