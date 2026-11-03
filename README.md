@@ -22,8 +22,8 @@
 4. [Contributing](#contributing)
 
 ## What is the Help Center project?
-The project provides a centralized **Help Center** for troubleshooting, designed as a unique and recognizable point of reference for all [PagoPA](https://www.pagopa.it/it/) products. The main goal is to reduce support requests by enhancing self-resolution capabilities for citizens and improving user experience, operational efficiency, and service quality.
 
+The project provides a centralized **Help Center** for troubleshooting, designed as a unique and recognizable point of reference for all [PagoPA](https://www.pagopa.it/it/) products. The main goal is to reduce support requests by enhancing self-resolution capabilities for citizens and improving user experience, operational efficiency, and service quality.
 
 ## Architecture
 
@@ -31,6 +31,7 @@ The project provides a centralized **Help Center** for troubleshooting, designed
 
 Each folder of the repository corresponds to the Help Center Platform for a specific PagoPA product, and each of them is built and deployed using Zendesk Help Center Stack.
 We have, for now, 4 product folder named as `hc_<brand_name>`:
+
 - **hc_home** (Root portal for accessing the actual Help Center for PagoPA products)
 - **hc_io** (Help center for the [IO App](https://io.italia.it/) product) --> [website](https://assistenza.ioapp.it/hc/it)
 - **hc_send** (Help center for [SEND Servizio Notifiche Digitali](https://notifichedigitali.pagopa.it/it/) product)
@@ -55,25 +56,30 @@ See [release](docs/extendings/release.md) process in details.\
 See also [CMS property synchronization](docs/extendings/sync-properties.md) process.
 
 ### Main technologies used
+
 - HTML/CSS/js
 - [Curlybars](https://github.com/zendesk/curlybars)
 - [Zendesk Help Center Templating](https://support.zendesk.com/hc/en-us/articles/4408832681626-Help-center-templating-cookbook)
 - Github Actions
 
 ### Terminology
-When you read **"Brand"** we refer to the Help Center Platform for a specific PagoPA product, related to a specific repository folder.
 
+When you read **"Brand"** we refer to the Help Center Platform for a specific PagoPA product, related to a specific repository folder.
 
 \
 <br/>
+
 ## Getting started
+
 This is an example of how you may setting up and run your project locally for development purposes.
 
 ### Prerequisites
+
 - Node and npm (the node version is stored in the .nvmrc file, we recommend to use [nvm](https://github.com/nvm-sh/nvm) to quickly install and use different versions of node)
 - [ZCLI](https://developer.zendesk.com/documentation/apps/getting-started/using-zcli/#installing-and-updating-zcli)
 
 ### Installation
+
 ```bash
 # install and use node version defined in the .nvmrc file
 nvm install && nvm use
@@ -82,14 +88,16 @@ nvm install && nvm use
 npm install
 
 # change the values in the .env file for each brand’s folder (<folder>/.env)
-# enter your Zendesk account email, your Zendesk API token, the Brand’s subdomain, and the Brand ID
-ZENDESK_EMAIL=<your_email@example.com>
-ZENDESK_API_TOKEN=<your_api_token>
+# enter your Zendesk OAuth client ID, your Zendesk OAuth client secret, the Brand’s subdomain, and the Brand ID
+# (OAuth client ID and secret must be obtained from your Zendesk admin)
+ZENDESK_OAUTH_CLIENT_ID=<your_oauth_client_id>
+ZENDESK_OAUTH_CLIENT_SECRET=<your_oauth_client_secret>
 ZENDESK_SUBDOMAIN=<brand_subdomain>
 BRAND_ID=<brand_id>
 ```
 
 ### Run the application
+
 You can run the app locally (with hot reload enabled) for each Brand by executing the script:\
 `./start-app.sh`
 
@@ -98,10 +106,12 @@ Alternatively, you can skip the interactive Brand selection step by providing (a
 `./start-app.sh hc_io`
 
 ### Customizing the application
+
 You can modify a Brand by editing the files located in the specific folder related to the Brand. Specifically, the HTML code in the .hbs files within the folder `<folder_brand>/templates/`.\
 Refer to the [Zendesk Help Center resources](https://support.zendesk.com/hc/en-us/articles/4408839332250-Customizing-your-help-center-theme) for more information.
 
 ### Publishing the application
+
 You can upload the app from your local environment to the Zendesk Theme Library for a Brand, by executing the script:\
 `./upload-app.sh`
 
@@ -112,10 +122,11 @@ Alternatively, you can skip the interactive Brand selection step by providing th
 > [!NOTE]
 > This script only imports the app into the Theme Library, it does not publish the theme to production to make it visible externally. To publish the app to production you need to use the "release" GitHub Action or merge a PR into the main branch.
 
-
 \
 <br/>
+
 ## Contributing
+
 We use [conventional commits](https://conventionalcommits.org/) to improve readability of the project history and to automate the release process. The commit message should therefore respect the following format:
 
 ```
