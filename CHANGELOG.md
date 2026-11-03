@@ -1,3 +1,11 @@
+# [1.34.0](https://github.com/pagopa/as-help-center/compare/v1.33.0...v1.34.0) (2026-11-03)
+
+
+### Features
+
+* new zendesk authentication ([#60](https://github.com/pagopa/as-help-center/issues/60)) ([5725446](https://github.com/pagopa/as-help-center/commit/5725446309f2dfa109025f4e2b25199a3a041080))
+* Update zcli to v2.3.0 ([#61](https://github.com/pagopa/as-help-center/issues/61)) ([b53eeaa](https://github.com/pagopa/as-help-center/commit/b53eeaa9c6dbe2ad4a664f4a39d8300581d2ea0a))
+
 # [1.33.0](https://github.com/pagopa/as-help-center/compare/v1.32.0...v1.33.0) (2026-10-15)
 
 
