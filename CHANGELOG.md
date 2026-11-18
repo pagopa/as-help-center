@@ -1,3 +1,10 @@
+# [1.35.0](https://github.com/pagopa/as-help-center/compare/v1.34.0...v1.35.0) (2026-11-18)
+
+
+### Features
+
+* add icon for cosa pagare con pagopa ([#62](https://github.com/pagopa/as-help-center/issues/62)) ([18d6127](https://github.com/pagopa/as-help-center/commit/18d61270a8f8252f69253bb47e2d693133762644))
+
 # [1.34.0](https://github.com/pagopa/as-help-center/compare/v1.33.0...v1.34.0) (2026-11-03)
 
 
