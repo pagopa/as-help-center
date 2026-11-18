@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     32550674474641: 'fa-solid fa-credit-card', // Come pagare con pagoPA
     31957404459025: 'fa-solid fa-triangle-exclamation', // Problemi con il pagamento
     31957401197969: 'fa-solid fa-receipt', // Esito del pagamento rimborsi e ricevute
-    34448853492113: 'fa-solid fa-shield-halved' // Phishing e altre truffe online
+    34448853492113: 'fa-solid fa-shield-halved', // Phishing e altre truffe online
+    53063323566225: 'fa-solid fa-coins' // Cosa puoi pagare con pagoPA
   };
 
   // Func to extract ID from URL
