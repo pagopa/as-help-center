@@ -117,8 +117,8 @@
                 {{else}}
                   {{#each sections}}
                     {{!-- hidden section --}}
-                    {{!-- TODO: hidden article (remove) --}}
-                    {{#isnt id 36576602674577}}
+                    {{!-- TODO: hidden sections --}}
+                    {{!-- {{#isnt id 36576602674577}}
                       <li class="lt-block-list-item lt-d-flex" role="listitem">
                         <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" aria-label="Apri categoria {{name}}">
                           <div class="header-category-cards">
@@ -128,7 +128,16 @@
                           <p class="lt-block-list-item__text lt-fs-lg-6">{{description}}</p>
                         </a>
                       </li>
-                    {{/isnt}}
+                    {{/isnt}} --}}
+                    <li class="lt-block-list-item lt-d-flex" role="listitem">
+                      <a href="{{url}}" class="lt-block-list-item__link lt-block lt-d-flex lt-flex-column lt-p-4 lt-p-lg-5 lt-w-100" aria-label="Apri categoria {{name}}">
+                        <div class="header-category-cards">
+                          <div class="category-icon-container category-icon-wrapper" data-id="{{id}}" aria-hidden="true"></div>
+                          <h3 class="lt-block-list-item__title lt-fs-5 lt-fw-bold lt-my-auto">{{name}}</h3>
+                        </div>
+                        <p class="lt-block-list-item__text lt-fs-lg-6">{{description}}</p>
+                      </a>
+                    </li>
                   {{/each}}
                 {{/if}}
               {{/each}}
