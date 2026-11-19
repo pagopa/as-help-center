@@ -1,7 +1,8 @@
-// TODO: hidden article (remove)
+// TODO: hidden article removed from search suggestions
 document.addEventListener('DOMContentLoaded', () => {
   // eslint-disable-next-line no-undef
   const hiddenTitles = HiddenArticles.getTitles();
+  if (!hiddenTitles?.length) return;
 
   // Remove hidden articles from search suggestions
   function removeArticlesFromSuggestions() {

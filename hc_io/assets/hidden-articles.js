@@ -8,7 +8,7 @@ const HiddenArticles = {
    * @returns {Array} hiddenIds
    */
   getIds() {
-    const hiddenIds = [35541811236113];
+    const hiddenIds = [];
     return hiddenIds;
   },
 
@@ -18,7 +18,7 @@ const HiddenArticles = {
    * @returns {Array} hiddenTitles
    */
   getTitles() {
-    const hiddenTitles = ['Cosa serve per usare IT-Wallet'];
+    const hiddenTitles = [];
     return hiddenTitles;
   }
 };
@@ -35,7 +35,7 @@ const HiddenSections = {
    * @returns {Array} hiddenIds
    */
   getIds() {
-    const hiddenIds = [36576602674577];
+    const hiddenIds = [];
     return hiddenIds;
   },
 
@@ -45,7 +45,7 @@ const HiddenSections = {
    * @returns {Array} hiddenTitles
    */
   getTitles() {
-    const hiddenTitles = ['IT-Wallet'];
+    const hiddenTitles = [];
     return hiddenTitles;
   }
 };
