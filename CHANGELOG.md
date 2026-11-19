@@ -1,3 +1,10 @@
+## [1.35.1](https://github.com/pagopa/as-help-center/compare/v1.35.0...v1.35.1) (2026-11-19)
+
+
+### Bug Fixes
+
+* **IO hc:** hidden articles ([#63](https://github.com/pagopa/as-help-center/issues/63)) ([ff61a80](https://github.com/pagopa/as-help-center/commit/ff61a805fd2a99697bfb929fbe6a6ecd0d242164))
+
 # [1.35.0](https://github.com/pagopa/as-help-center/compare/v1.34.0...v1.35.0) (2026-11-18)
 
 
