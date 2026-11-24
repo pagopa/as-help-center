@@ -1,3 +1,10 @@
+# [1.36.0](https://github.com/pagopa/as-help-center/compare/v1.35.1...v1.36.0) (2026-11-24)
+
+
+### Features
+
+* **hc-io:** sync manifest ([#64](https://github.com/pagopa/as-help-center/issues/64)) ([f208b30](https://github.com/pagopa/as-help-center/commit/f208b30486aa70df444fd2a65f92f8efee0fd07e))
+
 ## [1.35.1](https://github.com/pagopa/as-help-center/compare/v1.35.0...v1.35.1) (2026-11-19)
 
 
