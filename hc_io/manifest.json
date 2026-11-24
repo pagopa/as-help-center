@@ -1,7 +1,7 @@
 {
   "name": "io-help-center",
   "author": "PagoPa S.p.A.",
-  "version": "1.1.19",
+  "version": "1.1.20",
   "api_version": 2,
   "default_locale": "it",
   "settings": [
@@ -519,7 +519,7 @@
           "type": "checkbox",
           "description": "Show Info block used for alert/success/warning/info (only on home)",
           "label": "Info block",
-          "value": false
+          "value": true
         },
         {
           "identifier": "show_info_block_all_page",
@@ -533,14 +533,14 @@
           "type": "text",
           "description": "Text displayed on the top of the block",
           "label": "Title",
-          "value": "Hai bisogno di informazioni sul Bonus Elettrodomestici?"
+          "value": "IT-Wallet per i tuoi documenti su IO"
         },
         {
           "identifier": "info_block_text",
           "type": "text",
           "description": "The main text of the block",
           "label": "Body",
-          "value": "Hai tempo fino alle <strong>ore 23.59 del 31 dicembre 2025</strong> per richiederlo: scopri come ottenerlo, come utilizzarlo e trova le risposte alle domande più frequenti <a href='https://assistenza.ioapp.it/hc/it/sections/38759512549393-Bonus-Elettrodomestici'>nella categoria dedicata</a>."
+          "value": "Il nuovo portafoglio IT-Wallet su IO sarà  <strong>presto disponibile per te</strong>: più documenti e funzionalità evolute per dimostrare la tua identità e autenticarti ai servizi pubblici e privati aderenti, online e dal vivo. <a href='https://ioapp.it/'>Scopri di più sul sito dell’app IO</a>"
         },
         {
           "identifier": "info_block_severity",
